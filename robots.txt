@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Preview deployment only — the production site is https://dwelve.ca

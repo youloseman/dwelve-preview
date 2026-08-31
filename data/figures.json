@@ -1,0 +1,139 @@
+{
+  "$comment": [
+    "SINGLE SOURCE OF TRUTH for every load-bearing number in sample-report.html and",
+    "case-study.html. Around 40 business figures are duplicated across those two files;",
+    "editing one and forgetting the other diverges them silently, and nothing in the HTML",
+    "would complain.",
+    "",
+    "This file holds the NUMBERS. tools/check-figures.mjs holds the RELATIONSHIPS between",
+    "them, derives the display strings, and verifies that every one still appears in every",
+    "document that must carry it. Run it after touching either page:",
+    "",
+    "    node tools/check-figures.mjs",
+    "",
+    "It is a checker, not a generator: the HTML stays hand-authored, because both documents",
+    "are tuned to a fixed page geometry that templating would keep breaking. Change a value",
+    "here, run the checker, and it tells you exactly which strings in which file to update.",
+    "",
+    "The business is illustrative — a demonstration coffee shop. No client data lives here."
+  ],
+
+  "business": {
+    "kind": "Specialty coffee shop",
+    "city": "Victoria, BC",
+    "windowMonths": 12,
+    "note": "Illustrative demonstration business; all figures modelled, none are a client's."
+  },
+
+  "base": {
+    "activeClients": 2350,
+    "visitsPerClientMonth": 2.46,
+    "avgTicket": 10.98,
+    "clientLifetimeMonths": 6.7,
+    "revenueMonth": 63600,
+    "grossProfitMonth": 40800,
+    "grossMargin": 0.641
+  },
+
+  "segments": [
+    { "id": "grab",   "name": "Grab-and-go",      "clients": 800, "freq": 1.6, "ticket": 5.50,  "lifeMonths": 4,  "ltv": 35,  "baseSharePct": 34, "revSharePct": 11 },
+    { "id": "solo",   "name": "Solo worker",      "clients": 520, "freq": 2.4, "ticket": 7.60,  "lifeMonths": 6,  "ltv": 109, "baseSharePct": 22, "revSharePct": 15 },
+    { "id": "social", "name": "Social / catch-up","clients": 760, "freq": 3.3, "ticket": 13.20, "lifeMonths": 9,  "ltv": 392, "baseSharePct": 32, "revSharePct": 52 },
+    { "id": "family", "name": "Family / weekend", "clients": 270, "freq": 2.8, "ticket": 18.50, "lifeMonths": 10, "ltv": 518, "baseSharePct": 11, "revSharePct": 22 }
+  ],
+
+  "headline": {
+    "$comment": "Stated in both documents; each is checked against the segment table above.",
+    "highValueBaseSharePct": 43.8,
+    "highValueRevSharePct": 74,
+    "bestVsWorstLtvMultiple": 14.8
+  },
+
+  "menu": {
+    "skuCount": 28,
+    "unitsMonth": 10450,
+    "itemsPerTicket": 1.80,
+    "foodAttachPct": 62,
+    "topSkuCount": 6,
+    "topSkuGpSharePct": 55,
+    "tailSkuCount": 13,
+    "tailMenuSharePct": 46,
+    "tailGpSharePct": 13.7
+  },
+
+  "happyHour": {
+    "$comment": "Fully self-consistent block: every figure below is derivable from the four inputs.",
+    "baselineTransactionsWeek": 400,
+    "promoTransactionsWeek": 472,
+    "basePrice": 7.10,
+    "discountPct": 20,
+    "cogsPerDrink": 1.56,
+    "actualLiftPct": 18,
+    "breakEvenLiftPct": 34.5,
+    "breakEvenTransactionsWeek": 538,
+    "gpLossWeek": 271,
+    "gpLossMonth": 1170,
+    "weeksPerMonth": 4.33
+  },
+
+  "channels": {
+    "$comment": "spend sums to budgetMonth; weak = boosted + flyers. The published 31% was wrong; see the checker.",
+    "budgetMonth": 3600,
+    "blendedPaidCac": 18.95,
+    "weakChannels": ["boosted", "flyers"],
+    "weakSharePct": 36,
+    "current": [
+      { "id": "search",  "name": "Google Search", "spend": 1100, "new": 95, "cac": 11.58, "romiPct": 185 },
+      { "id": "meta",    "name": "Meta local",    "spend": 900,  "new": 48, "cac": 18.75, "romiPct": 76 },
+      { "id": "boosted", "name": "Boosted posts", "spend": 800,  "new": 12, "cac": 66.67, "romiPct": -50 },
+      { "id": "flyers",  "name": "Flyers",        "spend": 500,  "new": 15, "cac": 33.33, "romiPct": -1 },
+      { "id": "ugc",     "name": "Creator / UGC", "spend": 300,  "new": 20, "cac": 15.00, "romiPct": 120 }
+    ],
+    "rebuilt": [
+      { "id": "search",  "spend": 1100, "new": 120 },
+      { "id": "meta",    "spend": 700,  "new": 65 },
+      { "id": "referral","spend": 450,  "new": 55 },
+      { "id": "gbp",     "spend": 650,  "new": 70 },
+      { "id": "ugc",     "spend": 300,  "new": 20 },
+      { "id": "crm",     "spend": 400,  "new": 0, "returns": 60 }
+    ]
+  },
+
+  "bridge": {
+    "$comment": "The overlap deduction is the honesty of the report; it must reconcile exactly.",
+    "leversRevenueMonth": [11900, 15100],
+    "overlapRevenueMonth": [1700, 2300],
+    "targetRevenueUpliftMonth": [10200, 12800],
+    "leversGpMonth": [7300, 9000],
+    "overlapGpMonth": [600, 600],
+    "targetGpUpliftMonth": [6700, 8400],
+    "annualisedRevenue": [122000, 154000],
+    "annualisedGp": [80000, 101000]
+  },
+
+  "target90": {
+    "revenueMonth": [73800, 76300],
+    "revenueUpliftPct": [16, 20],
+    "grossProfitMonth": [47500, 49200],
+    "avgTicket": [11.55, 11.75],
+    "avgTicketUpliftPct": [5, 7],
+    "frequency": [2.60, 2.65],
+    "frequencyUpliftPct": [6, 8],
+    "repeat90Pct": [30, 32],
+    "repeat90TodayPct": 24,
+    "foodAttachPct": [70, 74],
+    "paidCac": [9, 12],
+    "paidCacChangePct": [-52, -37],
+    "romiTodayPct": 74,
+    "romiTargetPct": [220, 245]
+  },
+
+  "reviews": {
+    "count": 94,
+    "atmospherePct": 67,
+    "socialPct": 41,
+    "limitedFoodPct": 23,
+    "notKidFriendlyPct": 12,
+    "instagramLocalPct": 11
+  }
+}

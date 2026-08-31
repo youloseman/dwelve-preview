@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Report — Marketing Growth Audit | Dwelve</title>
+<meta name="description" content="The full Dwelve marketing growth audit in the format a client receives — 23 pages on an illustrative business. Diagnosis open, decision tables masked.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dwelve.ca/sample-report.html">
+<meta property="og:site_name" content="Dwelve">
+<meta property="og:title" content="Read the Whole Report Before You Buy — Dwelve">
+<meta property="og:description" content="All 23 pages of a Dwelve marketing growth audit, in the exact format a client receives. The diagnosis is open; only the decision tables are held back.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://dwelve.ca/sample-report.html">
+<meta property="og:image" content="https://dwelve.ca/og-sample-report.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dwelve sample marketing growth audit — 23 pages, free, no email required.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Read the Whole Report Before You Buy — Dwelve">
+<meta name="twitter:description" content="All 23 pages, in the exact format a client receives. Free, no email required.">
+<meta name="twitter:image" content="https://dwelve.ca/og-sample-report.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Cg transform='translate(100,100)'%3E%3Ccircle cx='0' cy='-65' r='8' fill='%231A1A2E'/%3E%3Ccircle cx='32.5' cy='-56.29' r='11' fill='%23FF7518'/%3E%3Ccircle cx='56.29' cy='-32.5' r='5' fill='%231A1A2E'/%3E%3Ccircle cx='65' cy='0' r='4.5' fill='%231A1A2E'/%3E%3Ccircle cx='56.29' cy='32.5' r='4' fill='%231A1A2E'/%3E%3Ccircle cx='32.5' cy='56.29' r='3.5' fill='%231A1A2E'/%3E%3Ccircle cx='0' cy='65' r='3' fill='%231A1A2E'/%3E%3Ccircle cx='-32.5' cy='56.29' r='2.8' fill='%231A1A2E'/%3E%3Ccircle cx='-56.29' cy='32.5' r='2.8' fill='%231A1A2E'/%3E%3Ccircle cx='-65' cy='0' r='3.8' fill='%231A1A2E'/%3E%3Ccircle cx='-56.29' cy='-32.5' r='5' fill='%231A1A2E'/%3E%3Ccircle cx='-32.5' cy='-56.29' r='6.5' fill='%231A1A2E'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="theme-color" content="#1A1A2E">
+<style>
+/* ============================================================================
+   DWELVE — SAMPLE MARKETING GROWTH AUDIT
+   A4-paginated document that is also a readable web page.
+   Print keeps exact A4 geometry; screens under 800px unlock page height and
+   let wide tables scroll, because this page is linked from the landing and
+   most visitors will open it on a phone.
+   ========================================================================== */
+@page { size: A4; margin: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; -webkit-text-size-adjust: 100%; }
+
+:root{
+  --ink:#1A1A2E; --muted:#4A4A5A; --pale:#8A8A9A;
+  --orange:#FF7518; --orange-pale:#FFF0E5; --orange-deep:#E06010;
+  --blue:#4166F5; --blue-pale:#E8EEFE; --blue-deep:#2F4FD4;
+  --teal:#0EA5A5; --red:#E0443F;
+  --white:#FFFFFF; --tint:#F8F9FC; --slate:#F1F5F9;
+  --line:rgba(26,26,46,.11); --line-soft:rgba(26,26,46,.06);
+  --f-display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --f-body:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-mono:'DM Mono','DM Sans',ui-monospace,Consolas,monospace;
+}
+
+body { font-family: var(--f-body); color: var(--ink); background: var(--white);
+       font-size: 9.2pt; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ---------- page ---------- */
+.page { position: relative; width: 210mm; height: 297mm; padding: 16mm 18mm 14mm;
+        background: var(--white); overflow: hidden; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+
+/* Density relief for a page that carries more than the others. §1 stacks four tiles, a
+   callout, a six-row leak table, the bridge table and a waterfall chart; at the default
+   rhythm its closing source note ran 8.9mm past the footer and was silently clipped
+   (.page is overflow:hidden). Scoped so the other 22 pages keep the standard rhythm. */
+.page.tight .tiles   { margin: 9px 0; }
+.page.tight h3       { margin: 10px 0 4px; }
+.page.tight .callout { margin: 9px 0; }
+.page.tight table.tbl{ margin: 8px 0 3px; }
+.page.tight .chart   { margin: 7px 0 2px; }
+.page.tight .chart svg { max-width: 88%; margin: 0 auto; }
+.page.tight .src     { margin-top: 4px; }
+
+/* Faint diagonal hairlines give the sheet materiality without competing with type. */
+.mark { position: absolute; inset: 0; pointer-events: none; z-index: 0;
+        background-image: repeating-linear-gradient(-38deg, rgba(26,26,46,.022) 0 2px,
+                          transparent 2px 132px); }
+.wm { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.wm span { position: absolute; font-family: var(--f-body); font-weight: 700; font-size: 62pt;
+           letter-spacing: .3em; text-transform: uppercase; color: rgba(26,26,46,.038);
+           transform: rotate(-33deg); white-space: nowrap; }
+.page:not(.cover) > *:not(.mark):not(.wm):not(.foot) { position: relative; z-index: 1; }
+.page > .foot { z-index: 1; }
+
+/* ---------- type ---------- */
+.kicker { font-family: var(--f-mono); font-size: 6.8pt; letter-spacing: .16em;
+          text-transform: uppercase; color: var(--orange); margin-bottom: 7px; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: 20pt; line-height: 1.12;
+     letter-spacing: -.01em; }
+h3 { font-family: var(--f-display); font-weight: 700; font-size: 11.8pt; line-height: 1.25;
+     margin: 13px 0 5px; }
+.rule { width: 52px; height: 3px; background: var(--orange); margin: 9px 0 10px; }
+p { margin: 7px 0; }
+b, strong { font-weight: 600; color: var(--ink); }
+.lede { color: var(--muted); font-size: 9.4pt; }
+.src { font-family: var(--f-mono); font-size: 6.6pt; color: var(--pale);
+       margin-top: 5px; line-height: 1.45; }
+
+/* ---------- KPI tiles ---------- */
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
+.tiles.three { grid-template-columns: repeat(3, 1fr); }
+.tile { background: var(--tint); border-top: 2.5px solid var(--orange); padding: 9px 10px 10px; min-width: 0; }
+.tile-l { font-family: var(--f-mono); font-size: 6.2pt; letter-spacing: .12em;
+          text-transform: uppercase; color: var(--muted); }
+.tile-v { font-family: var(--f-body); font-weight: 500; font-size: 16pt; line-height: 1.1;
+          margin: 3px 0 2px; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+.tile-n { font-size: 7pt; color: var(--muted); line-height: 1.35; }
+
+/* ---------- callouts ---------- */
+.callout { background: var(--orange-pale); border-left: 3px solid var(--orange);
+           padding: 9px 12px; margin: 11px 0; }
+.callout.quiet { background: var(--slate); border-left-color: var(--pale); }
+.callout-t { font-family: var(--f-mono); font-size: 6.4pt; letter-spacing: .14em;
+             text-transform: uppercase; color: var(--orange-deep); margin-bottom: 3px; }
+.callout.quiet .callout-t { color: var(--muted); }
+.callout p { margin: 0; font-size: 8.8pt; }
+
+/* ---------- tables ---------- */
+table.tbl { width: 100%; border-collapse: collapse; margin: 10px 0 4px; font-size: 8.4pt; }
+table.tbl th { background: var(--ink); color: var(--white); font-family: var(--f-body);
+               font-weight: 600; font-size: 7.2pt; letter-spacing: .07em; text-transform: uppercase;
+               text-align: left; padding: 6px 8px; }
+table.tbl td { padding: 5.5px 8px; border-bottom: .6px solid var(--line); vertical-align: top; }
+table.tbl tr:nth-child(even) td { background: rgba(248,249,252,.75); }
+table.tbl .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.tbl tr.tot td { background: var(--blue-pale); font-weight: 600; border-bottom: none; }
+table.compact td, table.compact th { padding: 4px 6px; font-size: 7.6pt; }
+table.xcompact td, table.xcompact th { padding: 3.2px 5px; font-size: 7.1pt; }
+tr.masked td { background: var(--tint) !important; text-align: center; font-family: var(--f-mono);
+               font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+               padding: 7px 8px; border-top: .8px dashed rgba(26,26,46,.28);
+               border-bottom: .8px dashed rgba(26,26,46,.28); }
+tr.masked td b { color: var(--ink); letter-spacing: .1em; }
+
+/* Masked tables: the sample keeps the method (heading + column headers) and withholds the
+   recipe. Chrome rasterizes blurred elements when printing, so the hidden text does not
+   survive in the PDF text layer. */
+.locked { position: relative; }
+.locked table.tbl tbody { filter: blur(3.1px); }
+.lockchip { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+            background: var(--ink); color: var(--orange); font-family: var(--f-mono);
+            font-size: 6.2pt; letter-spacing: .16em; text-transform: uppercase;
+            padding: 5px 13px; white-space: nowrap; z-index: 5; }
+
+/* ---------- chips ---------- */
+.chip { display: inline-block; font-family: var(--f-mono); font-size: 6.2pt; letter-spacing: .1em;
+        text-transform: uppercase; padding: 1.5px 6px; border-radius: 3px; white-space: nowrap; }
+.chip.stop  { background: var(--red);   color: var(--white); }
+.chip.fix   { background: var(--orange);color: var(--ink); }
+.chip.build { background: var(--blue);  color: var(--white); }
+.chip.scale { background: var(--ink);   color: var(--orange); }
+.chip.line  { background: transparent; border: 1px solid var(--pale); color: var(--muted); }
+
+/* ---------- lists ---------- */
+ul.ticks { list-style: none; margin: 6px 0; }
+ul.ticks li { position: relative; padding-left: 16px; margin: 5px 0; font-size: 8.8pt; }
+ul.ticks li::before { content: ''; position: absolute; left: 1px; top: 6px; width: 5px; height: 5px;
+                      background: var(--orange); border-radius: 50%; }
+ol.rules { list-style: none; counter-reset: r; margin: 8px 0; }
+ol.rules li { counter-increment: r; position: relative; padding-left: 26px; margin: 6px 0; font-size: 8.7pt; }
+ol.rules li::before { content: counter(r, decimal-leading-zero); position: absolute; left: 0; top: 1px;
+                      font-family: var(--f-mono); font-size: 7pt; color: var(--orange); }
+
+/* ---------- page furniture ---------- */
+.foot { position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex;
+        justify-content: space-between; gap: 12px; font-family: var(--f-mono); font-size: 6.2pt;
+        color: var(--pale); border-top: .6px solid var(--line); padding-top: 5px; }
+.foot .warn { color: var(--orange); letter-spacing: .1em; text-transform: uppercase; }
+.head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+        border-bottom: .6px solid var(--line); padding-bottom: 5px; margin-bottom: 12px; }
+.head .wm-word { font-family: var(--f-display); font-weight: 700; font-size: 11pt; letter-spacing: -.01em; }
+.head .wm-word i { font-style: normal; color: var(--orange); }
+.head .crumb { font-family: var(--f-mono); font-size: 6.4pt; letter-spacing: .14em;
+               text-transform: uppercase; color: var(--orange); text-align: right; }
+
+/* ---------- contents ---------- */
+.toc { list-style: none; margin: 12px 0; }
+.toc li { display: flex; align-items: baseline; gap: 10px; padding: 6.5px 0;
+          border-bottom: .6px solid var(--line-soft); font-size: 9pt; }
+.toc .n { font-family: var(--f-mono); font-size: 7.5pt; color: var(--orange); min-width: 20px; }
+.toc .q { margin-left: auto; text-align: right; color: var(--muted); font-size: 7.8pt; max-width: 58%; }
+
+/* ---------- cover ---------- */
+.page.cover { background: var(--ink); padding: 0; color: var(--white); }
+.cover-fill { position: absolute; inset: 0; background: #14142A;
+              clip-path: polygon(72% 0, 100% 0, 100% 100%, 48% 100%); }
+.cover-fill::after { content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Ccircle cx='4.5' cy='4.5' r='0.9' fill='%23FFFFFF' fill-opacity='0.10'/%3E%3C/svg%3E"); }
+.cover-wedge { position: absolute; inset: 0; background: var(--orange);
+               clip-path: polygon(57% 0, 72% 0, 48% 100%, 33% 100%); opacity: .92; }
+.cover-glow { position: absolute; right: -14%; top: 46%; width: 78mm; height: 78mm;
+              border-radius: 50%; background: radial-gradient(circle, rgba(65,102,245,.34), transparent 70%); }
+.cover-logo { position: absolute; right: 12mm; bottom: 16mm; width: 46mm; height: 46mm; opacity: .16; }
+.cover-col { position: absolute; inset: 0; width: 54%; padding: 22mm 0 18mm 20mm;
+             display: flex; flex-direction: column; justify-content: space-between; }
+.lockup { display: flex; align-items: center; gap: 9px; }
+.lockup svg { width: 27px; height: 27px; flex-shrink: 0; }
+.wordmark { font-family: var(--f-display); font-weight: 700; font-size: 17pt;
+            letter-spacing: -.015em; line-height: 1; color: var(--white); }
+.wordmark i { font-style: normal; color: var(--orange); }
+.cover-kicker { font-family: var(--f-mono); font-size: 6.6pt; letter-spacing: .2em;
+                text-transform: uppercase; color: rgba(255,255,255,.5); margin: 10px 0 0 36px; }
+.cover-title { font-family: var(--f-display); font-weight: 700; font-size: 30pt; line-height: 1.04;
+               letter-spacing: -.02em; color: var(--white); }
+.cover-rule { width: 64px; height: 3px; background: var(--orange); margin: 14px 0 12px; }
+.cover-sub { font-size: 9pt; color: rgba(255,255,255,.74); line-height: 1.55; margin: 0 0 16px; }
+.cover-badge { display: inline-block; border: 1px solid rgba(255,117,24,.55); color: var(--orange);
+               font-family: var(--f-mono); font-size: 6.4pt; letter-spacing: .12em;
+               text-transform: uppercase; padding: 6px 11px; border-radius: 3px; }
+.cover-stats { display: flex; gap: 16px; margin: 16px 0 0; }
+.cover-stats b { display: block; font-family: var(--f-body); font-weight: 500; font-size: 14pt;
+                 letter-spacing: -.025em; color: var(--orange); white-space: nowrap;
+                 font-variant-numeric: tabular-nums; }
+.cover-stats span { font-family: var(--f-mono); font-size: 5.8pt; letter-spacing: .14em;
+                    text-transform: uppercase; color: rgba(255,255,255,.55); white-space: nowrap; }
+.cover-meta { border-top: 1px solid rgba(255,255,255,.18); padding-top: 12px;
+              display: grid; grid-template-columns: 1fr; gap: 8px; }
+.cover-meta span { display: block; font-family: var(--f-mono); font-size: 5.8pt; letter-spacing: .16em;
+                   text-transform: uppercase; color: var(--orange); margin-bottom: 2px; }
+.cover-meta p { margin: 0; font-size: 7.4pt; color: rgba(255,255,255,.84); line-height: 1.45; }
+
+/* ---------- layout helpers ---------- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.chart { margin: 10px 0 2px; }
+.chart svg { width: 100%; height: auto; }
+
+/* ---------- before / after wireframes (§7) ---------- */
+.ba { margin: 10px 0 2px; }
+.ba-head { display: grid; grid-template-columns: 62px 1fr 1fr; gap: 8px; margin-bottom: 5px; }
+.ba-head span { font-family: var(--f-mono); font-size: 6.2pt; letter-spacing: .16em;
+                text-transform: uppercase; color: var(--muted); }
+.ba-head span.aft { color: var(--orange); }
+.ba-row { display: grid; grid-template-columns: 62px 1fr 1fr; gap: 8px; margin-bottom: 8px; align-items: stretch; }
+.ba-lbl { font-family: var(--f-body); font-weight: 600; font-size: 7.6pt; color: var(--ink);
+          display: flex; align-items: center; line-height: 1.2; }
+.ba-cell { border: .6px solid var(--line); background: var(--white); height: 74px;
+           overflow: hidden; position: relative; border-radius: 3px; }
+.ba-cell.aft { border-top: 2.5px solid var(--orange); }
+.ba-cell .inner { filter: blur(2.6px); padding: 7px 8px; }
+.ba-bar2 { display: flex; gap: 3px; padding: 4px 6px; background: var(--tint); }
+.ba-bar2 i { width: 4px; height: 4px; border-radius: 50%; background: rgba(74,74,90,.3); }
+.mk-h { font-family: var(--f-body); font-weight: 600; font-size: 8pt; color: var(--muted); margin-bottom: 3px; }
+.ba-cell.aft .mk-h { color: var(--ink); font-size: 8.6pt; }
+.mk-p { font-size: 5.6pt; color: var(--muted); line-height: 1.35; }
+.mk-btn { display: inline-block; font-size: 5.2pt; padding: 2.5px 7px; margin: 3px 4px 0 0;
+          background: rgba(74,74,90,.14); color: var(--muted); border-radius: 2px; }
+.ba-cell.aft .mk-btn.go { background: var(--orange); color: var(--white); }
+.mk-line { height: 3.5px; background: rgba(74,74,90,.12); margin: 3px 0; border-radius: 2px; }
+.mk-tiles { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; margin-top: 4px; }
+.mk-tiles i { display: block; height: 13px; background: var(--tint); border: .5px solid var(--line-soft); }
+.mk-dots { display: flex; gap: 4px; margin: 4px 0; }
+.mk-dots i { width: 11px; height: 11px; border-radius: 50%; border: .7px solid rgba(74,74,90,.34); }
+.ba-cell.aft .mk-dots i { border-color: var(--orange); }
+
+/* ---------- closing-page price cards ---------- */
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 6px; }
+.prices > div { background: var(--tint); padding: 12px 12px 13px; border-top: 2.5px solid var(--orange); }
+.prices .feat { background: var(--ink); border-top-color: var(--orange); }
+.prices .feat span, .prices .feat p { color: rgba(255,255,255,.78); }
+.prices .feat b { color: var(--orange); }
+.prices span { font-family: var(--f-mono); font-size: 6.4pt; letter-spacing: .12em;
+               text-transform: uppercase; color: var(--muted); }
+.prices b { display: block; font-family: var(--f-display); font-weight: 700; font-size: 14pt;
+            margin: 4px 0 5px; }
+.prices p { font-size: 7.6pt; color: var(--muted); margin: 0; line-height: 1.4; }
+
+/* ---------- 90-day phases ---------- */
+.phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0 6px; }
+.phase { background: var(--tint); border-top: 2.5px solid var(--orange); padding: 10px 11px 11px; }
+.phase .pl { font-family: var(--f-mono); font-size: 6.2pt; letter-spacing: .12em;
+             text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+.phase .pn { font-family: var(--f-display); font-weight: 700; font-size: 11pt; margin-bottom: 5px; }
+.phase p { font-size: 7.4pt; color: var(--muted); line-height: 1.45; margin: 0 0 7px; }
+.phase .pv { font-family: var(--f-body); font-weight: 600; font-size: 9pt;
+             font-variant-numeric: tabular-nums; }
+.phase .pv span { display: block; font-family: var(--f-mono); font-weight: 400; font-size: 5.8pt;
+                  letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.phase.dark { background: var(--ink); }
+.phase.dark .pn { color: var(--white); }
+.phase.dark p { color: rgba(255,255,255,.72); }
+.phase.dark .pl, .phase.dark .pv span { color: rgba(255,255,255,.55); }
+.phase.dark .pv { color: var(--orange); }
+
+/* ============================ SCREEN CHROME ============================
+   Print-only documents read badly in a browser tab. On screen the sheets sit
+   on a tinted deck with a shadow, behind a slim bar that gets back to the site. */
+.topbar, .print-btn, .mobile-note { display: none; }
+@media screen {
+  body { background: #E9EBF1; }
+  .deck { padding: 74px 0 40px; }
+  .page { margin: 0 auto 22px; box-shadow: 0 6px 28px rgba(26,26,46,.13); }
+  .topbar { display: block; position: fixed; top: 0; left: 0; right: 0; z-index: 60;
+            background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line); }
+  .topbar-in { max-width: 210mm; margin: 0 auto; padding: 0 18px; height: 54px;
+               display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .tb-logo { display: flex; align-items: center; gap: 8px; font-family: var(--f-display);
+             font-weight: 700; font-size: 17px; text-decoration: none; letter-spacing: -.01em; }
+  .tb-logo i { font-style: normal; color: var(--orange); }
+  .tb-logo svg { width: 26px; height: 26px; }
+  .tb-right { display: flex; align-items: center; gap: 8px; }
+  .tb-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em;
+            text-transform: uppercase; color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; gap: 6px; font-family: var(--f-body);
+         font-weight: 600; font-size: 12.5px; padding: 9px 16px; border-radius: 8px;
+         text-decoration: none; cursor: pointer; border: none; min-height: 40px;
+         transition: background .2s, color .2s, border-color .2s; }
+  .btn-primary { background: var(--orange); color: #fff; }
+  .btn-primary:hover { background: var(--orange-deep); }
+  .btn-ghost { background: transparent; border: 1.5px solid var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange-deep); }
+  .print-btn { display: inline-flex; position: fixed; right: 22px; bottom: 22px; z-index: 60;
+               background: var(--ink); color: #fff; box-shadow: 0 6px 20px rgba(26,26,46,.28); }
+  .print-btn:hover { background: var(--blue-deep); }
+}
+@media screen and (max-width: 820px) {
+  .deck { padding: 62px 0 28px; }
+  /* Unlock the A4 box: on a phone a fixed 210mm sheet is a horizontal scrollbar. */
+  .page { width: 100%; height: auto; min-height: 0; overflow: visible;
+          padding: 22px 18px 26px; margin-bottom: 12px; box-shadow: none;
+          border-bottom: 6px solid #E9EBF1; }
+  .page.cover { min-height: 78vh; }
+  .cover-col { position: static; width: 100%; padding: 30px 20px 26px; }
+  .cover-fill, .cover-wedge, .cover-glow, .cover-logo { display: none; }
+  .cover-title { font-size: 34px; }
+  .cover-stats { flex-wrap: wrap; gap: 14px 22px; }
+  .foot { position: static; margin-top: 18px; flex-wrap: wrap; }
+  .wm span { font-size: 40pt; }
+  body { font-size: 13px; }
+  h1 { font-size: 25px; } h3 { font-size: 17px; }
+  .tile-v { font-size: 21px; } .callout p, .lede { font-size: 13px; }
+  .tiles, .two-col, .phases, .prices { grid-template-columns: 1fr 1fr; }
+  .ba-row, .ba-head { grid-template-columns: 52px 1fr 1fr; }
+  /* Wide decision tables scroll inside their own box rather than the page body. */
+  table.tbl { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch;
+              font-size: 12px; margin-bottom: 10px; }
+  table.tbl > thead, table.tbl > tbody { display: table; width: 100%; min-width: 620px; }
+  table.compact td, table.compact th,
+  table.xcompact td, table.xcompact th { font-size: 11px; padding: 5px 7px; }
+  .locked table.tbl tbody { filter: blur(2.6px); }
+  .lockchip { font-size: 9px; }
+  .mobile-note { display: block; font-family: var(--f-mono); font-size: 9.5px;
+                 letter-spacing: .08em; text-transform: uppercase; color: var(--pale);
+                 margin: -2px 0 8px; }
+}
+@media screen and (max-width: 520px) {
+  .tiles, .two-col, .phases, .prices { grid-template-columns: 1fr; }
+  .tb-tag { display: none; }
+}
+@media print {
+  body { background: #fff; }
+  .deck { padding: 0; }
+  .page { margin: 0; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Screen-only chrome: never printed. -->
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="tb-logo" href="index.html" aria-label="Dwelve — home">
+      <svg viewBox="0 0 200 200" fill="none" aria-hidden="true"><g transform="translate(100,100)">
+        <circle cx="0" cy="-65" r="8" fill="#1A1A2E"/><circle cx="32.5" cy="-56.29" r="11" fill="#FF7518"/>
+        <circle cx="56.29" cy="-32.5" r="5" fill="#1A1A2E"/><circle cx="65" cy="0" r="4.5" fill="#1A1A2E"/>
+        <circle cx="56.29" cy="32.5" r="4" fill="#1A1A2E"/><circle cx="32.5" cy="56.29" r="3.5" fill="#1A1A2E"/>
+        <circle cx="0" cy="65" r="3" fill="#1A1A2E"/><circle cx="-32.5" cy="56.29" r="2.8" fill="#1A1A2E"/>
+        <circle cx="-56.29" cy="32.5" r="2.8" fill="#1A1A2E"/><circle cx="-65" cy="0" r="3.8" fill="#1A1A2E"/>
+        <circle cx="-56.29" cy="-32.5" r="5" fill="#1A1A2E"/><circle cx="-32.5" cy="-56.29" r="6.5" fill="#1A1A2E"/>
+      </g></svg>
+      <span><i>D</i>welve</span>
+    </a>
+    <div class="tb-right">
+      <span class="tb-tag">Sample report &middot; 23 pages</span>
+      <a class="btn btn-ghost" href="case-study.html">The case</a>
+      <a class="btn btn-primary" href="index.html#pricing">Get my report &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="deck">
+
+<!-- ========================================================== p1 COVER -->
+<section class="page cover">
+  <div class="cover-fill"></div>
+  <div class="cover-wedge"></div>
+  <div class="cover-glow"></div>
+  <svg class="cover-logo" viewBox="0 0 200 200" fill="none" aria-hidden="true"><g transform="translate(100,100)">
+    <circle cx="0" cy="-65" r="8" fill="#FFFFFF"/><circle cx="32.5" cy="-56.29" r="11" fill="#FF7518"/>
+    <circle cx="56.29" cy="-32.5" r="5" fill="#FFFFFF"/><circle cx="65" cy="0" r="4.5" fill="#FFFFFF"/>
+    <circle cx="56.29" cy="32.5" r="4" fill="#FFFFFF"/><circle cx="32.5" cy="56.29" r="3.5" fill="#FFFFFF"/>
+    <circle cx="0" cy="65" r="3" fill="#FFFFFF"/><circle cx="-32.5" cy="56.29" r="2.8" fill="#FFFFFF"/>
+    <circle cx="-56.29" cy="32.5" r="2.8" fill="#FFFFFF"/><circle cx="-65" cy="0" r="3.8" fill="#FFFFFF"/>
+    <circle cx="-56.29" cy="-32.5" r="5" fill="#FFFFFF"/><circle cx="-32.5" cy="-56.29" r="6.5" fill="#FFFFFF"/>
+  </g></svg>
+  <div class="cover-col">
+    <div>
+      <div class="lockup">
+        <svg viewBox="0 0 200 200" fill="none" aria-hidden="true"><g transform="translate(100,100)">
+          <circle cx="0" cy="-65" r="8" fill="#FFFFFF"/><circle cx="32.5" cy="-56.29" r="11" fill="#FF7518"/>
+          <circle cx="56.29" cy="-32.5" r="5" fill="#FFFFFF"/><circle cx="65" cy="0" r="4.5" fill="#FFFFFF"/>
+          <circle cx="56.29" cy="32.5" r="4" fill="#FFFFFF"/><circle cx="32.5" cy="56.29" r="3.5" fill="#FFFFFF"/>
+          <circle cx="0" cy="65" r="3" fill="#FFFFFF"/><circle cx="-32.5" cy="56.29" r="2.8" fill="#FFFFFF"/>
+          <circle cx="-56.29" cy="32.5" r="2.8" fill="#FFFFFF"/><circle cx="-65" cy="0" r="3.8" fill="#FFFFFF"/>
+          <circle cx="-56.29" cy="-32.5" r="5" fill="#FFFFFF"/><circle cx="-32.5" cy="-56.29" r="6.5" fill="#FFFFFF"/>
+        </g></svg>
+        <span class="wordmark"><i>D</i>welve.</span>
+      </div>
+      <div class="cover-kicker">Sample &middot; Full report &middot; Advanced tier</div>
+    </div>
+    <div>
+      <h1 class="cover-title">Marketing<br>Growth Audit</h1>
+      <div class="cover-rule"></div>
+      <p class="cover-sub">Specialty coffee shop &middot; Victoria, BC</p>
+      <div class="cover-badge">Demonstration document &middot; all figures illustrative</div>
+      <div class="cover-stats">
+        <div><b>$63.6k</b><span>Revenue now / mo</span></div>
+        <div><b>$73.8&ndash;76.3k</b><span>90-day target / mo</span></div>
+        <div><b>+$6.7&ndash;8.4k</b><span>GP opportunity / mo</span></div>
+      </div>
+    </div>
+    <div class="cover-meta">
+      <div><span>What this is</span><p>The Dwelve report in the format a client receives &mdash; published
+        as a sample on an illustrative business. Decision tables are masked in this public copy.</p></div>
+      <div><span>Report tiers</span><p>Starter CA$249 &middot; Optimal CA$849 &middot;
+        Advanced CA$3,949 &middot; Growth Advisory CA$2,349/mo</p></div>
+      <div><span>Prepared by</span><p>Dwelve &middot; Daria, marketing strategist</p></div>
+      <div><span>Contact</span><p>hello@dwelve.com &middot; dwelve.ca</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== p2 CONTENTS -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:34%;left:-8%">Sample</span><span style="top:72%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">Growth Audit &middot; Contents</span></div>
+  <div class="kicker">How to read this report</div>
+  <h1>Contents &amp; Method</h1><div class="rule"></div>
+
+  <ul class="toc">
+    <li><span class="n">01</span> Key findings and decisions <span class="q">Where the money leaks, and the 90-day target</span></li>
+    <li><span class="n">02</span> Customer base &amp; positioning <span class="q">Who to grow, for which job, and how the product must change</span></li>
+    <li><span class="n">03</span> Competitors &amp; environment <span class="q">Where the open position is and what the market already asks for</span></li>
+    <li><span class="n">04</span> Menu, margin &amp; average ticket <span class="q">Which SKUs feed the business, which drag it, and the product ladder</span></li>
+    <li><span class="n">05</span> Promotions <span class="q">Which mechanics destroy gross profit &mdash; and what to run instead</span></li>
+    <li><span class="n">06</span> Acquisition &amp; retention <span class="q">More output from the same $3.6k budget, and an engineered second visit</span></li>
+    <li><span class="n">07</span> Digital customer journey <span class="q">What exactly to change on the website, Instagram and Google Business Profile</span></li>
+    <li><span class="n">08</span> Priorities &amp; the 90-day plan <span class="q">What to do in what order, who owns it, which KPI, what it is worth</span></li>
+    <li><span class="n">09</span> Appendix: calculation logic <span class="q">Formulas, data requirements and the weekly operating rhythm</span></li>
+  </ul>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 2</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p3 §1 KEY FINDINGS -->
+<section class="page tight"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:68%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">01 &middot; Key findings and decisions</span></div>
+  <div class="kicker">Section 01</div>
+  <h1>Key Findings and Decisions</h1><div class="rule"></div>
+
+  <div class="tiles">
+    <div class="tile"><div class="tile-l">Active clients</div><div class="tile-v">2,350</div><div class="tile-n">per month</div></div>
+    <div class="tile"><div class="tile-l">Visits / client</div><div class="tile-v">2.46&times;</div><div class="tile-n">per month</div></div>
+    <div class="tile"><div class="tile-l">Average ticket</div><div class="tile-v">$10.98</div><div class="tile-n">CAD</div></div>
+    <div class="tile"><div class="tile-l">Client lifetime</div><div class="tile-v">6.7 mo</div><div class="tile-n">average, before churn</div></div>
+  </div>
+
+  <div class="callout"><div class="callout-t">The diagnosis</div>
+    <p>The business already knows how to attract demand &mdash; but under-monetizes it in three places:
+    the wrong customer mix is being grown, each visit is monetized below its potential, and there is
+    almost no engineered second visit. On top of that, part of the gross profit is being destroyed
+    by the current discounts and a weak media mix.</p></div>
+
+  <p class="mobile-note">Tables scroll sideways &rarr;</p>
+  <table class="tbl xcompact">
+    <tr><th style="width:4%">#</th><th style="width:20%">The leak</th><th style="width:31%">What the data shows</th><th style="width:19%">Decision</th><th style="width:16%">Effect</th><th style="width:10%">Timing</th></tr>
+    <tr><td>1</td><td><b>Promos eat the margin</b></td><td>Happy Hour needs +34.5% volume to break even; it actually delivers +18%.</td><td><span class="chip stop">Stop</span> / rebuild</td><td class="num">+$1.45&ndash;1.55k GP/mo</td><td>7 days</td></tr>
+    <tr><td>2</td><td><b>The menu under-monetizes the visit</b></td><td>38% of tickets are drink-only; 13 tail SKUs occupy 46% of the menu for 13.7% of GP.</td><td>Menu cut + food attach + bundles</td><td class="num">+$1.8&ndash;2.3k GP/mo</td><td>2&ndash;4 wks</td></tr>
+    <tr><td>3</td><td><b>Too few repeat visits</b></td><td>90-day repeat rate 24%; effectively no CRM sequence after the first purchase.</td><td>7/30/60/90 engine + referral</td><td class="num">+$1.6&ndash;2.0k GP/mo</td><td>4&ndash;8 wks</td></tr>
+    <tr><td>4</td><td><b>Marketing ignores the most valuable customers</b></td><td>Social + Family are 43.8% of the base but 74.0% of revenue.</td><td>Reposition around the meeting / family job</td><td class="num">+$1.4&ndash;1.8k GP/mo</td><td>4&ndash;12 wks</td></tr>
+    <tr><td>5</td><td><b>36% of media spend sits in weak channels</b></td><td>$1,300/mo goes to boosted posts and flyers at CAC $33&ndash;67.</td><td>Reallocate the same $3.6k budget</td><td class="num">+$1.0&ndash;1.3k GP/mo</td><td>4&ndash;8 wks</td></tr>
+    <tr><td>6</td><td><b>Digital journey sells coffee, not the occasion</b></td><td>Current message is bean origin / specialty; only ~11% of Instagram followers are local.</td><td>Website / GBP / IG rebuilt around social scenarios</td><td class="num">Enabler + conversion lift</td><td>2&ndash;6 wks</td></tr>
+  </table>
+
+  <h3>The financial bridge: why the pools don't simply add up</h3>
+  <table class="tbl compact">
+    <tr><th>Step</th><th class="num">Revenue / mo</th><th class="num">Gross profit / mo</th></tr>
+    <tr><td>Sum of the five levers above, taken independently</td><td class="num">$11.9&ndash;15.1k</td><td class="num">$7.3&ndash;9.0k</td></tr>
+    <tr><td>Less: overlap between levers (a bundle sale and a mix-shift sale can be the same sale) and incomplete execution</td><td class="num">&minus;$1.7&ndash;2.3k</td><td class="num">&minus;$0.6k</td></tr>
+    <tr class="tot"><td>Realistic steady-state target</td><td class="num">+$10.2&ndash;12.8k</td><td class="num">+$6.7&ndash;8.4k</td></tr>
+  </table>
+  <p class="src">Annualized: +$122&ndash;154k revenue and +$80&ndash;101k gross profit. A report that adds its own
+  levers without an overlap deduction is overselling &mdash; this one deducts it explicitly.</p>
+
+  <div class="chart"><svg viewBox="0 0 660 186" role="img" aria-label="Gross-profit bridge from the five levers to the steady-state target: promos +$1.50k, menu +$2.05k, retention +$1.80k, positioning +$1.60k, channels +$1.15k, less $0.55k overlap, giving a $7.55k target.">
+    <rect x="24" y="137.5" width="64" height="22.5" fill="#4166F5"/><text x="56" y="132.5" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1A2E">+$1.50k</text><text x="56" y="176" text-anchor="middle" font-family="DM Mono, monospace" font-size="7.5" fill="#4A4A5A">PROMOS</text>
+    <line x1="88" y1="137.5" x2="112" y2="137.5" stroke="#8A8A9A" stroke-width="0.8" stroke-dasharray="3 3"/>
+    <rect x="112" y="106.8" width="64" height="30.7" fill="#4166F5"/><text x="144" y="101.8" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1A2E">+$2.05k</text><text x="144" y="176" text-anchor="middle" font-family="DM Mono, monospace" font-size="7.5" fill="#4A4A5A">MENU</text>
+    <line x1="176" y1="106.8" x2="200" y2="106.8" stroke="#8A8A9A" stroke-width="0.8" stroke-dasharray="3 3"/>
+    <rect x="200" y="79.8" width="64" height="27" fill="#4166F5"/><text x="232" y="74.8" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1A2E">+$1.80k</text><text x="232" y="176" text-anchor="middle" font-family="DM Mono, monospace" font-size="7.5" fill="#4A4A5A">RETENTION</text>
+    <line x1="264" y1="79.8" x2="288" y2="79.8" stroke="#8A8A9A" stroke-width="0.8" stroke-dasharray="3 3"/>
+    <rect x="288" y="55.8" width="64" height="24" fill="#4166F5"/><text x="320" y="50.8" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1A2E">+$1.60k</text><text x="320" y="176" text-anchor="middle" font-family="DM Mono, monospace" font-size="7.5" fill="#4A4A5A">POSITIONING</text>
+    <line x1="352" y1="55.8" x2="376" y2="55.8" stroke="#8A8A9A" stroke-width="0.8" stroke-dasharray="3 3"/>
+    <rect x="376" y="38.5" width="64" height="17.2" fill="#4166F5"/><text x="408" y="33.5" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#1A1A2E">+$1.15k</text><text x="408" y="176" text-anchor="middle" font-family="DM Mono, monospace" font-size="7.5" fill="#4A4A5A">CHANNELS</text>
+    <line x1="440" y1="38.5" x2="464" y2="38.5" stroke="#8A8A9A" stroke-width="0.8" stroke-dasharray="3 3"/>
+    <rect x="464" y="38.5" width="64" height="8.2" fill="#E0443F"/><text x="496" y="33.5" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#E0443F">&#8722;$0.55k</text><text x="496" y="176" text-anchor="middle" font-family="DM Mono, monospace" font-size="7.5" fill="#4A4A5A">OVERLAP</text>
+    <line x1="528" y1="46.8" x2="564" y2="46.8" stroke="#8A8A9A" stroke-width="0.8" stroke-dasharray="3 3"/>
+    <rect x="564" y="46.8" width="64" height="113.2" fill="#FF7518"/><text x="596" y="41.8" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" font-weight="bold" fill="#1A1A2E">$7.55k</text><text x="596" y="176" text-anchor="middle" font-family="DM Mono, monospace" font-size="7.5" fill="#4A4A5A">TARGET</text>
+    <line x1="16" y1="160" x2="648" y2="160" stroke="#1A1A2E" stroke-opacity="0.25" stroke-width="1"/>
+  </svg></div>
+  <p class="src">The same bridge, drawn: midpoints of the ranges above, gross profit per month. The overlap deduction is what keeps the target honest.</p>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 3</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p4 §2 SEGMENTS -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:70%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">02 &middot; Customer base &amp; positioning</span></div>
+  <div class="kicker">Section 02</div>
+  <h1>Customer Base &amp; Positioning</h1><div class="rule"></div>
+
+  <h3>2.1 Structure of the base: 43.8% of customers create 74% of revenue</h3>
+  <p class="mobile-note">Table scrolls sideways &rarr;</p>
+  <table class="tbl compact">
+    <tr><th>JTBD segment</th><th class="num">Customers</th><th class="num">% base</th><th class="num">Freq / mo</th><th class="num">Ticket</th><th class="num">Active life</th><th class="num">Revenue LTV</th><th class="num">% revenue</th><th>Priority</th></tr>
+    <tr><td>Grab-and-go</td><td class="num">800</td><td class="num">34%</td><td class="num">1.6&times;</td><td class="num">$5.50</td><td class="num">4 mo</td><td class="num">$35</td><td class="num">11%</td><td><span class="chip line">Low</span></td></tr>
+    <tr><td>Solo worker</td><td class="num">520</td><td class="num">22%</td><td class="num">2.4&times;</td><td class="num">$7.60</td><td class="num">6 mo</td><td class="num">$109</td><td class="num">15%</td><td><span class="chip line">Medium</span></td></tr>
+    <tr><td>Social / catch-up</td><td class="num">760</td><td class="num">32%</td><td class="num">3.3&times;</td><td class="num">$13.20</td><td class="num">9 mo</td><td class="num">$392</td><td class="num">52%</td><td><span class="chip build">High</span></td></tr>
+    <tr><td>Family / weekend</td><td class="num">270</td><td class="num">11%</td><td class="num">2.8&times;</td><td class="num">$18.50</td><td class="num">10 mo</td><td class="num">$518</td><td class="num">22%</td><td><span class="chip scale">Max</span></td></tr>
+  </table>
+  <p class="src">Segments built from receipt-level baskets, visit context (dine-in vs takeaway, party size,
+  time of day) and staff-tagged visit reasons over 12 months. Revenue LTV = ticket &times; frequency &times; active life.</p>
+
+  <div class="callout"><div class="callout-t">What this means for the business</div>
+    <p>Grab-and-go is the largest segment by headcount &mdash; and produces 11% of revenue at a $35
+    lifetime value. Social / catch-up and Family / weekend are not the most numerous, but they form
+    <b>74% of revenue</b> at LTVs of $392&ndash;518. Growth must come not from maximizing traffic,
+    but from increasing the share and frequency of the high-LTV scenarios.</p></div>
+
+  <h3>The segment map: headcount is on the right &mdash; the money is at the top</h3>
+  <div class="chart"><svg viewBox="0 0 660 214" role="img" aria-label="Segments plotted by share of base and lifetime value; bubble size is monthly revenue. Family weekend sits highest at $518 lifetime value on 11% of the base; Social catch-up carries 52% of revenue at $392.">
+    <line x1="58" y1="165" x2="640" y2="165" stroke="#1A1A2E" stroke-opacity="0.07" stroke-width="0.8"/><text x="52" y="167.5" text-anchor="end" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">$100</text>
+    <line x1="58" y1="135" x2="640" y2="135" stroke="#1A1A2E" stroke-opacity="0.07" stroke-width="0.8"/><text x="52" y="137.5" text-anchor="end" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">$200</text>
+    <line x1="58" y1="105" x2="640" y2="105" stroke="#1A1A2E" stroke-opacity="0.07" stroke-width="0.8"/><text x="52" y="107.5" text-anchor="end" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">$300</text>
+    <line x1="58" y1="75" x2="640" y2="75" stroke="#1A1A2E" stroke-opacity="0.07" stroke-width="0.8"/><text x="52" y="77.5" text-anchor="end" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">$400</text>
+    <line x1="58" y1="45" x2="640" y2="45" stroke="#1A1A2E" stroke-opacity="0.07" stroke-width="0.8"/><text x="52" y="47.5" text-anchor="end" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">$500</text>
+    <text x="203" y="208" text-anchor="middle" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">10%</text>
+    <text x="348" y="208" text-anchor="middle" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">20%</text>
+    <text x="493" y="208" text-anchor="middle" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">30%</text>
+    <text x="638" y="208" text-anchor="middle" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">40%</text>
+    <line x1="58" y1="195" x2="640" y2="195" stroke="#1A1A2E" stroke-opacity="0.25" stroke-width="1"/>
+    <circle cx="551" cy="184.5" r="18.5" fill="#8A8A9A" fill-opacity="0.8"/><text x="526" y="183.5" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="bold" fill="#1A1A2E">Grab-and-go</text><text x="526" y="193.5" text-anchor="end" font-family="DM Mono, monospace" font-size="6.5" fill="#4A4A5A">$35 LTV &middot; 11% of revenue</text>
+    <circle cx="377" cy="162.3" r="21.5" fill="#8A8A9A" fill-opacity="0.8"/><text x="405" y="161.3" text-anchor="start" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="bold" fill="#1A1A2E">Solo worker</text><text x="405" y="171.3" text-anchor="start" font-family="DM Mono, monospace" font-size="6.5" fill="#4A4A5A">$109 LTV &middot; 15% of revenue</text>
+    <circle cx="522" cy="77.4" r="40" fill="#4166F5" fill-opacity="0.85"/><text x="475" y="76.4" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="bold" fill="#1A1A2E">Social / catch-up</text><text x="475" y="86.4" text-anchor="end" font-family="DM Mono, monospace" font-size="6.5" fill="#4A4A5A">$392 LTV &middot; 52% of revenue</text>
+    <circle cx="218" cy="39.6" r="26" fill="#FF7518" fill-opacity="0.9"/><text x="250" y="38.6" text-anchor="start" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="bold" fill="#1A1A2E">Family / weekend</text><text x="250" y="48.6" text-anchor="start" font-family="DM Mono, monospace" font-size="6.5" fill="#4A4A5A">$518 LTV &middot; 22% of revenue</text>
+  </svg></div>
+  <p class="src">Y = revenue LTV ($), X = % of the client base, bubble area = monthly revenue. Computed from the segment table above. The two highlighted scenarios &mdash; not the largest crowds &mdash; are where growth pays.</p>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 4</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p5 §2 GROW / JTBD -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">02 &middot; Customer base &amp; positioning</span></div>
+  <h3 style="margin-top:0">2.2 Which segments to grow &mdash; and which not to target</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th>Segment</th><th>Decision</th><th>Why</th></tr></thead>
+    <tbody><tr><td><b>Social / catch-up</b> &middot; LTV $392</td><td>Core growth engine</td><td>High ticket, highest frequency, natural referrals &mdash; and already confirmed by the review record.</td></tr>
+    <tr><td><b>Family / weekend</b> &middot; LTV $518</td><td>Core growth engine #2</td><td>Highest LTV, high group ticket, weakly served by every competitor in the radius.</td></tr>
+    <tr><td><b>Solo worker</b> &middot; LTV $109</td><td>Monetize, don't scale</td><td>Long table occupancy at a mid ticket; needs food attach / minimum-spend logic at peak, not more volume.</td></tr>
+    <tr><td><b>Grab-and-go</b> &middot; LTV $35</td><td>Service segment</td><td>Keep the speed and convenience &mdash; but spend no brand or media budget growing it.</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <h3>2.3 What the high-LTV customer is actually buying</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:13%">Segment</th><th>The job to be done</th><th>Triggers</th><th>Barriers</th></tr></thead>
+    <tbody><tr><td><b>Social / catch-up</b></td>
+      <td>&ldquo;When we haven't seen each other in a while, I want a warm place where we can sit,
+      talk and order something nice &mdash; quality time without noise, queues or a fast-food feel.&rdquo;</td>
+      <td>Cozy space, a table for 2&ndash;4, calm, food to go with the coffee, local feel, personal service.</td>
+      <td>No free tables; too noisy; &ldquo;coffee only&rdquo;; long waits; nothing to share.</td></tr>
+    <tr><td><b>Family / weekend</b></td>
+      <td>&ldquo;On a free morning I want a place where the adults enjoy it and the child doesn't turn
+      the visit into stress &mdash; a small family ritual worth repeating.&rdquo;</td>
+      <td>High chair / kids option, fast food service, easy seating, space, a welcoming attitude.</td>
+      <td>&ldquo;Kids aren't welcome here&rdquo;; no food; cramped; slow; nothing to occupy the child.</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+  <p class="src">Demand status: Social is formed demand &mdash; the person is already choosing a venue, usually via
+  Maps, recommendations and the look of the space. Family is partly formed &mdash; they search caf&eacute; / brunch /
+  family-friendly, not &ldquo;specialty coffee&rdquo; as a category.</p>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 5</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p6 §2 POSITIONING -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:26%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">02 &middot; Customer base &amp; positioning</span></div>
+
+  <h3 style="margin-top:0">2.4 The positioning gap: the product is sold as coffee &mdash; the high-LTV customer buys a meeting</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:20%">Element</th><th style="width:26%">Today</th><th style="width:29%">New version</th><th>What it changes</th></tr></thead>
+    <tbody><tr><td>Category in the customer's head</td><td>Specialty coffee shop</td><td><b>Neighbourhood meeting place</b> with specialty coffee</td><td>Exits the direct &ldquo;whose coffee is better / cheaper&rdquo; comparison.</td></tr>
+    <tr><td>Core promise</td><td>Bean origin / craft / quality</td><td>&ldquo;The neighbourhood spot to catch up.&rdquo;</td><td>Lands on a concrete reason to visit.</td></tr>
+    <tr><td>Secondary audience</td><td>Coffee enthusiasts</td><td>Families / weekend rituals</td><td>Opens the segment with the maximum LTV.</td></tr>
+    <tr><td>Proof</td><td>Beans, latte art</td><td>The space, people at tables, reviews about atmosphere</td><td>Social proof matches the job being bought.</td></tr>
+    <tr><td>Offer</td><td>Individual drinks / discounts</td><td>Pair bundle / shareable food / occasion offers</td><td>The ticket grows with the value of the visit.</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <div class="callout"><div class="callout-t">Recommended positioning line</div>
+    <p><b>&ldquo;The neighbourhood spot to catch up. Specialty coffee, food to share and a warm place
+    to meet in Victoria.&rdquo;</b> &mdash; used verbatim on the website hero, the Google Business
+    Profile description, the Instagram bio and the outdoor sign.</p></div>
+
+  <h3>2.5 What to change in the product and the experience to earn that positioning</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:15%">Product point</th><th style="width:23%">Today</th><th style="width:30%">Change</th><th style="width:22%">Economic effect</th><th>Conf.</th></tr></thead>
+    <tbody><tr><td>Positioning</td><td>Specialty / bean origin</td><td>Meeting place / catch-up / family</td><td class="num">$2.6&ndash;3.3k rev/mo with the mix shift</td><td>MED</td></tr>
+    <tr><td>Seating</td><td>Bar seats + large communal tables</td><td>4&ndash;5 tables for two; 1&ndash;2 conversation corners</td><td>More social visits; removes the &ldquo;nowhere to sit&rdquo; barrier</td><td>HIGH</td></tr>
+    <tr><td>Family layer</td><td>No explicit signal</td><td>2 high chairs, a kids drink / snack, a small kids corner</td><td>Grows the family mix and weekend repeats</td><td>MED</td></tr>
+    <tr><td>Menu</td><td>The drink is the centre</td><td>Shareable food + pair bundles + a visual food display</td><td>Food attach + ticket</td><td>HIGH</td></tr>
+    <tr><td>Counter script</td><td>&ldquo;What can I get you?&rdquo;</td><td>&ldquo;Staying or to go? Anything for the table &mdash; something to share?&rdquo;</td><td>Native cross-sell without a discount</td><td>HIGH</td></tr>
+    <tr><td>CRM</td><td>Almost no segmentation</td><td>JTBD / source tag + return and re-activation flows</td><td>Frequency + LTV</td><td>HIGH</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <div class="callout quiet"><div class="callout-t">The mix-shift math</div>
+    <p>If behaviour and acquisition shift just <b>5% of the base</b> out of low-LTV scenarios into
+    Social / Family, the full mathematical potential exceeds $3.5k revenue/month. The financial model
+    includes only $2.6&ndash;3.3k &mdash; deliberately trimmed for incomplete execution and for overlap
+    with the menu bundles counted in Section 04.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 6</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p7 §3 COMPETITORS -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">03 &middot; Competitors &amp; environment</span></div>
+  <div class="kicker">Section 03</div>
+  <h1>Competitors &amp; Environment</h1><div class="rule"></div>
+
+  <h3>3.1 The competitive scan: a real competitor is whoever the customer considers for the same job</h3>
+  <p class="mobile-note">Table scrolls sideways &rarr;</p>
+  <table class="tbl xcompact">
+    <tr><th style="width:14%">Competitor / alternative</th><th style="width:15%">Job it performs</th><th class="num">Avg ticket*</th><th style="width:14%">Killer feature</th><th style="width:16%">Weakness</th><th>Threat</th><th style="width:24%">What we do about it</th></tr>
+    <tr><td>National value chain</td><td>Fast / familiar / cheap</td><td class="num">~$3.20</td><td>Speed + habit</td><td>No social experience; weak atmosphere</td><td><span class="chip line">Low</span></td><td>Copy the speed and menu clarity; never enter a price war.</td></tr>
+    <tr><td>Global coffee chain</td><td>Get work done / predictable product</td><td class="num">~$5.80</td><td>Predictability at scale</td><td>Corporate, crowded, weak local feel</td><td><span class="chip line">Med</span></td><td>Copy the frictionless journey; differentiate on warmth and locality.</td></tr>
+    <tr><td>Local grab-and-go specialty</td><td>Quality coffee, fast, to go</td><td class="num">~$5.50</td><td>Specialty credibility</td><td>Minimal seating; the social job is not served</td><td><span class="chip line">Med</span></td><td>Don't copy the format; keep product credibility.</td></tr>
+    <tr><td>Local specialty + brunch</td><td>Specialty + a meal / a meet-up</td><td class="num">~$7.20</td><td>Food layer</td><td>Busy and noisy; poor for a calm catch-up</td><td><span class="chip fix">Med-High</span></td><td>Copy the food economics; differentiate on calm and conversation.</td></tr>
+    <tr><td>Local bakery / brunch caf&eacute;</td><td>Eat and meet</td><td class="num">$10&ndash;20</td><td>Food + visual display</td><td>Slower; often a heavy meal</td><td><span class="chip fix">Med-High</span></td><td>Copy the display and shareable items; stay a light caf&eacute; format.</td></tr>
+  </table>
+  <p class="src">* Reference points from the project's field scan, used as relative price context &mdash; not as a
+  current public price list. Figures illustrative.</p>
+
+  <h3>3.2 PEST: the external factors that should shape decisions now</h3>
+  <table class="tbl compact">
+    <tr><th style="width:14%">Factor</th><th style="width:31%">Signal</th><th style="width:26%">Risk / opportunity</th><th>Decision</th></tr>
+    <tr><td>P &middot; Regulation</td><td>Rising food-service compliance, labour and standards costs</td><td>A complex menu gets more expensive even with flat demand</td><td>Cut low-volume prep; every new SKU passes a &ldquo;GP vs complexity&rdquo; test.</td></tr>
+    <tr><td>E &middot; Economics</td><td>Price-sensitive scenarios compare harder; high-LTV social / family pay for the experience</td><td>Discounts attract the wrong mix and dilute margin</td><td>Don't fight chains on price; give visible value through bundles.</td></tr>
+    <tr><td>S &middot; Social <span class="chip scale">Critical</span></td><td>Demand for local places to connect; the wish for &ldquo;a place of one's own&rdquo;</td><td>Atmosphere becomes part of the product, not d&eacute;cor</td><td>Make social connection the central message and the product scenario.</td></tr>
+    <tr><td>T &middot; Technology</td><td>Local choice happens via Maps, reviews, short-form video &mdash; and first-party CRM</td><td>A weak digital card loses ready demand; no CRM means no repeats</td><td>GBP review engine, UTM discipline, POS tags, SMS / email triggers.</td></tr>
+  </table>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 7</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p8 §3 REVIEWS -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">03 &middot; Competitors &amp; environment</span></div>
+
+  <h3 style="margin-top:0">3.3 What the reviews say: the space is already stronger than the product story</h3>
+  <table class="tbl compact">
+    <tr><th style="width:20%">Source</th><th style="width:22%">Theme</th><th style="width:24%">Signal</th><th>Business conclusion</th></tr>
+    <tr><td>This business</td><td>Atmosphere / space</td><td class="num">67% of positive mentions</td><td>The main proof asset of the future positioning.</td></tr>
+    <tr><td>This business</td><td>Socializing / catch-up</td><td class="num">41%</td><td>Customers have already &ldquo;hired&rdquo; the caf&eacute; for exactly the job we need to scale.</td></tr>
+    <tr><td>This business</td><td>Limited food</td><td class="num">23% of complaints / requests</td><td>A direct signal to grow food attach and dwell time.</td></tr>
+    <tr><td>This business</td><td>Not kid-friendly</td><td class="num">12%</td><td>Family LTV is the highest in the base &mdash; and the product erects a barrier to it.</td></tr>
+    <tr><td>Global / national chains</td><td>Crowded / generic</td><td>Qualitative pattern from the scan</td><td>The opening to own &ldquo;personal / local&rdquo;.</td></tr>
+    <tr><td>Local grab-and-go specialty</td><td>Limited seating</td><td>Qualitative pattern</td><td>Does not compete for the long social session.</td></tr>
+    <tr><td>Local specialty + brunch</td><td>Busy / noisy</td><td>Qualitative pattern</td><td>The main open gap: a calm meeting plus good food.</td></tr>
+  </table>
+  <p class="src">94 public reviews of this business coded by theme; competitor patterns from public review
+  records collected during the field scan. Figures illustrative.</p>
+
+  <div class="callout"><div class="callout-t">The open seam</div>
+    <p>Nobody in the field owns the combination: <b>specialty quality + a calm social atmosphere +
+    shareable food + family-friendly details</b>. This business already holds two of the four &mdash;
+    the space and the product. Differentiation therefore requires no rebrand: it requires finishing
+    the seating, the food layer, the communication and the CRM.</p></div>
+
+  <h3>3.4 Action plan from the competitive analysis</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:28%">Action</th><th style="width:30%">Where</th><th style="width:20%">KPI</th><th>Expected effect</th></tr></thead>
+    <tbody><tr><td>Claim the &ldquo;spot to catch up&rdquo; wording</td><td>Website hero, GBP description, Instagram bio, outdoor sign</td><td>Share of social / family first-visit tags</td><td>+ mix quality</td></tr>
+    <tr><td>Add pair + shareable food</td><td>Menu, display, table tents</td><td>Food attach, avg ticket</td><td class="num">+$0.9&ndash;1.3k GP/mo (inside the menu pool)</td></tr>
+    <tr><td>Drop price-comparison messaging</td><td>All ad creatives</td><td>Discount share down, full-price mix up</td><td>Margin</td></tr>
+    <tr><td>Copy the chains' speed</td><td>Menu + barista flow</td><td>Peak wait time, transactions / hour</td><td>+ throughput</td></tr>
+    <tr><td>Copy the bakeries' food visibility</td><td>Counter merchandising</td><td>Add-on conversion</td><td>+ ticket</td></tr>
+    <tr><td>Make the family layer visible</td><td>Photos, Google, seating, kids offer</td><td>Family mix, weekend repeat</td><td>+ LTV</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 8</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p9 §4 MENU OVERVIEW -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">04 &middot; Menu, margin &amp; average ticket</span></div>
+  <div class="kicker">Section 04</div>
+  <h1>Menu, Margin &amp; Average Ticket</h1><div class="rule"></div>
+
+  <h3>4.1 What happens inside the ticket today</h3>
+  <div class="tiles">
+    <div class="tile"><div class="tile-l">SKUs</div><div class="tile-v">28</div><div class="tile-n">menu positions</div></div>
+    <div class="tile"><div class="tile-l">Units sold</div><div class="tile-v">10,450</div><div class="tile-n">per month</div></div>
+    <div class="tile"><div class="tile-l">Items / ticket</div><div class="tile-v">1.80</div><div class="tile-n">average</div></div>
+    <div class="tile"><div class="tile-l">Food attach</div><div class="tile-v">62%</div><div class="tile-n">38% of tickets are drink-only</div></div>
+  </div>
+  <div class="tiles">
+    <div class="tile"><div class="tile-l">Revenue</div><div class="tile-v">$63.6k</div><div class="tile-n">per month</div></div>
+    <div class="tile"><div class="tile-l">Gross profit</div><div class="tile-v">$40.8k</div><div class="tile-n">per month</div></div>
+    <div class="tile"><div class="tile-l">Gross margin</div><div class="tile-v">64.1%</div><div class="tile-n">weighted</div></div>
+    <div class="tile"><div class="tile-l">Avg ticket</div><div class="tile-v">$10.98</div><div class="tile-n">per transaction</div></div>
+  </div>
+
+  <div class="callout"><div class="callout-t">The growth formula</div>
+    <p><b>Gross profit = active customers &times; visit frequency &times; average ticket &times; gross
+    margin.</b> The menu has to lift the last three multipliers at once: what to buy now, what to add
+    to the ticket, and why to come back.</p></div>
+
+  <h3>4.2 Three-dimensional ABC: demand / revenue / gross profit</h3>
+  <p>Each SKU carries a three-letter code, read left to right: <b>Units</b> (demand), <b>Revenue</b>,
+  <b>Gross-profit contribution</b>. <span class="chip line">BAA</span> = mid demand but a high share of
+  revenue and GP; <span class="chip line">CCB</span> = weak demand and revenue, but the margin or a
+  strategic role can still justify the slot.</p>
+
+  <div class="callout quiet"><div class="callout-t">The ABC verdict</div>
+    <p>The 6 strongest SKUs create <b>~55% of gross profit</b>. Thirteen tail positions occupy 46% of
+    the menu and deliver 13.7% of GP. That does not mean &ldquo;delete everything C&rdquo; &mdash; the
+    Kids Snack, for instance, exists for the Family job. But every C-SKU must either support a
+    high-LTV scenario, run as a seasonal test, or go.</p></div>
+
+  <h3>Where the gross profit concentrates</h3>
+  <div class="chart"><svg viewBox="0 0 660 188" role="img" aria-label="Pareto of gross profit by SKU: the six strongest positions carry 55% of gross profit, while thirteen tail SKUs deliver 13.7% of gross profit on 46% of the menu.">
+    <rect x="36" y="30" width="16" height="135" fill="#FF7518"/><rect x="58" y="91.6" width="16" height="73.4" fill="#FF7518"/><rect x="80" y="100.7" width="16" height="64.3" fill="#FF7518"/><rect x="102" y="120.4" width="16" height="44.6" fill="#FF7518"/><rect x="124" y="124.5" width="16" height="40.5" fill="#FF7518"/><rect x="146" y="124.6" width="16" height="40.4" fill="#FF7518"/>
+    <rect x="168" y="132.6" width="16" height="32.4" fill="#4166F5" fill-opacity="0.45"/><rect x="190" y="134.7" width="16" height="30.3" fill="#4166F5" fill-opacity="0.45"/><rect x="212" y="135.4" width="16" height="29.6" fill="#4166F5" fill-opacity="0.45"/><rect x="234" y="138.7" width="16" height="26.3" fill="#4166F5" fill-opacity="0.45"/><rect x="256" y="138.8" width="16" height="26.2" fill="#4166F5" fill-opacity="0.45"/><rect x="278" y="142.9" width="16" height="22.1" fill="#4166F5" fill-opacity="0.45"/><rect x="300" y="143.5" width="16" height="21.5" fill="#4166F5" fill-opacity="0.45"/><rect x="322" y="146.3" width="16" height="18.7" fill="#4166F5" fill-opacity="0.45"/><rect x="344" y="149.6" width="16" height="15.4" fill="#4166F5" fill-opacity="0.45"/><rect x="366" y="151.2" width="16" height="13.8" fill="#4166F5" fill-opacity="0.45"/><rect x="388" y="151.5" width="16" height="13.5" fill="#4166F5" fill-opacity="0.45"/><rect x="410" y="155.5" width="16" height="9.5" fill="#4166F5" fill-opacity="0.45"/><rect x="432" y="156.4" width="16" height="8.6" fill="#4166F5" fill-opacity="0.45"/><rect x="454" y="156.7" width="16" height="8.3" fill="#4166F5" fill-opacity="0.45"/><rect x="476" y="157.4" width="16" height="7.6" fill="#4166F5" fill-opacity="0.45"/><rect x="498" y="157.8" width="16" height="7.2" fill="#4166F5" fill-opacity="0.45"/><rect x="520" y="158.6" width="16" height="6.4" fill="#4166F5" fill-opacity="0.45"/><rect x="542" y="158.6" width="16" height="6.4" fill="#4166F5" fill-opacity="0.45"/><rect x="564" y="159.4" width="16" height="5.6" fill="#4166F5" fill-opacity="0.45"/><rect x="586" y="159.8" width="16" height="5.2" fill="#4166F5" fill-opacity="0.45"/><rect x="608" y="160.6" width="16" height="4.4" fill="#4166F5" fill-opacity="0.45"/><rect x="630" y="162.9" width="16" height="2.1" fill="#4166F5" fill-opacity="0.45"/>
+    <polyline points="44,139.7 66,125.9 88,113.8 110,105.5 132,97.9 154,90.3 176,84.2 198,78.5 220,73.0 242,68.0 264,63.1 286,58.9 308,54.9 330,51.4 352,48.5 374,45.9 396,43.4 418,41.6 440,40.0 462,38.4 484,37.0 506,35.7 528,34.5 550,33.2 572,32.2 594,31.2 616,30.4 638,30.0" fill="none" stroke="#4A4A5A" stroke-width="1.4"/>
+    <circle cx="154" cy="90.2" r="3" fill="#4A4A5A"/>
+    <line x1="36" y1="22" x2="162" y2="22" stroke="#1A1A2E" stroke-width="1"/><line x1="36" y1="22" x2="36" y2="27" stroke="#1A1A2E" stroke-width="1"/><line x1="162" y1="22" x2="162" y2="27" stroke="#1A1A2E" stroke-width="1"/>
+    <text x="99" y="16" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="bold" fill="#1A1A2E">6 SKUs &#8212; 55% of gross profit</text>
+    <line x1="366" y1="118" x2="646" y2="118" stroke="#4A4A5A" stroke-width="1"/><line x1="366" y1="118" x2="366" y2="123" stroke="#4A4A5A" stroke-width="1"/><line x1="646" y1="118" x2="646" y2="123" stroke="#4A4A5A" stroke-width="1"/>
+    <text x="506" y="112" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8.5" fill="#4A4A5A">13 tail SKUs &#8212; 13.7% of GP on 46% of the menu</text>
+    <line x1="28" y1="165" x2="648" y2="165" stroke="#1A1A2E" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="36" y="180" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">28 SKUS, RANKED BY GROSS PROFIT / MO &middot; LINE = CUMULATIVE SHARE</text>
+  </svg></div>
+  <p class="src">Computed from the decision table on the next page (revenue &times; gross margin per SKU). Figures illustrative.</p>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 9</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p10 §4 SKU DECISIONS -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">04 &middot; Menu, margin &amp; average ticket</span></div>
+  <h3 style="margin-top:0">4.3 The decision on every position</h3>
+  <p class="lede" style="margin-top:2px">Every SKU is graded on three axes and given one of five verdicts &mdash;
+  keep, scale, optimize, test or cut &mdash; with the reason attached. The extremes of the list are shown here;
+  the client version carries all 28 rows.</p>
+  <p class="mobile-note">Table scrolls sideways &rarr;</p>
+  <table class="tbl xcompact">
+    <tr><th>SKU</th><th>ABC</th><th>Portfolio</th><th class="num">Units</th><th class="num">Revenue</th><th class="num">GM%</th><th>Role</th><th class="num">Price</th><th style="width:29%">Decision</th></tr>
+    <tr><td>Latte</td><td>AAA</td><td>A &mdash; protect</td><td class="num">1,709</td><td class="num">$11,108</td><td class="num">69%</td><td>Hero / core</td><td class="num">$6.50</td><td><b>Keep.</b> Anchor of the bundles; &ldquo;large?&rdquo; asked by default.</td></tr>
+    <tr><td>Breakfast Sandwich</td><td>AAA</td><td>A &mdash; protect</td><td class="num">783</td><td class="num">$7,438</td><td class="num">56%</td><td>Ticket driver</td><td class="num">$9.50</td><td><b>Scale.</b> Available until close; combo with a drink.</td></tr>
+    <tr><td>Americano</td><td>AAA</td><td>A &mdash; protect</td><td class="num">1,068</td><td class="num">$4,806</td><td class="num">76%</td><td>Margin core</td><td class="num">$4.50</td><td><b>Keep.</b> Never discount; use in loyalty.</td></tr>
+    <tr><td>Croissant</td><td>AAA</td><td>B &mdash; optimize</td><td class="num">641</td><td class="num">$3,077</td><td class="num">56%</td><td>Cross-sell</td><td class="num">$4.80</td><td><b>Scale.</b> Display at the register; pair / morning bundle.</td></tr>
+    <tr><td>Avocado Toast</td><td>BAA</td><td>B &mdash; optimize</td><td class="num">249</td><td class="num">$3,112</td><td class="num">54%</td><td>Premium food</td><td class="num">$13.00 test</td><td><b>Optimize.</b> Limit hours if prep &gt;5 min; +$0.50 price test.</td></tr>
+    <tr class="masked"><td colspan="9"><b>18 of 28 rows hidden in this sample</b> &nbsp;&middot;&nbsp; the client version grades every position on the menu</td></tr>
+    <tr><td>Hot Chocolate</td><td>BBB</td><td>C &mdash; tail</td><td class="num">128</td><td class="num">$704</td><td class="num">67%</td><td>Family support</td><td class="num">$5.50</td><td><b>Keep strategically</b> for the family job, despite the grade.</td></tr>
+    <tr><td>Herbal Tea</td><td>CCC</td><td>C &mdash; tail</td><td class="num">107</td><td class="num">$455</td><td class="num">80%</td><td>Tea core</td><td class="num">$4.25</td><td><b>Keep</b> as the non-caffeine option.</td></tr>
+    <tr><td>Salad Bowl</td><td>CBC</td><td>C &mdash; tail</td><td class="num">64</td><td class="num">$704</td><td class="num">45%</td><td>Complexity</td><td class="num">remove</td><td><b>Cut.</b> Low margin, high prep complexity.</td></tr>
+    <tr><td>Soup Cup</td><td>CCC</td><td>C &mdash; tail</td><td class="num">71</td><td class="num">$497</td><td class="num">50%</td><td>Seasonal</td><td class="num">seasonal</td><td><b>Seasonal only.</b> Not a year-round position.</td></tr>
+    <tr><td>Kids Snack</td><td>CCC</td><td>C &mdash; tail</td><td class="num">57</td><td class="num">$200</td><td class="num">60%</td><td>Family enabler</td><td class="num">$3.50</td><td><b>Keep strategically</b>; bundle with hot chocolate.</td></tr>
+  </table>
+  <p class="src">A weak grade is not an automatic cut: Hot Chocolate and Kids Snack stay because the Family job needs
+  them. That judgement is what the grade cannot make on its own.</p>
+
+  <h3>4.4 Where the menu cannibalizes itself</h3>
+  <table class="tbl xcompact">
+    <tr><th style="width:14%">Zone</th><th style="width:24%">SKUs</th><th style="width:28%">Problem</th><th>Fix</th></tr>
+    <tr><td>Sweet latte cluster</td><td>Matcha / Mocha / Chai / Hot Chocolate</td><td>Four near-identical choice scenarios splitting one volume pool</td><td>Two core + one rotating seasonal; Hot Chocolate stays as the family enabler.</td></tr>
+    <tr><td>Tea cluster</td><td>Earl Grey / Breakfast / Herbal</td><td>Three positions on low volume; Breakfast duplicates</td><td>Earl Grey + Herbal stay; Breakfast Tea goes.</td></tr>
+    <tr><td>Pastry cluster</td><td>Croissant / Cookie / Muffin / Banana Bread / Granola</td><td>Too many similar add-ons &mdash; each starves</td><td>Croissant + Cookie core; one rotating bakery special; cut 2&ndash;3 tails.</td></tr>
+    <tr><td>Slow food</td><td>Avocado / Parfait / Salad / Soup</td><td>Low volume + prep complexity + queue risk</td><td>Avocado limited hours; Soup seasonal; Salad / Parfait cut or redesigned.</td></tr>
+    <tr><td>Premium coffee</td><td>Pour-over vs core espresso</td><td>Not price cannibalization &mdash; a service-speed risk</td><td>Off-peak experience only; never promoted at weekend peak.</td></tr>
+  </table>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 10</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p11 §4 LADDER + EFFECT -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">04 &middot; Menu, margin &amp; average ticket</span></div>
+
+  <h3 style="margin-top:0">4.5 The new product ladder</h3>
+  <table class="tbl compact">
+    <tr><th style="width:13%">Role</th><th style="width:25%">Product</th><th style="width:38%">Task</th><th>KPI</th></tr>
+    <tr><td>Entry</td><td>Drip 12 oz &middot; $3.75</td><td>Remove the first-purchase barrier; never price it lower</td><td>Conversion to 2nd visit</td></tr>
+    <tr><td>Core</td><td>Latte / Cappuccino / Matcha</td><td>The obvious main choice &mdash; 60&ndash;70% of menu attention</td><td>Core mix / GP</td></tr>
+    <tr><td>Cross-sell</td><td>Croissant / Cookie / Breakfast Sandwich</td><td>Food attach at the moment the wallet is already open</td><td>Attach rate</td></tr>
+    <tr><td>Upsell</td><td>Large / premium milk</td><td>An upgrade that costs no extra order or time</td><td>+$ / transaction</td></tr>
+    <tr><td>Bundle</td><td>2 drinks + pastry &middot; $17.20</td><td>Monetizes the social occasion at only ~5.5% off list</td><td>Pair ticket</td></tr>
+    <tr><td>Downsell</td><td>Small drink + cookie &middot; $7.90</td><td>Keeps the price-sensitive customer inside without discounting core</td><td>Retention</td></tr>
+    <tr><td>Maximizer</td><td>Beans / gift card</td><td>The trust upsell + gifting</td><td>High-margin revenue</td></tr>
+    <tr><td>Return trigger</td><td>7-day offer / seasonal rotation</td><td>Extends the chain past the first ticket</td><td>Frequency / LTV</td></tr>
+  </table>
+
+  <h3>4.6 Rebuilding the menu and the display</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:14%">Point</th><th style="width:26%">Today</th><th style="width:34%">Change</th><th>Why</th></tr></thead>
+    <tbody><tr><td>Top of menu</td><td>Many equal drinks</td><td>Hero strip: Latte / Cappuccino / Matcha + 3 food pairings</td><td>Cuts decision fatigue; routes to the margin core.</td></tr>
+    <tr><td>Register</td><td>Food is a separate decision</td><td>Croissant / Cookie in direct sight + one seasonal impulse</td><td>Cross-sell works before payment, not after.</td></tr>
+    <tr><td>Table tents</td><td>No behavioural offer</td><td>Pair bundle + shareable item + seasonal occasion</td><td>Monetizes the social job at the table.</td></tr>
+    <tr><td>Digital menu</td><td>A list of SKUs</td><td>Sections: Meet for 2 / Quick / Family / Take home</td><td>Structured by the customer's job, not internal taxonomy.</td></tr>
+    <tr><td>Peak menu</td><td>Same menu all day</td><td>Slow-prep items out of top visibility at peak</td><td>Throughput.</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <h3>4.7 The financial effect of the menu block</h3>
+  <table class="tbl compact">
+    <tr><th>Lever</th><th style="width:34%">Calculation</th><th class="num">Revenue / mo</th><th class="num">GP / mo</th><th>Conf.</th></tr>
+    <tr><td>Food attach +8 pts</td><td>~463 extra add-on sales &times; ~$4.80</td><td class="num">+$2.22k</td><td class="num">+$1.25k</td><td>MED-HIGH</td></tr>
+    <tr><td>Pair bundle</td><td>~250 social transactions &times; +$3.20 net mix</td><td class="num">+$0.80k</td><td class="num">+$0.45k</td><td>MED</td></tr>
+    <tr><td>Upsell large / premium</td><td>~300 upgrades &times; ~$1.20</td><td class="num">+$0.36k</td><td class="num">+$0.28k</td><td>HIGH</td></tr>
+    <tr><td>Menu simplification / throughput</td><td>+2% transactions at peak-equivalent</td><td class="num">+$1.27k</td><td class="num">+$0.80k</td><td>MED</td></tr>
+    <tr><td>Selective price tests</td><td>Matcha / pour-over / avocado</td><td class="num">+$0.25&ndash;0.40k</td><td class="num">+$0.22&ndash;0.35k</td><td>MED</td></tr>
+  </table>
+
+  <div class="callout"><div class="callout-t">Net opportunity of this block</div>
+    <p>Before overlaps the sum exceeds $4.9k revenue/month. To avoid counting the same purchase twice,
+    the overall target includes <b>$3.1&ndash;3.8k revenue and $1.8&ndash;2.3k GP per month</b> from
+    the menu block.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 11</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p12 §5 PROMOS I -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:26%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">05 &middot; Promotions</span></div>
+  <div class="kicker">Section 05</div>
+  <h1>Promotions: the Economics of Each Mechanic</h1><div class="rule"></div>
+
+  <h3>5.1 Happy Hour &minus;20%: more traffic, less gross profit</h3>
+  <div class="two-col">
+    <div>
+      <table class="tbl compact">
+        <tr><th>Metric</th><th class="num">Without promo</th><th class="num">With promo</th><th class="num">Change</th></tr>
+        <tr><td>Drink transactions / week in the window</td><td class="num">400</td><td class="num">472</td><td class="num">+18%</td></tr>
+        <tr><td>Average drink price</td><td class="num">$7.10</td><td class="num">$5.68</td><td class="num">&minus;20%</td></tr>
+        <tr><td>Revenue / week</td><td class="num">$2,840</td><td class="num">$2,681</td><td class="num">&minus;$159</td></tr>
+        <tr><td>COGS / drink</td><td class="num">$1.56</td><td class="num">$1.56</td><td class="num">&mdash;</td></tr>
+        <tr><td>GP / drink</td><td class="num">$5.54</td><td class="num">$4.12</td><td class="num">&minus;25.6%</td></tr>
+        <tr class="tot"><td>GP / week</td><td class="num">$2,216</td><td class="num">$1,945</td><td class="num">&minus;$271</td></tr>
+      </table>
+      <p class="src">Figures are for the weekday afternoon promo window only; all-day SKU volumes in
+      Section 04 are unaffected.</p>
+    </div>
+    <div>
+      <div class="callout"><div class="callout-t">Verdict &mdash; <span style="color:#E0443F">Stop</span></div>
+        <p>Break-even needs roughly <b>538 transactions/week (+34.5%)</b> in the window. The actual
+        lift is 472 (+18%). The current mechanic destroys about <b>$1.17k of GP per month</b> &mdash;
+        and trains existing customers to wait for the discount.</p></div>
+      <div class="callout quiet"><div class="callout-t">What replaces it</div>
+        <p>The traffic goal Happy Hour was meant to serve is handled by the targeted mechanics in
+        5.4 &mdash; each one buys a specific behaviour, not a cheaper version of behaviour that was
+        already happening.</p></div>
+    </div>
+  </div>
+
+  <div class="chart"><svg viewBox="0 0 660 108" role="img" aria-label="Happy hour delivers an 18 percent volume lift against the 34.5 percent needed to break even, a 16.5 point shortfall.">
+    <rect x="170" y="16" width="207" height="22" fill="#4166F5"/><text x="385" y="31" font-family="DM Sans, sans-serif" font-size="9.5" fill="#1A1A2E">+18%</text><text x="162" y="31" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">Actual volume lift</text>
+    <rect x="170" y="54" width="397" height="22" fill="#8A8A9A" fill-opacity="0.22" stroke="#8A8A9A" stroke-width="1.2"/><text x="575" y="69" font-family="DM Sans, sans-serif" font-size="9.5" fill="#E0443F">+34.5%</text><text x="162" y="69" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">Needed to break even</text>
+    <line x1="567" y1="8" x2="567" y2="88" stroke="#E0443F" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="170" y="100" font-family="DM Mono, monospace" font-size="7" fill="#4A4A5A">THE GAP &#8212; 16.5 PTS SHORT &#8212; IS THE &#8722;$271 OF GP EVERY WEEK</text>
+  </svg></div>
+
+  <h3>5.2 First-order discount: not a loss-maker &mdash; but too weak to scale</h3>
+  <table class="tbl compact">
+    <tr><th style="width:30%">Parameter</th><th class="num">Value</th><th>Comment</th></tr>
+    <tr><td>Redemptions / mo</td><td class="num">280</td><td>Promo code</td></tr>
+    <tr><td>Discount</td><td class="num">15%</td><td>$1.65 on the average $10.98 ticket</td></tr>
+    <tr><td>Truly incremental share</td><td class="num">38%</td><td>~106 purchases that would not have happened anyway</td></tr>
+    <tr><td>90-day repeat, promo cohort</td><td class="num">15%</td><td>below the 24% base rate &mdash; the discount buys weaker customers</td></tr>
+    <tr><td>Marketing / creative</td><td class="num">$180</td><td>for the period</td></tr>
+    <tr><td>Net incremental GP</td><td class="num">~+$0.27k / mo</td><td>working model</td></tr>
+    <tr class="tot"><td>Effective LTV:CAC</td><td class="num">~1.1&times;</td><td>far too thin a cushion to scale</td></tr>
+  </table>
+  <div class="callout"><div class="callout-t">Verdict &mdash; <span style="color:#E06010">Fix, don't scale</span></div>
+    <p>The problem is not the discount itself: it buys the first ticket but not the second. The mechanic
+    earns its place only if the promo code collects consent and automatically fires the 7-day return
+    offer. Scale rule: incremental share &ge;45%, 90-day repeat &ge;22%, GP LTV:CAC &ge;2.5&times;.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 12</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p13 §5 PROMOS II -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">05 &middot; Promotions</span></div>
+
+  <h3 style="margin-top:0">5.3 Free donut with a latte: the volume never pays for the giveaway</h3>
+  <table class="tbl compact">
+    <tr><th style="width:30%">Parameter</th><th class="num">Value</th><th>Logic</th></tr>
+    <tr><td>Latte orders in the promo window, baseline</td><td class="num">456 / mo</td><td>modelled baseline for the limited afternoon window</td></tr>
+    <tr><td>Orders with promo</td><td class="num">520 / mo</td><td>+14%</td></tr>
+    <tr><td>Latte GP without the gift</td><td class="num">$4.50</td><td>$6.50 price &minus; $2.00 COGS</td></tr>
+    <tr><td>Promo GP / order</td><td class="num">$3.25</td><td>less ~$1.25 gift COGS</td></tr>
+    <tr><td>Direct GP delta</td><td class="num">&minus;$0.36k / mo</td><td>the volume lift does not cover the gift</td></tr>
+    <tr><td>Cannibalized pastry GP</td><td class="num">~&minus;$0.21k / mo</td><td>some recipients would have paid for food</td></tr>
+    <tr class="tot"><td>Net effect</td><td class="num">~&minus;$0.57k / mo</td><td>preliminary</td></tr>
+  </table>
+  <div class="callout"><div class="callout-t">Verdict &mdash; <span style="color:#4166F5">Rebuild</span></div>
+    <p>Don't hand free food to anyone who orders a latte. Move the free item to where it changes the
+    behaviour we need: a lapsed customer with two drinks, a referral visit, or a first family visit.
+    Then the gift becomes an acquisition / retention cost &mdash; not a discount to the existing base.</p></div>
+  <p class="src">Data status: Happy Hour is computed on the actual configured mechanic. For the first-order
+  and donut promos the POS export lacked full redemption logs; the working models above carry threshold
+  rules and must be replaced with actual redemptions / incrementality / repeat at final validation.</p>
+
+  <h3>The promo portfolio at a glance</h3>
+  <div class="chart"><svg viewBox="0 0 660 190" role="img" aria-label="Net monthly gross-profit effect per promotion: Happy Hour minus 1,173 dollars and free donut minus 570 destroy margin, while first-order plus 274, 7-day return plus 330, reactivation plus 390 and the pair bundle plus 660 each buy a specific behaviour.">
+    <rect x="84" y="14" width="246" height="16" fill="#E0443F"/><text x="78" y="26" text-anchor="end" font-family="DM Sans, sans-serif" font-size="9" fill="#E0443F">&#8722;$1,173</text><text x="338" y="26" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">Happy Hour &#8722;20%</text>
+    <rect x="210" y="40" width="120" height="16" fill="#E0443F"/><text x="204" y="52" text-anchor="end" font-family="DM Sans, sans-serif" font-size="9" fill="#E0443F">&#8722;$570</text><text x="338" y="52" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">Free donut w/ latte</text>
+    <rect x="330" y="66" width="58" height="16" fill="#0EA5A5"/><text x="394" y="78" font-family="DM Sans, sans-serif" font-size="9" fill="#0EA5A5">+$274</text><text x="322" y="78" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">First-order &#8722;15%</text>
+    <rect x="330" y="92" width="69" height="16" fill="#0EA5A5"/><text x="405" y="104" font-family="DM Sans, sans-serif" font-size="9" fill="#0EA5A5">+$330</text><text x="322" y="104" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">7-day return &#8212; new</text>
+    <rect x="330" y="118" width="82" height="16" fill="#0EA5A5"/><text x="418" y="130" font-family="DM Sans, sans-serif" font-size="9" fill="#0EA5A5">+$390</text><text x="322" y="130" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">Reactivation &#8212; new</text>
+    <rect x="330" y="144" width="139" height="16" fill="#0EA5A5"/><text x="475" y="156" font-family="DM Sans, sans-serif" font-size="9" fill="#0EA5A5">+$660</text><text x="322" y="156" text-anchor="end" font-family="DM Sans, sans-serif" font-size="8.5" fill="#1A1A2E">Pair bundle &#8212; new</text>
+    <line x1="330" y1="6" x2="330" y2="172" stroke="#1A1A2E" stroke-opacity="0.35" stroke-width="1"/>
+    <text x="36" y="184" font-family="DM Mono, monospace" font-size="7" fill="#8A8A9A">NET GP EFFECT, $ / MONTH &middot; RED DESTROYS MARGIN, TEAL BUYS A SPECIFIC BEHAVIOUR</text>
+  </svg></div>
+  <p class="src">Monthly steady-state. 7-day return = 90-day GP LTV &divide; 3; reactivation = one wave per month; modelled mechanics marked in 5.2&ndash;5.3 &mdash; validate against POS redemptions.</p>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 13</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p14 §5 REPLACEMENTS -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">05 &middot; Promotions</span></div>
+  <h3 style="margin-top:0">5.4 What to run instead of blanket discounts</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:18%">Mechanic</th><th style="width:26%">Offer</th><th style="width:22%">The hole it closes</th><th style="width:22%">Economics</th><th>KPI</th></tr></thead>
+    <tbody><tr><td><b>Priority 1</b> &middot; 7-day return</td><td>Pastry for $2 with any drink, within 7 days of the first visit</td><td>The customer doesn't come back on their own</td><td class="num">55 incremental returns give ~+$990 90-day GP LTV</td><td>2nd-visit rate</td></tr>
+    <tr><td><b>Priority 2</b> &middot; Pair bundle</td><td>2 drinks + pastry = $17.20 vs ~$18.20 separately</td><td>The social segment's ticket</td><td class="num">~300 sales give +~$660 GP/mo</td><td>Pair ticket / attach</td></tr>
+    <tr><td>Reactivation</td><td>Free cookie &mdash; only with 2 drinks</td><td>Lapsed 30/60/90</td><td class="num">600 lapsed &times; 8% redemption give ~+$390 net GP / wave</td><td>Reactivation</td></tr>
+    <tr><td>Referral</td><td>$3 credit to both &mdash; after the invitee's purchase</td><td>Need high-fit new customers</td><td class="num">50 new at CAC ~$6&ndash;8 vs paid ~$19</td><td>Referral CAC</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <h3>5.5 The rule for any future promotion</h3>
+  <ol class="rules">
+    <li>Fix the target behaviour first &mdash; first visit, second visit, food attach, referral,
+        reactivation. Never &ldquo;increase sales in general&rdquo;.</li>
+    <li>Compute baseline GP without the promo. If the baseline is unknown, the promo cannot be evaluated.</li>
+    <li>Compute break-even: how many extra transactions must cover the discount + COGS + media cost.</li>
+    <li>Separate incremental customers from those who would have bought anyway. A discount to the
+        existing base is cannibalization.</li>
+    <li>Track not just redemptions but the 30/60/90-day repeat and GP LTV of the new cohort.</li>
+    <li>Write the kill / scale threshold before launch. A promo without a stop-loss becomes a
+        permanent margin leak.</li>
+  </ol>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 14</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p15 §6 CHANNELS -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">06 &middot; Acquisition &amp; retention</span></div>
+  <div class="kicker">Section 06</div>
+  <h1>Acquisition &amp; Retention</h1><div class="rule"></div>
+
+  <h3>6.1 Customer stages: today the system ends at the first purchase</h3>
+  <p class="mobile-note">Table scrolls sideways &rarr;</p>
+  <table class="tbl xcompact">
+    <tr><th style="width:16%">Stage</th><th style="width:22%">Task</th><th style="width:24%">Instruments</th><th style="width:18%">Today</th><th>Decision</th></tr>
+    <tr><td>Not thinking about it</td><td>Create the occasion / scenario</td><td>Local UGC, creators, neighbourhood partnerships</td><td>Occasional UGC</td><td>Social / family stories; &gt;60% geo-local audience.</td></tr>
+    <tr><td>Aware of the scenario</td><td>Show &ldquo;this place is for me&rdquo;</td><td>Meta local, content, Maps discovery</td><td>Meta runs, message is product-first</td><td>Rewrite creatives around meet-up / family.</td></tr>
+    <tr><td>Choosing a venue</td><td>Remove risk and friction</td><td>Google Search, GBP, reviews, website</td><td>Google works; GBP under-managed</td><td>Scale intent; photos / reviews / menu.</td></tr>
+    <tr><td>First visit</td><td>Capture an identifier + segment</td><td>POS / QR / receipt</td><td>No stable capture</td><td>Consent + JTBD + source tag.</td></tr>
+    <tr><td>Second visit</td><td>Create a concrete reason</td><td>7-day SMS, return offer</td><td>None</td><td><span class="chip build">Build</span></td></tr>
+    <tr><td>Days 30&ndash;90</td><td>Prevent silent churn</td><td>Reactivation, seasonal, occasions</td><td>Almost none</td><td><span class="chip build">Build</span></td></tr>
+    <tr><td>Loyalty</td><td>Referral + a favourite routine</td><td>Referral / CRM / staff recognition</td><td>Word-of-mouth exists, unmanaged</td><td>Formalize referral + personalisation.</td></tr>
+  </table>
+
+  <h3>6.2 Current channel economics</h3>
+  <table class="tbl compact">
+    <tr><th>Channel</th><th class="num">Spend / mo</th><th class="num">New / mo</th><th class="num">CAC</th><th class="num">90d ROMI</th><th>Verdict</th></tr>
+    <tr><td>Google Search</td><td class="num">$1,100</td><td class="num">95</td><td class="num">$11.58</td><td class="num">185%</td><td><span class="chip scale">Scale</span> / fix</td></tr>
+    <tr><td>Meta local</td><td class="num">$900</td><td class="num">48</td><td class="num">$18.75</td><td class="num">76%</td><td><span class="chip fix">Fix</span></td></tr>
+    <tr><td>Boosted posts</td><td class="num">$800</td><td class="num">12</td><td class="num">$66.67</td><td class="num">&minus;50%</td><td><span class="chip stop">Stop</span></td></tr>
+    <tr><td>Flyers</td><td class="num">$500</td><td class="num">15</td><td class="num">$33.33</td><td class="num">&minus;1%</td><td><span class="chip stop">Stop</span></td></tr>
+    <tr><td>Creator / UGC</td><td class="num">$300</td><td class="num">20</td><td class="num">$15.00</td><td class="num">120%</td><td>Keep / test</td></tr>
+    <tr><td>Google Business Profile</td><td class="num">$0</td><td class="num">~150 organic</td><td class="num">~$0</td><td class="num">very high</td><td><span class="chip scale">Scale</span></td></tr>
+    <tr><td>CRM / SMS</td><td class="num">~$0</td><td colspan="2">barely used</td><td class="num">&mdash;</td><td><span class="chip build">Build</span></td></tr>
+  </table>
+  <div class="callout"><div class="callout-t">The main hole in the media mix</div>
+    <p><b>$1,300 of $3,600 (36%)</b> goes to boosted posts and flyers &mdash; channels with CAC of
+    $33&ndash;67 and ROMI at or below zero. Meanwhile the two cheapest sources of ready demand and
+    repeat visits &mdash; Google Business Profile and CRM &mdash; are effectively unmanaged.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 15</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p16 §6 NEW MIX -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">06 &middot; Acquisition &amp; retention</span></div>
+  <h3 style="margin-top:0">6.3 The new media mix: the budget does not grow</h3>
+  <p class="mobile-note">Table scrolls sideways &rarr;</p>
+  <table class="tbl compact">
+    <tr><th>Channel</th><th class="num">New spend</th><th class="num">Result</th><th class="num">CAC / CPA</th><th class="num">ROMI</th><th style="width:30%">What changes</th></tr>
+    <tr><td>Google Search</td><td class="num">$1,100</td><td class="num">120 new</td><td class="num">$9.17</td><td class="num">260%</td><td>High-intent + brand / non-brand split; occasion and local queries.</td></tr>
+    <tr><td>Meta local / social</td><td class="num">$700</td><td class="num">65 new</td><td class="num">$10.77</td><td class="num">206%</td><td>Creatives about meet-up / family; geo-only.</td></tr>
+    <tr><td>Referral</td><td class="num">$450</td><td class="num">55 new</td><td class="num">$8.18</td><td class="num">303%</td><td>Incentive paid only after the invitee's purchase.</td></tr>
+    <tr><td>GBP + local SEO</td><td class="num">$650</td><td class="num">70 new</td><td class="num">$9.29</td><td class="num">255%</td><td>Reviews, photos, menu, weekly posts, local pages.</td></tr>
+    <tr><td>Creator / UGC</td><td class="num">$300</td><td class="num">20 new</td><td class="num">$15.00</td><td class="num">120%</td><td>Only local creators with geo-relevant audiences.</td></tr>
+    <tr><td>CRM reactivation</td><td class="num">$400</td><td class="num">60 returns</td><td class="num">$6.67</td><td class="num">260%</td><td>Lapsed 30/60/90 + seasonal / occasion triggers.</td></tr>
+    <tr class="tot"><td>Total</td><td class="num">$3,600</td><td class="num">330 new + 60 returns</td><td class="num">&mdash;</td><td class="num">~243% blended</td><td>Same spend, reallocated.</td></tr>
+  </table>
+  <p class="src">Steady-state at the same $3.6k spend: +$2.4&ndash;3.0k revenue/mo and +$1.0&ndash;1.3k GP/mo.
+  The point is not buying more impressions &mdash; it is paying only where the person is close to a
+  purchase or has already been a customer.</p>
+
+  <h3>6.4 The retention engine: the second visit is designed, not left to memory</h3>
+  <div class="tiles">
+    <div class="tile"><div class="tile-l">90-day repeat</div><div class="tile-v">30&ndash;32%</div><div class="tile-n">target &middot; from 24% today</div></div>
+    <div class="tile"><div class="tile-l">Frequency</div><div class="tile-v">2.60&ndash;2.65&times;</div><div class="tile-n">visits / month &middot; from 2.46&times;</div></div>
+    <div class="tile"><div class="tile-l">Time to 2nd visit</div><div class="tile-v">&lt;14 days</div><div class="tile-n">target</div></div>
+    <div class="tile"><div class="tile-l">Revenue LTV</div><div class="tile-v">+13&ndash;18%</div><div class="tile-n">at the same CAC</div></div>
+  </div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 16</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p17 §6 RETENTION -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">06 &middot; Acquisition &amp; retention</span></div>
+
+  <p class="lede" style="margin-top:0">The retention engine, moment by moment &mdash; each step exists to manufacture the next visit:</p>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:18%">Moment</th><th style="width:52%">Communication</th><th>KPI</th></tr></thead>
+    <tbody><tr><td>Day 0</td><td>Receipt / QR: consent + JTBD + source tag</td><td>Capture &gt;55% of transactions</td></tr>
+    <tr><td>Day 2&ndash;3</td><td>Thank-you + a recommendation matched to the visit scenario</td><td>Open / click</td></tr>
+    <tr><td>Day 5&ndash;7</td><td>Return offer for the second visit</td><td>2nd-visit conversion</td></tr>
+    <tr><td>Day 21&ndash;30</td><td>If no return &mdash; reactivation</td><td>Reactivation rate</td></tr>
+    <tr><td>After 3rd visit</td><td>Referral + pair / favourite reminder</td><td>Referral CAC / frequency</td></tr>
+    <tr><td>Day 60&ndash;90</td><td>Segmented win-back / seasonal occasion</td><td>90-day repeat</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <h3>6.5 Stop-loss and scale rules per instrument</h3>
+  <div class="locked">
+  <table class="tbl compact">
+    <thead><tr><th style="width:16%">Instrument</th><th style="width:42%">Stop if</th><th>Scale if</th></tr></thead>
+    <tbody><tr><td>Google / Meta</td><td>30 clicks without a purchase, or CAC &gt;$18 after the learning phase</td><td>GP LTV:CAC &ge;3:1 for two weeks; scale +20%/week.</td></tr>
+    <tr><td>Creator / UGC</td><td>CAC &gt;$20 or local audience &lt;60%</td><td>CAC &le;$15 and social / family mix above average.</td></tr>
+    <tr><td>CRM</td><td>Unsubscribe &gt;1.5% or net GP per recipient &le;0</td><td>Net GP positive two waves in a row.</td></tr>
+    <tr><td>Referral</td><td>CAC &gt;$10</td><td>&ge;40% of new customers land in Social / Family.</td></tr>
+    <tr><td>Any promo</td><td>Incremental GP &le;0</td><td>Positive GP + the target behaviour, two cycles in a row.</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <div class="callout quiet"><div class="callout-t">Why this section matters more than any single channel</div>
+    <p>Every acquisition dollar is amplified or wasted by what happens after the first visit. Moving the
+    90-day repeat rate from 24% to 30&ndash;32% raises the value of <b>every</b> channel in the mix at
+    once &mdash; which is why the retention engine is built before the winning channels are scaled.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 17</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p18 §7 DIGITAL JOURNEY -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:26%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">07 &middot; Digital customer journey</span></div>
+  <div class="kicker">Section 07</div>
+  <h1>Digital Journey: Website, Instagram, GBP</h1><div class="rule"></div>
+
+  <h3>7.1 What the customer needs to see in each channel</h3>
+  <div class="locked">
+  <table class="tbl xcompact">
+    <thead><tr><th style="width:15%">Touchpoint</th><th style="width:24%">Customer's question</th><th style="width:26%">What must be there</th><th style="width:18%">Today</th><th>The gap</th></tr></thead>
+    <tbody><tr><td>Google Maps / GBP</td><td>&ldquo;Does this place fit right now?&rdquo;</td><td>Photos of the space, hours, menu, reviews, directions, family / food signals</td><td>Bean-first; GBP under-managed</td><td>Ready demand goes wherever uncertainty is lower.</td></tr>
+    <tr><td>Website</td><td>&ldquo;Why here, and what do I get?&rdquo;</td><td>JTBD hero, proof, menu, occasion blocks, location / parking, CTA</td><td>Specialty / bean origin</td><td>Weak conversion of high-LTV scenarios.</td></tr>
+    <tr><td>Instagram</td><td>&ldquo;How does it feel? Who do I go with?&rdquo;</td><td>People, tables, neighbourhood, family / weekend, seasonal food</td><td>Latte art; ~11% of followers local</td><td>Beautiful reach without local footfall.</td></tr>
+    <tr><td>After the visit</td><td>&ldquo;Is there a reason to come back?&rdquo;</td><td>Receipt CTA, CRM, referral, seasonal offers</td><td>No systematic step</td><td>Silent churn.</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <h3>The digital presence, before and after</h3>
+  <div class="ba">
+    <div class="ba-head"><span></span><span>Before &middot; today</span><span class="aft">After &middot; rebuilt</span></div>
+
+    <div class="ba-row">
+      <div class="ba-lbl">Website</div>
+      <div class="ba-cell"><div class="ba-bar2"><i></i><i></i><i></i></div><div class="inner">
+        <div class="mk-h">Welcome to Our Website</div>
+        <div class="mk-p">We have been proudly serving Victoria since 2009. Learn more about our company and our full list of services.</div>
+        <span class="mk-btn">Learn more</span>
+        <div class="mk-line" style="width:88%"></div><div class="mk-line" style="width:72%"></div>
+      </div></div>
+      <div class="ba-cell aft"><div class="ba-bar2"><i></i><i></i><i></i></div><div class="inner">
+        <div class="mk-h">The neighbourhood spot to catch up.</div>
+        <div class="mk-p">Specialty coffee, food to share and a warm place to meet in Victoria.</div>
+        <span class="mk-btn go">See the menu</span><span class="mk-btn">Get directions</span>
+        <div class="mk-tiles"><i></i><i></i><i></i></div>
+      </div></div>
+    </div>
+
+    <div class="ba-row">
+      <div class="ba-lbl">Social media</div>
+      <div class="ba-cell"><div class="ba-bar2"><i></i><i></i><i></i></div><div class="inner">
+        <div class="mk-h">@handle</div>
+        <div class="mk-p">Specialty coffee roasted in small batches. Single origin. Open 7 days.</div>
+        <div class="mk-tiles"><i></i><i></i><i></i></div>
+      </div></div>
+      <div class="ba-cell aft"><div class="ba-bar2"><i></i><i></i><i></i></div><div class="inner">
+        <div class="mk-h">The neighbourhood spot to catch up</div>
+        <div class="mk-p">Specialty coffee + food to share &middot; Kid-friendly weekends &middot; Victoria, BC</div>
+        <div class="mk-dots"><i></i><i></i><i></i><i></i></div>
+        <div class="mk-tiles"><i></i><i></i><i></i></div>
+      </div></div>
+    </div>
+
+    <div class="ba-row">
+      <div class="ba-lbl">Google Maps</div>
+      <div class="ba-cell"><div class="ba-bar2"><i></i><i></i><i></i></div><div class="inner">
+        <div class="mk-h">Coffee shop</div>
+        <div class="mk-p">Hours only. Two photos, both of the counter. No menu, no replies to reviews, no Q&amp;A.</div>
+        <div class="mk-line" style="width:60%"></div>
+      </div></div>
+      <div class="ba-cell aft"><div class="ba-bar2"><i></i><i></i><i></i></div><div class="inner">
+        <div class="mk-h">4.7 / 5 &middot; 94 reviews</div>
+        <div class="mk-p">Menu with the pair offer &middot; weekly photos of people at tables &middot; replies under 48h &middot; Q&amp;A pre-answered.</div>
+        <div class="mk-tiles"><i></i><i></i><i></i></div>
+      </div></div>
+    </div>
+  </div>
+  <p class="src">Wireframes of the current presence against the rebuilt one, drawn per channel. The exact copy,
+  blocks and settings behind the right-hand column are specified in 7.2&ndash;7.4 and delivered in the client version.</p>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 18</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p19 §7 WEBSITE / IG / GBP -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">07 &middot; Digital customer journey</span></div>
+
+  <h3 style="margin-top:0">7.2 The website: a new first screen and structure</h3>
+  <div class="locked">
+  <table class="tbl xcompact">
+    <thead><tr><th style="width:16%">Element</th><th style="width:44%">Recommended text / block</th><th>Why</th></tr></thead>
+    <tbody><tr><td>Hero H1</td><td><b>The neighbourhood spot to catch up.</b></td><td>Explains the occasion, not the product.</td></tr>
+    <tr><td>Hero sub</td><td>Specialty coffee, food to share and a warm place to meet in Victoria.</td><td>Coffee stays as the proof of quality &mdash; not the only meaning.</td></tr>
+    <tr><td>CTA 1</td><td>See the menu</td><td>Removes &ldquo;what's there and what does it cost&rdquo;.</td></tr>
+    <tr><td>CTA 2</td><td>Get directions</td><td>For local intent this is often the true conversion action.</td></tr>
+    <tr><td>Proof strip</td><td>4.7 / 5 &middot; 94 reviews &middot; &ldquo;cozy / catch-up / warm&rdquo;</td><td>Social proof in the customers' own words.</td></tr>
+    <tr><td>Occasion blocks</td><td>Catch up &middot; Date &middot; Family weekend &middot; Quick coffee</td><td>The customer recognizes their scenario.</td></tr>
+    <tr><td>Food block</td><td>Pair bundle / shareable food / breakfast sandwich</td><td>Raises the expected ticket before the visit.</td></tr>
+    <tr><td>Location block</td><td>Hours + map + access / seating notes</td><td>Removes the friction of choosing.</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <h3>7.3 Instagram: from coffee content to local demand</h3>
+      <div class="callout quiet"><div class="callout-t">New bio</div>
+        <p>The neighbourhood spot to catch up<br>Specialty coffee + food to share<br>
+        Kid-friendly weekends &middot; Victoria, BC<br>Link: menu &middot; hours &middot; directions</p></div>
+      <div class="locked">
+      <table class="tbl xcompact">
+        <thead><tr><th>Content pillar</th><th class="num">Share</th><th>KPI</th></tr></thead>
+        <tbody><tr><td>People / occasions &mdash; friends, dates, family weekends, &ldquo;tag who you'd bring&rdquo;</td><td class="num">40%</td><td>Local intent / shares</td></tr>
+        <tr><td>Food / offer &mdash; pair bundle, breakfast sandwich, seasonal, counter display</td><td class="num">30%</td><td>Attach / visit reason</td></tr>
+        <tr><td>Neighbourhood / community &mdash; the street, nearby partners, events</td><td class="num">20%</td><td>Local relevance</td></tr>
+        <tr><td>Coffee craft &mdash; bean / process, as proof only</td><td class="num">10%</td><td>Credibility</td></tr></tbody>
+      </table>
+        <div class="lockchip">In the client version</div>
+      </div>
+      <p class="src">Highlights: MENU &middot; MEET HERE &middot; FAMILY &middot; SEASONAL &middot; REVIEWS &middot; FIND US</p>
+    </div>
+    <div>
+      <h3>7.4 Google Business Profile: the cheapest high-intent channel, run as an asset</h3>
+      <div class="locked">
+      <table class="tbl xcompact">
+        <thead><tr><th style="width:22%">Element</th><th>Action</th></tr></thead>
+        <tbody><tr><td>Photos</td><td>Weekly: people at tables / food / space / exterior. KPI: views converting to directions.</td></tr>
+        <tr><td>Reviews</td><td>Staff ask + QR; 5+ new/week for the first 90 days. KPI: velocity / rating.</td></tr>
+        <tr><td>Replies</td><td>Personal, &lt;48h, echoing a concrete detail of the review.</td></tr>
+        <tr><td>Menu</td><td>Current hero items + the pair / family offer. KPI: menu clicks.</td></tr>
+        <tr><td>Posts</td><td>1/week: seasonal / pair / event / family weekend.</td></tr>
+        <tr><td>Q&amp;A</td><td>Pre-answer seating, food, kids, hours, access.</td></tr>
+        <tr><td>Tracking</td><td>UTM on website / menu links. KPI: GBP-attributed sessions.</td></tr></tbody>
+      </table>
+        <div class="lockchip">In the client version</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 19</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p20 §8 PRIORITIES -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">08 &middot; Priorities &amp; the 90-day plan</span></div>
+  <div class="kicker">Section 08</div>
+  <h1>Priorities &amp; the 90-Day Plan</h1><div class="rule"></div>
+
+  <h3>8.1 The initiative portfolio: what to do first</h3>
+  <div class="locked">
+  <table class="tbl xcompact">
+    <thead><tr><th style="width:3%">P</th><th style="width:26%">Initiative</th><th class="num">Cost</th><th class="num">Time</th><th class="num">GP / mo</th><th>Conf.</th><th style="width:12%">Owner</th><th>Lead KPI</th></tr></thead>
+    <tbody><tr><td>1</td><td>Stop Happy Hour</td><td class="num">$0</td><td class="num">1 wk</td><td class="num">+$1.17k</td><td>HIGH</td><td>Owner</td><td>Promo GP</td></tr>
+    <tr><td>2</td><td>Stop boosted posts + generic flyers</td><td class="num">$0</td><td class="num">1 wk</td><td class="num">+$0.3&ndash;0.5k</td><td>HIGH</td><td>Marketer</td><td>Spend saved / CAC</td></tr>
+    <tr><td>3</td><td>Tracking: source + JTBD + promo tags</td><td class="num">$200&ndash;400</td><td class="num">2 wks</td><td>Enabler</td><td>HIGH</td><td>POS / Marketing</td><td>Coverage &gt;90%</td></tr>
+    <tr><td>4</td><td>Menu cut: 6&ndash;8 tail SKUs</td><td class="num">$100&ndash;300</td><td class="num">2&ndash;4 wks</td><td class="num">+$0.4&ndash;0.7k</td><td>MED-HIGH</td><td>Ops</td><td>GP / SKU, waste</td></tr>
+    <tr><td>5</td><td>Food visibility + pair bundle</td><td class="num">$100&ndash;300</td><td class="num">2&ndash;4 wks</td><td class="num">+$0.8&ndash;1.1k</td><td>MED-HIGH</td><td>Ops</td><td>Food attach</td></tr>
+    <tr><td>6</td><td>Upsell script + staff training</td><td class="num">$0&ndash;150</td><td class="num">2&ndash;4 wks</td><td class="num">+$0.25&ndash;0.35k</td><td>HIGH</td><td>Manager</td><td>Upsell rate</td></tr>
+    <tr><td>7</td><td>Website / GBP / IG repositioning</td><td class="num">$600&ndash;1,200</td><td class="num">3&ndash;6 wks</td><td class="num">+$0.5&ndash;0.8k</td><td>MED</td><td>Marketing</td><td>Social / family mix</td></tr>
+    <tr><td>8</td><td>Family experience layer</td><td class="num">$300&ndash;900</td><td class="num">3&ndash;6 wks</td><td class="num">+$0.3&ndash;0.5k</td><td>MED</td><td>Owner / Ops</td><td>Family share</td></tr>
+    <tr><td>9</td><td>7-day return CRM</td><td class="num">$150&ndash;300</td><td class="num">4&ndash;6 wks</td><td class="num">+$0.5&ndash;0.7k</td><td>MED-HIGH</td><td>CRM</td><td>2nd-visit rate</td></tr>
+    <tr><td>10</td><td>30/60/90 reactivation</td><td class="num">$100&ndash;250</td><td class="num">4&ndash;8 wks</td><td class="num">+$0.3&ndash;0.4k</td><td>MED-HIGH</td><td>CRM</td><td>Reactivation</td></tr>
+    <tr><td>11</td><td>Channel budget reallocation</td><td class="num">neutral</td><td class="num">4&ndash;8 wks</td><td class="num">+$1.0&ndash;1.3k</td><td>MED-HIGH</td><td>Marketer</td><td>Blended ROMI</td></tr>
+    <tr><td>12</td><td>Referral pilot</td><td class="num">$150&ndash;450</td><td class="num">6&ndash;8 wks</td><td class="num">+$0.4&ndash;0.6k</td><td>MED</td><td>Owner / CRM</td><td>Referral CAC</td></tr>
+    <tr><td>13</td><td>Selective pricing tests</td><td class="num">$0</td><td class="num">6&ndash;10 wks</td><td class="num">+$0.2&ndash;0.35k</td><td>MED</td><td>Owner</td><td>GM / unit</td></tr>
+    <tr><td>14</td><td>Scale winners / kill weak tests</td><td class="num">$0</td><td class="num">8&ndash;12 wks</td><td>captures target</td><td>HIGH</td><td>Owner + Mktg</td><td>GP LTV:CAC</td></tr></tbody>
+  </table>
+    <div class="lockchip">In the client version</div>
+  </div>
+
+  <h3>8.2 The roadmap: four phases</h3>
+  <div class="phases">
+    <div class="phase">
+      <div class="pl">Days 1&ndash;14</div><div class="pn">Control</div>
+      <p>Happy Hour, boosted posts and flyers off. Tracking live: source / JTBD / promo tags. Baseline dashboard.</p>
+      <div class="pv">+$1.2&ndash;1.5k<span>GP / mo &middot; cost $0&ndash;400</span></div>
+    </div>
+    <div class="phase">
+      <div class="pl">Days 15&ndash;30</div><div class="pn">Monetize</div>
+      <p>C-menu trimmed. Food visibility, pair bundle, upsell script. Hero copy on website / GBP.</p>
+      <div class="pv">+$1.0&ndash;1.5k<span>GP / mo &middot; cost $300&ndash;1,100</span></div>
+    </div>
+    <div class="phase">
+      <div class="pl">Days 31&ndash;60</div><div class="pn">Retain</div>
+      <p>Consent capture. 7-day return, reactivation, family layer, referral pilot.</p>
+      <div class="pv">+$0.8&ndash;1.3k<span>GP / mo &middot; cost $350&ndash;1,000</span></div>
+    </div>
+    <div class="phase dark">
+      <div class="pl">Days 61&ndash;90</div><div class="pn">Scale</div>
+      <p>Scale Search / Meta winners, local SEO, UGC, price tests. Stop-loss on weak experiments.</p>
+      <div class="pv">Remaining target<span>budget-neutral</span></div>
+    </div>
+  </div>
+
+  <h3>8.3 Checkpoints: what must be true at each gate</h3>
+  <table class="tbl compact">
+    <tr><th style="width:12%">Checkpoint</th><th style="width:52%">Leading KPI</th><th>Decision</th></tr>
+    <tr><td>Day 14</td><td>100% of promo and media spend has tracking + break-even logic</td><td>No &ldquo;unknown&rdquo; spending; Happy Hour off.</td></tr>
+    <tr><td>Day 30</td><td>Food attach +6&ndash;8 pts; C-menu trimmed; pair bundle live</td><td>GP per transaction is rising.</td></tr>
+    <tr><td>Day 60</td><td>2nd visit +4 pts; reactivation and referral GP-positive</td><td>Retention works independently of acquisition.</td></tr>
+    <tr><td>Day 90</td><td>90-day repeat moving to 30&ndash;32%; GP LTV:CAC &ge;3:1 in scale channels</td><td>Budget may grow &mdash; only into winners.</td></tr>
+  </table>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 20</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p21 §8 DASHBOARD -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:30%;left:-6%">Sample</span><span style="top:70%;left:28%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">08 &middot; Priorities &amp; the 90-day plan</span></div>
+
+  <h3 style="margin-top:0">8.4 The 90-day target dashboard</h3>
+  <table class="tbl compact">
+    <tr><th>KPI</th><th class="num">Today</th><th class="num">90-day target</th><th class="num">&Delta;</th><th>How it is counted</th></tr>
+    <tr><td>Revenue / mo</td><td class="num">$63.6k</td><td class="num">$73.8&ndash;76.3k</td><td class="num">+16&ndash;20%</td><td>Clients &times; frequency &times; ticket</td></tr>
+    <tr><td>Gross profit / mo</td><td class="num">$40.8k</td><td class="num">$47.5&ndash;49.2k</td><td class="num">+$6.7&ndash;8.4k</td><td>Revenue &times; GM</td></tr>
+    <tr><td>Gross margin</td><td class="num">64.1%</td><td class="num">65&ndash;66%</td><td class="num">+0.9&ndash;1.9 pts</td><td>Menu / pricing / promo</td></tr>
+    <tr><td>Avg ticket</td><td class="num">$10.98</td><td class="num">$11.55&ndash;11.75</td><td class="num">+5&ndash;7%</td><td>Food attach + upsell</td></tr>
+    <tr><td>Frequency</td><td class="num">2.46&times;</td><td class="num">2.60&ndash;2.65&times;</td><td class="num">+6&ndash;8%</td><td>Retention engine</td></tr>
+    <tr><td>90-day repeat</td><td class="num">24%</td><td class="num">30&ndash;32%</td><td class="num">+6&ndash;8 pts</td><td>Cohort</td></tr>
+    <tr><td>Food attach</td><td class="num">62%</td><td class="num">70&ndash;74%</td><td class="num">+8&ndash;12 pts</td><td>POS basket</td></tr>
+    <tr><td>Paid CAC</td><td class="num">$18.95</td><td class="num">$9&ndash;12</td><td class="num">&minus;37&ndash;52%</td><td>New customers only</td></tr>
+    <tr><td>Managed ROMI</td><td class="num">~74% blended</td><td class="num">220&ndash;245%</td><td class="num">~3&times; quality</td><td>GP-based</td></tr>
+    <tr><td>Marketing spend</td><td class="num">$3.6k</td><td class="num">$3.6k</td><td class="num">0%</td><td>Reallocation only</td></tr>
+  </table>
+
+  <div class="callout"><div class="callout-t">The 90-day business effect</div>
+    <p>From a $63.6k/month base to a conservative steady state of <b>$73.8&ndash;76.3k revenue/month at
+    the same marketing budget</b>. Gross profit: +$6.7&ndash;8.4k/month. The key risk is not the ideas
+    &mdash; it is execution discipline, tracking, and the weekly closing of weak hypotheses.</p></div>
+
+  <h3>The final decision map</h3>
+  <table class="tbl compact">
+    <tr><th style="width:12%">Decision</th><th style="width:56%">What falls under it</th><th>Business result</th></tr>
+    <tr><td><span class="chip stop">Stop</span></td><td>Happy Hour &minus;20%; boosted posts; generic flyers; Breakfast Tea; Salad Bowl; the unsystematic free donut</td><td>Margin and focus returned.</td></tr>
+    <tr><td><span class="chip fix">Fix</span></td><td>First-order offer; Meta message; slow-prep food; the current website / Instagram / GBP; Matcha and pour-over pricing</td><td>The economics become manageable.</td></tr>
+    <tr><td><span class="chip build">Build</span></td><td>Pair bundle; family layer; 7-day return; reactivation; referral; POS tags; CRM cohort dashboard</td><td>Ticket + frequency + LTV growth.</td></tr>
+    <tr><td><span class="chip scale">Scale</span></td><td>Google Search; GBP / reviews; food heroes; social / family creative; local UGC</td><td>More high-fit demand at the same spend.</td></tr>
+  </table>
+
+  <div class="callout quiet"><div class="callout-t">The final bearing</div>
+    <p>In 90 days this business should earn more not because &ldquo;there is more advertising&rdquo;,
+    but because every element of the model got stronger: a more valuable customer enters the base, each
+    visit monetizes better, the customer returns sooner &mdash; and every marketing dollar goes where
+    its gross profit can be measured.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 21</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p22 §9 APPENDIX -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:32%;left:-8%">Sample</span><span style="top:72%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">09 &middot; Appendix: calculation logic</span></div>
+  <div class="kicker">Section 09</div>
+  <h1>Appendix: Calculation Logic &amp; Control</h1><div class="rule"></div>
+
+  <div class="two-col">
+    <div>
+      <h3>9.1 The formulas behind the decisions</h3>
+      <table class="tbl xcompact">
+        <tr><th style="width:34%">Metric</th><th>Formula &amp; use</th></tr>
+        <tr><td>Revenue</td><td>Active customers &times; frequency &times; avg ticket &mdash; shows which multiplier growth comes from.</td></tr>
+        <tr><td>Gross profit</td><td>Revenue &times; gross margin &mdash; the deciding metric for menu, promo and channel calls.</td></tr>
+        <tr><td>Revenue LTV</td><td>Avg ticket &times; frequency &times; active life &mdash; compares segment value.</td></tr>
+        <tr><td>CAC</td><td>Marketing spend / new customers &mdash; kept separate from reactivation.</td></tr>
+        <tr><td>GP LTV : CAC</td><td>Gross-profit LTV / CAC &mdash; the scale gate; target &ge;3:1.</td></tr>
+        <tr><td>ROMI</td><td>(Attributed GP &minus; spend) / spend &mdash; always on GP, never on revenue.</td></tr>
+        <tr><td>Promo incremental GP</td><td>Incremental GP &minus; cannibalized GP &minus; incentive and media cost &mdash; the only number that decides stop / fix / scale.</td></tr>
+        <tr><td>Break-even discount volume</td><td>Baseline GP / GP per discounted order &mdash; the volume a discount must clear to not destroy GP.</td></tr>
+      </table>
+      <p class="src"><b>Confidence grades</b> used throughout the report &mdash; HIGH: computed directly from the
+      client's own export. MED-HIGH: computed, with one assumption stated in the row. MED: modelled from
+      a benchmark or a partial log, to be replaced with actuals at validation.</p>
+    </div>
+    <div>
+      <h3>9.2 The fields POS / CRM must collect</h3>
+      <table class="tbl xcompact">
+        <tr><th style="width:24%">Object</th><th>Minimum fields</th></tr>
+        <tr><td>Transaction</td><td>id, timestamp, SKU, qty, gross revenue, discount code, net revenue, COGS / GP</td></tr>
+        <tr><td>Customer</td><td>id / consent, first visit, last visit, JTBD tag, family / social flag</td></tr>
+        <tr><td>Source</td><td>Google / Meta / GBP / referral / UGC / walk-in / unknown</td></tr>
+        <tr><td>Campaign</td><td>UTM / promo code / campaign id</td></tr>
+        <tr><td>Visit context</td><td>takeaway / work / social / family</td></tr>
+        <tr><td>Review</td><td>date, rating, theme, response time</td></tr>
+      </table>
+      <h3>9.3 The weekly operating rhythm &mdash; 75 minutes</h3>
+      <table class="tbl xcompact">
+        <tr><th style="width:16%">Time</th><th>What is reviewed &mdash; what is decided</th></tr>
+        <tr><td>15 min</td><td>Revenue / GP / transactions / ticket / food attach &mdash; is the whole model moving.</td></tr>
+        <tr><td>15 min</td><td>Repeat / 2nd visit / reactivation / referral &mdash; is retention working.</td></tr>
+        <tr><td>15 min</td><td>CAC / ROMI / GP LTV:CAC by channel &mdash; what to switch off, what to scale.</td></tr>
+        <tr><td>10 min</td><td>Promo incremental GP &mdash; no promotion runs without its economics.</td></tr>
+        <tr><td>10 min</td><td>Top 10 / tail 10 SKUs &mdash; menu, waste, availability.</td></tr>
+        <tr><td>10 min</td><td>Experiment log: hypothesis, KPI, result, decision. Close tests, don't hoard ideas.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout"><div class="callout-t">Note on this sample</div>
+    <p>This document shows the complete format of a Dwelve marketing growth audit. The business is
+    illustrative, competitors are described by role, and all figures are illustrative &mdash; in a client
+    engagement every number is computed from the client's own POS, CRM and channel data.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 22</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+<!-- ========================================================== p23 CLOSING -->
+<section class="page"><div class="mark" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"><span style="top:34%;left:-8%">Sample</span><span style="top:74%;left:30%">Sample</span></div>
+  <div class="head"><span class="wm-word"><i>D</i>welve.</span><span class="crumb">What happens next</span></div>
+  <div class="kicker">Dwelve &middot; What happens next</div>
+  <h1>The Next 90 Days, With Us In The Room</h1><div class="rule"></div>
+
+  <p class="lede">A plan is worth what gets executed from it. The roadmap in section 08 is sequenced,
+  budgeted and owned &mdash; but the businesses that hit the target are the ones that keep score weekly,
+  kill the weak experiments on time and adjust as the data arrives. That is what Growth Advisory is for.</p>
+
+  <div class="prices">
+    <div class="feat"><span>Growth Advisory &middot; CA$2,349 / month</span><b>Ongoing support</b>
+      <p>We run the roadmap with you: the weekly rhythm from section 9.3, the dashboard from 8.4,
+      stop / scale calls made on time, and every initiative reported against the gross profit it was
+      supposed to produce. 50% off the first month if you ordered a report.</p></div>
+    <div><span>What you get every month</span><b>Control</b>
+      <p>KPI monitoring against this report's own targets &mdash; not vanity metrics. A monthly strategy
+      and results review. Independent supervision of any agency or freelancer executing the plan.</p></div>
+    <div><span>What you get along the way</span><b>New insight</b>
+      <p>Three months of fresh data answers questions this report could only model. We bring what the
+      numbers reveal as they arrive &mdash; the next opportunity, not a repeat of this one.</p></div>
+  </div>
+
+  <table class="tbl compact" style="margin-top:14px">
+    <tr><th style="width:22%">The engagement</th><th></th></tr>
+    <tr><td><b>This report</b></td><td>Advanced tier &middot; CA$3,949 &middot; ready in 30 business days &middot; 30 days of chat support &middot; presentation video call included</td></tr>
+    <tr><td><b>Cadence</b></td><td>Weekly 75-minute review (section 9.3) &middot; monthly strategy and results review &middot; day-14 / 30 / 60 / 90 checkpoints</td></tr>
+    <tr><td><b>Decisions</b></td><td>Channel scale and stop-loss rules (6.5), promo economics before launch (5.5), menu and pricing tests (4.7)</td></tr>
+    <tr><td><b>Terms</b></td><td>Growth Advisory CA$2,349 / month &middot; month to month &middot; 50% off the first month after a report</td></tr>
+    <tr><td><b>Strategist</b></td><td>Daria &mdash; marketing strategist, 10+ years, from local businesses to global brands like Microsoft</td></tr>
+    <tr><td><b>Contact</b></td><td>hello@dwelve.com &middot; dwelve.ca</td></tr>
+  </table>
+
+  <div class="callout"><div class="callout-t">100% money-back guarantee</div>
+    <p>If the report doesn't deliver value for your business, you get a full refund &mdash; no questions,
+    no conditions. We can offer that because the diagnosis is built from your own numbers before any
+    recommendation is written: by the time the report exists, both of us already know it had something
+    to say.</p></div>
+
+  <div class="callout quiet"><div class="callout-t">Note on this sample</div>
+    <p>A demonstration document: a representative business built end-to-end to show the depth and format
+    of a Dwelve report. Decision tables are masked in this public copy. The business, its competitors and
+    all figures are illustrative; your report is built the same way &mdash; from your own numbers.</p></div>
+
+  <div class="foot"><span>Dwelve &middot; Marketing Growth Audit &middot; sample report &middot; p. 23</span><span class="warn">Not a client deliverable</span></div>
+</section>
+
+</div><!-- /.deck -->
+
+<!-- The pre-built PDF rather than window.print(): same pages, no print dialog, and it
+     survives being forwarded. Regenerate with `node tools/build-pdf.mjs` after any edit. -->
+<a class="btn print-btn" href="assets/dwelve-sample-growth-audit.pdf" download
+   data-track="sample-pdf-download">&#8595;&nbsp; Download PDF</a>
+
+<script>
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+    if (!el) return;
+    var event = el.getAttribute('data-track');
+    if (!event) return;
+    try { window.plausible && window.plausible(event); } catch (_) {}
+  }, { passive: true });
+</script>
+</body>
+</html>

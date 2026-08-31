@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Specialty Coffee Shop Growth Audit | Dwelve</title>
+<meta name="description" content="A demonstration case: how a Dwelve marketing review found 43.8% of a coffee shop's customers producing 74% of its revenue, a promotion destroying $1.17k of gross profit a month, and $6.7–8.4k of monthly gross profit at the same marketing budget.">
+<link rel="canonical" href="https://dwelve.ca/case-study.html">
+<meta property="og:title" content="Case Study — Where a Coffee Shop Was Losing Its Margin">
+<meta property="og:description" content="43.8% of customers made 74% of revenue. The marketing budget was chasing the other 56%.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dwelve">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://dwelve.ca/case-study.html">
+<meta property="og:image" content="https://dwelve.ca/og-case-study.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="43.8% of its customers made 74% of the revenue — a Dwelve marketing case study.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Study — Where a Coffee Shop Was Losing Its Margin">
+<meta name="twitter:description" content="43.8% of customers made 74% of revenue. The marketing budget was chasing the other 56%.">
+<meta name="twitter:image" content="https://dwelve.ca/og-case-study.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Cg transform='translate(100,100)'%3E%3Ccircle cx='0' cy='-65' r='8' fill='%231A1A2E'/%3E%3Ccircle cx='32.5' cy='-56.29' r='11' fill='%23FF7518'/%3E%3Ccircle cx='56.29' cy='-32.5' r='5' fill='%231A1A2E'/%3E%3Ccircle cx='65' cy='0' r='4.5' fill='%231A1A2E'/%3E%3Ccircle cx='56.29' cy='32.5' r='4' fill='%231A1A2E'/%3E%3Ccircle cx='32.5' cy='56.29' r='3.5' fill='%231A1A2E'/%3E%3Ccircle cx='0' cy='65' r='3' fill='%231A1A2E'/%3E%3Ccircle cx='-32.5' cy='56.29' r='2.8' fill='%231A1A2E'/%3E%3Ccircle cx='-56.29' cy='32.5' r='2.8' fill='%231A1A2E'/%3E%3Ccircle cx='-65' cy='0' r='3.8' fill='%231A1A2E'/%3E%3Ccircle cx='-56.29' cy='-32.5' r='5' fill='%231A1A2E'/%3E%3Ccircle cx='-32.5' cy='-56.29' r='6.5' fill='%231A1A2E'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="theme-color" content="#1A1A2E">
+<style>
+/* ============================================================================
+   DWELVE — CASE STUDY (two-page printable leave-behind)
+   Page one carries the finding, page two the recommendation. The break is
+   explicit so a content edit cannot silently spill onto a third page.
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+
+:root{
+  --ink:#1A1A2E; --muted:#4A4A5A; --pale:#8A8A9A;
+  --orange:#FF7518; --orange-pale:#FFF0E5; --orange-deep:#E06010;
+  --blue:#4166F5; --blue-pale:#E8EEFE; --blue-deep:#2F4FD4;
+  --teal:#0EA5A5; --red:#E0443F;
+  --white:#FFFFFF; --tint:#F8F9FC; --slate:#F1F5F9;
+  --line:rgba(26,26,46,.11); --line-soft:rgba(26,26,46,.06);
+  --f-display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --f-body:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-mono:'DM Mono','DM Sans',ui-monospace,Consolas,monospace;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --max-w:1060px;
+}
+body { font-family: var(--f-body); font-size: 16px; color: var(--ink); background: var(--white);
+       line-height: 1.7; -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+
+.mono { font-family: var(--f-mono); letter-spacing: .1em; text-transform: uppercase;
+        font-size: 12px; color: var(--orange); font-weight: 500; }
+.accent-line { width: 56px; height: 3px; background: var(--orange); margin: 12px 0 18px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 700; color: var(--ink); line-height: 1.15;
+             letter-spacing: -.015em; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.25rem); margin-top: 8px; }
+em { font-style: normal; color: var(--orange); }
+.hero em, .cta em, .dark em { color: var(--orange); }
+
+/* ---------- top bar ---------- */
+.topbar { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.9);
+          backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between;
+                gap: 14px; height: 62px; }
+.brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.brand svg { width: 28px; height: 28px; flex-shrink: 0; }
+.logo-text { font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -.01em; }
+.logo-text i { font-style: normal; color: var(--orange); }
+.topbar nav { display: flex; align-items: center; gap: 22px; }
+.topbar nav a { font-family: var(--f-body); font-size: 13.5px; font-weight: 500; color: var(--muted);
+                text-decoration: none; }
+.topbar nav a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-body);
+       font-weight: 600; font-size: 14px; padding: 12px 22px; border-radius: var(--r-md);
+       text-decoration: none; cursor: pointer; border: none; min-height: 44px;
+       transition: background .2s, color .2s, border-color .2s, transform .2s; }
+.btn-primary { background: var(--orange); color: #fff; }
+.btn-primary:hover { background: var(--orange-deep); }
+.btn-cta { background: var(--blue); color: #fff; }
+.btn-cta:hover { background: var(--blue-deep); }
+.btn-ghost { background: transparent; border: 1.5px solid var(--line); color: var(--ink); }
+.btn-ghost:hover { border-color: var(--orange); color: var(--orange-deep); }
+.btn-ghost-light { background: transparent; border: 1.5px solid rgba(255,255,255,.35); color: #fff; }
+.btn-ghost-light:hover { border-color: var(--orange); color: var(--orange); }
+
+/* ---------- hero ---------- */
+.hero { background: var(--ink); color: #fff; padding: 54px 0 62px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Ccircle cx='4.5' cy='4.5' r='0.9' fill='%23FFFFFF' fill-opacity='0.10'/%3E%3C/svg%3E"); }
+.hero::after { content: ''; position: absolute; right: -8%; top: -30%; width: 460px; height: 460px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(65,102,245,.30), transparent 68%);
+  pointer-events: none; }
+.hero > .wrap { position: relative; z-index: 1; }
+.hero h1 { color: #fff; font-size: clamp(2.1rem, 4.6vw, 3.2rem); margin-top: 10px; }
+.hero .sub { font-family: var(--f-body); font-weight: 500; color: var(--orange); font-size: 1rem;
+             margin-top: 10px; }
+.hero .lede { max-width: 680px; color: rgba(255,255,255,.8); font-size: 1.04rem; margin-top: 16px; }
+
+/* ---------- KPI band ---------- */
+.kpis { margin-top: -36px; position: relative; z-index: 5; }
+.kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.kpi { background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--orange);
+       border-radius: var(--r-md); padding: 16px 13px; text-align: center; min-width: 0;
+       box-shadow: 0 4px 16px rgba(26,26,46,.06); }
+.kpi .v { font-family: var(--f-body); font-weight: 600; letter-spacing: -.03em;
+          font-size: clamp(1.2rem, 5.4vw, 1.7rem); color: var(--ink); line-height: 1.05;
+          font-variant-numeric: tabular-nums; }
+.kpi .l { font-size: 11.5px; color: var(--muted); margin-top: 8px; line-height: 1.35; }
+.kpi .s { font-family: var(--f-mono); font-size: 10px; color: var(--pale); margin-top: 4px; }
+
+/* ---------- sections ---------- */
+section.block { padding: 44px 0; }
+.section-label { font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em;
+                 text-transform: uppercase; color: var(--orange); font-weight: 500; }
+p.body { color: var(--muted); font-size: 1.02rem; }
+p.body strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- chart card ---------- */
+.chart-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
+              padding: 26px 26px 20px; box-shadow: 0 4px 16px rgba(26,26,46,.04); }
+.chart-head { display: flex; justify-content: space-between; align-items: flex-end;
+              flex-wrap: wrap; gap: 10px; margin-bottom: 6px; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px;
+            margin-right: 6px; vertical-align: -1px; }
+.chart-card svg { width: 100%; height: auto; }
+/* One chart, two drawings: below 620px the wide version scales its row labels to about
+   4 CSS px, so the stacked drawing takes over. Print always uses the wide one. */
+.chart-card .ltv--narrow { display: none; }
+@media (max-width: 619px) {
+  .chart-card svg:not(.ltv--narrow) { display: none; }
+  .chart-card .ltv--narrow { display: block; }
+}
+.chart-source { font-family: var(--f-mono); font-size: 11.5px; color: var(--pale);
+                border-top: 1px solid var(--line); margin-top: 10px; padding-top: 9px; line-height: 1.5; }
+
+/* ---------- method-of-calculation card ---------- */
+.built { background: var(--tint); border: 1px solid var(--line); border-left: 3px solid var(--blue);
+         border-radius: 0 var(--r-md) var(--r-md) 0; padding: 20px 24px; margin-top: 16px; }
+.built .h { font-family: var(--f-display); font-weight: 700; font-size: .95rem; color: var(--ink); }
+.built ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 9px 28px; margin-top: 12px; }
+.built li { font-size: .84rem; color: var(--muted); line-height: 1.5; padding-left: 14px; position: relative; }
+.built li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px;
+                    border-radius: 50%; background: var(--blue); }
+.built li b { color: var(--ink); font-weight: 600; }
+
+/* ---------- dark method band ---------- */
+.dark { background: var(--ink); color: #fff; position: relative; overflow: hidden; }
+.dark::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Ccircle cx='4.5' cy='4.5' r='0.9' fill='%23FFFFFF' fill-opacity='0.10'/%3E%3C/svg%3E"); }
+.dark > .wrap { position: relative; z-index: 1; }
+.dark .section-label { color: var(--orange); }
+.dark h2 { color: #fff; }
+.method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 22px; }
+.method .n { font-family: var(--f-mono); color: var(--orange); font-size: 12px;
+             border: 1px solid rgba(255,117,24,.45); border-radius: var(--r-sm); width: 32px; height: 32px;
+             display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+.method h4 { font-family: var(--f-display); font-weight: 700; font-size: 1rem; color: #fff; margin-bottom: 5px; }
+.method p { color: rgba(255,255,255,.72); font-size: .87rem; line-height: 1.6; }
+.delivered { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; color: var(--orange);
+             border-top: 1px solid rgba(255,117,24,.28); margin-top: 24px; padding-top: 14px; line-height: 1.9; }
+
+/* ---------- recommendation quote ---------- */
+.quote { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--orange);
+         border-radius: 0 var(--r-md) var(--r-md) 0; padding: 24px 28px; margin-top: 20px; }
+.quote p { font-family: var(--f-display); font-weight: 700; font-size: 1.35rem; line-height: 1.35;
+           color: var(--ink); letter-spacing: -.015em; }
+.quote .who { font-family: var(--f-mono); font-size: 11px; letter-spacing: .07em;
+              text-transform: uppercase; color: var(--pale); margin-top: 12px; }
+
+/* ---------- phase cards ---------- */
+.pkg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.pkg-item { background: var(--orange-pale); border: 1px solid rgba(255,117,24,.22);
+            border-radius: var(--r-md); padding: 18px 17px; display: flex; flex-direction: column; }
+.pkg-item .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: .07em;
+               text-transform: uppercase; color: var(--orange-deep); margin-bottom: 6px; }
+.pkg-item .t { font-family: var(--f-display); font-weight: 700; color: var(--ink); font-size: 1.05rem; }
+.pkg-item .v { font-family: var(--f-body); font-weight: 600; letter-spacing: -.03em; font-size: 1.7rem;
+               color: var(--ink); line-height: 1.1; margin-top: 7px; font-variant-numeric: tabular-nums; }
+.pkg-item .v small { font-size: .48em; color: var(--muted); letter-spacing: 0; font-weight: 400; }
+.pkg-item .d { font-size: .84rem; color: var(--muted); margin-top: 7px; line-height: 1.55; }
+.pkg-item .f { font-family: var(--f-mono); font-size: 10px; color: var(--orange-deep); margin-top: auto;
+               letter-spacing: .04em; text-transform: uppercase; border-top: 1px solid rgba(255,117,24,.22);
+               padding-top: 9px; }
+.unit { font-size: .9rem; color: var(--muted); max-width: 840px; }
+.unit strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- explainer columns ---------- */
+.notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 22px;
+         padding-top: 20px; border-top: 1px solid var(--line); }
+.notes h4 { font-family: var(--f-display); font-weight: 700; font-size: .95rem; color: var(--ink); margin-bottom: 7px; }
+.notes p { font-size: .84rem; color: var(--muted); line-height: 1.6; }
+.notes p strong { color: var(--ink); font-weight: 600; }
+.notes .flag { font-family: var(--f-mono); font-size: 10px; letter-spacing: .05em;
+               text-transform: uppercase; color: var(--pale); margin-top: 8px; display: block; }
+
+/* ---------- CTA ---------- */
+.cta { background: var(--ink); color: #fff; border-radius: var(--r-lg); padding: 44px;
+       text-align: center; position: relative; overflow: hidden; }
+.cta::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Ccircle cx='4.5' cy='4.5' r='0.9' fill='%23FFFFFF' fill-opacity='0.10'/%3E%3C/svg%3E"); }
+.cta > * { position: relative; z-index: 1; }
+.cta h2 { color: #fff; }
+.cta p { color: rgba(255,255,255,.82); max-width: 620px; margin: 14px auto 26px; }
+.cta .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+.disclaimer { font-size: 12.5px; color: var(--muted); background: var(--slate);
+              border-left: 3px solid var(--orange); padding: 16px 20px;
+              border-radius: 0 var(--r-sm) var(--r-sm) 0; margin-top: 18px; line-height: 1.65; }
+footer { padding: 28px 0 42px; color: var(--pale); font-size: 13px; }
+.foot-lines { text-align: right; line-height: 1.8; }
+
+.print-btn { position: fixed; right: 22px; bottom: 22px; z-index: 50; background: var(--ink);
+             color: #fff; box-shadow: 0 6px 20px rgba(26,26,46,.28); }
+.print-btn:hover { background: var(--blue-deep); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .method-grid, .pkg, .notes, .built ul { grid-template-columns: 1fr; }
+  .topbar nav a:not(.btn) { display: none; }
+  .foot-lines { text-align: left; }
+}
+@media (max-width: 560px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .wrap { padding: 0 20px; }
+  section.block { padding: 36px 0; }
+  .cta { padding: 34px 22px; }
+  .chart-card { padding: 20px 18px 16px; }
+}
+@media (max-width: 399px) { .cta .btns .btn { width: 100%; } }
+
+/* ---------- print / PDF ----------
+   Two pages: the finding, then the recommendation. */
+@page { size: A4; margin: 11mm; }
+@media print {
+  :root { --max-w: 100%; }
+  body { background: #fff; font-size: 10.5px; line-height: 1.45; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .topbar, .print-btn { display: none !important; }
+  .hero { padding: 14px 0 18px; }
+  .hero::after { display: none; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero .sub { font-size: .84rem; margin-top: 5px; }
+  .hero .lede { font-size: .8rem; margin-top: 8px; max-width: none; }
+  .wrap { padding: 0 4mm; }
+  /* A4 is ~794px wide, so the 900px screen breakpoint would also match when printing and
+     stack every grid into one column. Print restores the page layout. */
+  .kpi-grid { grid-template-columns: repeat(6, 1fr); gap: 5px; }
+  .method-grid, .pkg, .notes { grid-template-columns: repeat(3, 1fr); }
+  .built ul { grid-template-columns: 1fr 1fr; }
+  .kpis { margin-top: 10px; }
+  .kpi { padding: 8px 4px; border-top-width: 2px; box-shadow: none; }
+  .kpi .v { font-size: 1.05rem; }
+  .kpi .l { font-size: 7.5px; margin-top: 5px; }
+  .kpi .s { font-size: 6.5px; margin-top: 2px; }
+  section.block { padding: 9px 0; break-inside: avoid; }
+  h2 { font-size: 1.28rem; }
+  .accent-line { margin: 6px 0 8px; }
+  .section-label { font-size: 9px; }
+  .chart-card { padding: 12px 14px 10px; box-shadow: none; }
+  .chart-card .ltv--narrow { display: none !important; }
+  .chart-card svg:not(.ltv--narrow) { display: block !important; }
+  .legend { font-size: 8px; gap: 10px; }
+  .chart-source { font-size: 7.5px; margin-top: 6px; padding-top: 6px; }
+  .built { padding: 10px 13px; margin-top: 9px; }
+  .built .h { font-size: 9pt; }
+  .built li { font-size: 7.6px; line-height: 1.4; }
+  .built ul { gap: 5px 20px; margin-top: 7px; }
+  .method-grid { gap: 12px; margin-top: 10px; }
+  .method .n { width: 22px; height: 22px; font-size: 9px; margin-bottom: 6px; }
+  .method h4 { font-size: 9.5px; }
+  .method p { font-size: 7.6px; line-height: 1.45; }
+  .delivered { font-size: 7.3px; margin-top: 11px; padding-top: 8px; line-height: 1.65; }
+  .quote { padding: 13px 16px; margin-top: 11px; }
+  .quote p { font-size: .95rem; }
+  .quote .who { font-size: 8px; margin-top: 7px; }
+  .pkg { gap: 8px; margin-top: 12px; }
+  .pkg-item { padding: 11px; }
+  .pkg-item .k { font-size: 7.5px; }
+  .pkg-item .t { font-size: 9.5px; }
+  .pkg-item .v { font-size: 1.3rem; }
+  .pkg-item .d { font-size: 7.8px; margin-top: 4px; }
+  .pkg-item .f { font-size: 7.5px; padding-top: 5px; }
+  .unit { font-size: 7.8px; max-width: none; }
+  .notes { gap: 14px; margin-top: 13px; padding-top: 11px; }
+  .notes h4 { font-size: 8.5px; }
+  .notes p { font-size: 7.3px; line-height: 1.42; }
+  .notes .flag { font-size: 7px; }
+  .cta { padding: 18px; }
+  .cta h2 { font-size: 1.16rem; }
+  .cta p { font-size: 7.9px; margin: 6px auto 10px; }
+  .btn { border: 1px solid var(--orange); font-size: 8.5px; padding: 7px 13px; min-height: 0; }
+  .disclaimer { font-size: 7.5px; padding: 9px 12px; margin-top: 10px; line-height: 1.5; }
+  footer { padding: 12px 0 0; font-size: 8px; }
+  a[href]::after { content: ""; }
+
+  /* --- page-one density ---
+     Measured at the real print width (210mm paper less 2x11mm @page margin = 188mm),
+     page one ran 304.5mm against the 275mm a sheet holds, which pushed the whole
+     recommendation onto a third sheet. Total content is only 2.08 sheets, so this is a
+     distribution problem, not a content problem: reclaim ~30mm and it lands in two. */
+  .hero { padding: 10px 0 13px; }
+  .hero .lede { font-size: .76rem; margin-top: 6px; }
+  section.block { padding: 5px 0; }
+  .kpi { padding: 6px 4px; }
+  .chart-card { padding: 9px 11px 8px; }
+  /* The finding chart is the single biggest block on the page and reads fine smaller. */
+  .chart-card svg:not(.ltv--narrow) { max-width: 78%; margin: 0 auto; }
+  .chart-source { margin-top: 7px; padding-top: 6px; }
+  .built { padding: 8px 11px; margin-top: 7px; }
+  .built li { font-size: 7.1px; line-height: 1.36; }
+  .built ul { gap: 3px 18px; margin-top: 6px; }
+  .method-grid { margin-top: 8px; }
+  .method p { line-height: 1.38; }
+  .delivered { margin-top: 8px; padding-top: 6px; }
+
+  .page-two { break-before: page; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Dwelve — home">
+      <svg viewBox="0 0 200 200" fill="none" aria-hidden="true"><g transform="translate(100,100)">
+        <circle cx="0" cy="-65" r="8" fill="#1A1A2E"/><circle cx="32.5" cy="-56.29" r="11" fill="#FF7518"/>
+        <circle cx="56.29" cy="-32.5" r="5" fill="#1A1A2E"/><circle cx="65" cy="0" r="4.5" fill="#1A1A2E"/>
+        <circle cx="56.29" cy="32.5" r="4" fill="#1A1A2E"/><circle cx="32.5" cy="56.29" r="3.5" fill="#1A1A2E"/>
+        <circle cx="0" cy="65" r="3" fill="#1A1A2E"/><circle cx="-32.5" cy="56.29" r="2.8" fill="#1A1A2E"/>
+        <circle cx="-56.29" cy="32.5" r="2.8" fill="#1A1A2E"/><circle cx="-65" cy="0" r="3.8" fill="#1A1A2E"/>
+        <circle cx="-56.29" cy="-32.5" r="5" fill="#1A1A2E"/><circle cx="-32.5" cy="-56.29" r="6.5" fill="#1A1A2E"/>
+      </g></svg>
+      <span class="logo-text"><i>D</i>welve</span>
+    </a>
+    <nav>
+      <a href="index.html#product">What's inside</a>
+      <a href="index.html#pricing">Services</a>
+      <a href="sample-report.html">Sample report</a>
+      <a class="btn btn-cta" href="index.html#pricing" style="padding:10px 18px" data-track="case-nav-cta">Get my report &rarr;</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============================== PAGE ONE ============================== -->
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mono">Case Study &middot; Marketing Growth Audit</div>
+    <h1>Specialty Coffee <em>Shop</em></h1>
+    <div class="sub">Demonstration case &middot; Victoria, BC</div>
+    <p class="lede">A busy caf&eacute; with 2,350 monthly customers and no idea which of them paid the
+    bills. It ran a discount that felt like it was working, spent a third of its media budget on
+    channels that returned nothing, and marketed to the segment worth the least. Dwelve read 12 months
+    of its own receipts and found $6.7&ndash;8.4k of monthly gross profit sitting inside the business it
+    already had.</p>
+  </div>
+</header>
+
+<!-- KPI BAND -->
+<div class="kpis">
+  <div class="wrap">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="v">2,350</div><div class="l">Customers segmented</div><div class="s">12 months</div></div>
+      <div class="kpi"><div class="v">$63.6K</div><div class="l">Revenue per month</div><div class="s">$40.8K gross profit</div></div>
+      <div class="kpi"><div class="v">14.8&times;</div><div class="l">Best vs worst segment LTV</div><div class="s">$518 vs $35</div></div>
+      <div class="kpi"><div class="v">74%</div><div class="l">Of revenue from 43.8% of customers</div><div class="s">social + family</div></div>
+      <div class="kpi"><div class="v">&minus;$1.17K</div><div class="l">Gross profit lost monthly to one promo</div><div class="s">happy hour</div></div>
+      <div class="kpi"><div class="v">+$6.7&ndash;8.4K</div><div class="l">Monthly GP opportunity</div><div class="s">same ad budget</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- THE FINDING -->
+<section class="block">
+  <div class="wrap">
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="section-label">The Finding</div>
+          <h2 style="font-size:1.55rem;margin-top:4px">Lifetime value by customer segment</h2>
+        </div>
+        <div class="legend">
+          <span><i style="background:#FF7518"></i>Family / weekend</span>
+          <span><i style="background:#4166F5"></i>Social / catch-up</span>
+          <span><i style="background:#8A8A9A"></i>Everyone else</span>
+        </div>
+      </div>
+
+      <svg viewBox="0 0 820 288" role="img" aria-label="Revenue lifetime value per customer by segment: family weekend $518 from 11% of the base, social catch-up $392 from 32%, solo worker $109 from 22%, grab-and-go $35 from 34%.">
+        <g>
+          <text x="152" y="46" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13.5" font-weight="600" fill="#1A1A2E">Family / weekend</text>
+          <text x="152" y="63" text-anchor="end" font-family="DM Mono, monospace" font-size="10" fill="#8A8A9A">11% of the base</text>
+          <rect x="165" y="30" width="540" height="40" rx="3" fill="#FF7518"/>
+          <text x="715" y="56" font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#1A1A2E">$518</text>
+        </g>
+        <g>
+          <text x="152" y="108" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13.5" font-weight="600" fill="#1A1A2E">Social / catch-up</text>
+          <text x="152" y="125" text-anchor="end" font-family="DM Mono, monospace" font-size="10" fill="#8A8A9A">32% of the base</text>
+          <rect x="165" y="92" width="409" height="40" rx="3" fill="#4166F5"/>
+          <text x="584" y="118" font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#1A1A2E">$392</text>
+        </g>
+        <g>
+          <text x="152" y="170" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13.5" font-weight="600" fill="#1A1A2E">Solo worker</text>
+          <text x="152" y="187" text-anchor="end" font-family="DM Mono, monospace" font-size="10" fill="#8A8A9A">22% of the base</text>
+          <rect x="165" y="154" width="114" height="40" rx="3" fill="#8A8A9A" fill-opacity="0.75"/>
+          <text x="289" y="180" font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#1A1A2E">$109</text>
+        </g>
+        <g>
+          <text x="152" y="232" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13.5" font-weight="600" fill="#1A1A2E">Grab-and-go</text>
+          <text x="152" y="249" text-anchor="end" font-family="DM Mono, monospace" font-size="10" fill="#8A8A9A">34% of the base &mdash; the largest</text>
+          <rect x="165" y="216" width="36" height="40" rx="3" fill="#8A8A9A" fill-opacity="0.45"/>
+          <text x="211" y="242" font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#1A1A2E">$35</text>
+        </g>
+        <text x="165" y="278" font-family="DM Mono, monospace" font-size="10" fill="#8A8A9A">REVENUE LIFETIME VALUE PER CUSTOMER, CAD &middot; TICKET &times; FREQUENCY &times; ACTIVE LIFE</text>
+      </svg>
+
+      <!-- Phone rendering of the same four figures. The wide chart spends 165 of its 820 units
+           on row labels; scaled into a 360px screen that leaves them near 4 CSS px. Here the
+           label sits above its own bar, so the width still carries the data. aria-hidden
+           because the wide chart already describes both. -->
+      <svg class="ltv--narrow" viewBox="0 0 360 384" aria-hidden="true" focusable="false">
+        <g>
+          <text x="0" y="16" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">Family / weekend</text>
+          <text x="360" y="16" text-anchor="end" font-family="DM Mono, monospace" font-size="12" fill="#4A4A5A">11%</text>
+          <rect x="0" y="26" width="250" height="38" rx="3" fill="#FF7518"/>
+          <text x="259" y="51" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">$518</text>
+        </g>
+        <g>
+          <text x="0" y="112" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">Social / catch-up</text>
+          <text x="360" y="112" text-anchor="end" font-family="DM Mono, monospace" font-size="12" fill="#4A4A5A">32%</text>
+          <rect x="0" y="122" width="189" height="38" rx="3" fill="#4166F5"/>
+          <text x="198" y="147" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">$392</text>
+        </g>
+        <g>
+          <text x="0" y="208" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">Solo worker</text>
+          <text x="360" y="208" text-anchor="end" font-family="DM Mono, monospace" font-size="12" fill="#4A4A5A">22%</text>
+          <rect x="0" y="218" width="53" height="38" rx="3" fill="#8A8A9A" fill-opacity="0.75"/>
+          <text x="62" y="243" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">$109</text>
+        </g>
+        <g>
+          <text x="0" y="304" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">Grab-and-go</text>
+          <text x="360" y="304" text-anchor="end" font-family="DM Mono, monospace" font-size="12" fill="#4A4A5A">34% &mdash; largest</text>
+          <rect x="0" y="314" width="17" height="38" rx="3" fill="#8A8A9A" fill-opacity="0.45"/>
+          <text x="26" y="339" font-family="DM Sans, sans-serif" font-size="17" font-weight="600" fill="#1A1A2E">$35</text>
+        </g>
+        <text x="0" y="376" font-family="DM Mono, monospace" font-size="11" fill="#8A8A9A">REVENUE LTV PER CUSTOMER, CAD</text>
+      </svg>
+
+      <p class="chart-source">Source: Dwelve segmentation of 2,350 monthly customers over 12 months &mdash; receipt-level baskets, visit context and staff-tagged visit reasons. Figures illustrative.</p>
+      <p class="body" style="font-size:.87rem;margin-top:10px;color:var(--muted)">The caf&eacute;'s most valuable customer &mdash; a family / weekend visitor worth <strong style="color:var(--orange-deep)">$518</strong> &mdash; was <strong style="color:var(--orange-deep)">11%</strong> of the base and had no offer aimed at them; reviews said the place was <em>not</em> kid-friendly. The largest group, grab-and-go at 34%, returned <strong style="color:var(--orange-deep)">$35</strong> &mdash; one fifteenth as much &mdash; and was where the acquisition budget went. Together the two high-value segments were 43.8% of customers and <strong style="color:var(--orange-deep)">74% of revenue</strong>. The business was not short of customers; it was growing the wrong ones.</p>
+    </div>
+
+    <div class="built">
+      <div class="h">How these numbers were built</div>
+      <ul>
+        <li><b>Segments come from behaviour, not demographics.</b> Customers are grouped by the job they came to do &mdash; read from receipt baskets, dine-in vs takeaway, party size and time of day &mdash; because that is what an offer can actually be aimed at.</li>
+        <li><b>Revenue LTV</b> = average ticket &times; visit frequency &times; active life. Every input is observed in the export; none is a category benchmark.</li>
+        <li><b>Active life is cross-sectional</b> &mdash; the churn point observed inside a 12-month window, not one cohort followed for years. Beyond that window the ladder is a model, and the full report marks it as one.</li>
+        <li><b>LTV is stated on revenue</b>, because that is the number an owner recognises. Every return, target and net figure on the next page is stated on <b>gross profit</b> instead.</li>
+        <li><b>Gross margin is measured, not assumed</b> &mdash; 64.1% weighted across all 28 menu positions from unit costs, which is what makes the promotion verdicts arithmetic rather than opinion.</li>
+        <li><b>What is modelled is labelled.</b> Happy Hour is computed on the actual configured mechanic; two other promos lacked full redemption logs, so those carry working models flagged for replacement at validation.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW THE AUDIT WORKS -->
+<section class="block dark">
+  <div class="wrap">
+    <div class="section-label">How the review works</div>
+    <h2>Your own numbers first. Opinion last.</h2>
+    <div class="accent-line"></div>
+    <div class="method-grid">
+      <div class="method"><div class="n">01</div><h4>Your records, not benchmarks</h4><p>2,350 customers grouped by the job they hired the caf&eacute; for. Every conclusion in the report traces back to a row in the export &mdash; and where it cannot, it is labelled an estimate and graded.</p></div>
+      <div class="method"><div class="n">02</div><h4>Every claim carries its arithmetic</h4><p>Break-even volume before a discount is judged. Gross profit, never revenue, behind every channel call. Overlap between levers deducted explicitly, so the total is smaller than the sum &mdash; and honest.</p></div>
+      <div class="method"><div class="n">03</div><h4>A plan you can hold us to</h4><p>Ninety days, sequenced and budgeted, with an owner and a lead KPI on every initiative &mdash; and four checkpoints that each force a decision rather than a status update.</p></div>
+    </div>
+    <div class="delivered">Delivered &mdash; Segment &amp; LTV analysis &middot; Competitive scan &amp; PEST &middot; 28-SKU menu economics &middot; Promotion autopsies &middot; Channel mix rebuild &middot; Retention engine &middot; Digital journey &middot; 90-day roadmap</div>
+  </div>
+</section>
+
+<!-- ============================== PAGE TWO ============================== -->
+
+<section class="block page-two">
+  <div class="wrap">
+    <div class="section-label">The Recommendation</div>
+    <h2>Stop selling coffee. Start selling the meeting.</h2>
+    <div class="accent-line"></div>
+    <p class="body" style="max-width:820px">Five nearby alternatives &mdash; two chains, a grab-and-go specialty bar, a specialty-plus-brunch caf&eacute; and a bakery &mdash; and <strong>not one</strong> owned the combination the reviews said this caf&eacute; already half-had: specialty quality, a calm social atmosphere, shareable food and family-friendly details. Of 94 public reviews, <strong>67%</strong> of positive mentions were about the space and <strong>41%</strong> about catching up with someone &mdash; while the website, the Instagram bio and the Google listing all still talked about bean origin. Customers had already hired the caf&eacute; for the job it refused to advertise.</p>
+    <div class="quote">
+      <p>Stop competing on whose coffee is better. Become <em>the</em> neighbourhood spot to catch up &mdash; and monetize the occasion, not the cup.</p>
+      <div class="who">Marketing Growth Audit &middot; Positioning Recommendation</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTED IMPACT -->
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-label">Projected Impact</div>
+    <h2>Three phases, stated on gross profit.</h2>
+    <div class="accent-line"></div>
+    <p class="unit">The 90-day roadmap is sequenced so that the phase which <strong>costs nothing</strong> pays first. Every figure below is monthly gross profit at steady state &mdash; not revenue, and not a one-off.</p>
+    <div class="pkg">
+      <div class="pkg-item">
+        <div class="k">Days 1&ndash;14 &middot; costs nothing</div>
+        <div class="t">Control</div>
+        <div class="v">+$1.2&ndash;1.5K <small>GP / mo</small></div>
+        <div class="d">Switch off Happy Hour, boosted posts and generic flyers &mdash; three things already running that lose money. Turn on source, segment and promo tagging so nothing after this is guesswork.</div>
+        <div class="f">Cost $0&ndash;400 &middot; pays back immediately</div>
+      </div>
+      <div class="pkg-item">
+        <div class="k">Days 15&ndash;30 &middot; the ticket</div>
+        <div class="t">Monetize</div>
+        <div class="v">+$1.0&ndash;1.5K <small>GP / mo</small></div>
+        <div class="d">Trim the tail of the menu, put food where the wallet is already open, launch the pair bundle and the counter script. Rewrite the hero line on the site and the Google listing.</div>
+        <div class="f">Cost $300&ndash;1,100</div>
+      </div>
+      <div class="pkg-item">
+        <div class="k">Days 31&ndash;90 &middot; the second visit</div>
+        <div class="t">Retain &amp; scale</div>
+        <div class="v">+$0.8&ndash;1.3K <small>GP / mo, then the rest</small></div>
+        <div class="d">Engineer the return visit: consent capture, a 7-day offer, 30/60/90 reactivation, a referral pilot and the family layer. Then scale only what the data proved, at the same budget.</div>
+        <div class="f">Cost $350&ndash;1,000 &middot; then budget-neutral</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div>
+        <h4>Why the phases don't simply add up</h4>
+        <p>Taken independently the five levers total <strong>$7.3&ndash;9.0k</strong> of gross profit a month. A bundle sale and a mix-shift sale can be the same sale, and no business executes a plan perfectly &mdash; so <strong>$0.6k</strong> is deducted for overlap and incomplete execution before the target is stated. The steady state is <strong>+$6.7&ndash;8.4k GP</strong> and +$10.2&ndash;12.8k revenue per month: annualized, +$80&ndash;101k of gross profit.</p>
+        <span class="flag">Deduction &middot; stated explicitly</span>
+      </div>
+      <div>
+        <h4>The ad budget does not grow</h4>
+        <p>All of it comes out of the same <strong>$3.6k</strong> a month the caf&eacute; already spends. Today <strong>36%</strong> of that sits in boosted posts and flyers at a cost per customer of $33&ndash;67 and a return at or below zero, while the two cheapest sources of ready demand &mdash; the Google listing and the customer list &mdash; are unmanaged. Reallocated, cost per new customer falls from <strong>$18.95 to $9&ndash;12</strong> and blended return on marketing moves from ~74% to <strong>220&ndash;245%</strong>.</p>
+        <span class="flag">Same spend &middot; different destination</span>
+      </div>
+      <div>
+        <h4>The verdict that pays first is a subtraction</h4>
+        <p>Happy Hour needed <strong>+34.5%</strong> more transactions to break even on the discount. It delivered <strong>+18%</strong>. That 16.5-point gap is <strong>$1.17k of gross profit destroyed every month</strong> by a promotion that looked successful, because traffic did rise &mdash; and it trained regulars to wait for the discount. The single most profitable recommendation in the report costs nothing to implement.</p>
+        <span class="flag">Computed on the live mechanic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Which of <em>your</em> customers is worth 15&times; the rest?</h2>
+      <p>A Dwelve report turns your own sales records into segment economics, a positioning decision and a budgeted 90-day plan &mdash; with the arithmetic attached to every recommendation. No calls required, no contracts, and a full refund if it isn't worth it.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="index.html#pricing" data-track="case-cta-pricing">Get my report &rarr;</a>
+        <a class="btn btn-ghost-light" href="sample-report.html" data-track="case-cta-sample">Read the full 23-page report</a>
+      </div>
+    </div>
+    <div class="disclaimer"><strong>Demonstration case.</strong> Built on a representative business to show the depth and format of a Dwelve marketing review. The caf&eacute;, its competitors and every figure are illustrative &mdash; method and ratios are real, absolute values are not any client's own. The projections are produced by the review's own model: a plan, not an achieved result, and not a guarantee of growth. Client results are reported to the client and are not published.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center">
+    <span class="logo-text" style="color:var(--ink)"><i>D</i>welve.</span>
+    <span class="foot-lines">
+      <span class="mono" style="color:var(--pale);display:block">Marketing reviews &amp; growth advisory for small business</span>
+      <span class="mono" style="color:var(--pale);display:block;text-transform:none;letter-spacing:.04em">Prepared by Daria &middot; marketing strategist &middot; hello@dwelve.com &middot; dwelve.ca</span>
+    </span>
+  </div>
+</footer>
+
+<!-- The pre-built two-page PDF rather than window.print(): no print dialog, and it
+     survives being forwarded. Regenerate with `node tools/build-pdf.mjs` after any edit. -->
+<a class="btn print-btn" href="assets/dwelve-case-study.pdf" download
+   data-track="case-pdf-download">&#8595;&nbsp; Download PDF</a>
+
+<script>
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+    if (!el) return;
+    var event = el.getAttribute('data-track');
+    if (!event) return;
+    try { window.plausible && window.plausible(event); } catch (_) {}
+  }, { passive: true });
+</script>
+</body>
+</html>

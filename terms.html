@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Dwelve</title>
+  <meta name="description" content="Terms of Service for Dwelve — the rules and conditions governing your use of our website and services.">
+  <link rel="canonical" href="https://dwelve.ca/terms">
+
+  <!-- Google Fonts (same as main site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Cg transform='translate(100,100)'%3E%3Ccircle cx='0' cy='-65' r='8' fill='%231A1A2E'/%3E%3Ccircle cx='32.5' cy='-56.29' r='11' fill='%23FF7518'/%3E%3Ccircle cx='56.29' cy='-32.5' r='5' fill='%231A1A2E'/%3E%3Ccircle cx='65' cy='0' r='4.5' fill='%231A1A2E'/%3E%3Ccircle cx='56.29' cy='32.5' r='4' fill='%231A1A2E'/%3E%3Ccircle cx='32.5' cy='56.29' r='3.5' fill='%231A1A2E'/%3E%3Ccircle cx='0' cy='65' r='3' fill='%231A1A2E'/%3E%3Ccircle cx='-32.5' cy='56.29' r='2.8' fill='%231A1A2E'/%3E%3Ccircle cx='-56.29' cy='32.5' r='2.8' fill='%231A1A2E'/%3E%3Ccircle cx='-65' cy='0' r='3.8' fill='%231A1A2E'/%3E%3Ccircle cx='-56.29' cy='-32.5' r='5' fill='%231A1A2E'/%3E%3Ccircle cx='-32.5' cy='-56.29' r='6.5' fill='%231A1A2E'/%3E%3C/g%3E%3C/svg%3E">
+
+  <style>
+    /* ==============================
+       SHARED DESIGN TOKENS
+       ============================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    :root {
+      --color-base: #FFFFFF;
+      --color-card: #FFFFFF;
+      --color-white: #FFFFFF;
+      --color-primary: #FF7518;
+      --color-primary-light: #FF944D;
+      --color-secondary: #4166F5;
+      --color-text: #1A1A2E;
+      --color-text-muted: #4A4A5A;
+      --color-text-light: #8A8A9A;
+      --color-cta: #4166F5;
+      --color-divider: rgba(26, 26, 46, 0.05);
+      --color-border: rgba(26, 26, 46, 0.05);
+      --color-blue-pale: #E8EEFE;
+      --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'DM Mono', 'Courier New', 'Consolas', monospace;
+      --text-h1: 2.25rem;
+      --text-h2: 1.5rem;
+      --text-h3: 1.25rem;
+      --text-body: 1rem;
+      --text-small: 0.875rem;
+      --text-caption: 0.75rem;
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 999px;
+      --shadow-sm: 0 1px 3px rgba(26,26,46,0.04), 0 1px 2px rgba(26,26,46,0.02);
+      --max-width: 1200px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      color: var(--color-text);
+      background: var(--color-base);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+
+    /* ==============================
+       NAVIGATION
+       ============================== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-back {
+      font-family: var(--font-body);
+      font-size: var(--text-small);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 150ms ease-out;
+    }
+
+    .nav-back:hover { color: var(--color-text); }
+
+    .nav-back svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+    }
+
+    /* ==============================
+       LEGAL PAGE CONTENT
+       ============================== */
+    .legal-hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(65, 102, 245, 0.02) 40%,
+        rgba(65, 102, 245, 0.03) 70%,
+        transparent 100%
+      );
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .legal-content-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-h1);
+      color: var(--color-text);
+      line-height: 1.15;
+    }
+
+    .legal-hero h1::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), transparent);
+      margin-top: var(--space-sm);
+      border-radius: 2px;
+      opacity: 0.5;
+    }
+
+    .legal-meta {
+      font-family: var(--font-mono);
+      font-size: var(--text-caption);
+      color: var(--color-text-light);
+      margin-top: var(--space-md);
+      letter-spacing: 0.02em;
+    }
+
+    .legal-body {
+      padding: var(--space-xl) 0 var(--space-2xl);
+    }
+
+    .legal-body h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: var(--text-h2);
+      color: var(--color-text);
+      margin-top: var(--space-2xl);
+      margin-bottom: var(--space-md);
+      line-height: 1.3;
+    }
+
+    .legal-body h2:first-child {
+      margin-top: 0;
+    }
+
+    .legal-body h3 {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: var(--text-h3);
+      color: var(--color-text);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    .legal-body p {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .legal-body ul, .legal-body ol {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-md) 0;
+    }
+
+    .legal-body li {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      padding: var(--space-xs) 0;
+      padding-left: var(--space-lg);
+      position: relative;
+    }
+
+    .legal-body li::before {
+      content: '';
+      position: absolute;
+      left: var(--space-sm);
+      top: 12px;
+      width: 5px;
+      height: 5px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary);
+      opacity: 0.4;
+    }
+
+    .legal-body ol { counter-reset: legal-counter; }
+    .legal-body ol li { counter-increment: legal-counter; }
+    .legal-body ol li::before {
+      content: counter(legal-counter);
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background: none;
+      opacity: 1;
+      font-family: var(--font-mono);
+      font-size: var(--text-caption);
+      font-weight: 500;
+      color: var(--color-primary);
+      top: 7px;
+      left: 0;
+    }
+
+    .legal-body a {
+      color: var(--color-cta);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(65, 102, 245, 0.3);
+      transition: text-decoration-color 150ms ease;
+    }
+
+    .legal-body a:hover {
+      text-decoration-color: var(--color-cta);
+    }
+
+    .legal-callout {
+      background: linear-gradient(90deg, rgba(65, 102, 245, 0.03), transparent 50%);
+      border: 1px solid var(--color-border);
+      border-left: 2px solid rgba(65, 102, 245, 0.25);
+      border-radius: var(--radius-md);
+      padding: var(--space-md) var(--space-lg);
+      margin: var(--space-lg) 0;
+      font-size: var(--text-small);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .legal-callout strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .legal-callout--warm {
+      background: linear-gradient(90deg, rgba(255, 117, 24, 0.03), transparent 50%);
+      border-left-color: rgba(255, 117, 24, 0.25);
+    }
+
+    .legal-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-divider) 20%, var(--color-divider) 80%, transparent);
+      margin: var(--space-2xl) 0;
+    }
+
+    /* ==============================
+       FOOTER
+       ============================== */
+    .footer {
+      text-align: center;
+      padding: var(--space-xl) var(--space-md);
+      font-size: var(--text-caption);
+      color: var(--color-text-light);
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .footer a {
+      color: var(--color-text-light);
+      transition: color 150ms ease;
+    }
+
+    .footer a:hover { color: var(--color-text); }
+
+    .footer-legal {
+      margin-top: var(--space-sm);
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+    }
+
+    .footer-legal a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ==============================
+       RESPONSIVE
+       ============================== */
+    @media (min-width: 768px) {
+      .legal-hero h1 { font-size: 2.5rem; }
+      .nav-inner { padding: 0 var(--space-xl); }
+      .container { padding: 0 var(--space-xl); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-cta);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 4px rgba(65, 102, 245, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="logo" aria-label="Dwelve — home">
+        <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(100, 100)">
+            <circle cx="0" cy="-65" r="8" fill="var(--color-text)"/>
+            <circle cx="32.5" cy="-56.29" r="11" fill="var(--color-primary)"/>
+            <circle cx="56.29" cy="-32.5" r="5" fill="var(--color-text)"/>
+            <circle cx="65" cy="0" r="4.5" fill="var(--color-text)"/>
+            <circle cx="56.29" cy="32.5" r="4" fill="var(--color-text)"/>
+            <circle cx="32.5" cy="56.29" r="3.5" fill="var(--color-text)"/>
+            <circle cx="0" cy="65" r="3" fill="var(--color-text)"/>
+            <circle cx="-32.5" cy="56.29" r="2.8" fill="var(--color-text)"/>
+            <circle cx="-56.29" cy="32.5" r="2.8" fill="var(--color-text)"/>
+            <circle cx="-65" cy="0" r="3.8" fill="var(--color-text)"/>
+            <circle cx="-56.29" cy="-32.5" r="5" fill="var(--color-text)"/>
+            <circle cx="-32.5" cy="-56.29" r="6.5" fill="var(--color-text)"/>
+          </g>
+        </svg>
+        <span class="logo-text"><span style="color: var(--color-primary)">D</span>welve</span>
+      </a>
+      <a href="index.html" class="nav-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="legal-hero">
+      <div class="container">
+        <div class="legal-content-wrap">
+          <h1>Terms of Service</h1>
+          <p class="legal-meta">Effective Date: March 3, 2026 &nbsp;·&nbsp; Last Updated: March 3, 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal-body">
+      <div class="container">
+        <div class="legal-content-wrap">
+
+          <h2>Agreement to Terms</h2>
+          <p>By accessing or using the Dwelve website (dwelve.ca) or purchasing any services from Dwelve ("we," "us," or "our"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our website or services.</p>
+          <p>Dwelve is operated from British Columbia, Canada. These terms are governed by the laws of British Columbia and the federal laws of Canada applicable therein.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Services Overview</h2>
+          <p>Dwelve provides marketing review and advisory services for small businesses, including but not limited to:</p>
+          <ul>
+            <li>Written marketing reviews and audit reports</li>
+            <li>Action plans and strategic recommendations</li>
+            <li>Ongoing Growth Advisory (monthly support)</li>
+          </ul>
+          <p>All services are delivered asynchronously in written form. We do not provide verbal consultations, phone calls, or real-time meetings unless explicitly agreed upon in writing.</p>
+
+          <div class="legal-callout">
+            <strong>Important:</strong> Dwelve provides analysis, recommendations, and guidance. We do not guarantee specific business outcomes such as revenue increases, traffic growth, or customer acquisition numbers. Results depend on your implementation, market conditions, and many factors outside our control.
+          </div>
+
+          <hr class="legal-divider">
+
+          <h2>Ordering and Payment</h2>
+
+          <h3>Placing an order</h3>
+          <p>You may purchase services by contacting us via email or through our website. Once we confirm the scope and price in writing, your order is considered placed upon payment.</p>
+
+          <h3>Pricing</h3>
+          <p>All prices are listed in Canadian Dollars (CAD) unless otherwise stated. Prices are subject to change, but any changes will not affect orders that have already been confirmed and paid.</p>
+
+          <h3>Payment processing</h3>
+          <p>Payments are processed securely through Stripe. By making a purchase, you agree to Stripe's <a href="https://stripe.com/legal/consumer" target="_blank" rel="noopener">terms of service</a>. We do not store your credit card information on our servers.</p>
+
+          <h3>Taxes</h3>
+          <p>Applicable taxes (such as GST/PST) will be added to the listed price where required by law. You are responsible for any taxes applicable in your jurisdiction.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Money-Back Guarantee</h2>
+
+          <div class="legal-callout legal-callout--warm">
+            <strong>Our guarantee:</strong> If you are not satisfied with the quality or usefulness of the delivered report, you may request a full refund within 14 days of delivery — no questions asked.
+          </div>
+
+          <p>The following conditions apply to our money-back guarantee:</p>
+          <ul>
+            <li>The refund request must be made within 14 calendar days of the date we deliver the final report or deliverable to you</li>
+            <li>The guarantee applies to one-time review and audit services (Starter, Optimal, and Advanced tiers)</li>
+            <li>For ongoing Growth Advisory services, you may cancel at any time with no further charges, but past months are not refundable</li>
+            <li>Refunds are processed to the original payment method within 5–10 business days</li>
+          </ul>
+
+          <hr class="legal-divider">
+
+          <h2>Delivery and Timelines</h2>
+          <p>We will communicate estimated delivery timelines before you place your order. Typical delivery ranges from 5 to 14 business days depending on the service tier and complexity.</p>
+          <p>While we make every effort to meet stated timelines, delays may occur due to factors such as volume of orders, complexity of your business, or delays in receiving required information from you. Delivery delays do not entitle you to a refund unless they exceed 30 business days from the original estimated date.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Your Responsibilities</h2>
+          <p>To enable us to deliver high-quality work, you agree to:</p>
+          <ul>
+            <li>Provide accurate and complete information about your business when requested</li>
+            <li>Respond to questions and requests for clarification in a timely manner</li>
+            <li>Grant reasonable access to your marketing channels, analytics, or other materials as needed for the review (with your explicit consent)</li>
+          </ul>
+          <p>Delays caused by late or incomplete information from you may extend our delivery timeline accordingly.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Intellectual Property</h2>
+
+          <h3>Your content</h3>
+          <p>You retain full ownership of all business information, data, materials, and content that you provide to us. By sharing this information, you grant us a limited, non-exclusive license to use it solely for the purpose of delivering the services you purchased.</p>
+
+          <h3>Our deliverables</h3>
+          <p>Upon full payment, you receive a non-exclusive, perpetual license to use the deliverables (reports, plans, recommendations) for your internal business purposes. You may not resell, redistribute, or publish our deliverables as your own product or service.</p>
+
+          <h3>Dwelve brand and methods</h3>
+          <p>All Dwelve branding, frameworks, methodologies, templates, and proprietary analysis tools remain the intellectual property of Dwelve. Nothing in these terms transfers ownership of our intellectual property to you.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Confidentiality</h2>
+          <p>We treat all information you share with us as confidential. We will not disclose your business information to third parties without your explicit written consent, except where required by law or where necessary to deliver the service (e.g., sharing anonymized data with a team member working on your project).</p>
+          <p>We may use anonymized, non-identifiable data from our engagements for internal improvement, case studies, or marketing purposes — but only with identifying details removed, and only with your prior written consent for any case study that could be attributed to you.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Limitation of Liability</h2>
+          <p>To the maximum extent permitted by applicable law:</p>
+          <ul>
+            <li>Dwelve provides services on an "as is" basis. We make no warranties, express or implied, regarding the suitability, completeness, or accuracy of our recommendations for your specific situation</li>
+            <li>Our total liability for any claim arising from or related to our services shall not exceed the amount you paid for the specific service giving rise to the claim</li>
+            <li>We are not liable for any indirect, incidental, consequential, or punitive damages, including lost profits, lost revenue, or business interruption</li>
+            <li>We are not responsible for the results of implementing our recommendations, as outcomes depend on execution, market conditions, and factors beyond our control</li>
+          </ul>
+
+          <hr class="legal-divider">
+
+          <h2>Cancellation and Termination</h2>
+
+          <h3>By you</h3>
+          <p>You may cancel a one-time service order before work has begun for a full refund. Once we have started work on your project, cancellations are subject to a pro-rated charge for work completed. For Growth Advisory, you may cancel at any time; your access will remain active until the end of the current billing period.</p>
+
+          <h3>By us</h3>
+          <p>We reserve the right to decline or terminate a project if we determine that we cannot serve you effectively, if the engagement involves unethical or illegal activities, or if communication becomes unreasonably hostile or abusive. In such cases, we will refund any unearned portion of your payment.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Website Use</h2>
+          <p>By using our website, you agree not to:</p>
+          <ul>
+            <li>Use automated tools (bots, scrapers) to access or collect data from our website</li>
+            <li>Attempt to interfere with, compromise, or disrupt the website or its underlying infrastructure</li>
+            <li>Use the website for any unlawful purpose</li>
+            <li>Reproduce, duplicate, or exploit any part of the website for commercial purposes without our written permission</li>
+          </ul>
+
+          <hr class="legal-divider">
+
+          <h2>Links to Third Parties</h2>
+          <p>Our website may contain links to third-party websites or services (such as Stripe for payments or blog references). We are not responsible for the content, privacy practices, or terms of any third-party site. Visiting those links is at your own discretion and risk.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Dispute Resolution</h2>
+          <p>If a dispute arises between you and Dwelve, we encourage you to contact us first at hello@dwelve.ca so we can attempt to resolve the matter informally.</p>
+          <p>If we cannot resolve the dispute informally within 30 days, either party may pursue resolution through the courts of British Columbia, Canada. Both parties agree to submit to the exclusive jurisdiction of the courts located in British Columbia.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Changes to These Terms</h2>
+          <p>We may update these Terms of Service from time to time. When we make material changes, we will update the "Last Updated" date at the top of this page. Your continued use of our website or services after any changes constitutes your acceptance of the updated terms.</p>
+          <p>For existing ongoing engagements (such as Growth Advisory), changes to terms will take effect at the start of the next billing period following the update, giving you the opportunity to review and cancel if you disagree with the changes.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Severability</h2>
+          <p>If any provision of these Terms is found to be unenforceable or invalid by a court of competent jurisdiction, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+
+          <hr class="legal-divider">
+
+          <h2>Contact Us</h2>
+          <p>If you have any questions about these Terms of Service, please contact us:</p>
+          <div class="legal-callout">
+            <strong>Dwelve</strong><br>
+            Email: hello@dwelve.ca<br>
+            Location: Vancouver Island, British Columbia, Canada
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Dwelve &middot; hello@dwelve.ca &middot; Vancouver Island, BC
+    <div class="footer-legal">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+</body>
+</html>
