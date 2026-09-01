@@ -37,6 +37,9 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
     ul, ol { list-style: none; }
+    /* Author display rules beat the UA's [hidden] { display: none }, and
+       several hidden panes here are grid/flex. Without this they show. */
+    [hidden] { display: none !important; }
     ::selection { background: var(--indigo); color: var(--white); }
 
     /* ==========================================================
@@ -1063,7 +1066,7 @@
     .footer { background: var(--indigo); color: var(--white); }
     .footer-inner {
       border-top: 1px solid var(--rule-on-dark);
-      padding: var(--s-32) 0;
+      padding: var(--s-32) 0 var(--s-16);
       display: flex;
       flex-wrap: wrap;
       gap: var(--s-12) var(--s-24);
@@ -1077,6 +1080,149 @@
     .footer-inner a { border-bottom: 1px solid rgba(255,255,255,0.4); }
     .footer-inner a:hover { color: var(--honey); border-color: var(--honey); }
     .footer-links { display: flex; gap: var(--s-24); }
+
+    /* ==========================================================
+       ORDER DIALOG
+       ========================================================== */
+    .modal {
+      width: min(560px, calc(100vw - 32px));
+      max-height: min(88vh, 780px);
+      overflow-y: auto;
+      border: none;
+      border-radius: var(--r-card);
+      padding: clamp(24px, 3vw, 40px);
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .modal::backdrop { background: rgba(35, 67, 134, .55); backdrop-filter: blur(3px); }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      color: var(--indigo);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 200ms ease;
+    }
+    .modal-close:hover { background: var(--cream); }
+    .modal-kicker {
+      font-family: var(--font-nav) !important;
+      font-size: 10px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-label);
+      text-transform: uppercase;
+      color: var(--orange-ink);
+      margin-bottom: 8px;
+    }
+    .modal-title {
+      font-family: var(--font-display) !important;
+      font-size: clamp(24px, 2.6vw, 32px);
+      line-height: 1.04;
+      letter-spacing: var(--track-display);
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: var(--s-24);
+      padding-right: 34px;
+    }
+    .modal-pane { display: grid; gap: var(--s-16); }
+
+    .route {
+      border: 1px solid var(--rule);
+      border-radius: var(--r-card);
+      padding: var(--s-20);
+      display: grid;
+      gap: 10px;
+      justify-items: start;
+    }
+    .route--quiet { background: var(--cream); border-color: transparent; }
+    .route h3 {
+      font-family: var(--font-nav) !important;
+      font-size: 12px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-label);
+      text-transform: uppercase;
+      color: var(--indigo);
+    }
+    .route p { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
+    .route-note {
+      font-size: var(--text-caption);
+      line-height: 1.45;
+      color: var(--orange-ink);
+      background: #faeee6;
+      border-radius: var(--r-input);
+      padding: 10px 12px;
+    }
+    .modal-form { box-shadow: none; padding: 0; background: transparent; }
+
+    /* ==========================================================
+       COOKIE PREFERENCES
+       ========================================================== */
+    .cookie {
+      position: fixed;
+      left: 16px; right: 16px; bottom: 16px;
+      z-index: 300;
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--white);
+      color: var(--ink);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-card);
+      padding: clamp(18px, 2.2vw, 26px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--s-16) var(--s-24);
+    }
+    .cookie-main { flex: 1 1 380px; }
+    .cookie-title {
+      font-family: var(--font-nav) !important;
+      font-size: 12px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-label);
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: 8px;
+    }
+    .cookie p { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); max-width: 62ch; }
+    .cookie a { color: var(--indigo); text-decoration: underline; text-underline-offset: 2px; }
+    .cookie-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .cookie-link {
+      font-family: var(--font-nav) !important;
+      font-size: 12px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-nav);
+      text-transform: uppercase;
+      color: var(--indigo);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .cookie-link:hover { color: var(--orange-ink); }
+
+    .cookie-manage { margin-top: var(--s-16); display: grid; gap: 10px; }
+    .cookie-opt { display: flex; gap: 10px; align-items: flex-start; font-size: var(--text-caption); line-height: 1.45; }
+    .cookie-opt input { margin-top: 3px; accent-color: var(--indigo); flex: none; }
+    .cookie-opt b {
+      display: block;
+      font-family: var(--font-nav) !important;
+      font-weight: var(--w-medium);
+      font-size: 10.5px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--indigo);
+    }
+
+    .footer-rights {
+      margin-top: var(--s-16);
+      padding-bottom: var(--s-24);
+      font-family: var(--font-nav) !important;
+      font-size: 10px;
+      letter-spacing: var(--track-nav);
+      text-transform: uppercase;
+      color: rgba(255,255,255,.62);
+    }
 
     /* ==========================================================
        MOTION
@@ -1179,6 +1325,8 @@
 
     @media (max-width: 700px) {
       .grid-2, .steps, .ask-row { grid-template-columns: 1fr; }
+      .cookie { left: 10px; right: 10px; bottom: 10px; }
+      .cookie-actions .btn, .cookie-actions .cookie-link { width: 100%; justify-content: center; text-align: center; }
       .nav-mail { font-size: 10px; letter-spacing: 0.08em; }
       .nav-actions { margin-right: var(--s-16); }
       .hero-blob-gold, .hero-blob-sage { display: none; }
@@ -1508,7 +1656,7 @@
             <p class="pl-price">CA$790 <span>One-time</span></p>
           </div>
           <div class="pl-cell pl-cta">
-            <a href="#ask" class="btn">Order</a>
+            <button type="button" class="btn" data-order="Growth Snapshot" data-price="CA$790" data-mode="choose">Order</button>
           </div>
 
           <!-- Growth Audit (featured) -->
@@ -1543,7 +1691,7 @@
             <p class="pl-price">CA$3,890 <span>One-time</span></p>
           </div>
           <div class="pl-cell pl-cta pl-feat">
-            <a href="#ask" class="btn">Order</a>
+            <button type="button" class="btn" data-order="Growth Audit" data-price="CA$3,890" data-mode="choose">Order</button>
             <a href="../sample-report.html" class="arrow-link">View Demo Growth Audit
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
@@ -1582,7 +1730,7 @@
             <p class="pl-price">CA$2,490 <span>Per month</span></p>
           </div>
           <div class="pl-cell pl-cta">
-            <a href="#ask" class="btn">Order</a>
+            <button type="button" class="btn" data-order="Growth Advisory" data-price="CA$2,490 / month" data-mode="ask">Ask about Advisory</button>
           </div>
         </div>
 
@@ -1928,18 +2076,103 @@
   <footer class="footer">
     <div class="frame">
       <div class="footer-inner">
-        <span>© 2026 Dwelve · <a href="mailto:hello@dwelve.com">hello@dwelve.com</a> · Vancouver Island, BC</span>
+        <span>Dwelve &middot; <a href="mailto:hello@dwelve.com">hello@dwelve.com</a> &middot; Vancouver Island, BC</span>
         <span class="footer-links">
-          <a href="../privacy.html">Privacy Policy</a>
-          <a href="../terms.html">Terms of Service</a>
+          <a href="../privacy.html">Privacy &amp; Cookie Policy</a>
+          <a href="../terms.html">Terms of Use</a>
+          <a href="../terms.html#purchase">Refund / Cancellation / Purchase terms</a>
         </span>
       </div>
+      <p class="footer-rights">&copy; 2026 Dwelve. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- ==========================================================
        JAVASCRIPT
        ========================================================== -->
+  <!-- ==========================================================
+       ORDER DIALOG — two panes: pick a route, or ask a question.
+       Advisory opens straight on the question pane, since it is only
+       sold after an Audit.
+       ========================================================== -->
+  <dialog class="modal" id="order-modal" aria-labelledby="modal-title">
+    <button type="button" class="modal-close" data-modal-close aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <p class="modal-kicker" id="modal-plan">Growth Audit &middot; CA$3,890</p>
+    <h2 class="modal-title" id="modal-title">How would you like to start?</h2>
+
+    <!-- pane 1: choose -->
+    <div class="modal-pane" id="pane-choose">
+      <div class="route">
+        <h3>Pay online</h3>
+        <p>Card payment through Stripe. You get the brief straight after checkout, and the money-back guarantee applies either way.</p>
+        <button type="button" class="btn" id="pay-online">Pay with card</button>
+        <p class="route-note" id="pay-note" hidden>Stripe is not connected in this preview. At launch this button opens the Stripe checkout for the selected plan.</p>
+      </div>
+      <div class="route route--quiet">
+        <h3>Ask a question first</h3>
+        <p>Not sure this is the right format, or you would rather not pay online? Tell me about the business and I will answer personally.</p>
+        <button type="button" class="btn btn--outline" data-show-ask>Ask a question</button>
+      </div>
+    </div>
+
+    <!-- pane 2: question -->
+    <form class="modal-pane ask-form modal-form" id="pane-ask" novalidate hidden>
+      <div class="ask-row">
+        <label class="field"><span>Your name</span><input type="text" name="name" placeholder="Name" required></label>
+        <label class="field"><span>Email</span><input type="email" name="email" placeholder="name@company.com" required></label>
+      </div>
+      <label class="field"><span>Phone / messenger</span><input type="text" name="phone" placeholder="Optional"></label>
+      <label class="field"><span>Your question</span><textarea name="message" rows="4" placeholder="What would you like to know?" required></textarea></label>
+
+      <label class="consent">
+        <input type="checkbox" name="privacy" required>
+        <span>I agree to the processing of my personal data and have read the <a href="../privacy.html" target="_blank" rel="noopener">Privacy &amp; Cookie Policy</a> and the <a href="../terms.html" target="_blank" rel="noopener">Terms of Use</a>.</span>
+      </label>
+      <label class="consent">
+        <input type="checkbox" name="marketing">
+        <span>I agree to receive updates and marketing emails from Dwelve. I can withdraw this at any time.</span>
+      </label>
+
+      <button type="submit" class="btn ask-submit">Send question</button>
+      <p class="ask-note">This preview opens the message in your own mail app. Before launch, connect the form to whichever system will receive the requests.</p>
+    </form>
+  </dialog>
+
+  <!-- ==========================================================
+       COOKIE PREFERENCES — first visit only, choice kept locally
+       ========================================================== -->
+  <div class="cookie" id="cookie-bar" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" hidden>
+    <div class="cookie-main">
+      <h2 class="cookie-title" id="cookie-title">Cookie preferences</h2>
+      <p id="cookie-text">We use cookies to operate this website and, with your permission, to understand site usage and improve our marketing. See the <a href="../privacy.html" target="_blank" rel="noopener">Privacy &amp; Cookie Policy</a>.</p>
+
+      <div class="cookie-manage" id="cookie-manage" hidden>
+        <label class="cookie-opt">
+          <input type="checkbox" checked disabled>
+          <span><b>Strictly necessary</b>Needed for the site to work. Always on.</span>
+        </label>
+        <label class="cookie-opt">
+          <input type="checkbox" id="opt-analytics">
+          <span><b>Analytics</b>How the site is used, so it can be improved.</span>
+        </label>
+        <label class="cookie-opt">
+          <input type="checkbox" id="opt-marketing">
+          <span><b>Marketing</b>Measuring which campaigns bring visitors here.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="cookie-actions">
+      <button type="button" class="btn btn--sm" data-cookie="all">Accept all</button>
+      <button type="button" class="btn btn--outline btn--sm" data-cookie="essential">Reject non-essential</button>
+      <button type="button" class="cookie-link" data-cookie="manage">Manage preferences</button>
+      <button type="button" class="btn btn--sm" data-cookie="save" hidden>Save choices</button>
+    </div>
+  </div>
+
   <script>
     (function () {
       'use strict';
@@ -2046,11 +2279,110 @@
             val('message') || '(no description given)',
             '',
             'Marketing emails: ' + (f.get('marketing') ? 'yes' : 'no')
-          ].join('
-');
+          ].join('\n');
           window.location.href = 'mailto:hello@dwelve.com'
             + '?subject=' + encodeURIComponent('Dwelve request — ' + (val('name') || 'website'))
             + '&body=' + encodeURIComponent(body);
+        });
+      }
+
+      // === ORDER DIALOG ===
+      var modal = document.getElementById('order-modal');
+      if (modal && typeof modal.showModal === 'function') {
+        var paneChoose = document.getElementById('pane-choose');
+        var paneAsk = document.getElementById('pane-ask');
+        var modalPlan = document.getElementById('modal-plan');
+        var modalTitle = document.getElementById('modal-title');
+        var payNote = document.getElementById('pay-note');
+        var currentPlan = '';
+
+        function showPane(which) {
+          var asking = which === 'ask';
+          paneChoose.hidden = asking;
+          paneAsk.hidden = !asking;
+          modalTitle.textContent = asking ? 'Ask a question' : 'How would you like to start?';
+        }
+
+        document.querySelectorAll('[data-order]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            currentPlan = btn.getAttribute('data-order');
+            modalPlan.textContent = currentPlan + ' · ' + btn.getAttribute('data-price');
+            if (payNote) payNote.hidden = true;
+            showPane(btn.getAttribute('data-mode') === 'ask' ? 'ask' : 'choose');
+            modal.showModal();
+          });
+        });
+
+        modal.querySelector('[data-modal-close]').addEventListener('click', function () { modal.close(); });
+        modal.querySelector('[data-show-ask]').addEventListener('click', function () { showPane('ask'); });
+
+        // Clicking the backdrop closes; clicking the card must not.
+        modal.addEventListener('click', function (e) { if (e.target === modal) modal.close(); });
+
+        // Stripe is not wired in the preview — say so rather than pretend.
+        var pay = document.getElementById('pay-online');
+        if (pay && payNote) pay.addEventListener('click', function () { payNote.hidden = false; });
+
+        paneAsk.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (paneAsk.reportValidity && !paneAsk.reportValidity()) return;
+          var f = new FormData(paneAsk);
+          var val = function (k) { return (f.get(k) || '').toString().trim(); };
+          var body = [
+            'Plan: ' + currentPlan,
+            'Name: ' + val('name'),
+            'Email: ' + val('email'),
+            'Phone / messenger: ' + (val('phone') || '—'),
+            '',
+            val('message'),
+            '',
+            'Marketing emails: ' + (f.get('marketing') ? 'yes' : 'no')
+          ].join('\n');
+          window.location.href = 'mailto:hello@dwelve.com'
+            + '?subject=' + encodeURIComponent('Dwelve question — ' + currentPlan)
+            + '&body=' + encodeURIComponent(body);
+          modal.close();
+        });
+      }
+
+      // === COOKIE PREFERENCES ===
+      // The choice is stored locally. Nothing on the page reads it yet: no
+      // analytics or marketing tag is loaded here, so this records consent
+      // rather than acting on it. Wire the tags to it when they are added.
+      var KEY = 'dwelve-cookie-consent';
+      var bar = document.getElementById('cookie-bar');
+      if (bar) {
+        var stored = null;
+        try { stored = localStorage.getItem(KEY); } catch (err) { stored = 'skip'; }
+        if (!stored) bar.hidden = false;
+
+        function saveConsent(analytics, marketing) {
+          try {
+            localStorage.setItem(KEY, JSON.stringify({
+              analytics: !!analytics, marketing: !!marketing, at: new Date().toISOString()
+            }));
+          } catch (err) { /* private mode — the banner simply reappears */ }
+          bar.hidden = true;
+        }
+
+        bar.addEventListener('click', function (e) {
+          var action = e.target.closest('[data-cookie]');
+          if (!action) return;
+          var kind = action.getAttribute('data-cookie');
+          if (kind === 'all') return saveConsent(true, true);
+          if (kind === 'essential') return saveConsent(false, false);
+          if (kind === 'manage') {
+            document.getElementById('cookie-manage').hidden = false;
+            action.hidden = true;
+            bar.querySelector('[data-cookie="save"]').hidden = false;
+            return;
+          }
+          if (kind === 'save') {
+            return saveConsent(
+              document.getElementById('opt-analytics').checked,
+              document.getElementById('opt-marketing').checked
+            );
+          }
         });
       }
 
