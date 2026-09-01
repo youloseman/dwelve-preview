@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dwelve — Marketing Review for Small Businesses in Canada · Foudre Concept v1.2</title>
+  <meta name="description" content="Dwelve — marketing review for small businesses in Canada. Get a written action plan to fix what's not working. From CA$249. 100% money-back guarantee.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%23db3c8a'/%3E%3Cpath d='M112 30 L64 108 h30 l-12 62 52-84 h-32z' fill='%23fff8f6'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="theme_foudre_1_2.css">
+
+  <style>
+    /* ==========================================================
+       RESET & BASE
+       ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-ui) !important;
+      font-size: var(--text-body);
+      line-height: var(--lead-body);
+      color: var(--forest) !important;   /* spec: forest ink is the editorial voice */
+      background: var(--chalk) !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ul, ol { list-style: none; }
+    ::selection { background: var(--lipstick); color: var(--chalk); }
+
+    /* ==========================================================
+       LAYOUT PRIMITIVES
+       ========================================================== */
+    .frame {
+      width: 100%;
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 var(--page-pad);
+      position: relative;
+      z-index: 1;
+    }
+
+    .band { padding: var(--section-gap) 0; position: relative; overflow: hidden; }
+
+    /* Only two band surfaces exist: the chalk canvas and a blush wash.
+       Cotton pink is reserved for a single elevated card. */
+    .band--blush { background: var(--blush); }
+
+    /* Outline watermark type — depth without introducing a new colour */
+    /* Sits level with the section heading, which only ever fills the left
+       half — so it lands in real empty space instead of behind the cards. */
+    .watermark {
+      position: absolute;
+      /* aligns to the frame's right edge at any viewport, so the word never
+         gets sliced by the band's overflow clip */
+      right: max(var(--page-pad), calc((100% - var(--page-max)) / 2 + var(--page-pad)));
+      top: var(--section-gap);
+      font-family: var(--font-display) !important;
+      font-size: clamp(90px, 13vw, 200px);
+      line-height: 1;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--bubblegum);
+      opacity: 0.35;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      white-space: nowrap;
+    }
+    .band--blush .watermark { -webkit-text-stroke-color: var(--cotton); opacity: 0.28; }
+
+    /* ==========================================================
+       TYPE SYSTEM
+       ========================================================== */
+    .display {
+      font-family: var(--font-display) !important;
+      font-weight: 400;             /* Anton ships a single ultra-black weight */
+      line-height: var(--lead-display);
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      color: var(--lipstick);
+      margin: 0;
+    }
+    .display--xl  { font-size: var(--text-display); }
+    .display--lg  { font-size: var(--text-h-lg); }
+    .display--md  { font-size: var(--text-h); }
+    .display--sm  { font-size: var(--text-h-sm); }
+    .display--sub { font-size: var(--text-sub); }
+
+    /* Faded echo — a ghost of the statement magenta just made */
+    .echo    { color: var(--bubblegum); }
+    .whisper { color: var(--blush); }
+
+    /* Outline display type. Doubled selector so it outranks section colours;
+       the descendant form covers a single outlined line inside a heading. */
+    .display.outline,
+    .display .outline {
+      color: transparent;
+      -webkit-text-stroke: 3px var(--lipstick);
+      paint-order: stroke fill;
+    }
+    .manifesto .display.outline { -webkit-text-stroke-color: var(--chalk); }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: var(--s-8);
+      font-size: var(--text-caption);
+      font-weight: var(--w-medium);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--forest);
+      margin-bottom: var(--s-20);
+    }
+    /* Foudre = lightning. The bolt is the only decorative glyph on the page. */
+    .section-label::before {
+      content: '';
+      width: 12px; height: 16px;
+      flex: none;
+      background: var(--lipstick);
+      clip-path: polygon(58% 0, 22% 54%, 47% 54%, 38% 100%, 78% 42%, 52% 42%);
+    }
+
+    .body-copy { font-size: var(--text-body); max-width: 60ch; }
+    .body-copy + .body-copy { margin-top: var(--s-20); }
+    .body-copy strong { font-weight: var(--w-bold); }
+
+    .caption-copy { font-size: var(--text-body-sm); max-width: 60ch; }
+
+    .lede { font-size: clamp(19px, 1.8vw, 24px); line-height: 1.35; max-width: 46ch; }
+
+    /* ==========================================================
+       CHROME — pills, links, buttons
+       ========================================================== */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--text-label);
+      font-weight: var(--w-medium);
+      line-height: 1;
+      color: var(--forest);
+      background: var(--blush);
+      border-radius: var(--r-tag);
+      padding: 8px 15px;
+      white-space: nowrap;
+    }
+    .pill--loud  { background: var(--lipstick); color: var(--chalk); font-weight: var(--w-bold); }
+    .pill--chalk { background: var(--chalk); }
+    .band--blush .pill { background: var(--chalk); }
+    .band--blush .pill--loud { background: var(--lipstick); color: var(--chalk); }
+
+    .link {
+      display: inline-block;
+      font-weight: var(--w-medium);
+      color: inherit;
+      background-image: linear-gradient(var(--lipstick), var(--lipstick));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0% 2px;
+      padding-bottom: 3px;
+      transition: background-size 280ms cubic-bezier(0.22,1,0.36,1), color 220ms ease;
+    }
+    .link:hover { background-size: 100% 2px; color: var(--lipstick); }
+    .link--lg { font-size: clamp(17px, 1.4vw, 20px); font-weight: var(--w-bold); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-8);
+      font-size: var(--text-caption);
+      font-weight: var(--w-bold);
+      line-height: 1;
+      color: var(--chalk);
+      background: var(--lipstick);
+      border-radius: var(--r-btn);
+      padding: 16px 30px;
+      transition: background 220ms ease, transform 220ms ease;
+    }
+    .btn:hover { background: var(--forest); transform: translateY(-2px); }
+    .btn--ink { background: var(--forest); }
+    .btn--ink:hover { background: var(--ink); }
+    .btn--chalk { background: var(--chalk); color: var(--forest); }
+    .btn--chalk:hover { background: var(--lipstick); color: var(--chalk); }
+    .btn--ghost {
+      background: transparent;
+      color: var(--forest);
+      border: 1.5px solid var(--forest);
+      padding: 14.5px 28.5px;
+    }
+    .btn--ghost:hover { background: var(--forest); color: var(--chalk); }
+
+    /* ==========================================================
+       CORNER CIRCLES — the only two dots on the page
+       ========================================================== */
+    .corner {
+      position: fixed;
+      top: 25px;
+      width: 50px; height: 50px;
+      border-radius: var(--r-icon);
+      background: var(--lipstick);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      transition: transform 240ms cubic-bezier(0.22,1,0.36,1), background 240ms ease;
+    }
+    .corner:hover { transform: scale(1.1); background: var(--forest); }
+    .corner--menu  { left: 25px; }
+    .corner--brand { right: 25px; }
+
+    .burger { position: relative; width: 20px; height: 14px; }
+    .burger span {
+      position: absolute; left: 0;
+      width: 100%; height: 2px;
+      background: var(--chalk);
+      transition: transform 320ms cubic-bezier(0.22,1,0.36,1), opacity 180ms ease, top 320ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .burger span:nth-child(1) { top: 0; }
+    .burger span:nth-child(2) { top: 6px; }
+    .burger span:nth-child(3) { top: 12px; }
+    .menu-open .burger span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+    .menu-open .burger span:nth-child(2) { opacity: 0; }
+    .menu-open .burger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+    /* ==========================================================
+       FULLSCREEN MENU
+       ========================================================== */
+    .menu {
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      background: var(--chalk);
+      display: flex;
+      align-items: center;
+      padding: 110px var(--page-pad) var(--s-60);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 380ms ease, visibility 380ms ease;
+      overflow-y: auto;
+    }
+    .menu-open .menu { opacity: 1; visibility: visible; }
+
+    .menu-inner {
+      width: 100%;
+      max-width: var(--page-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: var(--s-60);
+      align-items: end;
+    }
+
+    .menu-list li { overflow: hidden; }
+    .menu-list a {
+      display: inline-block;
+      font-family: var(--font-display) !important;
+      font-size: clamp(36px, 7vw, 88px);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--lipstick);
+      transform: translateY(110%);
+      transition: transform 620ms cubic-bezier(0.22,1,0.36,1), color 200ms ease;
+    }
+    .menu-open .menu-list a { transform: translateY(0); }
+    .menu-list a:hover { color: var(--forest); }
+    .menu-list li:nth-child(2) a { transition-delay: 50ms; }
+    .menu-list li:nth-child(3) a { transition-delay: 100ms; }
+    .menu-list li:nth-child(4) a { transition-delay: 150ms; }
+    .menu-list li:nth-child(5) a { transition-delay: 200ms; }
+    .menu-list li:nth-child(6) a { transition-delay: 250ms; }
+
+    .menu-aside { display: grid; gap: var(--s-20); justify-items: start; }
+    .menu-aside .pill-row { display: flex; flex-wrap: wrap; gap: var(--s-8); }
+
+    /* ==========================================================
+       MARQUEE — the magenta exclamation, kept to thin strips
+       ========================================================== */
+    .marquee { overflow: hidden; background: var(--lipstick); padding: 14px 0; user-select: none; }
+    .marquee--blush { background: var(--blush); }
+    .marquee-track { display: flex; width: max-content; animation: slide 38s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-track span {
+      font-family: var(--font-display) !important;
+      font-size: clamp(20px, 2.2vw, 30px);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--chalk);
+      padding: 0 var(--s-20);
+      display: flex;
+      align-items: center;
+      gap: var(--s-20);
+      white-space: nowrap;
+    }
+    .marquee--blush .marquee-track span { color: var(--lipstick); }
+    .marquee-track span::after {
+      content: '';
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.55;
+      flex: none;
+    }
+    @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ==========================================================
+       IMAGERY — raw rectangular slabs, duotoned into the palette.
+       Shadows resolve to magenta, highlights to blush; full colour
+       returns on hover.
+       ========================================================== */
+    .slab { overflow: hidden; background: var(--blush); }
+    .slab img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: url(#duotone);
+      transition: filter 600ms ease, transform 900ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .slab:hover img { filter: none; transform: scale(1.03); }
+    .slab--raw img { filter: none; }
+
+    /* ==========================================================
+       HERO
+       ========================================================== */
+    .hero { padding: clamp(115px, 13vh, 160px) 0 var(--s-60); }
+
+    .hero-display { margin-bottom: var(--s-30); }
+    .hero-display .display { font-size: var(--text-hero); }
+
+    .hero-foot {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-30) var(--s-60);
+      align-items: end;
+    }
+
+    .rotator { display: inline-grid; text-align: left; vertical-align: baseline; }
+    .rotator > span {
+      grid-area: 1 / 1;
+      opacity: 0;
+      transform: translateY(0.16em);
+      transition: opacity 480ms ease, transform 480ms cubic-bezier(0.22,1,0.36,1);
+      white-space: nowrap;
+    }
+    .rotator > span.active { opacity: 1; transform: translateY(0); }
+
+    .hero-photo { position: relative; aspect-ratio: 16 / 11; }
+    .hero-photo .slab { height: 100%; }
+    .hero-photo-tag { position: absolute; left: 0; bottom: 0; transform: translate(-14px, 14px); z-index: 3; }
+
+    .hero-strip {
+      margin-bottom: var(--s-30);
+      padding-bottom: var(--s-20);
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-12) var(--s-20);
+    }
+    .hero-strip-item { display: flex; gap: var(--s-12); align-items: flex-start; }
+    .hero-strip-item svg { flex: none; margin-top: 2px; }
+    .hero-strip-item span { font-size: var(--text-caption); }
+
+    .hero-pills { display: flex; flex-wrap: wrap; gap: var(--s-8); margin-bottom: var(--s-20); }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-20) var(--s-30); margin-top: var(--s-30); }
+
+    /* ==========================================================
+       PAIN POINTS — blush cards with an oversized ghost number
+       ========================================================== */
+    .pain-grid {
+      margin-top: var(--s-60);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-20);
+    }
+    .pain-cell {
+      position: relative;
+      overflow: hidden;
+      background: var(--blush);
+      border-radius: var(--r-card);
+      padding: var(--card-pad);
+      display: grid;
+      gap: var(--s-12);
+      align-content: start;
+      transition: background 320ms ease, color 320ms ease;
+    }
+    .pain-cell > * { position: relative; z-index: 1; }
+    .pain-ghost {
+      position: absolute;
+      right: 0.02em; bottom: -0.3em;
+      z-index: 0;
+      font-family: var(--font-display) !important;
+      font-size: clamp(110px, 12vw, 170px);
+      line-height: 1;
+      color: var(--cotton);
+      opacity: 0.35;
+      transition: color 320ms ease, opacity 320ms ease;
+    }
+    .pain-cell:hover { background: var(--cotton); }
+    .pain-cell:hover .pain-ghost { color: var(--chalk); opacity: 0.45; }
+    .pain-cell:hover .pain-icon { stroke: var(--chalk); }
+    .pain-icon { stroke: var(--ink); transition: stroke 320ms ease; }
+    .pain-title { font-size: clamp(19px, 1.8vw, 24px); font-weight: var(--w-bold); line-height: var(--lead-ui); max-width: 24ch; }
+    .pain-desc { font-size: var(--text-body-sm); max-width: 34ch; }
+
+    /* ==========================================================
+       PRICING — editorial tier rows
+       ========================================================== */
+    .tiers { margin-top: var(--s-60); border-top: 2px solid var(--rule-strong); }
+
+    .tier {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: var(--s-20) var(--s-60);
+      padding: clamp(26px, 3.4vw, 50px) 0;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+    .tier--featured::before {
+      content: '';
+      position: absolute;
+      left: calc(var(--page-pad) * -1);
+      right: calc(var(--page-pad) * -1);
+      top: 0; bottom: 0;
+      background: var(--blush);
+      z-index: 0;
+    }
+    .tier > * { position: relative; z-index: 1; }
+
+    .tier-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-12); }
+    .tier-name {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-h-sm);
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--lipstick);
+    }
+    .tier-price {
+      font-family: var(--font-display) !important;
+      font-size: clamp(30px, 3.2vw, 46px);
+      line-height: 1;
+      color: var(--forest);
+      margin-top: var(--s-20);
+    }
+    .tier-price span { font-family: var(--font-ui) !important; font-size: var(--text-caption); font-weight: var(--w-regular); }
+    .tier-bestif { margin-top: var(--s-12); font-size: var(--text-body-sm); max-width: 40ch; }
+    .tier-cta { margin-top: var(--s-20); }
+
+    .tier-features { align-self: start; }
+    .tier-features li {
+      font-size: var(--text-body-sm);
+      display: flex;
+      gap: var(--s-12);
+      align-items: baseline;
+      margin-bottom: var(--s-8);
+      break-inside: avoid;
+    }
+    .tick { flex: none; color: var(--lipstick); font-weight: var(--w-bold); }
+    .tier-features li.off { color: var(--lilac); }
+    .tier-features li.off .tick { color: var(--lilac); }
+    @media (min-width: 1100px) {
+      .tier-features { columns: 2; column-gap: var(--s-30); }
+    }
+
+    /* Growth Advisory — the one cotton-pink elevated moment on the page */
+    .advisory {
+      margin-top: var(--s-60);
+      background: var(--cotton);
+      border-radius: var(--r-elevated);
+      padding: clamp(30px, 4.2vw, 64px);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: var(--s-30) var(--s-60);
+      align-items: center;
+      color: var(--forest);
+    }
+    .advisory-title {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-h-sm);
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: var(--chalk);
+      margin-top: var(--s-12);
+    }
+    .advisory-sub { margin-top: var(--s-20); font-size: var(--text-body-sm); font-weight: var(--w-medium); max-width: 46ch; }
+    .advisory-features { margin-top: var(--s-20); display: grid; gap: var(--s-8); }
+    .advisory-features li { font-size: var(--text-body-sm); display: flex; gap: var(--s-12); align-items: baseline; }
+    .advisory-features .tick { color: var(--chalk); }
+    .advisory-price {
+      font-family: var(--font-display) !important;
+      font-size: clamp(34px, 3.6vw, 52px);
+      line-height: 1;
+      color: var(--chalk);
+    }
+    .advisory-price span { font-family: var(--font-ui) !important; font-size: var(--text-caption); font-weight: var(--w-regular); }
+    .advisory-offer { margin-top: var(--s-12); font-size: var(--text-caption); max-width: 32ch; }
+
+    /* Guarantee — rotating circular seal */
+    .guarantee { margin-top: var(--s-60); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-30) var(--s-60); }
+    .seal { position: relative; width: 150px; height: 150px; flex: none; }
+    .seal-ring { width: 100%; height: 100%; animation: spin 22s linear infinite; }
+    .seal-ring text {
+      font-family: var(--font-ui);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      fill: var(--forest);
+      text-transform: uppercase;
+    }
+    .seal-bolt { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .plan-help {
+      margin-top: var(--s-60);
+      padding-top: var(--s-20);
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--s-20);
+    }
+
+    /* ==========================================================
+       WHAT'S INSIDE — PDF mock + feature grid
+       ========================================================== */
+    .inside-grid {
+      margin-top: var(--s-60);
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: var(--s-60);
+      align-items: start;
+    }
+
+    .pdf-stage { position: relative; padding: var(--s-30); }
+    .pdf-stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--cotton);
+      border-radius: var(--r-card);
+    }
+    .pdf-page {
+      position: relative;
+      background: var(--chalk);
+      border: 1px solid var(--bubblegum);
+      aspect-ratio: 3 / 4;
+      padding: 8%;
+      transform: rotate(-2.2deg);
+      transition: transform 500ms cubic-bezier(0.22,1,0.36,1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pdf-stage:hover .pdf-page { transform: rotate(0deg); }
+    .pdf-page::after {
+      content: '';
+      position: absolute;
+      inset: 5% -4% -5% 4%;
+      background: var(--chalk);
+      border: 1px solid var(--bubblegum);
+      z-index: -1;
+      transform: rotate(3deg);
+    }
+    .pdf-brand { font-family: var(--font-display) !important; font-size: clamp(15px, 1.5vw, 21px); line-height: 1; text-transform: uppercase; color: var(--lipstick); }
+    .pdf-kicker { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest); margin-top: 4px; }
+    .pdf-rule { height: 2px; background: var(--lipstick); width: 34px; }
+    .pdf-h { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lipstick); }
+    .pdf-line { height: 5px; border-radius: 3px; background: var(--blush); }
+    .pdf-bars { display: flex; align-items: flex-end; gap: 4px; height: 11%; }
+    .pdf-bars i { width: 9px; background: var(--bubblegum); border-radius: 2px 2px 0 0; }
+    .pdf-bars i:nth-child(2) { background: var(--lipstick); }
+    .pdf-bars i:nth-child(4) { background: var(--forest); }
+
+    .pdf-caption { margin-top: var(--s-20); display: flex; flex-wrap: wrap; gap: var(--s-8); }
+
+    .inside-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--bubblegum); border: 1px solid var(--bubblegum); }
+    .inside-cell {
+      background: var(--chalk);
+      padding: var(--s-30) var(--s-20);
+      display: grid;
+      gap: var(--s-8);
+      align-content: start;
+      transition: background 280ms ease;
+    }
+    .inside-cell:hover { background: var(--blush); }
+    .inside-top { display: flex; align-items: center; gap: var(--s-12); }
+    .inside-num { font-family: var(--font-display) !important; font-size: 20px; line-height: 1; color: var(--cotton); }
+    .inside-title { font-size: var(--text-body-sm); font-weight: var(--w-bold); line-height: var(--lead-ui); }
+    .inside-desc { font-size: var(--text-caption); }
+
+    /* ==========================================================
+       PROCESS — 5 steps
+       ========================================================== */
+    .steps { margin-top: var(--s-60); border-top: 1px solid var(--rule); }
+    .step {
+      display: grid;
+      grid-template-columns: minmax(80px, 110px) minmax(170px, 260px) 1fr;
+      gap: var(--s-12) var(--s-30);
+      align-items: center;
+      padding: clamp(18px, 2.4vw, 34px) var(--s-20);
+      margin: 0 calc(var(--s-20) * -1);
+      border-bottom: 1px solid var(--rule);
+      border-radius: var(--r-badge);
+      transition: background 320ms ease;
+    }
+    .step:hover { background: var(--blush); }
+    .step-num {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-h-sm);
+      line-height: 0.9;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--cotton);
+      transition: color 350ms ease, -webkit-text-stroke-color 350ms ease;
+    }
+    .step:hover .step-num { color: var(--lipstick); -webkit-text-stroke-color: var(--lipstick); }
+    .step-name { font-family: var(--font-display) !important; font-size: var(--text-sub); line-height: 0.92; text-transform: uppercase; color: var(--lipstick); }
+    .step-desc { font-size: var(--text-body-sm); max-width: 44ch; }
+
+    /* ==========================================================
+       MANIFESTO — full-bleed duotone image, the page's dark anchor
+       ========================================================== */
+    .manifesto {
+      position: relative;
+      min-height: min(88vh, 760px);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .manifesto img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 28%;
+      filter: url(#duotone-deep);
+      opacity: 0.9;
+    }
+    .manifesto-inner { position: relative; z-index: 2; width: 100%; padding: var(--s-60) 0; }
+    .manifesto .display { color: var(--chalk); }
+
+    /* ==========================================================
+       ECONOMICS — blush wash, charts on chalk cards
+       ========================================================== */
+    .econ-grid { margin-top: var(--s-60); display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-30); }
+    .chart { background: var(--chalk); border-radius: var(--r-card); padding: var(--card-pad); }
+    .chart-title {
+      font-size: var(--text-caption);
+      font-weight: var(--w-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--lipstick);
+      margin-bottom: var(--s-30);
+    }
+    .bar-row + .bar-row { margin-top: var(--s-30); }
+    .bar-label { font-size: var(--text-caption); margin-bottom: var(--s-8); }
+    .bar-track { display: flex; align-items: center; gap: var(--s-12); }
+    .bar-fill {
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding: 0 var(--s-12);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 1100ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .visible .bar-fill, .no-motion .bar-fill { transform: scaleX(1); }
+    .bar-fill--waste  { background: var(--bubblegum); width: 100%; }
+    .bar-fill--dwelve { background: var(--lipstick); width: 15%; }
+    .bar-amount { font-family: var(--font-display) !important; font-size: clamp(20px, 2vw, 28px); line-height: 1; color: var(--forest); }
+    .bar-amount--out { color: var(--lipstick); }
+
+    .bar-note {
+      margin-top: var(--s-30);
+      padding-top: var(--s-20);
+      border-top: 1px solid var(--rule);
+      font-size: var(--text-caption);
+    }
+    .bar-note b {
+      font-family: var(--font-display) !important;
+      font-weight: 400;
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1;
+      color: var(--lipstick);
+      display: block;
+      margin-bottom: var(--s-8);
+    }
+
+    .chart-svg { width: 100%; height: auto; }
+    .chart-line { stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 1600ms cubic-bezier(0.4, 0, 0.2, 1); }
+    .visible .chart-line, .no-motion .chart-line { stroke-dashoffset: 0; }
+    .visible .chart-line.d1 { transition-delay: 220ms; }
+    .visible .chart-line.d2 { transition-delay: 440ms; }
+
+    .econ-anchor {
+      margin-top: var(--s-60);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-30);
+      border-top: 1px solid var(--cotton);
+      padding-top: var(--s-30);
+    }
+    .econ-anchor div { font-size: var(--text-caption); }
+    .econ-anchor strong {
+      display: block;
+      font-family: var(--font-display) !important;
+      font-size: clamp(22px, 2.2vw, 32px);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--lipstick);
+      margin-bottom: var(--s-8);
+    }
+
+    /* ==========================================================
+       TESTIMONIALS
+       ========================================================== */
+    .quotes { margin-top: var(--s-60); display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-20); }
+    .quote {
+      background: var(--blush);
+      border-radius: var(--r-card);
+      padding: var(--card-pad);
+      display: grid;
+      gap: var(--s-20);
+      align-content: start;
+      transition: transform 340ms cubic-bezier(0.22,1,0.36,1);
+    }
+    .quote:hover { transform: translateY(-4px); }
+    .quote-mark { font-family: var(--font-display) !important; font-size: 64px; line-height: 0.55; color: var(--cotton); }
+    .quote-text { font-size: clamp(18px, 1.7vw, 23px); line-height: 1.32; max-width: 40ch; }
+    .quote-foot { display: flex; align-items: center; gap: var(--s-12); flex-wrap: wrap; }
+    .avatar {
+      width: 44px; height: 44px;
+      flex: none;
+      border-radius: var(--r-icon);
+      background: var(--lipstick);
+      color: var(--chalk);
+      display: flex; align-items: center; justify-content: center;
+      font-size: var(--text-caption);
+      font-weight: var(--w-bold);
+      letter-spacing: 0.04em;
+    }
+    .quote-who { font-size: var(--text-caption); font-weight: var(--w-bold); }
+    .quote-biz { font-size: var(--text-caption); }
+    .quote-result { margin-top: auto; }
+
+    /* ==========================================================
+       ABOUT
+       ========================================================== */
+    .about-grid { margin-top: var(--s-60); display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--s-60); align-items: start; }
+    .about-photo { aspect-ratio: 4 / 5; position: relative; }
+    .about-photo .slab { height: 100%; }
+    .about-badge { position: absolute; right: 0; bottom: 0; transform: translate(14px, 14px); z-index: 3; }
+
+    .about-note {
+      margin: var(--s-30) 0;
+      background: var(--blush);
+      border-left: 3px solid var(--lipstick);
+      padding: var(--s-20) var(--s-30);
+      max-width: 58ch;
+    }
+    .about-credo {
+      margin-top: var(--s-30);
+      font-family: var(--font-display) !important;
+      font-size: var(--text-sub);
+      line-height: 1.02;
+      text-transform: uppercase;
+      color: var(--lipstick);
+      max-width: 18ch;
+    }
+
+    /* ==========================================================
+       FAQ
+       ========================================================== */
+    .faq { margin-top: var(--s-60); border-top: 2px solid var(--rule-strong); }
+    .faq-item { border-bottom: 1px solid var(--rule); }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s-20);
+      padding: var(--s-20) 0;
+      font-size: clamp(17px, 1.5vw, 22px);
+      font-weight: var(--w-medium);
+      transition: color 220ms ease, padding-left 300ms ease;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--lipstick); padding-left: var(--s-8); }
+    .faq-icon {
+      flex: none;
+      width: 34px; height: 34px;
+      border-radius: var(--r-icon);
+      background: var(--chalk);
+      color: var(--lipstick);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; line-height: 1;
+      transition: transform 320ms cubic-bezier(0.22,1,0.36,1), background 220ms ease, color 220ms ease;
+    }
+    .faq-item[open] .faq-icon { transform: rotate(135deg); background: var(--lipstick); color: var(--chalk); }
+    .faq-answer { padding: 0 0 var(--s-30); font-size: var(--text-body-sm); max-width: 62ch; }
+
+    /* ==========================================================
+       FINAL CTA — closes on type, not on a colour block
+       ========================================================== */
+    .final { padding: clamp(100px, 13vw, 180px) 0; }
+    .final-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-20) var(--s-30); margin-top: var(--s-60); }
+
+    /* Footer — the one place the spec puts forest ink on a plane */
+    .footer { background: var(--forest); color: var(--chalk); }
+    .footer-inner {
+      padding: var(--s-60) 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-20) var(--s-30);
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--text-label);
+    }
+    .footer a { text-decoration: underline; text-underline-offset: 3px; }
+    .footer a:hover { color: var(--bubblegum); }
+    .footer-links { display: flex; gap: var(--s-20); }
+
+    /* ==========================================================
+       MOTION
+       ========================================================== */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 750ms ease, transform 750ms cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 90ms; }
+    .reveal-d2 { transition-delay: 180ms; }
+    .reveal-d3 { transition-delay: 270ms; }
+
+    /* ==========================================================
+       ACCESSIBILITY
+       ========================================================== */
+    .skip-link {
+      position: absolute;
+      top: -100%; left: var(--s-20);
+      padding: var(--s-8) var(--s-20);
+      background: var(--forest);
+      color: var(--chalk);
+      border-radius: var(--r-btn);
+      z-index: 1000;
+      font-size: var(--text-caption);
+      font-weight: var(--w-bold);
+    }
+    .skip-link:focus { top: var(--s-8); }
+    :focus-visible { outline: 2px solid var(--lipstick); outline-offset: 3px; }
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      .marquee-track { animation: none; }
+      .bar-fill { transform: scaleX(1); }
+      .chart-line { stroke-dashoffset: 0; }
+    }
+
+    /* ==========================================================
+       RESPONSIVE
+       ========================================================== */
+    @media (max-width: 1100px) {
+      .hero-foot { grid-template-columns: 1fr; align-items: start; }
+      .hero-photo { aspect-ratio: 16 / 10; order: -1; }
+      .inside-grid, .econ-grid, .about-grid, .menu-inner { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 80px 1fr; }
+      .step-desc { grid-column: 2; }
+      .watermark { display: none; }
+    }
+
+    @media (max-width: 760px) {
+      .pain-grid, .inside-list, .quotes { grid-template-columns: 1fr; }
+      .tier, .advisory { grid-template-columns: 1fr; }
+      .econ-anchor { grid-template-columns: 1fr; }
+      .hero-strip { grid-template-columns: 1fr; }
+      .corner { top: 16px; width: 44px; height: 44px; }
+      .corner--menu { left: 16px; }
+      .corner--brand { right: 16px; }
+      .menu { padding-top: 90px; align-items: flex-start; }
+      .hero-photo-tag, .about-badge { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Duotone filters. Shadows → lipstick magenta, highlights → blush cream,
+       so photography sits inside the brand palette instead of beside it.
+       The deep variant (black → magenta) is the manifesto's dark anchor. -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <!-- Three stops, all palette colours: shadows land on charcoal black,
+         midtones on lipstick magenta, highlights on blush cream. A two-stop
+         magenta→blush map has no dark end and flattens the photo into one
+         hot pink plane. -->
+    <filter id="duotone" color-interpolation-filters="sRGB">
+      <feColorMatrix type="saturate" values="0"/>
+      <!-- pulls midtones down first, so a bright photo doesn't land entirely
+           in the blush end of the ramp -->
+      <feComponentTransfer>
+        <feFuncR type="gamma" exponent="1.45"/>
+        <feFuncG type="gamma" exponent="1.45"/>
+        <feFuncB type="gamma" exponent="1.45"/>
+      </feComponentTransfer>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0 0.859 0.988"/>
+        <feFuncG type="table" tableValues="0 0.235 0.898"/>
+        <feFuncB type="table" tableValues="0 0.541 0.874"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="duotone-deep" color-interpolation-filters="sRGB">
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0 0.859"/>
+        <feFuncG type="table" tableValues="0 0.235"/>
+        <feFuncB type="table" tableValues="0 0.541"/>
+      </feComponentTransfer>
+    </filter>
+  </svg>
+
+  <!-- ==========================================================
+       CORNER CIRCLES
+       ========================================================== -->
+  <button class="corner corner--menu" id="menu-trigger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+    <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+
+  <a href="#top" class="corner corner--brand" aria-label="Dwelve — back to top">
+    <svg width="22" height="22" viewBox="0 0 200 200" aria-hidden="true">
+      <path d="M112 24 L58 112 h34 l-14 66 58-92 h-36z" fill="#fff8f6"/>
+    </svg>
+  </a>
+
+  <!-- ==========================================================
+       FULLSCREEN MENU
+       ========================================================== -->
+  <nav class="menu" id="menu" aria-label="Main navigation">
+    <div class="menu-inner">
+      <ul class="menu-list">
+        <li><a href="#for-you">Who it's for</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#inside">The report</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="menu-aside">
+        <p class="caption-copy">A written marketing review with a step-by-step action plan. No calls, no contracts, no retainers.</p>
+        <div class="pill-row">
+          <a class="pill" href="../sample-report.html">Demo report →</a>
+          <a class="pill" href="../case-study.html">Case study →</a>
+        </div>
+        <a class="link link--lg" href="mailto:hello@dwelve.com">hello@dwelve.com</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ==========================================================
+         HERO
+         ========================================================== -->
+    <section class="hero" id="top">
+      <div class="frame">
+        <p class="section-label">Marketing review · Small business · Canada</p>
+
+        <h1 class="hero-display">
+          <span class="sr-only">Find out where your business is losing sales, losing clients — and how to fix it</span>
+          <span aria-hidden="true" class="display">
+            Find out where<br>
+            your business is<br>
+            <span class="rotator"><span class="active">losing&nbsp;sales</span><span>losing&nbsp;clients</span></span><br>
+            <span class="echo">and how to fix&nbsp;it</span>
+          </span>
+        </h1>
+
+        <div class="hero-foot">
+          <div>
+            <div class="hero-strip">
+              <div class="hero-strip-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>What works — and what doesn't</span>
+              </div>
+              <div class="hero-strip-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Where money and customers are lost</span>
+              </div>
+              <div class="hero-strip-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Top growth opportunities identified</span>
+              </div>
+              <div class="hero-strip-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Priority actions for the next 30 days</span>
+              </div>
+            </div>
+
+            <div class="hero-pills">
+              <span class="pill pill--loud">From CA$249</span>
+              <span class="pill">100% money-back guarantee</span>
+              <span class="pill">No calls · No contracts</span>
+            </div>
+
+            <p class="lede">A comprehensive marketing report with an improvement plan — built around your business, not a template.</p>
+
+            <div class="hero-actions">
+              <a href="#services" class="btn">Select report format</a>
+              <a href="../sample-report.html" class="link link--lg">View the demo report →</a>
+            </div>
+          </div>
+
+          <div class="hero-photo">
+            <div class="slab slab--raw">
+              <img src="../photos/photo_2026-02-19_16-19-36.jpg" alt="Daria, the marketing strategist behind Dwelve, on Vancouver Island">
+            </div>
+            <span class="pill pill--loud hero-photo-tag">Daria · Strategist</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Marketing review</span><span>Action plan</span><span>No calls</span><span>No contracts</span><span>From CA$249</span><span>Money-back guarantee</span>
+        <span>Marketing review</span><span>Action plan</span><span>No calls</span><span>No contracts</span><span>From CA$249</span><span>Money-back guarantee</span>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+         PAIN POINTS
+         ========================================================== -->
+    <section class="band" id="for-you">
+      <span class="watermark" aria-hidden="true">Stuck</span>
+      <div class="frame">
+        <p class="section-label reveal">Who it's for</p>
+        <h2 class="display display--md reveal">This is for<br>you if</h2>
+
+        <div class="pain-grid">
+          <div class="pain-cell reveal">
+            <span class="pain-ghost" aria-hidden="true">01</span>
+            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <h3 class="pain-title">Customers are hard to attract — and even harder to retain</h3>
+            <p class="pain-desc">Leads are inconsistent, and repeat purchases are rare.</p>
+          </div>
+
+          <div class="pain-cell reveal reveal-d1">
+            <span class="pain-ghost" aria-hidden="true">02</span>
+            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+            <h3 class="pain-title">You're trying everything, but marketing isn't working</h3>
+            <p class="pain-desc">Ads, promotions, new channels — you keep testing but see little real growth.</p>
+          </div>
+
+          <div class="pain-cell reveal reveal-d2">
+            <span class="pain-ghost" aria-hidden="true">03</span>
+            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <h3 class="pain-title">Sales are growing, but profits aren't</h3>
+            <p class="pain-desc">Revenue comes in, yet margins stay thin due to discounts or inefficient spend.</p>
+          </div>
+
+          <div class="pain-cell reveal reveal-d3">
+            <span class="pain-ghost" aria-hidden="true">04</span>
+            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <h3 class="pain-title">Your marketing has stalled</h3>
+            <p class="pain-desc">Your team is busy executing, but results have plateaued.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--s-60);" class="reveal">
+          <a href="#services" class="btn">Yes, this is me — get my report</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SERVICES / PRICING
+         ========================================================== -->
+    <section class="band" id="services" style="padding-top: 0;">
+      <div class="frame">
+        <p class="section-label reveal">Services</p>
+        <h2 class="display display--md reveal">Pick your<br><span class="echo">report</span></h2>
+
+        <div class="tiers">
+          <!-- Starter -->
+          <div class="tier reveal">
+            <div>
+              <div class="tier-head"><h3 class="tier-name">Starter</h3></div>
+              <p class="tier-price">CA$249 <span>one-time</span></p>
+              <p class="tier-bestif">Best if you know the problem area and want expert input on one specific thing.</p>
+              <p class="tier-cta"><a href="#ask" class="btn btn--ghost">Get report</a></p>
+            </div>
+            <ul class="tier-features">
+              <li><span class="tick" aria-hidden="true">✓</span> 1 key business area</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Short PDF report</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Key recommendations</li>
+              <li><span class="tick" aria-hidden="true">✓</span> 3 days chat support</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Ready in 3 business days</li>
+              <li class="off"><span class="tick" aria-hidden="true">—</span> Implementation roadmap</li>
+              <li class="off"><span class="tick" aria-hidden="true">—</span> Presentation video call</li>
+            </ul>
+          </div>
+
+          <!-- Optimal — featured -->
+          <div class="tier tier--featured reveal">
+            <div>
+              <div class="tier-head">
+                <h3 class="tier-name">Optimal</h3>
+                <span class="pill pill--loud">Most popular</span>
+                <span class="pill pill--chalk">Limited spots each month</span>
+              </div>
+              <p class="tier-price">CA$849 <span>one-time</span></p>
+              <p class="tier-bestif">Best if you want a full picture — what's broken, what to fix, and in what order.</p>
+              <p class="tier-cta"><a href="#ask" class="btn">Get report</a></p>
+            </div>
+            <ul class="tier-features">
+              <li><span class="tick" aria-hidden="true">✓</span> 5–7 critical business areas</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Detailed PDF report</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Extended recommendations</li>
+              <li><span class="tick" aria-hidden="true">✓</span> 7 days chat support</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Ready in 7 business days</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Implementation roadmap</li>
+              <li class="off"><span class="tick" aria-hidden="true">—</span> Presentation video call</li>
+            </ul>
+          </div>
+
+          <!-- Advanced -->
+          <div class="tier reveal">
+            <div>
+              <div class="tier-head"><h3 class="tier-name">Advanced</h3></div>
+              <p class="tier-price">CA$3,949 <span>one-time</span></p>
+              <p class="tier-bestif">Best if you need a complete marketing strategy with a roadmap and guided implementation.</p>
+              <p class="tier-cta"><a href="#ask" class="btn btn--ghost">Get report</a></p>
+            </div>
+            <ul class="tier-features">
+              <li><span class="tick" aria-hidden="true">✓</span> Full marketing &amp; growth strategy</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Comprehensive strategy in PDF</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Full strategic recommendations</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Implementation roadmap</li>
+              <li><span class="tick" aria-hidden="true">✓</span> 30 days chat support</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Ready in 30 business days</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Presentation video call</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Growth Advisory — the page's one cotton-pink elevated surface -->
+        <div class="advisory reveal">
+          <div>
+            <span class="pill pill--chalk">Ongoing support</span>
+            <h3 class="advisory-title">Growth<br>Advisory</h3>
+            <p class="advisory-sub">Ongoing support after the report — so your marketing keeps improving. Not just once, but continuously.</p>
+            <ul class="advisory-features">
+              <li><span class="tick" aria-hidden="true">✓</span> Review of campaigns, initiatives, and marketing plans</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Independent supervision of agencies and freelancers</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Help prioritizing high-impact actions</li>
+              <li><span class="tick" aria-hidden="true">✓</span> KPI monitoring and performance evaluation</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Monthly strategy and results review</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Recommendations for new opportunities and issues</li>
+            </ul>
+          </div>
+          <div>
+            <p class="advisory-price">CA$2,349 <span>/mo</span></p>
+            <p class="advisory-offer"><strong>Special offer:</strong> 50% off the first month if you ordered a report.</p>
+            <p style="margin-top: var(--s-20);"><a href="#ask" class="btn btn--ink">Start Growth Advisory</a></p>
+          </div>
+        </div>
+
+        <!-- Guarantee seal -->
+        <div class="guarantee reveal">
+          <div class="seal" aria-hidden="true">
+            <svg class="seal-ring" viewBox="0 0 200 200">
+              <defs><path id="sealPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+              <text><textPath href="#sealPath" startOffset="0">100% money-back guarantee · No questions · No conditions · </textPath></text>
+            </svg>
+            <span class="seal-bolt">
+              <svg width="42" height="42" viewBox="0 0 200 200"><path d="M112 24 L58 112 h34 l-14 66 58-92 h-36z" fill="#db3c8a"/></svg>
+            </span>
+          </div>
+          <div>
+            <h3 class="display display--sm">Zero risk</h3>
+            <p class="body-copy" style="margin-top: var(--s-12);">If the report doesn't deliver value — full refund. No questions, no conditions. You keep the document either way.</p>
+          </div>
+        </div>
+
+        <div class="plan-help reveal">
+          <p class="body-copy"><strong>Not sure which plan to choose?</strong> Let's discuss your business and see if this report is the right fit.</p>
+          <a href="mailto:hello@dwelve.com" class="link link--lg">Get in touch →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee marquee--blush" aria-hidden="true">
+      <div class="marquee-track">
+        <span>23 pages</span><span>Built around your business</span><span>Not a template</span>
+        <span>23 pages</span><span>Built around your business</span><span>Not a template</span>
+        <span>23 pages</span><span>Built around your business</span><span>Not a template</span>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+         WHAT'S INSIDE THE REPORT
+         ========================================================== -->
+    <section class="band band--blush" id="inside">
+      <div class="frame">
+        <p class="section-label reveal">The report</p>
+        <h2 class="display display--md reveal">What's inside</h2>
+        <p class="body-copy reveal" style="margin-top: var(--s-20);">Below is a sample from the “Advanced” tier — you can <a class="link" href="../sample-report.html">read all 23 pages of it</a>, or see <a class="link" href="../case-study.html">the two-page case</a> it produced. This is not a template — every report is built around your specific business.</p>
+
+        <div class="inside-grid">
+          <div class="reveal">
+            <div class="pdf-stage">
+              <div class="pdf-page" aria-hidden="true">
+                <div>
+                  <div class="pdf-brand">Dwelve</div>
+                  <div class="pdf-kicker">Marketing review</div>
+                </div>
+                <div class="pdf-rule"></div>
+                <div class="pdf-line" style="width: 92%"></div>
+                <div class="pdf-line" style="width: 100%"></div>
+                <div class="pdf-line" style="width: 61%"></div>
+                <div class="pdf-h">Situation</div>
+                <div class="pdf-line" style="width: 100%"></div>
+                <div class="pdf-line" style="width: 84%"></div>
+                <div class="pdf-bars"><i style="height:45%"></i><i style="height:88%"></i><i style="height:32%"></i><i style="height:66%"></i><i style="height:24%"></i></div>
+                <div class="pdf-h">Action plan</div>
+                <div class="pdf-line" style="width: 100%"></div>
+                <div class="pdf-line" style="width: 90%"></div>
+                <div class="pdf-line" style="width: 55%"></div>
+              </div>
+            </div>
+            <div class="pdf-caption">
+              <span class="pill">23 pages</span>
+              <span class="pill">PDF</span>
+              <a class="pill pill--loud" href="../sample-report.html">Read the demo →</a>
+            </div>
+          </div>
+
+          <div class="inside-list reveal reveal-d1">
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">01</span><h3 class="inside-title">Market &amp; Competition</h3></div>
+              <p class="inside-desc">Understand your market position, competitors, and external trends affecting demand and growth.</p>
+            </div>
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">02</span><h3 class="inside-title">Customers &amp; Target Audience</h3></div>
+              <p class="inside-desc">Identify who actually brings profit, where customers drop off, and new growth segments.</p>
+            </div>
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">03</span><h3 class="inside-title">Product Assortment</h3></div>
+              <p class="inside-desc">ABC sales analysis, product mix structure, and assortment strategy to increase revenue per customer.</p>
+            </div>
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">04</span><h3 class="inside-title">Pricing &amp; Promotions</h3></div>
+              <p class="inside-desc">Evaluate discounts, offers, and pricing logic to protect margins and improve profitability.</p>
+            </div>
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">05</span><h3 class="inside-title">Marketing Channels</h3></div>
+              <p class="inside-desc">See which channels generate real customers — and which waste budget.</p>
+            </div>
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">06</span><h3 class="inside-title">Content &amp; Messaging</h3></div>
+              <p class="inside-desc">Assess how clearly your value proposition communicates and converts demand into sales.</p>
+            </div>
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">07</span><h3 class="inside-title">Unit Economics</h3></div>
+              <p class="inside-desc">Reveal where profit leaks and how marketing impacts real business performance.</p>
+            </div>
+            <div class="inside-cell">
+              <div class="inside-top"><span class="inside-num">08</span><h3 class="inside-title">Growth Opportunities Plan</h3></div>
+              <p class="inside-desc">Pinpoint the highest-impact actions to increase revenue and profit fastest.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         HOW IT WORKS
+         ========================================================== -->
+    <section class="band" id="process">
+      <span class="watermark" aria-hidden="true">Steps</span>
+      <div class="frame">
+        <p class="section-label reveal">The process</p>
+        <h2 class="display display--md reveal">How it works</h2>
+
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3 class="step-name">Brief</h3>
+            <p class="step-desc">Fill out a short questionnaire about your business.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3 class="step-name">Analysis</h3>
+            <p class="step-desc">We research your business and build the report.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3 class="step-name">Delivery</h3>
+            <p class="step-desc">You receive a written report + action plan.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3 class="step-name">Q&amp;A</h3>
+            <p class="step-desc">Ask questions in chat during your support window.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num" aria-hidden="true">05</span>
+            <h3 class="step-name">Grow</h3>
+            <p class="step-desc">Implement the plan — or add monthly Growth Advisory.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         PULL QUOTE / MANIFESTO
+         ========================================================== -->
+    <section class="manifesto" aria-label="Manifesto">
+      <img src="../photos/photo_2026-02-19_16-18-48.jpg" alt="" aria-hidden="true">
+      <div class="manifesto-inner">
+        <div class="frame">
+          <p class="display display--lg">The real problem<br>is almost never<br>the ads</p>
+          <p class="display display--xl outline" style="margin-top: 0.12em;" aria-hidden="true">It's deeper</p>
+          <p class="sr-only">It's deeper.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ECONOMICS
+         ========================================================== -->
+    <section class="band band--blush" id="economics">
+      <div class="frame">
+        <p class="section-label reveal">The economics</p>
+        <h2 class="display display--md reveal">An investment<br><span class="outline" style="-webkit-text-stroke-color: var(--cotton);">not an expense</span></h2>
+        <p class="body-copy reveal" style="margin-top: var(--s-20);">A report helps you avoid costly mistakes, spend smarter, and turn marketing into predictable growth.</p>
+
+        <div class="econ-grid">
+          <div class="chart reveal">
+            <p class="chart-title">Annual marketing waste vs. report cost</p>
+            <div class="bar-row">
+              <p class="bar-label">Lost on marketing activities that don't drive results</p>
+              <div class="bar-track">
+                <div class="bar-fill bar-fill--waste"><span class="bar-amount">$22,500</span></div>
+              </div>
+            </div>
+            <div class="bar-row">
+              <p class="bar-label">Dwelve report</p>
+              <div class="bar-track">
+                <div class="bar-fill bar-fill--dwelve"></div>
+                <span class="bar-amount bar-amount--out">$849</span>
+              </div>
+            </div>
+            <p class="bar-note"><b>26×</b>The wasted budget is twenty-six times what the report costs. One avoided mistake pays for it many times over.</p>
+            <p class="sr-only">Average annual marketing spend with no clear strategy is $22,500. A Dwelve review costs $849 — a fraction of the wasted budget.</p>
+          </div>
+
+          <div class="chart reveal reveal-d1">
+            <p class="chart-title">Revenue growth over 12 months</p>
+            <svg class="chart-svg" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <line x1="40" y1="30" x2="480" y2="30" stroke="#f29ebd" stroke-opacity="0.45" stroke-dasharray="4 5"/>
+              <line x1="40" y1="115" x2="480" y2="115" stroke="#f29ebd" stroke-opacity="0.45" stroke-dasharray="4 5"/>
+              <line x1="40" y1="200" x2="480" y2="200" stroke="#f29ebd"/>
+              <text x="32" y="34" font-size="10" fill="#00522d" text-anchor="end" font-family="Inter, sans-serif">High</text>
+              <text x="32" y="119" font-size="10" fill="#00522d" text-anchor="end" font-family="Inter, sans-serif">Mid</text>
+              <text x="32" y="204" font-size="10" fill="#00522d" text-anchor="end" font-family="Inter, sans-serif">Low</text>
+              <text x="40" y="228" font-size="10" fill="#00522d" font-family="Inter, sans-serif">Month 0</text>
+              <text x="480" y="228" font-size="10" fill="#00522d" text-anchor="end" font-family="Inter, sans-serif">Month 12</text>
+
+              <path class="chart-line" d="M 40 190 C 180 192, 350 205, 480 212" fill="none" stroke="#d1cfe4" stroke-width="2.5" stroke-dasharray="6 6"/>
+              <path class="chart-line d1" d="M 40 190 C 200 190, 380 180, 480 100" fill="none" stroke="#e878b2" stroke-width="3"/>
+              <path class="chart-line d2" d="M 40 190 C 280 190, 420 150, 480 26" fill="none" stroke="#db3c8a" stroke-width="4.5" stroke-linecap="round"/>
+
+              <circle cx="480" cy="212" r="4" fill="#d1cfe4"/>
+              <circle cx="480" cy="100" r="4" fill="#e878b2"/>
+              <circle cx="480" cy="26" r="5.5" fill="#db3c8a"/>
+
+              <text x="466" y="204" font-size="11" fill="#00522d" text-anchor="end" font-family="Inter, sans-serif">No plan</text>
+              <text x="466" y="92" font-size="11" font-weight="500" fill="#00522d" text-anchor="end" font-family="Inter, sans-serif">Report</text>
+              <text x="466" y="20" font-size="11" font-weight="700" fill="#db3c8a" text-anchor="end" font-family="Inter, sans-serif">Report + Advisory</text>
+            </svg>
+            <p class="sr-only">Three scenarios over 12 months: no plan shows flat or declining revenue; a one-time review shows moderate growth; a review plus ongoing Growth Advisory shows steep, sustained growth.</p>
+          </div>
+        </div>
+
+        <div class="econ-anchor reveal">
+          <div><strong>CA$4–6k/mo</strong>An in-house marketer — plus taxes and benefits.</div>
+          <div><strong>CA$5–15k</strong>A consulting agency, per project.</div>
+          <div><strong>CA$200–400/h</strong>An hourly strategy session — with no deliverable at the end.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         RESULTS / TESTIMONIALS
+         ========================================================== -->
+    <section class="band" id="results">
+      <span class="watermark" aria-hidden="true">Proof</span>
+      <div class="frame">
+        <p class="section-label reveal">Results</p>
+        <h2 class="display display--md reveal">What clients say</h2>
+
+        <div class="quotes">
+          <div class="quote reveal">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <blockquote class="quote-text">I was about to spend $5,000 redesigning my website... The review showed it was actually my product lineup. I was missing an entry-level offer.</blockquote>
+            <div class="quote-foot">
+              <span class="avatar" aria-hidden="true">SM</span>
+              <span><span class="quote-who">Sarah M.</span><br><span class="quote-biz">Bakery, Vancouver</span></span>
+            </div>
+            <p class="quote-result"><span class="pill pill--chalk">↑ Found a product gap, saved $5,000</span></p>
+          </div>
+
+          <div class="quote reveal reveal-d1">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <blockquote class="quote-text">I was selling to everyone and discounting just to close deals. The review helped me understand who my real customer was.</blockquote>
+            <div class="quote-foot">
+              <span class="avatar" aria-hidden="true">JL</span>
+              <span><span class="quote-who">James L.</span><br><span class="quote-biz">Auto Detailing, Calgary</span></span>
+            </div>
+            <p class="quote-result"><span class="pill pill--chalk">↑ Repeat customers instead of discount buyers</span></p>
+          </div>
+
+          <div class="quote reveal">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <blockquote class="quote-text">Got the document and immediately knew what to do. The opposite of every “consultant” who drags you into endless calls.</blockquote>
+            <div class="quote-foot">
+              <span class="avatar" aria-hidden="true">PK</span>
+              <span><span class="quote-who">Priya K.</span><br><span class="quote-biz">Yoga Studio, Victoria</span></span>
+            </div>
+            <p class="quote-result"><span class="pill pill--chalk">↑ Implemented in the first week</span></p>
+          </div>
+
+          <div class="quote reveal reveal-d1">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <blockquote class="quote-text">They built me a loyalty program that actually fits my business — not some generic template.</blockquote>
+            <div class="quote-foot">
+              <span class="avatar" aria-hidden="true">DR</span>
+              <span><span class="quote-who">David R.</span><br><span class="quote-biz">Coffee Shop, Toronto</span></span>
+            </div>
+            <p class="quote-result"><span class="pill pill--chalk">↑ Repeat purchases +40% in 2 months</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Clear strategy</span><span>Real priorities</span><span>Marketing you can trust</span>
+        <span>Clear strategy</span><span>Real priorities</span><span>Marketing you can trust</span>
+        <span>Clear strategy</span><span>Real priorities</span><span>Marketing you can trust</span>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+         ABOUT
+         ========================================================== -->
+    <section class="band" id="about">
+      <div class="frame">
+        <p class="section-label reveal">The strategist</p>
+        <h2 class="display display--md reveal">Who's behind<br><span class="echo">Dwelve</span></h2>
+
+        <div class="about-grid">
+          <div class="about-photo reveal">
+            <div class="slab slab--raw">
+              <img src="../photos/trans_bg.jpg" alt="Daria — marketing strategist behind Dwelve" loading="lazy">
+            </div>
+            <span class="pill pill--loud about-badge">10+ years · Microsoft alum</span>
+          </div>
+
+          <div class="reveal reveal-d1">
+            <div style="display:flex; flex-wrap:wrap; gap:var(--s-8); margin-bottom:var(--s-20);">
+              <span class="pill pill--loud">Daria</span>
+              <span class="pill">Marketing strategist</span>
+              <span class="pill">Vancouver Island, BC</span>
+            </div>
+
+            <p class="body-copy"><strong>I'm a marketing strategist with over 10 years of experience,</strong> helping companies — from local businesses to global brands like Microsoft — build predictable growth systems.</p>
+            <p class="body-copy">Over the years, I've noticed the same costly pattern:</p>
+
+            <div class="about-note">
+              <span class="pill pill--chalk" style="margin-bottom: var(--s-12);">Personal note</span>
+              <p class="caption-copy">Businesses burn money on ads and agencies, while the real profit leaks hide in pricing, positioning, and the customer journey.</p>
+            </div>
+
+            <p class="body-copy">As an entrepreneur myself, I know you don't have time for 50 pages of theoretical fluff. You need to know exactly what's broken and what to do next.</p>
+            <p class="body-copy">That's why every Dwelve report gives you a clear, practical action plan. No guesswork — just decisions you can trust.</p>
+
+            <p class="about-credo">“Clear strategy. Real priorities. Marketing you can trust.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         FAQ
+         ========================================================== -->
+    <section class="band band--blush" id="faq">
+      <div class="frame">
+        <p class="section-label reveal">Questions</p>
+        <h2 class="display display--md reveal">Frequently<br>asked</h2>
+
+        <div class="faq reveal">
+          <details class="faq-item">
+            <summary><span>Can I purchase the service if I'm not located in British Columbia or Canada?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p>Yes. All work is conducted online, and payments are securely processed through Stripe. Clients work with me remotely from different locations.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>What if I'm not satisfied with the report?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p>If you feel the report doesn't provide value for your business, you're covered by a money-back guarantee.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Is this suitable for small businesses?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p>Yes. The report is designed for businesses of different sizes, including small and growing companies that need clarity on where to focus their marketing efforts.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>Does this make sense if I already have a marketing team?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p>Absolutely. Many clients already have in-house marketers or agencies. I provide an independent third-party perspective to identify blind spots, prioritize actions, and improve results.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary><span>How is this different from an agency?</span><span class="faq-icon" aria-hidden="true">+</span></summary>
+            <div class="faq-answer"><p>Agencies typically sell execution and ongoing retainers. Dwelve provides a clear diagnosis of what's actually limiting your growth — and what to do about it — so you can make better decisions whether you execute internally, hire specialists, or work with an agency.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         FINAL CTA — the page closes on type, not on a colour block
+         ========================================================== -->
+    <section class="final" id="ask">
+      <div class="frame">
+        <p class="section-label reveal">Start here</p>
+        <p class="display display--lg reveal">Stop guessing.</p>
+        <p class="display display--lg outline reveal reveal-d1">Start growing.</p>
+        <div class="final-actions reveal reveal-d2">
+          <a href="#services" class="btn">Get report</a>
+          <a href="mailto:hello@dwelve.com" class="link link--lg">Ask a question →</a>
+          <span class="pill">100% money-back guarantee</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       FOOTER — the one plane the spec assigns to forest ink
+       ========================================================== -->
+  <footer class="footer">
+    <div class="frame">
+      <div class="footer-inner">
+        <span>© 2026 Dwelve · <a href="mailto:hello@dwelve.com">hello@dwelve.com</a> · Vancouver Island, BC</span>
+        <span class="footer-links">
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms of Service</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       JAVASCRIPT
+       ========================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) document.body.classList.add('no-motion');
+
+      // === FULLSCREEN MENU ===
+      var trigger = document.getElementById('menu-trigger');
+      var menu = document.getElementById('menu');
+
+      function setMenu(open) {
+        document.body.classList.toggle('menu-open', open);
+        trigger.setAttribute('aria-expanded', String(open));
+        trigger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      trigger.addEventListener('click', function () {
+        setMenu(!document.body.classList.contains('menu-open'));
+      });
+
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setMenu(false); });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false);
+      });
+
+      // === HERO WORD ROTATOR ===
+      var words = document.querySelectorAll('.rotator > span');
+      if (words.length > 1 && !reduced) {
+        var idx = 0;
+        setInterval(function () {
+          words[idx].classList.remove('active');
+          idx = (idx + 1) % words.length;
+          words[idx].classList.add('active');
+        }, 3200);
+      }
+
+      // === SCROLL REVEAL (also triggers the chart animations) ===
+      var reveals = document.querySelectorAll('.reveal');
+      if (reveals.length && 'IntersectionObserver' in window && !reduced) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(function (el) { observer.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('visible'); });
+      }
+
+      // === FAQ — close others when one opens ===
+      var faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function (item) {
+        item.addEventListener('toggle', function () {
+          if (this.open) {
+            faqItems.forEach(function (other) {
+              if (other !== item && other.open) other.open = false;
+            });
+          }
+        });
+      });
+
+      // === SCROLL MARGIN for anchored sections ===
+      document.querySelectorAll('section[id]').forEach(function (section) {
+        section.style.scrollMarginTop = '30px';
+      });
+    })();
+  </script>
+
+</body>
+</html>
+

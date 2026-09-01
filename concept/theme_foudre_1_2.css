@@ -1,0 +1,86 @@
+/* ============================================================
+   DWELVE — "AGENCE FOUDRE" THEME  ·  v1.2
+   Source of truth: DESIGN (2).md — nothing here is invented.
+
+   SURFACE RULE (the thing v1.1 got wrong):
+   the spec lists exactly three surfaces —
+     1. Warm Chalk  #fff8f6  the page canvas
+     2. Blush Cream #fce5df  soft tinted accent surface
+     3. Cotton Pink #e878b2  rare elevated card moment
+   Forest Ink #00522d is NOT a surface. The spec assigns it to
+   "body text, links, iconography, footer". Using it as a
+   full-bleed section background is what made the page read as
+   a green brand. Green is type here, never a plane.
+   Lipstick Magenta is an exclamation — display type, marquee
+   strips, buttons — never a large body area.
+   ============================================================ */
+
+:root {
+  /* ---- Colors (verbatim from the spec) ---- */
+  --lipstick: #db3c8a;
+  --forest: #00522d;
+  --blush: #fce5df;
+  --chalk: #fff8f6;
+  --ink: #000000;
+  --lilac: #d1cfe4;
+  --bubblegum: #f29ebd;
+  --cotton: #e878b2;
+
+  /* Flat tints of palette colours — used for hairlines only, no gradients */
+  --rule: rgba(242, 158, 189, 0.55);   /* bubblegum hairline */
+  --rule-strong: var(--forest);
+
+  /* ---- Typography ----
+     Beni          → Anton  (ultra-black condensed display)
+     Clash Grotesk → Inter  (geometric grotesk for all UI chrome) */
+  --font-display: 'Anton', 'Antonio', 'Oswald', ui-sans-serif, system-ui, sans-serif;
+  --font-ui: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* ---- Type scale (fluid) ---- */
+  --text-micro: 10px;
+  --text-label: 12px;
+  --text-caption: 14px;
+  --text-body-sm: 16px;
+  --text-body: clamp(17px, 1.35vw, 20px);
+  --text-sub: clamp(26px, 3.2vw, 46px);
+  --text-h-sm: clamp(32px, 5.4vw, 80px);
+  --text-h: clamp(38px, 6.6vw, 94px);
+  --text-h-lg: clamp(44px, 8.8vw, 130px);
+  --text-display: clamp(56px, 14.5vw, 230px);
+  --text-hero: clamp(40px, 8.2vw, 122px);
+
+  /* Beni sits at 0.70; Anton carries taller caps and no descender slack,
+     so 0.92 is the tightest setting that still keeps stacked lines apart. */
+  --lead-display: 0.92;
+  --lead-ui: 1.2;
+  --lead-body: 1.45;
+
+  /* ---- Weights ---- */
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-bold: 700;
+
+  /* ---- Spacing ---- */
+  --s-4: 4px;
+  --s-8: 8px;
+  --s-12: 12px;
+  --s-20: 20px;
+  --s-30: 30px;
+  --s-60: 60px;
+  --s-120: 120px;
+  --s-140: 140px;
+
+  /* ---- Layout ---- */
+  --page-max: 1440px;
+  --page-pad: clamp(20px, 4vw, 60px);
+  --section-gap: clamp(80px, 9.5vw, 140px);
+  --card-pad: clamp(24px, 3vw, 40px);
+
+  /* ---- Radius ---- */
+  --r-tag: 9999px;
+  --r-card: 20px;
+  --r-badge: 10px;
+  --r-btn: 10px;
+  --r-elevated: 25px;
+  --r-icon: 9999px;
+}
