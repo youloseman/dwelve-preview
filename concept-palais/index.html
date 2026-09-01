@@ -862,28 +862,82 @@
     /* ==========================================================
        ABOUT
        ========================================================== */
-    .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--s-56); align-items: start; }
-    .about-figure { position: relative; }
-    .about-photo {
+    /* centred, not top-aligned: the copy is shorter than the portrait and was
+       left hanging against a tall column */
+    .about-grid { margin-top: var(--s-40); display: grid; grid-template-columns: 0.76fr 1.24fr; gap: var(--s-56); align-items: center; }
+    .about-figure { position: relative; padding-bottom: var(--s-24); }
+
+    /* A framed print rather than a bleed: the photograph sits on the card
+       with the name written under it, the way a portrait is captioned. */
+    .portrait {
       position: relative;
       z-index: 2;
       background: var(--white);
       border-radius: var(--r-card);
-      padding: var(--s-12);
       box-shadow: var(--shadow-card);
+      padding: var(--s-12) var(--s-12) 0;
+      transform: rotate(-1.6deg);
+      transition: transform 500ms cubic-bezier(0.22,1,0.36,1);
     }
-    .about-photo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; }
-    .about-blob { bottom: -10%; right: -14%; width: 55%; z-index: 0; }
-    .about-sprig { top: -5%; left: -12%; width: 86px; z-index: 3; transform: rotate(-10deg); }
+    .about-figure:hover .portrait { transform: rotate(0deg); }
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .portrait figcaption {
+      font-family: var(--font-script) !important;
+      font-size: clamp(26px, 2.6vw, 34px);
+      line-height: 1.5;
+      text-align: center;
+      color: var(--indigo);
+    }
+
+    /* Honey disc overlapping the frame — the one warm accent in the block */
+    .portrait-badge {
+      position: absolute;
+      left: -6%;
+      bottom: 4%;
+      z-index: 3;
+      width: clamp(92px, 10vw, 116px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--honey);
+      color: var(--indigo);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font-nav) !important;
+      font-size: 9.5px;
+      font-weight: var(--w-medium);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+    .portrait-badge b {
+      font-family: var(--font-display) !important;
+      font-weight: 400;
+      font-size: clamp(26px, 2.8vw, 34px);
+      line-height: 1;
+      letter-spacing: .02em;
+      margin-bottom: 3px;
+    }
+
+    .about-sprig { top: -4%; right: -14%; width: 86px; z-index: 1; transform: rotate(9deg); }
+
     .about-note {
       margin: var(--s-24) 0;
-      background: var(--white);
-      border-left: 3px solid var(--orange);
+      background: var(--cream);
+      border-left: 3px solid var(--orange-bright);
       border-radius: 0 var(--r-card) var(--r-card) 0;
       padding: var(--s-16) var(--s-24);
       max-width: 58ch;
     }
-    .about-note .tag { margin-bottom: 10px; }
+    .about-note .caption-copy { font-size: var(--text-body); line-height: var(--lead-body); }
 
     /* ==========================================================
        FAQ — hairline rules, not cards
@@ -997,6 +1051,7 @@
        ========================================================== */
     @media (max-width: 1000px) {
       .hero-grid, .about-grid, .advisory { grid-template-columns: 1fr; }
+      .about-figure { max-width: 420px; }
       .steps { grid-template-columns: repeat(2, 1fr); gap: var(--s-32) var(--s-24); }
       /* The dot only means something while it sits on the spine — without the
          line it reads as a stray circle above each step. */
@@ -1049,7 +1104,7 @@
       .grid-2, .steps { grid-template-columns: 1fr; }
       .nav-mail { font-size: 10px; letter-spacing: 0.08em; }
       .nav-actions { margin-right: var(--s-16); }
-      .hero-blob-gold, .hero-blob-sage, .about-blob { display: none; }
+      .hero-blob-gold, .hero-blob-sage { display: none; }
     }
   </style>
 </head>
@@ -1582,7 +1637,7 @@
          ========================================================== -->
     <section class="band" id="results">
       <div class="frame">
-        <p class="eyebrow reveal">Results</p>
+        <p class="eyebrow reveal">Reviews</p>
         <h2 class="display display--md reveal">What clients say</h2>
 
         <div class="grid-2" style="margin-top: var(--s-40);">
@@ -1639,32 +1694,25 @@
 
         <div class="about-grid" style="margin-top: var(--s-40);">
           <div class="about-figure reveal">
-            <svg class="decor blob about-blob" viewBox="-100 -100 200 200" aria-hidden="true"><use href="#blob-a" fill="#a2d3a6"/></svg>
             <svg class="decor botanical about-sprig" viewBox="0 0 140 260" aria-hidden="true"><use href="#sprig"/></svg>
-            <div class="about-photo">
-              <img src="../photos/trans_bg.jpg" alt="Daria — marketing strategist behind Dwelve" loading="lazy">
-            </div>
+            <figure class="portrait">
+              <img src="../photos/trans_bg.jpg" alt="Daria — the marketing strategist behind Dwelve" loading="lazy">
+              <figcaption>Daria</figcaption>
+            </figure>
+            <span class="portrait-badge" aria-hidden="true"><b>12+</b>years of<br>experience</span>
+            <p class="sr-only">Twelve or more years of experience.</p>
           </div>
 
           <div class="reveal reveal-d1">
-            <div style="display:flex; flex-wrap:wrap; gap:var(--s-8); margin-bottom:var(--s-24);">
-              <span class="tag tag--solid">Daria</span>
-              <span class="tag">Marketing strategist</span>
-              <span class="tag">10+ years · Microsoft alum</span>
-            </div>
-
-            <p class="body-copy"><strong>I'm a marketing strategist with over 10 years of experience,</strong> helping companies — from local businesses to global brands like Microsoft — build predictable growth systems.</p>
+            <p class="body-copy"><strong>I'm a marketing strategist with over 12 years of experience,</strong> helping companies — from local businesses to global brands like Microsoft — build predictable growth systems.</p>
             <p class="body-copy">Over the years, I've noticed the same costly pattern:</p>
 
             <div class="about-note">
-              <span class="tag">Personal note</span>
               <p class="caption-copy">Businesses burn money on ads and agencies, while the real profit leaks hide in pricing, positioning, and the customer journey.</p>
             </div>
 
             <p class="body-copy">As an entrepreneur myself, I know you don't have time for 50 pages of theoretical fluff. You need to know exactly what's broken and what to do next.</p>
             <p class="body-copy">That's why every Dwelve report gives you a clear, practical action plan. No guesswork — just decisions you can trust.</p>
-
-            <p class="script" style="margin-top: var(--s-24);">Clear strategy. Real priorities.<br>Marketing you can trust.</p>
           </div>
         </div>
       </div>
