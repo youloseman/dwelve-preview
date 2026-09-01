@@ -77,7 +77,6 @@
        degrees so it reads as hand-placed rather than stock-decorated. */
     .botanical { color: var(--indigo); opacity: 0.5; }
     .botanical--sky { color: var(--sky); opacity: 0.65; }
-    .botanical--light { color: var(--white); opacity: 0.55; }
 
     /* ==========================================================
        TYPE
@@ -979,10 +978,87 @@
     /* No opacity: gold at 25% over indigo reads as a grey smudge. Same rule
        as .advisory-blob — tune the colour, never the transparency. */
     .final-blob { top: -14%; right: -6%; width: 300px; z-index: 0; opacity: 0.9; }
-    /* Sprig, not the branch symbol: at this scale the branch's leaf pairs
-       collapse into loops and read as a stray scribble. */
-    .final-branch { bottom: 12%; right: 8%; width: 130px; z-index: 0; transform: rotate(9deg); }
-    .final-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-16) var(--s-24); margin-top: var(--s-32); }
+    .ask-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: var(--s-56); align-items: start; }
+
+    /* White card on the indigo band — every field sits on a readable surface */
+    .ask-form {
+      /* the band sets white type; the card has to take it back or the
+         consent text disappears against its own background */
+      color: var(--ink);
+      background: var(--white);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-card);
+      padding: clamp(22px, 2.6vw, 34px);
+      display: grid;
+      gap: var(--s-16);
+    }
+    .ask-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-16); }
+
+    .field { display: grid; gap: 7px; }
+    .field > span {
+      font-family: var(--font-nav) !important;
+      font-size: 10px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-label);
+      text-transform: uppercase;
+      color: var(--indigo);
+    }
+    .field input, .field select, .field textarea {
+      font-family: var(--font-ui) !important;
+      font-size: var(--text-body-sm);
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-input);
+      padding: 12px 14px;
+      width: 100%;
+      transition: border-color 200ms ease;
+    }
+    .field textarea { resize: vertical; min-height: 96px; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(0,0,0,.42); }
+    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--indigo); }
+    .field select { appearance: none; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23234386' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: var(--text-caption); line-height: 1.5; }
+    .consent input { margin-top: 3px; accent-color: var(--indigo); flex: none; }
+    .consent a { color: var(--indigo); text-decoration: underline; text-underline-offset: 2px; }
+
+    .ask-submit { width: 100%; justify-content: center; margin-top: var(--s-8); }
+    .ask-note { font-size: var(--text-caption); line-height: 1.45; color: rgba(0,0,0,.6); }
+
+    .ask-contact {
+      margin-top: var(--s-56);
+      padding-top: var(--s-32);
+      border-top: 1px solid var(--rule-on-dark);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-24) var(--s-32);
+    }
+    .ask-contact-label {
+      display: block;
+      font-family: var(--font-nav) !important;
+      font-size: 10px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-label);
+      text-transform: uppercase;
+      color: var(--honey);
+      margin-bottom: 8px;
+    }
+    .ask-mail {
+      font-family: var(--font-display) !important;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1;
+      letter-spacing: var(--track-display);
+      color: var(--white);
+      border-bottom: 2px solid rgba(255,255,255,.35);
+      padding-bottom: 3px;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+    .ask-mail:hover { color: var(--honey); border-color: var(--honey); }
+    .ask-contact-v { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); color: var(--white); max-width: 34ch; }
+
 
     .footer { background: var(--indigo); color: var(--white); }
     .footer-inner {
@@ -1050,7 +1126,8 @@
        RESPONSIVE
        ========================================================== */
     @media (max-width: 1000px) {
-      .hero-grid, .about-grid, .advisory { grid-template-columns: 1fr; }
+      .hero-grid, .about-grid, .advisory, .ask-grid { grid-template-columns: 1fr; }
+      .ask-contact { grid-template-columns: 1fr; }
       .about-figure { max-width: 420px; }
       .steps { grid-template-columns: repeat(2, 1fr); gap: var(--s-32) var(--s-24); }
       /* The dot only means something while it sits on the spine — without the
@@ -1101,7 +1178,7 @@
     }
 
     @media (max-width: 700px) {
-      .grid-2, .steps { grid-template-columns: 1fr; }
+      .grid-2, .steps, .ask-row { grid-template-columns: 1fr; }
       .nav-mail { font-size: 10px; letter-spacing: 0.08em; }
       .nav-actions { margin-right: var(--s-16); }
       .hero-blob-gold, .hero-blob-sage { display: none; }
@@ -1764,15 +1841,81 @@
          ========================================================== -->
     <section class="band band--indigo final" id="ask">
       <svg class="decor blob final-blob" viewBox="-100 -100 200 200" aria-hidden="true"><use href="#blob-a" fill="#ffc400"/></svg>
-      <svg class="decor botanical botanical--light final-branch" viewBox="0 0 140 260" aria-hidden="true"><use href="#sprig"/></svg>
       <div class="frame">
-        <p class="eyebrow reveal">Start here</p>
-        <h2 class="display display--lg reveal" style="max-width: 18ch;">Stop guessing. Start growing.</h2>
-        <p class="script reveal reveal-d1" style="margin-top: var(--s-16);">One document, and you'll know what to do next</p>
-        <div class="final-actions reveal reveal-d2">
-          <a href="#services" class="btn btn--on-dark">Get report</a>
-          <a href="mailto:hello@dwelve.com" class="link">Ask a question</a>
-          <span class="tag">100% money-back guarantee</span>
+        <div class="ask-grid">
+          <div class="reveal">
+            <p class="eyebrow">Start here</p>
+            <h2 class="display display--lg" style="max-width: 15ch;">Stop guessing. Start growing.</h2>
+            <p class="script" style="margin-top: var(--s-16);">One document, and you'll know what to do next</p>
+            <p class="body-copy" style="margin-top: var(--s-24);">Describe your situation in two or three sentences. I'll suggest the format that fits &mdash; or tell you honestly if what you need right now is a different specialist.</p>
+            <p style="margin-top: var(--s-24);"><span class="tag">100% money-back guarantee</span></p>
+          </div>
+
+          <form class="ask-form reveal reveal-d1" id="ask-form" novalidate>
+            <div class="ask-row">
+              <label class="field">
+                <span>Your name</span>
+                <input type="text" name="name" placeholder="Name" required>
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="name@company.com" required>
+              </label>
+            </div>
+
+            <div class="ask-row">
+              <label class="field">
+                <span>Phone / messenger</span>
+                <input type="text" name="phone" placeholder="Optional">
+              </label>
+              <label class="field">
+                <span>Company and field</span>
+                <input type="text" name="company" placeholder="e.g. clinic, online shop, service">
+              </label>
+            </div>
+
+            <label class="field">
+              <span>What you're interested in</span>
+              <select name="plan">
+                <option>Growth Audit &mdash; CA$3,890</option>
+                <option>Growth Snapshot &mdash; CA$790</option>
+                <option>Growth Advisory &mdash; CA$2,490 / month</option>
+                <option>Not sure yet &mdash; help me choose</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>What's happening with the business</span>
+              <textarea name="message" rows="4" placeholder="Briefly describe the task"></textarea>
+            </label>
+
+            <label class="consent">
+              <input type="checkbox" name="privacy" required>
+              <span>I agree to the processing of my personal data and have read the <a href="../privacy.html">Privacy Policy</a>.</span>
+            </label>
+            <label class="consent">
+              <input type="checkbox" name="marketing">
+              <span>I agree to receive updates and marketing emails from Dwelve. <a href="../terms.html">Terms</a>.</span>
+            </label>
+
+            <button type="submit" class="btn ask-submit">Send request</button>
+            <p class="ask-note">This preview opens the message in your own mail app. Before launch, connect the form to whichever system will receive the requests.</p>
+          </form>
+        </div>
+
+        <div class="ask-contact reveal reveal-d2">
+          <div>
+            <span class="ask-contact-label">Or write directly</span>
+            <a class="ask-mail" href="mailto:hello@dwelve.com">hello@dwelve.com</a>
+          </div>
+          <div>
+            <span class="ask-contact-label">Where I am</span>
+            <p class="ask-contact-v">Vancouver Island, British Columbia &middot; working remotely across Canada</p>
+          </div>
+          <div>
+            <span class="ask-contact-label">Answer time</span>
+            <p class="ask-contact-v">Within one business day, from me &mdash; not an assistant.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1882,6 +2025,34 @@
           }
         });
       });
+
+      // === CONTACT FORM ===
+      // No backend behind the preview, so the request is handed to the
+      // visitor's own mail client. Swap this for a real endpoint at launch.
+      var askForm = document.getElementById('ask-form');
+      if (askForm) {
+        askForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (askForm.reportValidity && !askForm.reportValidity()) return;
+          var f = new FormData(askForm);
+          var val = function (k) { return (f.get(k) || '').toString().trim(); };
+          var body = [
+            'Name: ' + val('name'),
+            'Email: ' + val('email'),
+            'Phone / messenger: ' + (val('phone') || '—'),
+            'Company and field: ' + (val('company') || '—'),
+            'Interested in: ' + val('plan'),
+            '',
+            val('message') || '(no description given)',
+            '',
+            'Marketing emails: ' + (f.get('marketing') ? 'yes' : 'no')
+          ].join('
+');
+          window.location.href = 'mailto:hello@dwelve.com'
+            + '?subject=' + encodeURIComponent('Dwelve request — ' + (val('name') || 'website'))
+            + '&body=' + encodeURIComponent(body);
+        });
+      }
 
       // === SCROLL MARGIN for the sticky nav ===
       document.querySelectorAll('section[id]').forEach(function (section) {
