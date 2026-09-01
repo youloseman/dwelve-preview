@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;600&family=Inter:wght@400;500;600;700&family=Jost:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%23234386'/%3E%3Cg transform='translate(100,100)'%3E%3Ccircle cx='0' cy='-62' r='8' fill='%23ffc400'/%3E%3Ccircle cx='31' cy='-53.7' r='10' fill='%23fbf9f6'/%3E%3Ccircle cx='53.7' cy='-31' r='5' fill='%23fbf9f6'/%3E%3Ccircle cx='62' cy='0' r='4.5' fill='%23fbf9f6'/%3E%3Ccircle cx='53.7' cy='31' r='4' fill='%23fbf9f6'/%3E%3Ccircle cx='31' cy='53.7' r='3.5' fill='%23fbf9f6'/%3E%3Ccircle cx='0' cy='62' r='3' fill='%23fbf9f6'/%3E%3Ccircle cx='-31' cy='53.7' r='2.8' fill='%23fbf9f6'/%3E%3Ccircle cx='-53.7' cy='31' r='2.8' fill='%23fbf9f6'/%3E%3Ccircle cx='-62' cy='0' r='3.8' fill='%23fbf9f6'/%3E%3Ccircle cx='-53.7' cy='-31' r='5' fill='%23fbf9f6'/%3E%3Ccircle cx='-31' cy='-53.7' r='6.5' fill='%23fbf9f6'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%23234386'/%3E%3Cg transform='translate(100,100)'%3E%3Ccircle cx='0' cy='-62' r='8' fill='%23fbf9f6'/%3E%3Ccircle cx='31' cy='-53.7' r='10' fill='%23ffc400'/%3E%3Ccircle cx='53.7' cy='-31' r='5' fill='%23fbf9f6'/%3E%3Ccircle cx='62' cy='0' r='4.5' fill='%23fbf9f6'/%3E%3Ccircle cx='53.7' cy='31' r='4' fill='%23fbf9f6'/%3E%3Ccircle cx='31' cy='53.7' r='3.5' fill='%23fbf9f6'/%3E%3Ccircle cx='0' cy='62' r='3' fill='%23fbf9f6'/%3E%3Ccircle cx='-31' cy='53.7' r='2.8' fill='%23fbf9f6'/%3E%3Ccircle cx='-53.7' cy='31' r='2.8' fill='%23fbf9f6'/%3E%3Ccircle cx='-62' cy='0' r='3.8' fill='%23fbf9f6'/%3E%3Ccircle cx='-53.7' cy='-31' r='5' fill='%23fbf9f6'/%3E%3Ccircle cx='-31' cy='-53.7' r='6.5' fill='%23fbf9f6'/%3E%3C/g%3E%3C/svg%3E">
 
   <link rel="stylesheet" href="theme_palais_1.css">
 
@@ -292,6 +292,25 @@
       transition: color 200ms ease;
     }
     .nav-links a:hover { color: var(--orange-ink); }
+
+    .nav-links .nav-link-mobile { display: none; }
+
+    .nav-actions { display: flex; align-items: center; gap: var(--s-24); }
+    /* Stays in the sticky bar at every width — the address is meant to be
+       reachable from anywhere on the page, so it never collapses into the
+       burger panel. */
+    .nav-mail {
+      font-family: var(--font-nav) !important;
+      font-size: 11px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-nav);
+      color: var(--indigo);
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(35, 67, 134, 0.35);
+      padding-bottom: 2px;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+    .nav-mail:hover { color: var(--orange-ink); border-color: var(--orange-ink); }
 
     .nav-burger { display: none; width: 26px; height: 16px; position: relative; }
     .nav-burger span {
@@ -887,11 +906,16 @@
       }
       .nav-open .nav-links { display: flex; }
       .nav-burger { display: block; }
+      /* Button folds away, the address stays visible */
       .nav-cta { display: none; }
+      .nav-actions { margin-left: auto; margin-right: var(--s-20); }
+      .nav-links .nav-link-mobile { display: inline-block; color: var(--orange-ink); }
     }
 
     @media (max-width: 700px) {
       .grid-2, .inside-list, .steps { grid-template-columns: 1fr; }
+      .nav-mail { font-size: 10px; letter-spacing: 0.08em; }
+      .nav-actions { margin-right: var(--s-16); }
       .hero-blob-gold, .hero-blob-sage, .about-blob { display: none; }
     }
   </style>
@@ -957,8 +981,8 @@
              values render sub-pixel and the logo reads as a faint smudge. -->
         <svg width="32" height="32" viewBox="0 0 200 200" aria-hidden="true">
           <g transform="translate(100,100)">
-            <circle cx="0" cy="-60" r="13" fill="#ffc400"/>
-            <circle cx="30" cy="-52" r="17" fill="#234386"/>
+            <circle cx="0" cy="-60" r="13" fill="#234386"/>
+            <circle cx="30" cy="-52" r="17" fill="#ffc400"/>
             <circle cx="52" cy="-30" r="9" fill="#234386"/>
             <circle cx="60" cy="0" r="8" fill="#234386"/>
             <circle cx="52" cy="30" r="7.5" fill="#234386"/>
@@ -976,13 +1000,21 @@
 
       <div class="nav-links" id="nav-links">
         <a href="#for-you">Who it's for</a>
-        <a href="#services">Services</a>
-        <a href="#inside">The report</a>
-        <a href="#results">Results</a>
+        <a href="#inside">What you get</a>
+        <a href="#results">Reviews</a>
         <a href="#faq">FAQ</a>
+        <!-- The nav button is hidden on narrow screens, so prices would
+             otherwise be unreachable from the menu. -->
+        <a href="#services" class="nav-link-mobile">Services and prices</a>
       </div>
 
-      <a href="../sample-report.html" class="btn btn--outline btn--sm nav-cta">Get demo report</a>
+      <div class="nav-actions">
+        <a href="mailto:hello@dwelve.com" class="nav-mail">hello@dwelve.com</a>
+        <!-- Filled indigo: this is now the same action as the hero primary,
+             so it takes the same treatment. Outlined orange stays with the
+             demo/explore links further down the page. -->
+        <a href="#services" class="btn btn--sm nav-cta">Services and prices</a>
+      </div>
 
       <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
