@@ -59,8 +59,10 @@
     /* Organic wavy dividers — the signature transition device.
        A hard line between colour fields is never used. */
     .wave { position: relative; line-height: 0; z-index: 1; }
-    .wave svg { width: 100%; height: clamp(56px, 7vw, 110px); display: block; }
-    .wave--overlap { margin-top: -1px; margin-bottom: -1px; }
+    .wave svg { width: 100%; height: clamp(48px, 5.5vw, 84px); display: block; }
+    /* Pulled up into the preceding section's bottom padding instead of being
+       added on top of it — otherwise gap + wave + gap stacks into a void. */
+    .wave--overlap { margin-top: calc(var(--section-gap) * -0.5); margin-bottom: -1px; }
 
     /* ==========================================================
        DECOR — blobs and botanical line-art
@@ -76,7 +78,7 @@
        degrees so it reads as hand-placed rather than stock-decorated. */
     .botanical { color: var(--indigo); opacity: 0.5; }
     .botanical--sky { color: var(--sky); opacity: 0.65; }
-    .botanical--light { color: var(--white); opacity: 0.4; }
+    .botanical--light { color: var(--white); opacity: 0.55; }
 
     /* ==========================================================
        TYPE
@@ -91,7 +93,10 @@
     .display--lg  { font-size: var(--text-h-lg); line-height: var(--lead-h-lg); letter-spacing: var(--track-display-lg); }
     .display--md  { font-size: var(--text-h);    line-height: var(--lead-h);    letter-spacing: var(--track-display); }
     .display--sm  { font-size: var(--text-h-sm); line-height: var(--lead-h-sm); letter-spacing: var(--track-display); }
-    .band--indigo .display, .band--orange .display { color: var(--white); }
+    .band--indigo .display { color: var(--white); }
+    /* Indigo, not white: white on burnt orange is 2.97:1 and misses even the
+       3:1 large-text threshold; indigo reaches 3.19:1. */
+    .band--orange .display { color: var(--indigo); }
 
     /* Mega brand statement — the one serif voice, used twice on the page */
     .mega {
@@ -114,7 +119,7 @@
       text-transform: none;
     }
     .band--indigo .script, .band--orange .script { color: var(--white); }
-    .script--orange { color: var(--orange); }
+    .script--orange { color: var(--orange-ink); }
 
     /* Eyebrow label — the aggressive tracking is the system's signature */
     .eyebrow {
@@ -136,7 +141,17 @@
       background: currentColor;
       flex: none;
     }
-    .band--indigo .eyebrow, .band--orange .eyebrow { color: var(--white); }
+    .band--indigo .eyebrow { color: var(--white); }
+    /* On orange the label becomes a white pill — a 12px label can't reach
+       4.5:1 against #ed7328 in any colour, so it needs its own surface. */
+    .band--orange .eyebrow {
+      display: inline-flex;
+      color: var(--indigo);
+      background: var(--white);
+      border-radius: var(--r-tag);
+      padding: 9px 14px;
+    }
+    .band--orange .eyebrow::before { display: none; }
 
     .body-copy { font-size: var(--text-body); line-height: var(--lead-body); max-width: 60ch; }
     .body-copy + .body-copy { margin-top: var(--s-16); }
@@ -171,11 +186,11 @@
     /* Outlined burnt orange is the secondary/exploratory action */
     .btn--outline {
       background: transparent;
-      color: var(--orange);
-      border: 2px solid var(--orange);
+      color: var(--orange-ink);
+      border: 2px solid var(--orange-ink);
       padding: 17px 32px;
     }
-    .btn--outline:hover { background: var(--orange); color: var(--white); transform: translateY(-1px); }
+    .btn--outline:hover { background: var(--orange-ink); color: var(--white); transform: translateY(-1px); }
 
     .btn--on-dark { background: var(--white); color: var(--indigo); }
     .btn--on-dark:hover { background: var(--cream); }
@@ -211,7 +226,7 @@
       padding-bottom: 1px;
       transition: color 200ms ease;
     }
-    .link:hover { color: var(--orange); }
+    .link:hover { color: var(--orange-ink); }
     .band--indigo .link { color: var(--white); }
     .band--indigo .link:hover { color: var(--honey); }
 
@@ -225,7 +240,7 @@
       font-weight: var(--w-medium);
       letter-spacing: var(--track-nav);
       text-transform: uppercase;
-      color: var(--orange);
+      color: var(--orange-ink);
       transition: gap 240ms ease;
     }
     .arrow-link:hover { gap: 14px; }
@@ -276,7 +291,7 @@
       color: var(--indigo);
       transition: color 200ms ease;
     }
-    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover { color: var(--orange-ink); }
 
     .nav-burger { display: none; width: 26px; height: 16px; position: relative; }
     .nav-burger span {
@@ -384,7 +399,7 @@
       font-family: var(--font-nav) !important;
       font-size: 11px;
       letter-spacing: var(--track-label-wide);
-      color: var(--orange);
+      color: var(--orange-ink);
       text-transform: uppercase;
     }
     .pain-title {
@@ -405,8 +420,8 @@
     .tier--featured { outline: 2px solid var(--indigo); outline-offset: -2px; }
     .tier-flag {
       position: absolute;
-      top: 0; right: var(--s-24);
-      transform: translateY(-50%);
+      top: 0; left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 2;
     }
     .tier-name {
@@ -433,12 +448,14 @@
       color: var(--ink);
       opacity: 0.6;
     }
-    .tier-bestif { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
+    /* Reserves three lines so the divider and the checklist start on the same
+       baseline in all three cards — Advanced's copy runs one line longer. */
+    .tier-bestif { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); min-height: 5.01em; }
     .tier-rule { height: 1px; background: var(--rule-soft); margin: var(--s-4) 0; }
     .tier-features { display: grid; gap: 10px; }
     .tier-features li { display: flex; gap: 10px; align-items: baseline; font-size: var(--text-body-sm); line-height: 1.4; }
     .tier-features svg { flex: none; margin-top: 3px; color: var(--indigo); }
-    .tier-features li.off { opacity: 0.4; }
+    .tier-features li.off { opacity: 0.55; }
     .tier-features li.off svg { color: var(--ink); }
     .tier-cta { margin-top: auto; padding-top: var(--s-16); }
     .tier-cta .btn { width: 100%; justify-content: center; }
@@ -469,16 +486,21 @@
     .advisory-price { font-family: var(--font-mega) !important; font-weight: 700; font-size: clamp(34px, 3.4vw, 46px); line-height: 1; }
     .advisory-price span { font-family: var(--font-nav) !important; font-size: 12px; font-weight: var(--w-medium); letter-spacing: var(--track-nav); text-transform: uppercase; }
 
+    /* A card of the same system, sitting directly under the three tiers —
+       it answers the objection those cards raise, so it belongs with them,
+       not below the Advisory panel as a pair of hairlines. */
     .guarantee {
-      margin-top: var(--s-32);
+      margin-top: var(--s-24);
+      background: var(--white);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-card);
+      padding: var(--card-pad);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: var(--s-24) var(--s-40);
-      border-top: 1px solid var(--rule-soft);
-      padding-top: var(--s-32);
+      gap: var(--s-16) var(--s-32);
     }
-    .guarantee-mark { flex: none; width: 84px; color: var(--indigo); }
+    .guarantee-mark { flex: none; width: 56px; color: var(--indigo); }
 
     /* ==========================================================
        WHAT'S INSIDE
@@ -511,12 +533,14 @@
     .pdf-bars i:nth-child(2) { background: var(--orange); }
     .pdf-bars i:nth-child(4) { background: var(--indigo); }
     .pdf-blob { bottom: -8%; left: -14%; width: 62%; z-index: 0; }
-    .pdf-tags { margin-top: var(--s-24); display: flex; flex-wrap: wrap; gap: var(--s-8); }
+    /* Positioned decor paints above static siblings, so anything that must
+       stay readable next to a blob needs its own stacking position. */
+    .pdf-tags { position: relative; z-index: 2; margin-top: var(--s-24); display: flex; flex-wrap: wrap; gap: var(--s-8); }
 
     .inside-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-24) var(--s-32); }
     .inside-item { display: grid; gap: 6px; padding-bottom: var(--s-16); border-bottom: 1px solid var(--rule-soft); }
     .inside-top { display: flex; align-items: center; gap: 10px; }
-    .inside-top svg { flex: none; color: var(--indigo); }
+    .inside-top svg { flex: none; width: 19px; height: 19px; color: var(--indigo); }
     .inside-title {
       font-family: var(--font-nav) !important;
       font-size: var(--text-body-sm);
@@ -553,7 +577,7 @@
       font-size: 11px;
       letter-spacing: var(--track-label-wide);
       text-transform: uppercase;
-      color: var(--orange);
+      color: var(--orange-ink);
     }
     .step-name {
       font-family: var(--font-display) !important;
@@ -573,9 +597,11 @@
        not the 88px mega inside it, which crushed the quote to one word
        per line. */
     .pull-inner { max-width: min(780px, 62vw); }
-    .pull-blob-a { top: 6%; right: 7%; width: 210px; z-index: 0; }
-    .pull-blob-b { bottom: 16%; right: 26%; width: 140px; z-index: 0; }
-    .pull-sprig { top: 6%; right: 30%; width: 110px; z-index: 1; transform: rotate(-7deg); }
+    /* All three sit right of 62vw so they clear the quote's text column —
+       the sprig used to tangle with the word "the" on line two. */
+    .pull-blob-a { top: 8%; right: 6%; width: 190px; z-index: 0; }
+    .pull-blob-b { bottom: 14%; right: 12%; width: 130px; z-index: 0; }
+    .pull-sprig { top: 28%; right: 20%; width: 100px; z-index: 1; transform: rotate(-7deg); }
 
     /* ==========================================================
        ECONOMICS — burnt orange band with white cards
@@ -605,20 +631,53 @@
     }
     .visible .bar-fill, .no-motion .bar-fill { transform: scaleX(1); }
     .bar-fill--waste  { background: var(--sand); width: 100%; }
-    .bar-fill--dwelve { background: var(--indigo); width: 15%; }
-    .bar-amount { font-family: var(--font-mega) !important; font-weight: 700; font-size: clamp(18px, 1.8vw, 24px); line-height: 1; color: var(--indigo); }
+    .bar-fill--dwelve { background: var(--indigo); width: 19%; min-width: 96px; }
+    /* Bebas, not Playfair — see .bar-note b */
+    .bar-amount { font-family: var(--font-display) !important; font-weight: 400; font-size: clamp(20px, 2vw, 26px); line-height: 1; letter-spacing: var(--track-display); color: var(--indigo); }
     .bar-amount--on { color: var(--white); }
     .bar-note { margin-top: var(--s-24); padding-top: var(--s-16); border-top: 1px solid var(--rule-soft); font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
-    .bar-note b { display: block; font-family: var(--font-mega) !important; font-weight: 900; font-size: clamp(26px, 2.6vw, 34px); line-height: 1; color: var(--orange); margin-bottom: 6px; }
+    /* Bebas, not Playfair: the serif is reserved for the pull quote and the
+       tier prices — chart numbers were its third unrelated role. */
+    .bar-note b { display: block; font-family: var(--font-display) !important; font-weight: 400; font-size: clamp(28px, 2.8vw, 36px); line-height: 1; letter-spacing: var(--track-display); color: var(--orange-ink); margin-bottom: 6px; }
 
     .chart-svg { width: 100%; height: auto; }
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-8) var(--s-24);
+      margin-top: var(--s-16);
+      padding-top: var(--s-16);
+      border-top: 1px solid var(--rule-soft);
+    }
+    .chart-legend li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-nav) !important;
+      font-size: 11px;
+      letter-spacing: var(--track-nav);
+      text-transform: uppercase;
+      color: var(--indigo);
+    }
+    .chart-legend i { width: 14px; height: 3px; border-radius: 2px; flex: none; }
     .chart-line { stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 1600ms cubic-bezier(0.4,0,0.2,1); }
     .visible .chart-line, .no-motion .chart-line { stroke-dashoffset: 0; }
     .visible .chart-line.d1 { transition-delay: 220ms; }
     .visible .chart-line.d2 { transition-delay: 440ms; }
 
-    .econ-compare { margin-top: var(--s-32); display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-24); }
-    .econ-compare div { color: var(--white); font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
+    /* 14px body text can never pass on orange, so the comparison row moves
+       onto a white card — the spec's own pattern for this band. */
+    .econ-compare {
+      margin-top: var(--s-24);
+      background: var(--white);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-card);
+      padding: var(--card-pad);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-24) var(--s-32);
+    }
+    .econ-compare div { color: var(--ink); font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
     .econ-compare strong {
       display: block;
       font-family: var(--font-display) !important;
@@ -626,7 +685,19 @@
       font-size: clamp(24px, 2.4vw, 32px);
       line-height: 1;
       letter-spacing: var(--track-display);
+      color: var(--indigo);
       margin-bottom: 6px;
+    }
+
+    /* 19px/700 clears the WCAG large-text threshold, so indigo's 3.19:1 on
+       orange is sufficient. Anything smaller has to sit on a card. */
+    .econ-lede {
+      margin-top: var(--s-16);
+      font-size: 19px;
+      font-weight: var(--w-bold);
+      line-height: 1.45;
+      color: var(--indigo);
+      max-width: 46ch;
     }
 
     /* ==========================================================
@@ -699,7 +770,7 @@
       transition: color 200ms ease;
     }
     .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary:hover { color: var(--orange); }
+    .faq-item summary:hover { color: var(--orange-ink); }
     .faq-icon {
       flex: none;
       width: 30px; height: 30px;
@@ -715,8 +786,12 @@
        FINAL CTA + FOOTER — deep indigo
        ========================================================== */
     .final { position: relative; overflow: hidden; text-align: left; }
-    .final-blob { top: -18%; right: -4%; width: 320px; z-index: 0; opacity: 0.25; }
-    .final-branch { bottom: -10%; left: -3%; width: 240px; z-index: 0; }
+    /* No opacity: gold at 25% over indigo reads as a grey smudge. Same rule
+       as .advisory-blob — tune the colour, never the transparency. */
+    .final-blob { top: -14%; right: -6%; width: 300px; z-index: 0; opacity: 0.9; }
+    /* Sprig, not the branch symbol: at this scale the branch's leaf pairs
+       collapse into loops and read as a stray scribble. */
+    .final-branch { bottom: 12%; right: 8%; width: 130px; z-index: 0; transform: rotate(9deg); }
     .final-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-16) var(--s-24); margin-top: var(--s-32); }
 
     .footer { background: var(--indigo); color: var(--white); }
@@ -760,7 +835,7 @@
       font-size: var(--text-body-sm);
     }
     .skip-link:focus { top: var(--s-8); }
-    :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--orange-ink); outline-offset: 3px; }
     .sr-only {
       position: absolute;
       width: 1px; height: 1px;
@@ -789,10 +864,15 @@
     @media (max-width: 1000px) {
       .hero-grid, .inside-grid, .about-grid, .advisory, .econ-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: repeat(2, 1fr); gap: var(--s-32) var(--s-24); }
-      .step::before { display: none; }
+      /* The dot only means something while it sits on the spine — without the
+         line it reads as a stray circle above each step. */
+      .step::before, .step-dot { display: none; }
+      .step { padding-top: 0; }
       .grid-3 { grid-template-columns: 1fr; }
       .econ-compare { grid-template-columns: 1fr; }
-      .hero-branch, .pull-sprig { display: none; }
+      /* Narrow viewports give the quote the full width, so its decor has
+         nowhere to sit that isn't behind the type. */
+      .hero-branch, .pull-sprig, .pull-blob-a, .pull-blob-b { display: none; }
 
       .nav-links {
         position: absolute;
@@ -858,11 +938,11 @@
         <circle cx="236" cy="30" r="7"/>
       </g>
 
-      <g id="seal" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="42" cy="42" r="34"/>
-        <path d="M42 12c-9 8-14 18-14 30s5 22 14 30c9-8 14-18 14-30s-5-22-14-30Z"/>
-        <path d="M12 42h60"/>
-        <path d="M30 58c8-6 16-6 24 0M30 26c8 6 16 6 24 0"/>
+      <!-- Shield + check. The previous emblem read as a globe, which says
+           "international", not "guarantee". -->
+      <g id="seal" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M42 8 16 18v20c0 16 11 30 26 36 15-6 26-20 26-36V18L42 8Z"/>
+        <path d="M31 41l8 8 16-16"/>
       </g>
     </defs>
   </svg>
@@ -902,7 +982,7 @@
         <a href="#faq">FAQ</a>
       </div>
 
-      <a href="../sample-report.html" class="btn btn--sm nav-cta">Get demo report</a>
+      <a href="../sample-report.html" class="btn btn--outline btn--sm nav-cta">Get demo report</a>
 
       <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
@@ -1010,8 +1090,12 @@
           </div>
         </div>
 
-        <div class="reveal" style="margin-top: var(--s-40); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-24);">
-          <a href="#services" class="btn">Yes, this is me — get my report</a>
+        <!-- A link, not a button: buttons are reserved for hero, tiers and
+             the final CTA so the money action stays legible. -->
+        <div class="reveal" style="margin-top: var(--s-40); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-24) var(--s-40);">
+          <a href="#services" class="arrow-link">Yes, this is me — see the formats
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
           <p class="script script--orange">One document. No calls.</p>
         </div>
       </div>
@@ -1046,7 +1130,7 @@
               <li class="off"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg> Implementation roadmap</li>
               <li class="off"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg> Presentation video call</li>
             </ul>
-            <div class="tier-cta"><a href="#ask" class="btn btn--outline">Get report</a></div>
+            <div class="tier-cta"><a href="#ask" class="btn">Get report</a></div>
           </div>
 
           <!-- Optimal -->
@@ -1083,7 +1167,16 @@
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ready in 30 business days</li>
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Presentation video call</li>
             </ul>
-            <div class="tier-cta"><a href="#ask" class="btn btn--outline">Get report</a></div>
+            <div class="tier-cta"><a href="#ask" class="btn">Get report</a></div>
+          </div>
+        </div>
+
+        <!-- Guarantee — directly under the tiers, before Advisory -->
+        <div class="guarantee reveal">
+          <svg class="guarantee-mark" viewBox="0 0 84 84" aria-hidden="true"><use href="#seal"/></svg>
+          <div>
+            <h3 class="display display--sm">100% money-back guarantee</h3>
+            <p class="body-copy" style="margin-top: 6px;">If the report doesn't deliver value — full refund. No questions, no conditions. You keep the document either way.</p>
           </div>
         </div>
 
@@ -1107,15 +1200,6 @@
             <p class="advisory-price">CA$2,349 <span>/mo</span></p>
             <p class="caption-copy" style="margin-top: var(--s-12); color: var(--white); opacity: .85;"><strong>Special offer:</strong> 50% off the first month if you ordered a report.</p>
             <p style="margin-top: var(--s-24);"><a href="#ask" class="btn btn--on-dark">Start Growth Advisory</a></p>
-          </div>
-        </div>
-
-        <!-- Guarantee -->
-        <div class="guarantee reveal">
-          <svg class="guarantee-mark" viewBox="0 0 84 84" aria-hidden="true"><use href="#seal"/></svg>
-          <div>
-            <h3 class="display display--sm">100% money-back guarantee</h3>
-            <p class="body-copy" style="margin-top: 10px;">If the report doesn't deliver value — full refund. No questions, no conditions. You keep the document either way.</p>
           </div>
         </div>
 
@@ -1165,7 +1249,9 @@
             <div class="pdf-tags">
               <span class="tag">23 pages</span>
               <span class="tag">PDF</span>
-              <a class="tag tag--solid" href="../sample-report.html">Read the demo</a>
+              <a class="arrow-link" href="../sample-report.html">Read the demo
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
             </div>
           </div>
 
@@ -1186,7 +1272,7 @@
             </div>
             <div class="inside-item">
               <div class="inside-top">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2M3 13h18"/></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="7" rx="1.5"/><rect x="13" y="13" width="8" height="7" rx="1.5"/></svg>
                 <h3 class="inside-title">Product Assortment</h3>
               </div>
               <p class="inside-desc">ABC sales analysis, product mix structure, and assortment strategy to raise revenue per customer.</p>
@@ -1207,7 +1293,7 @@
             </div>
             <div class="inside-item">
               <div class="inside-top">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-4.2-7.6L21 6"/><path d="M8 12h8M8 9h5"/></svg>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-2.6-.4L4 21l1.5-4.1A8.2 8.2 0 0 1 3.6 11.5C3.6 6.8 7.4 3 12 3s9 3.8 9 8.5Z"/><path d="M8.5 11h7M8.5 8h4"/></svg>
                 <h3 class="inside-title">Content &amp; Messaging</h3>
               </div>
               <p class="inside-desc">Assess how clearly your value proposition communicates and converts demand into sales.</p>
@@ -1279,7 +1365,7 @@
       <div class="frame">
         <p class="eyebrow reveal">The economics</p>
         <h2 class="display display--md reveal">An investment, not an expense</h2>
-        <p class="body-copy reveal" style="margin-top: var(--s-12); color: var(--white);">A report helps you avoid costly mistakes, spend smarter, and turn marketing into predictable growth.</p>
+        <p class="econ-lede reveal">A report helps you avoid costly mistakes, spend smarter, and turn marketing into predictable growth.</p>
 
         <div class="econ-grid">
           <div class="card reveal">
@@ -1290,7 +1376,7 @@
             </div>
             <div class="bar-row">
               <p class="bar-label">Dwelve report</p>
-              <div class="bar-track"><div class="bar-fill bar-fill--dwelve"></div><span class="bar-amount">$849</span></div>
+              <div class="bar-track"><div class="bar-fill bar-fill--dwelve"><span class="bar-amount bar-amount--on">$849</span></div></div>
             </div>
             <p class="bar-note"><b>26×</b>The wasted budget is twenty-six times what the report costs. One avoided mistake pays for it many times over.</p>
             <p class="sr-only">Average annual marketing spend with no clear strategy is $22,500. A Dwelve review costs $849.</p>
@@ -1316,10 +1402,14 @@
               <circle cx="482" cy="100" r="4" fill="#6aa8dc"/>
               <circle cx="482" cy="26" r="5" fill="#234386"/>
 
-              <text x="468" y="204" font-size="11" fill="#000" fill-opacity=".6" text-anchor="end" font-family="Inter, sans-serif">No plan</text>
-              <text x="468" y="92" font-size="11" fill="#234386" text-anchor="end" font-family="Inter, sans-serif">Report</text>
-              <text x="468" y="20" font-size="11" font-weight="600" fill="#234386" text-anchor="end" font-family="Inter, sans-serif">Report + Advisory</text>
             </svg>
+            <!-- Legend lives outside the plot: labels placed next to the
+                 curves were being struck through by them. -->
+            <ul class="chart-legend">
+              <li><i style="background:#234386"></i>Report + Advisory</li>
+              <li><i style="background:#6aa8dc"></i>Report</li>
+              <li><i style="background:#d2b68c"></i>No plan</li>
+            </ul>
             <p class="sr-only">Three scenarios over 12 months: no plan shows flat or declining revenue; a one-time review shows moderate growth; a review plus ongoing Growth Advisory shows steep, sustained growth.</p>
           </div>
         </div>
@@ -1475,7 +1565,7 @@
          ========================================================== -->
     <section class="band band--indigo final" id="ask">
       <svg class="decor blob final-blob" viewBox="-100 -100 200 200" aria-hidden="true"><use href="#blob-a" fill="#ffc400"/></svg>
-      <svg class="decor botanical botanical--light final-branch" viewBox="0 0 260 120" aria-hidden="true"><use href="#branch"/></svg>
+      <svg class="decor botanical botanical--light final-branch" viewBox="0 0 140 260" aria-hidden="true"><use href="#sprig"/></svg>
       <div class="frame">
         <p class="eyebrow reveal">Start here</p>
         <h2 class="display display--lg reveal" style="max-width: 18ch;">Stop guessing. Start growing.</h2>
@@ -1576,5 +1666,8 @@
 
 </body>
 </html>
+
+
+
 
 

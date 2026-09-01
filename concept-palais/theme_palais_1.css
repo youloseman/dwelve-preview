@@ -18,6 +18,11 @@
   --indigo: #234386;
   --honey: #ffc400;
   --orange: #ed7328;
+  /* Burnt orange only reaches 2.82:1 on the cream canvas, so it can never
+     carry text or a control border. This darker shade of the same hue gets
+     to 4.9:1 and takes over every role where orange has to be READ;
+     --orange stays for blobs, illustration and the section surface. */
+  --orange-ink: #b4501a;
   --sky: #6aa8dc;
   --sand: #d2b68c;
   --sage: #a2d3a6;
@@ -95,7 +100,9 @@
   /* ---- Layout ---- */
   --page-max: 1200px;
   --page-pad: clamp(20px, 4vw, 48px);
-  --section-gap: clamp(64px, 7vw, 104px);
+  /* Trimmed from 104px: the wave dividers sit between two section paddings,
+     so every transition was stacking gap + wave + gap into a ~330px void. */
+  --section-gap: clamp(56px, 6vw, 88px);
   --card-pad: clamp(20px, 2.2vw, 32px);
 
   /* ---- Radius: pill buttons against soft-cornered cards is deliberate ---- */
