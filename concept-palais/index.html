@@ -329,7 +329,23 @@
     }
     .hero-script { margin: var(--s-16) 0 var(--s-24); }
     .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-16); margin-top: var(--s-32); }
-    .hero-tags { display: flex; flex-wrap: wrap; gap: var(--s-8); margin-top: var(--s-32); }
+    /* Deliberately quiet: three facts as one muted label line rather than
+       a row of pills, so the eye goes to the headline and the CTAs. */
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 0;
+      margin-top: var(--s-24);
+      font-family: var(--font-nav) !important;
+      font-size: 11px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-nav);
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, .58);
+    }
+    .hero-facts li { display: flex; align-items: center; }
+    .hero-facts li + li::before { content: '·'; margin: 0 12px; opacity: .5; }
 
     .hero-figure { position: relative; }
 
@@ -1460,11 +1476,11 @@
               </a>
             </div>
 
-            <div class="hero-tags">
-              <span class="tag tag--solid">From CA$790</span>
-              <span class="tag">100% money-back guarantee</span>
-              <span class="tag">No calls · No contracts</span>
-            </div>
+            <ul class="hero-facts">
+              <li>From 790 CAD</li>
+              <li>100% money-back guarantee</li>
+              <li>Results within 30 days</li>
+            </ul>
 
             <a class="scroll-cue" href="#for-you" aria-label="Scroll to the next section">
               <span class="ring">
