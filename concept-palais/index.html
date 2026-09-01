@@ -53,7 +53,6 @@
 
     .band { padding: var(--section-gap) 0; position: relative; }
     .band--white  { background: var(--white); }
-    .band--orange { background: var(--orange); }
     .band--indigo { background: var(--indigo); color: var(--white); }
 
     /* Organic wavy dividers — the signature transition device.
@@ -94,9 +93,6 @@
     .display--md  { font-size: var(--text-h);    line-height: var(--lead-h);    letter-spacing: var(--track-display); }
     .display--sm  { font-size: var(--text-h-sm); line-height: var(--lead-h-sm); letter-spacing: var(--track-display); }
     .band--indigo .display { color: var(--white); }
-    /* Indigo, not white: white on burnt orange is 2.97:1 and misses even the
-       3:1 large-text threshold; indigo reaches 3.19:1. */
-    .band--orange .display { color: var(--indigo); }
 
     /* Mega brand statement — the one serif voice, used twice on the page */
     .mega {
@@ -118,7 +114,7 @@
       color: var(--indigo);
       text-transform: none;
     }
-    .band--indigo .script, .band--orange .script { color: var(--white); }
+    .band--indigo .script { color: var(--white); }
     .script--orange { color: var(--orange-ink); }
 
     /* Eyebrow label — the aggressive tracking is the system's signature */
@@ -142,16 +138,6 @@
       flex: none;
     }
     .band--indigo .eyebrow { color: var(--white); }
-    /* On orange the label becomes a white pill — a 12px label can't reach
-       4.5:1 against #ed7328 in any colour, so it needs its own surface. */
-    .band--orange .eyebrow {
-      display: inline-flex;
-      color: var(--indigo);
-      background: var(--white);
-      border-radius: var(--r-tag);
-      padding: 9px 14px;
-    }
-    .band--orange .eyebrow::before { display: none; }
 
     .body-copy { font-size: var(--text-body); line-height: var(--lead-body); max-width: 60ch; }
     .body-copy + .body-copy { margin-top: var(--s-16); }
@@ -217,7 +203,6 @@
     .tag--white { background: var(--white); }
     .tag--solid { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
     .band--indigo .tag { background: transparent; color: var(--white); border-color: var(--rule-on-dark); }
-    .band--orange .tag { background: var(--white); border-color: transparent; }
 
     .link {
       font-weight: var(--w-medium);
@@ -852,103 +837,6 @@
     .pull-sprig { top: 28%; right: 20%; width: 100px; z-index: 1; transform: rotate(-7deg); }
 
     /* ==========================================================
-       ECONOMICS — burnt orange band with white cards
-       ========================================================== */
-    .econ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-24); margin-top: var(--s-40); }
-    .chart-title {
-      font-family: var(--font-nav) !important;
-      font-size: 11px;
-      font-weight: var(--w-medium);
-      letter-spacing: var(--track-label);
-      text-transform: uppercase;
-      color: var(--indigo);
-      margin-bottom: var(--s-24);
-    }
-    .bar-row + .bar-row { margin-top: var(--s-24); }
-    .bar-label { font-size: var(--text-body-sm); margin-bottom: 8px; }
-    .bar-track { display: flex; align-items: center; gap: var(--s-12); }
-    .bar-fill {
-      height: 36px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      padding: 0 var(--s-12);
-      transform-origin: left center;
-      transform: scaleX(0);
-      transition: transform 1100ms cubic-bezier(0.22,1,0.36,1);
-    }
-    .visible .bar-fill, .no-motion .bar-fill { transform: scaleX(1); }
-    .bar-fill--waste  { background: var(--sand); width: 100%; }
-    .bar-fill--dwelve { background: var(--indigo); width: 17.3%; min-width: 112px; }
-    /* Bebas, not Playfair — see .bar-note b */
-    .bar-amount { font-family: var(--font-display) !important; font-weight: 400; font-size: clamp(20px, 2vw, 26px); line-height: 1; letter-spacing: var(--track-display); color: var(--indigo); }
-    .bar-amount--on { color: var(--white); }
-    .bar-note { margin-top: var(--s-24); padding-top: var(--s-16); border-top: 1px solid var(--rule-soft); font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
-    /* Bebas, not Playfair: the serif is reserved for the pull quote and the
-       tier prices — chart numbers were its third unrelated role. */
-    .bar-note b { display: block; font-family: var(--font-display) !important; font-weight: 400; font-size: clamp(28px, 2.8vw, 36px); line-height: 1; letter-spacing: var(--track-display); color: var(--orange-ink); margin-bottom: 6px; }
-
-    .chart-svg { width: 100%; height: auto; }
-    .chart-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s-8) var(--s-24);
-      margin-top: var(--s-16);
-      padding-top: var(--s-16);
-      border-top: 1px solid var(--rule-soft);
-    }
-    .chart-legend li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-nav) !important;
-      font-size: 11px;
-      letter-spacing: var(--track-nav);
-      text-transform: uppercase;
-      color: var(--indigo);
-    }
-    .chart-legend i { width: 14px; height: 3px; border-radius: 2px; flex: none; }
-    .chart-line { stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 1600ms cubic-bezier(0.4,0,0.2,1); }
-    .visible .chart-line, .no-motion .chart-line { stroke-dashoffset: 0; }
-    .visible .chart-line.d1 { transition-delay: 220ms; }
-    .visible .chart-line.d2 { transition-delay: 440ms; }
-
-    /* 14px body text can never pass on orange, so the comparison row moves
-       onto a white card — the spec's own pattern for this band. */
-    .econ-compare {
-      margin-top: var(--s-24);
-      background: var(--white);
-      border-radius: var(--r-card);
-      box-shadow: var(--shadow-card);
-      padding: var(--card-pad);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--s-24) var(--s-32);
-    }
-    .econ-compare div { color: var(--ink); font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
-    .econ-compare strong {
-      display: block;
-      font-family: var(--font-display) !important;
-      font-weight: var(--w-regular);
-      font-size: clamp(24px, 2.4vw, 32px);
-      line-height: 1;
-      letter-spacing: var(--track-display);
-      color: var(--indigo);
-      margin-bottom: 6px;
-    }
-
-    /* 19px/700 clears the WCAG large-text threshold, so indigo's 3.19:1 on
-       orange is sufficient. Anything smaller has to sit on a card. */
-    .econ-lede {
-      margin-top: var(--s-16);
-      font-size: 19px;
-      font-weight: var(--w-bold);
-      line-height: 1.45;
-      color: var(--indigo);
-      max-width: 46ch;
-    }
-
-    /* ==========================================================
        TESTIMONIALS
        ========================================================== */
     .quote { display: grid; gap: var(--s-16); align-content: start; }
@@ -1102,15 +990,13 @@
         scroll-behavior: auto !important;
       }
       .reveal { opacity: 1; transform: none; }
-      .bar-fill { transform: scaleX(1); }
-      .chart-line { stroke-dashoffset: 0; }
     }
 
     /* ==========================================================
        RESPONSIVE
        ========================================================== */
     @media (max-width: 1000px) {
-      .hero-grid, .about-grid, .advisory, .econ-grid { grid-template-columns: 1fr; }
+      .hero-grid, .about-grid, .advisory { grid-template-columns: 1fr; }
       .steps { grid-template-columns: repeat(2, 1fr); gap: var(--s-32) var(--s-24); }
       /* The dot only means something while it sits on the spine — without the
          line it reads as a stray circle above each step. */
@@ -1133,7 +1019,6 @@
       .plans { padding: clamp(18px, 4vw, 26px); }
       .pl-cta { margin-bottom: var(--s-40); }
       .pl-head { padding-top: var(--s-24); }
-      .econ-compare { grid-template-columns: 1fr; }
       /* Narrow viewports give the quote the full width, so its decor has
          nowhere to sit that isn't behind the type. */
       .hero-branch, .pull-sprig, .pull-blob-a, .pull-blob-b { display: none; }
@@ -1691,78 +1576,6 @@
         </div>
       </div>
     </section>
-
-    <div class="wave wave--overlap" aria-hidden="true">
-      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"><path d="M0 46C170 8 350 2 550 26c200 24 380 74 580 70 130-4 240-28 310-56v70H0Z" fill="#ed7328"/></svg>
-    </div>
-
-    <!-- ==========================================================
-         ECONOMICS — burnt orange band
-         ========================================================== -->
-    <section class="band band--orange" id="economics">
-      <div class="frame">
-        <p class="eyebrow reveal">The economics</p>
-        <h2 class="display display--md reveal">An investment, not an expense</h2>
-        <p class="econ-lede reveal">A report helps you avoid costly mistakes, spend smarter, and turn marketing into predictable growth.</p>
-
-        <div class="econ-grid">
-          <div class="card reveal">
-            <p class="chart-title">Annual marketing waste vs. report cost</p>
-            <div class="bar-row">
-              <p class="bar-label">Lost on marketing activities that don't drive results</p>
-              <div class="bar-track"><div class="bar-fill bar-fill--waste"><span class="bar-amount">$22,500</span></div></div>
-            </div>
-            <div class="bar-row">
-              <p class="bar-label">Dwelve Growth Audit</p>
-              <div class="bar-track"><div class="bar-fill bar-fill--dwelve"><span class="bar-amount bar-amount--on">$3,890</span></div></div>
-            </div>
-            <p class="bar-note"><b>5.8×</b>The wasted budget is nearly six times what a full Growth Audit costs. One avoided mistake pays for it outright.</p>
-            <p class="sr-only">Average annual marketing spend with no clear strategy is $22,500. A Dwelve Growth Audit costs $3,890 — a fraction of the wasted budget.</p>
-          </div>
-
-          <div class="card reveal reveal-d1">
-            <p class="chart-title">Revenue growth over 12 months</p>
-            <svg class="chart-svg" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <line x1="42" y1="30" x2="482" y2="30" stroke="#000" stroke-opacity=".1" stroke-dasharray="4 5"/>
-              <line x1="42" y1="115" x2="482" y2="115" stroke="#000" stroke-opacity=".1" stroke-dasharray="4 5"/>
-              <line x1="42" y1="200" x2="482" y2="200" stroke="#000" stroke-opacity=".22"/>
-              <text x="34" y="34" font-size="10" fill="#000" fill-opacity=".55" text-anchor="end" font-family="Inter, sans-serif">High</text>
-              <text x="34" y="119" font-size="10" fill="#000" fill-opacity=".55" text-anchor="end" font-family="Inter, sans-serif">Mid</text>
-              <text x="34" y="204" font-size="10" fill="#000" fill-opacity=".55" text-anchor="end" font-family="Inter, sans-serif">Low</text>
-              <text x="42" y="228" font-size="10" fill="#000" fill-opacity=".55" font-family="Inter, sans-serif">Month 0</text>
-              <text x="482" y="228" font-size="10" fill="#000" fill-opacity=".55" text-anchor="end" font-family="Inter, sans-serif">Month 12</text>
-
-              <path class="chart-line" d="M42 190C182 192 352 205 482 212" fill="none" stroke="#d2b68c" stroke-width="2.5" stroke-dasharray="6 6"/>
-              <path class="chart-line d1" d="M42 190C202 190 382 180 482 100" fill="none" stroke="#6aa8dc" stroke-width="3"/>
-              <path class="chart-line d2" d="M42 190C282 190 422 150 482 26" fill="none" stroke="#234386" stroke-width="4"/>
-
-              <circle cx="482" cy="212" r="4" fill="#d2b68c"/>
-              <circle cx="482" cy="100" r="4" fill="#6aa8dc"/>
-              <circle cx="482" cy="26" r="5" fill="#234386"/>
-
-            </svg>
-            <!-- Legend lives outside the plot: labels placed next to the
-                 curves were being struck through by them. -->
-            <ul class="chart-legend">
-              <li><i style="background:#234386"></i>Report + Advisory</li>
-              <li><i style="background:#6aa8dc"></i>Report</li>
-              <li><i style="background:#d2b68c"></i>No plan</li>
-            </ul>
-            <p class="sr-only">Three scenarios over 12 months: no plan shows flat or declining revenue; a one-time review shows moderate growth; a review plus ongoing Growth Advisory shows steep, sustained growth.</p>
-          </div>
-        </div>
-
-        <div class="econ-compare reveal">
-          <div><strong>CA$4–6k/mo</strong>An in-house marketer — plus taxes and benefits.</div>
-          <div><strong>CA$5–15k</strong>A consulting agency, per project.</div>
-          <div><strong>CA$200–400/h</strong>An hourly strategy session — with no deliverable at the end.</div>
-        </div>
-      </div>
-    </section>
-
-    <div class="wave wave--overlap" aria-hidden="true">
-      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"><path d="M0 64c180 38 380 42 580 14s360-66 540-62c120 4 240 30 320 58V0H0Z" fill="#ed7328"/></svg>
-    </div>
 
     <!-- ==========================================================
          RESULTS
