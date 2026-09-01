@@ -521,13 +521,20 @@
        keeps each tier's cells contiguous, which is what lets the whole
        thing stack into readable blocks on a phone.
        ========================================================== */
+    /* The whole matrix is one white card on the cream canvas — the
+       brandbook's level 1 -> level 2 step, carried by the signature
+       asymmetric shadow. */
     .plans {
       margin-top: var(--s-40);
+      background: var(--white);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-card);
+      padding: clamp(20px, 2.4vw, 34px) clamp(18px, 2.2vw, 30px);
       display: grid;
       grid-template-columns: minmax(104px, 150px) repeat(3, 1fr);
       grid-template-rows: auto auto auto auto auto auto;
       grid-auto-flow: column;
-      column-gap: var(--s-16);
+      column-gap: var(--s-20);
     }
     .pl-label,
     .pl-cell { padding: 13px 16px; }
@@ -547,10 +554,19 @@
     .pl-cell { border-top: 1px solid var(--rule-soft); }
     .pl-cell.pl-head, .pl-cell.pl-cta { border-top: none; }
 
-    /* The featured column reads as one continuous white surface on cream */
-    .pl-feat { background: var(--white); }
-    .pl-head.pl-feat { border-radius: var(--r-card) var(--r-card) 0 0; }
-    .pl-cta.pl-feat { border-radius: 0 0 var(--r-card) var(--r-card); }
+    /* Inside a white card a white fill says nothing, so the recommended
+       column is marked by a minimal frame drawn across its six cells. */
+    .pl-feat { border-left: 2px solid var(--indigo); border-right: 2px solid var(--indigo); }
+    .pl-head.pl-feat {
+      border-top: 2px solid var(--indigo);
+      border-radius: var(--r-card) var(--r-card) 0 0;
+    }
+    .pl-cta.pl-feat {
+      border-bottom: 2px solid var(--indigo);
+      border-radius: 0 0 var(--r-card) var(--r-card);
+    }
+    /* the hairline row rules stop short of the frame */
+    .pl-cell.pl-feat { border-top-color: var(--rule-soft); }
 
     .pl-name {
       font-family: var(--font-display) !important;
@@ -627,7 +643,8 @@
     /* :not(.decor) — without it the absolutely-positioned blob is caught by
        this rule, becomes a flex item and sits in the middle of the panel. */
     .plan-help > *:not(.decor) { position: relative; z-index: 1; }
-    .plan-help-blob { top: -60%; right: -4%; width: 240px; z-index: 0; }
+    /* far enough in that the organic edge shows instead of a flat cut */
+    .plan-help-blob { top: -28%; right: -3%; width: 190px; z-index: 0; }
     .plan-help h3 {
       font-family: var(--font-display) !important;
       font-size: clamp(22px, 2.2vw, 30px);
@@ -1057,7 +1074,10 @@
       .pl-label { display: none; }
       .pl-cell-label { display: block; }
       .pl-cell { padding-left: 0; padding-right: 0; }
-      .pl-feat { background: transparent; }
+      .pl-feat { border-left: none; border-right: none; border-radius: 0; }
+      .pl-head.pl-feat { border-top: none; }
+      .pl-cta.pl-feat { border-bottom: none; }
+      .plans { padding: clamp(18px, 4vw, 26px); }
       .pl-cta { margin-bottom: var(--s-40); }
       .pl-head { padding-top: var(--s-24); }
       .econ-compare { grid-template-columns: 1fr; }
