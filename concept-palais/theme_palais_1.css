@@ -1,0 +1,116 @@
+/* ============================================================
+   DWELVE — "PA'LAIS" THEME  ·  v1
+   Source of truth: DESIGN-palais.md
+
+   THE COLOUR-LANE RULE (structural, from the spec):
+   Deep Indigo #234386 is the ONLY saturated cool. It owns all
+   type, links, nav and every filled action. Every warm colour
+   (honey gold, burnt orange, sky blue, warm sand, mint sage)
+   lives almost exclusively in organic blob shapes and botanical
+   line-art — never in body text, never as a filled button.
+   Burnt orange gets one exception: outlined secondary actions.
+   Cream Paper #fbf9f6 is the canvas; white cards layer on top.
+   Never use flat grey for separation.
+   ============================================================ */
+
+:root {
+  /* ---- Colors ---- */
+  --indigo: #234386;
+  --honey: #ffc400;
+  --orange: #ed7328;
+  --sky: #6aa8dc;
+  --sand: #d2b68c;
+  --sage: #a2d3a6;
+  --ink: #000000;
+  --white: #ffffff;
+  --cream: #fbf9f6;
+  --shadow-tone: #d6d6d6;
+
+  /* Hairlines — the system separates content with thin rules, not elevation */
+  --rule: rgba(0, 0, 0, 0.14);
+  --rule-soft: rgba(0, 0, 0, 0.08);
+  --rule-on-dark: rgba(255, 255, 255, 0.22);
+
+  /* ---- Typography ----
+     hwt-artz / Delivery Note → Bebas Neue (condensed display, all-caps)
+     Sandman_Fill             → Playfair Display (mega brand statement)
+     Axiforma                 → Inter   (body + UI)
+     ITC Avant Garde Std Bk   → Jost    (nav + wide-tracked labels)
+     Caveat                   → Caveat  (script accent, headlines only) */
+  --font-display: 'Bebas Neue', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-mega: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-nav: 'Jost', 'Futura', 'Century Gothic', ui-sans-serif, sans-serif;
+  --font-script: 'Caveat', 'Segoe Script', cursive;
+
+  /* ---- Type scale (fluid; tracking values are the spec's, in em) ---- */
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-label: clamp(12px, 1vw, 16px);
+  --text-h-sm: clamp(26px, 2.6vw, 32px);
+  --text-h: clamp(34px, 3.6vw, 46px);
+  --text-h-lg: clamp(40px, 4.6vw, 56px);
+  --text-display: clamp(56px, 7vw, 88px);
+  --text-script: clamp(26px, 3vw, 40px);
+
+  --lead-caption: 1.6;
+  --lead-body-sm: 1.67;
+  --lead-body: 1.5;
+  --lead-h-sm: 0.9;
+  --lead-h: 1.18;
+  --lead-h-lg: 1.14;
+  --lead-display: 0.82;
+
+  /* The aggressive tracking is the system's typographic signature —
+     0.13em on nav, up to 0.267em on eyebrow labels. Do not flatten it. */
+  --track-label: 0.2em;
+  --track-label-wide: 0.267em;
+  --track-nav: 0.13em;
+  --track-btn: 0.1em;
+  --track-display: 0.043em;
+  --track-display-lg: 0.031em;
+  --track-body: 0.03em;
+
+  /* ---- Weights ---- */
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-semibold: 600;
+  --w-bold: 700;
+
+  /* ---- Spacing ---- */
+  --s-4: 4px;
+  --s-8: 8px;
+  --s-12: 12px;
+  --s-16: 16px;
+  --s-24: 24px;
+  --s-32: 32px;
+  --s-40: 40px;
+  --s-48: 48px;
+  --s-56: 56px;
+  --s-64: 64px;
+  --s-80: 80px;
+  --s-128: 128px;
+
+  /* ---- Layout ---- */
+  --page-max: 1200px;
+  --page-pad: clamp(20px, 4vw, 48px);
+  --section-gap: clamp(64px, 7vw, 104px);
+  --card-pad: clamp(20px, 2.2vw, 32px);
+
+  /* ---- Radius: pill buttons against soft-cornered cards is deliberate ---- */
+  --r-card: 8px;
+  --r-input: 8px;
+  --r-tag: 16px;
+  --r-btn: 32px;
+
+  /* ---- Elevation: the only elevation mechanism; asymmetric, drifting down-right ---- */
+  --shadow-card: rgba(0, 0, 0, 0.16) -14px 10px 49px 0px;
+  --shadow-soft: rgba(0, 0, 0, 0.05) 0px 20px 27px 0px;
+
+  /* ---- Surfaces ---- */
+  --surface-canvas: #fbf9f6;
+  --surface-card: #ffffff;
+  --surface-orange: #ed7328;
+  --surface-indigo: #234386;
+}
