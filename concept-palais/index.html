@@ -446,26 +446,79 @@
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-24); }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-24); }
 
-    /* Pain points */
-    .pain-card { display: grid; gap: var(--s-12); align-content: start; }
-    .pain-icon { color: var(--indigo); }
-    .pain-no {
+    /* Pain points — a rail of light chips instead of a 2x2 card grid.
+       Cream on the white band with a hairline instead of a shadow: the
+       block should be scanned, not occupy half a screen. */
+    .pains-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--s-24) var(--s-32);
+    }
+    .pains-note { margin-top: var(--s-12); font-size: var(--text-body); max-width: 48ch; }
+    .pains-aside { display: flex; flex-direction: column; align-items: flex-end; gap: var(--s-16); }
+    .pains-aside .tag { white-space: normal; text-align: right; max-width: 30ch; line-height: 1.4; }
+
+    .pains-arrows { display: flex; gap: 10px; }
+    .pains-arrow {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--honey);
+      color: var(--indigo);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 200ms ease, opacity 200ms ease;
+    }
+    .pains-arrow:hover { background: #e8b200; }
+    .pains-arrow[disabled] { opacity: .32; cursor: default; }
+
+    .pains-rail {
+      margin-top: var(--s-32);
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(252px, 1fr);
+      gap: var(--s-16);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+    .pains-rail::-webkit-scrollbar { display: none; }
+
+    .pain-chip {
+      scroll-snap-align: start;
+      background: var(--cream);
+      border: 1px solid var(--rule-soft);
+      border-radius: var(--r-card);
+      padding: var(--s-20);
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      transition: border-color 240ms ease;
+    }
+    .pain-chip:hover { border-color: var(--indigo); }
+    .pain-num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--indigo);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
       font-family: var(--font-nav) !important;
       font-size: 11px;
-      letter-spacing: var(--track-label-wide);
-      color: var(--orange-ink);
-      text-transform: uppercase;
+      font-weight: var(--w-medium);
+      letter-spacing: .06em;
     }
-    .pain-title {
+    .pain-t {
       font-family: var(--font-display) !important;
-      font-size: clamp(20px, 1.9vw, 24px);
-      font-weight: var(--w-regular);
-      line-height: 1.05;
+      font-size: 21px;
+      line-height: 1.04;
       letter-spacing: var(--track-display);
       text-transform: uppercase;
       color: var(--indigo);
     }
-    .pain-desc { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
+    .pain-d { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
 
     /* ==========================================================
        PRICING
@@ -1068,6 +1121,9 @@
       .step::before, .step-dot { display: none; }
       .step { padding-top: 0; }
       .grid-3 { grid-template-columns: 1fr; }
+      .pains-aside { align-items: flex-start; }
+      .pains-aside .tag { text-align: left; }
+      .pains-rail { grid-auto-columns: minmax(230px, 82%); }
       /* The matrix stacks; each tier stays contiguous because the DOM is
          ordered column-major. */
       .plans { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
@@ -1326,46 +1382,62 @@
          ========================================================== -->
     <section class="band band--white" id="for-you">
       <div class="frame">
-        <p class="eyebrow reveal">Who it's for</p>
-        <h2 class="display display--md reveal" style="max-width: 16ch;">This is for you if</h2>
-
-        <div class="grid-2" style="margin-top: var(--s-40);">
-          <div class="card pain-card reveal">
-            <span class="pain-no">Problem 01</span>
-            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <h3 class="pain-title">Customers are hard to attract — and harder to retain</h3>
-            <p class="pain-desc">Leads are inconsistent, and repeat purchases are rare.</p>
+        <div class="pains-head reveal">
+          <div>
+            <p class="eyebrow">Who it's for</p>
+            <h2 class="display display--md">Recognise yourself?</h2>
+            <p class="pains-note">If even two of these feel familiar, the problem is probably not in one advertising channel.</p>
           </div>
-
-          <div class="card pain-card reveal reveal-d1">
-            <span class="pain-no">Problem 02</span>
-            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
-            <h3 class="pain-title">You're trying everything, but marketing isn't working</h3>
-            <p class="pain-desc">Ads, promotions, new channels — you keep testing but see little real growth.</p>
-          </div>
-
-          <div class="card pain-card reveal reveal-d2">
-            <span class="pain-no">Problem 03</span>
-            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            <h3 class="pain-title">Sales are growing, but profits aren't</h3>
-            <p class="pain-desc">Revenue comes in, yet margins stay thin due to discounts or inefficient spend.</p>
-          </div>
-
-          <div class="card pain-card reveal reveal-d3">
-            <span class="pain-no">Problem 04</span>
-            <svg class="pain-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            <h3 class="pain-title">Your marketing has stalled</h3>
-            <p class="pain-desc">Your team is busy executing, but results have plateaued.</p>
+          <div class="pains-aside">
+            <span class="tag tag--solid">Stop spending blindly on ads and promotions</span>
+            <div class="pains-arrows">
+              <button class="pains-arrow" data-rail-prev aria-label="Previous">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="pains-arrow" data-rail-next aria-label="Next">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- A link, not a button: buttons are reserved for hero, tiers and
-             the final CTA so the money action stays legible. -->
-        <div class="reveal" style="margin-top: var(--s-40); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-24) var(--s-40);">
-          <a href="#services" class="arrow-link">Yes, this is me — see the formats
+        <div class="pains-rail reveal" id="pains-rail" tabindex="0" role="group" aria-label="Common problems, scrollable">
+          <article class="pain-chip">
+            <span class="pain-num" aria-hidden="true">01</span>
+            <h3 class="pain-t">No new customers</h3>
+            <p class="pain-d">The ads run and the content goes out, but there is no steady flow of new buyers.</p>
+          </article>
+          <article class="pain-chip">
+            <span class="pain-num" aria-hidden="true">02</span>
+            <h3 class="pain-t">Customers don&rsquo;t come back</h3>
+            <p class="pain-d">They seemed happy, then never returned &mdash; and nobody can tell you why.</p>
+          </article>
+          <article class="pain-chip">
+            <span class="pain-num" aria-hidden="true">03</span>
+            <h3 class="pain-t">Average order value is flat</h3>
+            <p class="pain-d">People buy the same thing every visit; the range and the prices never lift the basket.</p>
+          </article>
+          <article class="pain-chip">
+            <span class="pain-num" aria-hidden="true">04</span>
+            <h3 class="pain-t">Promotions don&rsquo;t work</h3>
+            <p class="pain-d">Discounts pull traffic but not profit, and no one can say what each one actually earned.</p>
+          </article>
+          <article class="pain-chip">
+            <span class="pain-num" aria-hidden="true">05</span>
+            <h3 class="pain-t">Sales grow, profit doesn&rsquo;t</h3>
+            <p class="pain-d">Revenue moves and margin stays flat &mdash; and it is never clear which part is eating it.</p>
+          </article>
+          <article class="pain-chip">
+            <span class="pain-num" aria-hidden="true">06</span>
+            <h3 class="pain-t">You&rsquo;ve thought about closing</h3>
+            <p class="pain-d">The business runs on effort alone, and the effort has stopped paying for itself.</p>
+          </article>
+        </div>
+
+        <div class="reveal" style="margin-top: var(--s-32);">
+          <a href="#services" class="arrow-link">Yes, this is me &mdash; help me
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <p class="script script--orange">One document. No calls.</p>
         </div>
       </div>
     </section>
@@ -1951,6 +2023,27 @@
         reveals.forEach(function (el) { observer.observe(el); });
       } else {
         reveals.forEach(function (el) { el.classList.add('visible'); });
+      }
+
+      // === PAIN RAIL === scrolls by one card, arrows disable at the ends
+      var rail = document.getElementById('pains-rail');
+      if (rail) {
+        var prev = document.querySelector('[data-rail-prev]');
+        var next = document.querySelector('[data-rail-next]');
+        var step = function () {
+          var card = rail.firstElementChild;
+          return card ? card.getBoundingClientRect().width + 16 : 268;
+        };
+        var sync = function () {
+          var max = rail.scrollWidth - rail.clientWidth - 2;
+          prev.disabled = rail.scrollLeft <= 2;
+          next.disabled = rail.scrollLeft >= max;
+        };
+        prev.addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+        next.addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: 'smooth' }); });
+        rail.addEventListener('scroll', sync, { passive: true });
+        window.addEventListener('resize', sync);
+        sync();
       }
 
       // === FAQ — close others when one opens ===
