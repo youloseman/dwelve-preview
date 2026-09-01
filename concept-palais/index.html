@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dwelve — Marketing Review for Small Businesses in Canada · Pa'lais Concept</title>
-  <meta name="description" content="Dwelve — marketing review for small businesses in Canada. Get a written action plan to fix what's not working. From CA$249. 100% money-back guarantee.">
+  <meta name="description" content="Dwelve — marketing review for small businesses in Canada. Get a written action plan to fix what's not working. From CA$790. 100% money-back guarantee.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -514,6 +514,130 @@
     .tier-cta { margin-top: auto; padding-top: var(--s-16); }
     .tier-cta .btn { width: 100%; justify-content: center; }
 
+    /* ==========================================================
+       PLANS — comparison matrix, following the RU version: one label
+       column and three tier columns, so every row lines up instead of
+       three cards drifting against each other. Column-major DOM order
+       keeps each tier's cells contiguous, which is what lets the whole
+       thing stack into readable blocks on a phone.
+       ========================================================== */
+    .plans {
+      margin-top: var(--s-40);
+      display: grid;
+      grid-template-columns: minmax(104px, 150px) repeat(3, 1fr);
+      grid-template-rows: auto auto auto auto auto auto;
+      grid-auto-flow: column;
+      column-gap: var(--s-16);
+    }
+    .pl-label,
+    .pl-cell { padding: 13px 16px; }
+    .pl-label {
+      font-family: var(--font-nav) !important;
+      font-size: 10.5px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-label);
+      text-transform: uppercase;
+      color: var(--indigo);
+      padding-left: 0;
+      border-top: 1px solid var(--rule-soft);
+      display: flex;
+      align-items: flex-start;
+    }
+    .pl-label:first-child, .pl-label:last-child { border-top: none; }
+    .pl-cell { border-top: 1px solid var(--rule-soft); }
+    .pl-cell.pl-head, .pl-cell.pl-cta { border-top: none; }
+
+    /* The featured column reads as one continuous white surface on cream */
+    .pl-feat { background: var(--white); }
+    .pl-head.pl-feat { border-radius: var(--r-card) var(--r-card) 0 0; }
+    .pl-cta.pl-feat { border-radius: 0 0 var(--r-card) var(--r-card); }
+
+    .pl-name {
+      font-family: var(--font-display) !important;
+      font-size: clamp(21px, 2vw, 26px);
+      line-height: 1.02;
+      letter-spacing: var(--track-display);
+      text-transform: uppercase;
+      color: var(--indigo);
+    }
+    .pl-head .tag { margin-top: 8px; }
+    .pl-when { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
+    .pl-list { display: grid; gap: 7px; }
+    .pl-list li { display: flex; gap: 9px; align-items: baseline; font-size: var(--text-body-sm); line-height: 1.4; }
+    .pl-list svg { flex: none; margin-top: 3px; color: var(--indigo); }
+    .pl-meta { display: grid; gap: 6px; font-size: var(--text-caption); line-height: 1.45; }
+    .pl-meta b {
+      font-family: var(--font-nav) !important;
+      font-weight: var(--w-medium);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: 9.5px;
+      color: var(--indigo);
+      display: block;
+    }
+    .pl-price {
+      font-family: var(--font-mega) !important;
+      font-weight: 700;
+      font-size: clamp(28px, 2.8vw, 36px);
+      line-height: 1;
+      color: var(--indigo);
+    }
+    .pl-price span {
+      display: block;
+      font-family: var(--font-nav) !important;
+      font-size: 10px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-nav);
+      text-transform: uppercase;
+      color: rgba(0,0,0,.6);
+      margin-top: 6px;
+    }
+    .pl-cta .btn { width: 100%; justify-content: center; }
+    .pl-cta .arrow-link { margin-top: 10px; }
+
+    /* Only the label column carries row names on desktop; on a phone the
+       labels move inside each cell instead. */
+    .pl-cell-label {
+      display: none;
+      font-family: var(--font-nav) !important;
+      font-size: 9.5px;
+      font-weight: var(--w-medium);
+      letter-spacing: var(--track-label);
+      text-transform: uppercase;
+      color: var(--orange-ink);
+      margin-bottom: 7px;
+    }
+
+    /* Deliberately loud: a real share of buyers will not pay online and
+       need a person before they commit. */
+    .plan-help {
+      margin-top: var(--s-32);
+      background: var(--indigo);
+      color: var(--white);
+      border-radius: var(--r-card);
+      padding: clamp(24px, 3vw, 40px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s-20) var(--s-32);
+      position: relative;
+      overflow: hidden;
+    }
+    /* :not(.decor) — without it the absolutely-positioned blob is caught by
+       this rule, becomes a flex item and sits in the middle of the panel. */
+    .plan-help > *:not(.decor) { position: relative; z-index: 1; }
+    .plan-help-blob { top: -60%; right: -4%; width: 240px; z-index: 0; }
+    .plan-help h3 {
+      font-family: var(--font-display) !important;
+      font-size: clamp(22px, 2.2vw, 30px);
+      line-height: 1.04;
+      letter-spacing: var(--track-display);
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .plan-help p { font-size: var(--text-body-sm); color: var(--white); max-width: 52ch; margin-top: 8px; }
+
     /* Growth Advisory — indigo panel */
     .advisory {
       margin-top: var(--s-32);
@@ -544,7 +668,8 @@
        it answers the objection those cards raise, so it belongs with them,
        not below the Advisory panel as a pair of hairlines. */
     .guarantee {
-      margin-top: var(--s-24);
+      margin: var(--s-40) auto 0;
+      max-width: 720px;
       background: var(--white);
       border-radius: var(--r-card);
       box-shadow: var(--shadow-card);
@@ -552,8 +677,11 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: var(--s-16) var(--s-32);
+      justify-content: center;
+      text-align: center;
+      gap: var(--s-16) var(--s-24);
     }
+    .guarantee .body-copy { margin-top: 6px; max-width: none; }
     .guarantee-mark { flex: none; width: 56px; color: var(--indigo); }
 
     /* ==========================================================
@@ -685,7 +813,7 @@
     }
     .visible .bar-fill, .no-motion .bar-fill { transform: scaleX(1); }
     .bar-fill--waste  { background: var(--sand); width: 100%; }
-    .bar-fill--dwelve { background: var(--indigo); width: 19%; min-width: 96px; }
+    .bar-fill--dwelve { background: var(--indigo); width: 17.3%; min-width: 112px; }
     /* Bebas, not Playfair — see .bar-note b */
     .bar-amount { font-family: var(--font-display) !important; font-weight: 400; font-size: clamp(20px, 2vw, 26px); line-height: 1; letter-spacing: var(--track-display); color: var(--indigo); }
     .bar-amount--on { color: var(--white); }
@@ -923,6 +1051,15 @@
       .step::before, .step-dot { display: none; }
       .step { padding-top: 0; }
       .grid-3 { grid-template-columns: 1fr; }
+      /* The matrix stacks; each tier stays contiguous because the DOM is
+         ordered column-major. */
+      .plans { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+      .pl-label { display: none; }
+      .pl-cell-label { display: block; }
+      .pl-cell { padding-left: 0; padding-right: 0; }
+      .pl-feat { background: transparent; }
+      .pl-cta { margin-bottom: var(--s-40); }
+      .pl-head { padding-top: var(--s-24); }
       .econ-compare { grid-template-columns: 1fr; }
       /* Narrow viewports give the quote the full width, so its decor has
          nowhere to sit that isn't behind the type. */
@@ -1086,7 +1223,7 @@
             </div>
 
             <div class="hero-tags">
-              <span class="tag tag--solid">From CA$249</span>
+              <span class="tag tag--solid">From CA$790</span>
               <span class="tag">100% money-back guarantee</span>
               <span class="tag">No calls · No contracts</span>
             </div>
@@ -1226,100 +1363,139 @@
         <h2 class="display display--md reveal">Pick your report</h2>
         <p class="script reveal" style="margin-top: var(--s-12);">Three depths, one clear answer</p>
 
-        <div class="grid-3" style="margin-top: var(--s-40);">
-          <!-- Starter -->
-          <div class="card tier reveal">
-            <h3 class="tier-name">Starter</h3>
-            <p class="tier-price">CA$249 <span>one-time</span></p>
-            <p class="tier-bestif">Best if you know the problem area and want expert input on one specific thing.</p>
-            <div class="tier-rule"></div>
-            <ul class="tier-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 1 key business area</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Short PDF report</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Key recommendations</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 3 days chat support</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ready in 3 business days</li>
-              <li class="off"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg> Implementation roadmap</li>
-              <li class="off"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg> Presentation video call</li>
+        <div class="plans reveal">
+          <!-- label column -->
+          <div class="pl-label"></div>
+          <div class="pl-label">Best for</div>
+          <div class="pl-label">What you get</div>
+          <div class="pl-label">Format</div>
+          <div class="pl-label">Price</div>
+          <div class="pl-label"></div>
+
+          <!-- Growth Snapshot -->
+          <div class="pl-cell pl-head">
+            <h3 class="pl-name">Growth<br>Snapshot</h3>
+          </div>
+          <div class="pl-cell pl-when">
+            <span class="pl-cell-label">Best for</span>
+            Businesses with a specific problem that need an expert perspective on how to solve it &mdash; no new clients, low average order value, and the like.
+          </div>
+          <div class="pl-cell">
+            <span class="pl-cell-label">What you get</span>
+            <ul class="pl-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Analysis of one key issue</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Action plan</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Estimated business impact</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> PDF report</li>
             </ul>
-            <div class="tier-cta"><a href="#ask" class="btn">Get report</a></div>
+          </div>
+          <div class="pl-cell">
+            <span class="pl-cell-label">Format</span>
+            <div class="pl-meta">
+              <div><b>Delivery</b>Within 7 days</div>
+              <div><b>Communication</b>Email only, no calls</div>
+              <div><b>Follow-up</b>3 days of email Q&amp;A</div>
+            </div>
+          </div>
+          <div class="pl-cell">
+            <span class="pl-cell-label">Price</span>
+            <p class="pl-price">CA$790 <span>One-time</span></p>
+          </div>
+          <div class="pl-cell pl-cta">
+            <a href="#ask" class="btn">Order</a>
           </div>
 
-          <!-- Optimal -->
-          <div class="card tier tier--featured reveal reveal-d1">
-            <span class="tag tag--solid tier-flag">Most popular</span>
-            <h3 class="tier-name">Optimal</h3>
-            <p class="tier-price">CA$849 <span>one-time</span></p>
-            <p class="tier-bestif">Best if you want a full picture — what's broken, what to fix, and in what order.</p>
-            <div class="tier-rule"></div>
-            <ul class="tier-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 5–7 critical business areas</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Detailed PDF report</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Extended recommendations</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 7 days chat support</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ready in 7 business days</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Implementation roadmap</li>
-              <li class="off"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg> Presentation video call</li>
+          <!-- Growth Audit (featured) -->
+          <div class="pl-cell pl-head pl-feat">
+            <h3 class="pl-name">Growth<br>Audit</h3>
+            <span class="tag tag--solid">Main format</span>
+          </div>
+          <div class="pl-cell pl-when pl-feat">
+            <span class="pl-cell-label">Best for</span>
+            Businesses facing multiple challenges and unsure what to fix first or where the biggest growth opportunities are.
+          </div>
+          <div class="pl-cell pl-feat">
+            <span class="pl-cell-label">What you get</span>
+            <ul class="pl-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Full business system analysis: advertising, promotions, pricing, product assortment, content, sales, and customer base</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Prioritized recommendations</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> 90-day prioritized action plan</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Estimated business impact</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Comprehensive PDF report</li>
             </ul>
-            <div class="tier-cta"><a href="#ask" class="btn">Get report</a></div>
+          </div>
+          <div class="pl-cell pl-feat">
+            <span class="pl-cell-label">Format</span>
+            <div class="pl-meta">
+              <div><b>Delivery</b>Within 30 days</div>
+              <div><b>Communication</b>Email, post-audit review call available if needed</div>
+              <div><b>Follow-up</b>7 days of Q&amp;A</div>
+            </div>
+          </div>
+          <div class="pl-cell pl-feat">
+            <span class="pl-cell-label">Price</span>
+            <p class="pl-price">CA$3,890 <span>One-time</span></p>
+          </div>
+          <div class="pl-cell pl-cta pl-feat">
+            <a href="#ask" class="btn">Order</a>
+            <a href="../sample-report.html" class="arrow-link">View Demo Growth Audit
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
           </div>
 
-          <!-- Advanced -->
-          <div class="card tier reveal reveal-d2">
-            <h3 class="tier-name">Advanced</h3>
-            <p class="tier-price">CA$3,949 <span>one-time</span></p>
-            <p class="tier-bestif">Best if you need a complete marketing strategy with a roadmap and guided implementation.</p>
-            <div class="tier-rule"></div>
-            <ul class="tier-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Full marketing &amp; growth strategy</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Comprehensive strategy in PDF</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Full strategic recommendations</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Implementation roadmap</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 30 days chat support</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ready in 30 business days</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Presentation video call</li>
+          <!-- Growth Advisory -->
+          <div class="pl-cell pl-head">
+            <h3 class="pl-name">Growth<br>Advisory</h3>
+            <span class="tag">After the Audit</span>
+          </div>
+          <div class="pl-cell pl-when">
+            <span class="pl-cell-label">Best for</span>
+            Growth Audit clients who want ongoing strategic oversight to ensure the 90-day plan is executed correctly and continues to drive results.
+          </div>
+          <div class="pl-cell">
+            <span class="pl-cell-label">What you get</span>
+            <ul class="pl-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ongoing oversight of your team&rsquo;s execution</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Regular review of key financial and business metrics</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Strategic guidance across marketing, product, pricing, and customer base</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Answers to implementation questions</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Adjustments to actions and priorities when needed</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> New growth ideas and opportunities as the business evolves</li>
             </ul>
-            <div class="tier-cta"><a href="#ask" class="btn">Get report</a></div>
+          </div>
+          <div class="pl-cell">
+            <span class="pl-cell-label">Format</span>
+            <div class="pl-meta">
+              <div><b>Access</b>Available exclusively after a Growth Audit</div>
+              <div><b>Communication</b>Email, calls available if needed</div>
+              <div><b>Role</b>CMO-level strategic oversight without hiring a full-time CMO</div>
+            </div>
+          </div>
+          <div class="pl-cell">
+            <span class="pl-cell-label">Price</span>
+            <p class="pl-price">CA$2,490 <span>Per month</span></p>
+          </div>
+          <div class="pl-cell pl-cta">
+            <a href="#ask" class="btn">Order</a>
           </div>
         </div>
 
-        <!-- Guarantee — directly under the tiers, before Advisory -->
+        <!-- Guarantee — centred under the table -->
         <div class="guarantee reveal">
           <svg class="guarantee-mark" viewBox="0 0 84 84" aria-hidden="true"><use href="#seal"/></svg>
           <div>
             <h3 class="display display--sm">100% money-back guarantee</h3>
-            <p class="body-copy" style="margin-top: 6px;">If the report doesn't deliver value — full refund. No questions, no conditions. You keep the document either way.</p>
+            <p class="body-copy">If the report doesn't deliver value &mdash; full refund. No questions, no conditions. You keep the document either way.</p>
           </div>
         </div>
 
-        <!-- Growth Advisory -->
-        <div class="advisory reveal">
-          <svg class="decor blob advisory-blob" viewBox="-100 -100 200 200" aria-hidden="true"><use href="#blob-a" fill="#ffc400"/></svg>
+        <div class="plan-help reveal">
+          <svg class="decor blob plan-help-blob" viewBox="-100 -100 200 200" aria-hidden="true"><use href="#blob-a" fill="#ffc400"/></svg>
           <div>
-            <span class="tag">Ongoing support</span>
-            <h3 class="display display--sm" style="margin-top: var(--s-16);">Growth Advisory</h3>
-            <p class="script" style="margin-top: 6px;">so it keeps improving, not just once</p>
-            <ul class="advisory-features">
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Review of campaigns, initiatives, and marketing plans</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Independent supervision of agencies and freelancers</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Help prioritizing high-impact actions</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> KPI monitoring and performance evaluation</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Monthly strategy and results review</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Recommendations for new opportunities and issues</li>
-            </ul>
+            <h3>Not sure which plan to choose?</h3>
+            <p>Let's discuss your business and see if this report is the right fit — and if you'd rather not pay online, we can arrange it another way.</p>
           </div>
-          <div>
-            <p class="advisory-price">CA$2,349 <span>/mo</span></p>
-            <p class="caption-copy" style="margin-top: var(--s-12); color: var(--white); opacity: .85;"><strong>Special offer:</strong> 50% off the first month if you ordered a report.</p>
-            <p style="margin-top: var(--s-24);"><a href="#ask" class="btn btn--on-dark">Start Growth Advisory</a></p>
-          </div>
-        </div>
-
-        <div class="reveal" style="margin-top: var(--s-32); padding-top: var(--s-24); border-top: 1px solid var(--rule-soft); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s-16);">
-          <p class="body-copy"><strong>Not sure which plan to choose?</strong> Let's discuss your business and see if this report is the right fit.</p>
-          <a href="mailto:hello@dwelve.com" class="arrow-link">Get in touch
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <a href="mailto:hello@dwelve.com" class="btn btn--on-dark">Get in touch</a>
         </div>
       </div>
     </section>
@@ -1335,7 +1511,7 @@
       <div class="frame">
         <p class="eyebrow reveal">The report</p>
         <h2 class="display display--md reveal">What's inside</h2>
-        <p class="body-copy reveal" style="margin-top: var(--s-16);">A sample from the “Advanced” tier — you can <a class="link" href="../sample-report.html">read all 23 pages of it</a>, or see <a class="link" href="../case-study.html">the two-page case</a> it produced. Every report is built around your specific business.</p>
+        <p class="body-copy reveal" style="margin-top: var(--s-16);">A sample of the Growth Audit — you can <a class="link" href="../sample-report.html">read all 23 pages of it</a>, or see <a class="link" href="../case-study.html">the two-page case</a> it produced. Every report is built around your specific business.</p>
 
         <div class="inside-grid" style="margin-top: var(--s-40);">
           <div class="pdf-card reveal">
@@ -1487,11 +1663,11 @@
               <div class="bar-track"><div class="bar-fill bar-fill--waste"><span class="bar-amount">$22,500</span></div></div>
             </div>
             <div class="bar-row">
-              <p class="bar-label">Dwelve report</p>
-              <div class="bar-track"><div class="bar-fill bar-fill--dwelve"><span class="bar-amount bar-amount--on">$849</span></div></div>
+              <p class="bar-label">Dwelve Growth Audit</p>
+              <div class="bar-track"><div class="bar-fill bar-fill--dwelve"><span class="bar-amount bar-amount--on">$3,890</span></div></div>
             </div>
-            <p class="bar-note"><b>26×</b>The wasted budget is twenty-six times what the report costs. One avoided mistake pays for it many times over.</p>
-            <p class="sr-only">Average annual marketing spend with no clear strategy is $22,500. A Dwelve review costs $849.</p>
+            <p class="bar-note"><b>5.8×</b>The wasted budget is nearly six times what a full Growth Audit costs. One avoided mistake pays for it outright.</p>
+            <p class="sr-only">Average annual marketing spend with no clear strategy is $22,500. A Dwelve Growth Audit costs $3,890 — a fraction of the wasted budget.</p>
           </div>
 
           <div class="card reveal reveal-d1">
