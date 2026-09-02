@@ -857,7 +857,22 @@
     /* ==========================================================
        TESTIMONIALS
        ========================================================== */
-    .quote { display: grid; gap: var(--s-16); align-content: start; }
+    .quotes-rail {
+      margin-top: var(--s-32);
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(290px, 340px);
+      gap: var(--s-20);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      /* room for the card shadow, which the overflow would otherwise clip */
+      padding: 6px 0 var(--s-16);
+    }
+    .quotes-rail::-webkit-scrollbar { display: none; }
+    .quote { scroll-snap-align: start; display: grid; gap: var(--s-16); align-content: start; }
     .quote-text { font-size: clamp(16px, 1.5vw, 18px); line-height: 1.55; }
     .quote-foot { display: flex; align-items: center; gap: var(--s-12); margin-top: auto; }
     .avatar {
@@ -876,6 +891,9 @@
     .quote-who { font-family: var(--font-nav) !important; font-size: 12px; font-weight: var(--w-medium); letter-spacing: var(--track-nav); text-transform: uppercase; color: var(--indigo); }
     .quote-biz { font-size: var(--text-body-sm); opacity: 0.7; }
     .quote-result { margin-top: var(--s-8); }
+    /* the rail makes these cards narrow; the result chip has to wrap or it
+       gets clipped by the card edge */
+    .quote-result .tag { white-space: normal; line-height: 1.35; text-align: left; }
 
     /* ==========================================================
        ABOUT
@@ -1300,6 +1318,7 @@
       .pains-aside { align-items: flex-start; }
       .pains-aside .tag { text-align: left; }
       .pains-rail { grid-auto-columns: minmax(230px, 82%); }
+      .quotes-rail { grid-auto-columns: minmax(250px, 86%); }
       .docs-rail { grid-auto-columns: minmax(200px, 62%); }
       /* The matrix stacks; each tier stays contiguous because the DOM is
          ordered column-major. */
@@ -1878,11 +1897,25 @@
          ========================================================== -->
     <section class="band" id="results">
       <div class="frame">
-        <p class="eyebrow reveal">Reviews</p>
-        <h2 class="display display--md reveal">What clients say</h2>
+        <div class="pains-head reveal">
+          <div>
+            <p class="eyebrow">Reviews</p>
+            <h2 class="display display--md">What clients say</h2>
+          </div>
+          <div class="pains-aside">
+            <div class="pains-arrows">
+              <button class="pains-arrow" data-quotes-prev aria-label="Previous review">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="pains-arrow" data-quotes-next aria-label="Next review">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
 
-        <div class="grid-2" style="margin-top: var(--s-40);">
-          <div class="card quote reveal">
+        <div class="quotes-rail reveal" id="quotes-rail" tabindex="0" role="group" aria-label="Client reviews, scrollable">
+          <div class="card quote">
             <p class="quote-text">“I was about to spend $5,000 redesigning my website... The review showed it was actually my product lineup. I was missing an entry-level offer.”</p>
             <p class="quote-result"><span class="tag">↑ Found a product gap, saved $5,000</span></p>
             <div class="quote-foot">
@@ -1891,7 +1924,7 @@
             </div>
           </div>
 
-          <div class="card quote reveal reveal-d1">
+          <div class="card quote">
             <p class="quote-text">“I was selling to everyone and discounting just to close deals. The review helped me understand who my real customer was.”</p>
             <p class="quote-result"><span class="tag">↑ Repeat customers instead of discount buyers</span></p>
             <div class="quote-foot">
@@ -1900,7 +1933,7 @@
             </div>
           </div>
 
-          <div class="card quote reveal reveal-d2">
+          <div class="card quote">
             <p class="quote-text">“Got the document and immediately knew what to do. The opposite of every ‘consultant’ who drags you into endless calls.”</p>
             <p class="quote-result"><span class="tag">↑ Implemented in the first week</span></p>
             <div class="quote-foot">
@@ -1909,7 +1942,7 @@
             </div>
           </div>
 
-          <div class="card quote reveal reveal-d3">
+          <div class="card quote">
             <p class="quote-text">“They built me a loyalty program that actually fits my business — not some generic template.”</p>
             <p class="quote-result"><span class="tag">↑ Repeat purchases +40% in 2 months</span></p>
             <div class="quote-foot">
@@ -2262,6 +2295,7 @@
       }
       wireRail('pains-rail', '[data-rail-prev]', '[data-rail-next]');
       wireRail('docs-rail', '[data-docs-prev]', '[data-docs-next]');
+      wireRail('quotes-rail', '[data-quotes-prev]', '[data-quotes-next]');
 
       // === FAQ — close others when one opens ===
       var faqItems = document.querySelectorAll('.faq-item');
