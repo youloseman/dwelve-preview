@@ -57,6 +57,21 @@
     .band { padding: var(--section-gap) 0; position: relative; }
     .band--white  { background: var(--white); }
     .band--indigo { background: var(--indigo); color: var(--white); }
+    /* Level 3 surface. Nothing small may sit directly on it: white text is
+       2.97:1 here and indigo 3.19:1, so only large display type is safe and
+       everything else moves onto a white card or pill. */
+    .band--orange { background: var(--orange); }
+    .band--orange .display { color: var(--indigo); }
+    .band--orange .eyebrow {
+      display: inline-flex;
+      color: var(--indigo);
+      background: var(--white);
+      border-radius: var(--r-tag);
+      padding: 9px 14px;
+    }
+    .band--orange .eyebrow::before { display: none; }
+    .band--orange .pains-arrow { background: var(--white); color: var(--indigo); }
+    .band--orange .pains-arrow:hover { background: var(--cream); }
 
     /* Organic wavy dividers — the signature transition device.
        A hard line between colour fields is never used. */
@@ -384,9 +399,16 @@
     .hd-tile { background: var(--cream); border-top: 2px solid var(--honey); padding: 7px 8px 8px; min-width: 0; }
     .hd-tile b { display: block; font-family: var(--font-display) !important; font-weight: 400; font-size: clamp(14px, 1.5vw, 18px); line-height: 1.05; letter-spacing: .02em; color: var(--indigo); }
     .hd-tile span { display: block; font-family: var(--font-nav) !important; font-size: 7.5px; letter-spacing: .12em; text-transform: uppercase; color: rgba(0,0,0,.6); margin-top: 3px; line-height: 1.3; }
-    .hd-callout { background: #faeee6; border-left: 2px solid var(--orange-ink); padding: 8px 11px; }
-    .hd-callout i { display: block; font-style: normal; font-family: var(--font-nav) !important; font-size: 7.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 3px; }
-    .hd-callout p { font-size: 10.5px; line-height: 1.45; color: rgba(0,0,0,.8); }
+    .hd-chart { display: grid; gap: 5px; }
+    .hd-chart-t, .hd-chart-x {
+      font-family: var(--font-nav) !important;
+      font-size: 7.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,.55);
+    }
+    .hd-chart-t { color: var(--indigo); letter-spacing: .18em; }
+    .hd-chart svg { width: 100%; height: clamp(58px, 6vw, 78px); }
     .hd-tbl { width: 100%; border-collapse: collapse; }
     .hd-tbl th { background: var(--indigo); color: var(--white); font-family: var(--font-nav) !important; font-size: 7.5px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-align: left; padding: 5px 8px; }
     .hd-tbl td { font-size: 10px; line-height: 1.35; padding: 6px 8px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
@@ -1545,9 +1567,21 @@
                   <div class="hd-tile"><b>+$6.7–8.4K</b><span>GP opportunity / mo</span></div>
                 </div>
 
-                <div class="hd-callout">
-                  <i>The diagnosis</i>
-                  <p>The business already knows how to attract demand — but under-monetizes it in three places: the wrong customer mix is being grown, each visit is monetized below its potential, and there is almost no engineered second visit.</p>
+                <div class="hd-chart">
+                  <span class="hd-chart-t">Where the gross profit is</span>
+                  <svg viewBox="0 0 300 92" aria-hidden="true" preserveAspectRatio="none">
+                    <line x1="0" y1="84" x2="300" y2="84" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+                    <rect x="6"   y="66" width="30" height="18" rx="2" fill="#234386"/>
+                    <rect x="46"  y="56" width="30" height="28" rx="2" fill="#234386"/>
+                    <rect x="86"  y="47" width="30" height="37" rx="2" fill="#234386"/>
+                    <rect x="126" y="38" width="30" height="46" rx="2" fill="#234386"/>
+                    <rect x="166" y="30" width="30" height="54" rx="2" fill="#234386"/>
+                    <rect x="206" y="46" width="30" height="16" rx="2" fill="#a8322b"/>
+                    <rect x="252" y="12" width="38" height="72" rx="2" fill="#ed7328"/>
+                    <path d="M21 62 L61 52 L101 43 L141 34 L181 26 L221 42 L271 8"
+                          fill="none" stroke="rgba(0,0,0,.32)" stroke-width="1" stroke-dasharray="3 3"/>
+                  </svg>
+                  <span class="hd-chart-x">Promos &middot; Menu &middot; Retention &middot; Positioning &middot; Channels &middot; Overlap &middot; Target</span>
                 </div>
 
                 <table class="hd-tbl">
@@ -1895,7 +1929,11 @@
     <!-- ==========================================================
          RESULTS
          ========================================================== -->
-    <section class="band" id="results">
+    <div class="wave wave--overlap" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"><path d="M0 46C170 8 350 2 550 26c200 24 380 74 580 70 130-4 240-28 310-56v70H0Z" fill="#ed7328"/></svg>
+    </div>
+
+    <section class="band band--orange" id="results">
       <div class="frame">
         <div class="pains-head reveal">
           <div>
