@@ -621,49 +621,60 @@
     .pain-d { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
 
     /* ==========================================================
-       PRICING — three vertical tiers, no boxes.
+       PRICING — three vertical tiers, divided by column rules.
 
-       Each tier opens with its own accent bar, which is also the rule that
-       separates it from the heading above; inside, hairlines divide the
-       groups. Nothing is filled and nothing is elevated, per the system's
-       "thin rules, not elevation".
+       No boxes and no fills: the tiers are separated the way the system
+       separates everything else, with a hairline. Each opens with its own
+       accent bar; inside, hairlines divide the groups.
 
-       The recommended tier is marked by a frame and by being the only
-       filled action — a honey wash was tried here and read as a highlighter
-       smear behind the type rather than as emphasis.
+       Every tier is one subgrid spanning the same 13 parent rows, so
+       "Best for", "What you get" and "Format" start on exactly the same
+       line in all three columns however long their copy runs. That is why
+       nothing here carries padding or a border: on a subgrid item either
+       one insets its tracks and the alignment is lost.
+
+       The recommended tier is marked by a heavier accent bar, the solid
+       chip and the only filled button — a wash was tried and read as a
+       highlighter smear behind the type.
        ========================================================== */
     .plans {
+      --col-gap: clamp(28px, 3.4vw, 56px);
       margin-top: var(--s-40);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(20px, 2.6vw, 44px);
-      align-items: start;
+      grid-template-rows: repeat(13, auto);
+      column-gap: var(--col-gap);
     }
 
     .tier-col {
-      --col-pad: 0px;
+      position: relative;
       display: grid;
-      align-content: start;
-      border-top: 3px solid var(--tier-accent);
-      padding: var(--s-32) var(--col-pad) var(--s-24);
-      margin-inline: calc(-1 * var(--col-pad));
+      grid-row: 1 / -1;
+      grid-template-rows: subgrid;
+    }
+    /* The accent bar is a pseudo-element, not a border, so the tier can be a
+       subgrid; the featured one is simply thicker. */
+    .tier-col::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--tier-accent);
+    }
+    .tier-col--featured::after { height: 6px; }
+    /* Column rule, centred in the gutter, running the full height of the set */
+    .tier-col + .tier-col::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(var(--col-gap) / -2);
+      width: 1px;
+      background: var(--rule-soft);
     }
     .tier-col--snapshot { --tier-accent: var(--sage); }
     .tier-col--audit    { --tier-accent: var(--orange); }
     .tier-col--advisory { --tier-accent: var(--sand); }
-
-    /* A hairline frame, not a fill: it marks the column without putting a
-       colour behind the words. The accent bar stays the top edge. */
-    .tier-col--featured {
-      --col-pad: clamp(16px, 1.9vw, 28px);
-      border-right: 1px solid rgba(35, 67, 134, .28);
-      border-bottom: 1px solid rgba(35, 67, 134, .28);
-      border-left: 1px solid rgba(35, 67, 134, .28);
-      /* a heavier accent bar carries the rest of the emphasis */
-      border-top-width: 6px;
-      border-radius: 0 0 var(--r-card) var(--r-card);
-      padding-bottom: var(--s-40);
-    }
 
     .tier-name {
       font-family: var(--font-display) !important;
@@ -673,6 +684,8 @@
       letter-spacing: var(--track-display);
       text-transform: uppercase;
       color: var(--indigo);
+      /* stands in for the padding a subgrid item cannot have */
+      margin-top: var(--s-32);
     }
     .tier-col .tag { justify-self: start; margin-top: var(--s-12); }
     /* The price answers the question the name asks, so it stays with it
@@ -697,9 +710,9 @@
     }
     /* Natural width, left-aligned like everything else on the page — a
        full-width outline pill in a 340px column reads as an empty box. */
-    .tier-act { display: grid; gap: var(--s-16); justify-items: start; margin-top: var(--s-32); }
+    .tier-act { display: grid; gap: var(--s-16); justify-items: start; align-content: start; margin-top: var(--s-32); }
 
-    .tier-hr { height: 1px; background: var(--rule-soft); border: 0; margin: var(--s-24) 0; }
+    .tier-hr { height: 1px; background: var(--rule-soft); border: 0; margin: var(--s-24) 0; align-self: start; }
     .tier-label {
       font-family: var(--font-nav) !important;
       font-size: 10.5px;
@@ -708,13 +721,14 @@
       text-transform: uppercase;
       color: var(--indigo);
       margin-bottom: var(--s-12);
+      align-self: end;
     }
-    .tier-text { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
+    .tier-text { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); align-self: start; }
 
-    .pl-list { display: grid; gap: 9px; }
+    .pl-list { display: grid; gap: 9px; align-content: start; }
     .pl-list li { display: flex; gap: 9px; align-items: baseline; font-size: var(--text-body-sm); line-height: 1.4; }
     .pl-list svg { flex: none; margin-top: 3px; color: var(--indigo); }
-    .pl-meta { display: grid; gap: 8px; font-size: var(--text-caption); line-height: 1.45; }
+    .pl-meta { display: grid; gap: 8px; align-content: start; font-size: var(--text-caption); line-height: 1.45; padding-bottom: var(--s-40); }
     .pl-meta b {
       font-family: var(--font-nav) !important;
       font-weight: var(--w-medium);
@@ -1407,7 +1421,12 @@
       .quotes-rail { grid-auto-columns: minmax(250px, 86%); }
       .inside-grid { grid-template-columns: 1fr; gap: var(--s-40); }
       /* The three tiers stack; each keeps its accent bar and its frame. */
-      .plans { grid-template-columns: 1fr; gap: var(--s-40); }
+      /* Stacked: the subgrid has to be undone or all three tiers would be
+         placed into the same 13 rows and land on top of each other. There is
+         nothing left to align across, and no gutter to draw a rule in. */
+      .plans { grid-template-columns: 1fr; grid-template-rows: none; gap: var(--s-40); }
+      .tier-col { grid-row: auto; grid-template-rows: none; }
+      .tier-col + .tier-col::before { content: none; }
       /* Narrow viewports give the quote the full width, so its decor has
          nowhere to sit that isn't behind the type. */
       .hero-branch, .pull-sprig, .pull-blob-a, .pull-blob-b { display: none; }
