@@ -276,6 +276,18 @@
     }
 
     .logo { display: flex; align-items: center; gap: 10px; }
+
+    /* Точки в марке стоят через 30°, поэтому поворот ровно на один шаг
+       переставляет жёлтую на соседнее место — кольцо будто щёлкает на
+       позицию, а не просто кренится. Радиусы у точек разные, так что
+       фигура при этом заметно меняется. */
+    .logo svg {
+      transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+    .logo:hover svg,
+    .logo:focus-visible svg { transform: rotate(30deg); }
+
     .logo-word {
       font-family: var(--font-display) !important;
       font-size: 26px;
@@ -1508,7 +1520,9 @@
             </h1>
             <p class="script hero-script">— and exactly how to fix it</p>
 
-            <p class="lede">A business-specific report connecting marketing, product, pricing, sales, and customers&mdash;so you know what's costing you, what to fix first, and what results to expect.</p>
+            <!-- Non-breaking space before the dash so it can never start a line
+                 on its own; the space after it wraps normally. -->
+            <p class="lede">A business-specific report connecting marketing, product, pricing, sales, and customers&nbsp;&mdash; so you know what's costing you, what to fix first, and what results to expect.</p>
 
             <div class="hero-actions">
               <a href="#services" class="btn">Explore analysis options</a>
