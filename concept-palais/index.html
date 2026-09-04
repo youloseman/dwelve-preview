@@ -621,68 +621,66 @@
     .pain-d { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
 
     /* ==========================================================
-       PRICING — editorial rows, not a comparison matrix.
+       PRICING — three vertical tiers, no boxes.
 
-       The three tiers are a sequence, not three competing options:
-       Advisory is only sold after an Audit, so a matrix was forcing a
-       side-by-side comparison that does not exist. Each tier is now a
-       full-width row divided by a hairline — which is also the system's
-       own rule ("thin rules, not elevation"), the one thing the old
-       white card with its drop shadow broke.
+       Each tier opens with its own accent bar, which is also the rule that
+       separates it from the heading above; inside, hairlines divide the
+       groups. Nothing is filled and nothing is elevated, per the system's
+       "thin rules, not elevation".
+
+       The recommended tier is marked by a frame and by being the only
+       filled action — a honey wash was tried here and read as a highlighter
+       smear behind the type rather than as emphasis.
        ========================================================== */
-    .plans { margin-top: var(--s-40); border-bottom: 1px solid var(--rule-soft); }
-
-    .tier-row {
-      --row-pad: 0px;
-      position: relative;
+    .plans {
+      margin-top: var(--s-40);
       display: grid;
-      grid-template-columns: minmax(230px, 0.85fr) 1fr 1.1fr;
-      gap: clamp(24px, 3vw, 56px);
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 2.6vw, 44px);
       align-items: start;
-      border-top: 1px solid var(--rule-soft);
-      padding: clamp(36px, 4vw, 56px) var(--row-pad);
-      margin-inline: calc(-1 * var(--row-pad));
-    }
-    /* The tier's accent overlays the first stretch of the row's own hairline,
-       so the colour costs no extra element and no extra vertical space. */
-    .tier-row::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: var(--row-pad);
-      width: 64px;
-      height: 3px;
-      background: var(--tier-accent);
-    }
-    .tier-row--snapshot { --tier-accent: var(--sage); }
-    .tier-row--audit    { --tier-accent: var(--orange); }
-    .tier-row--advisory { --tier-accent: var(--sand); }
-
-    /* With every box gone, the honey wash is the only marker the recommended
-       tier needs. One variable drives its padding, the negative margin that
-       lets the tint bleed past the text column, and the accent's offset. */
-    .tier-row--featured {
-      --row-pad: clamp(20px, 2.4vw, 32px);
-      background: rgb(255 196 0 / 7%);
     }
 
-    .tier-id { display: grid; justify-items: start; }
+    .tier-col {
+      --col-pad: 0px;
+      display: grid;
+      align-content: start;
+      border-top: 3px solid var(--tier-accent);
+      padding: var(--s-32) var(--col-pad) var(--s-24);
+      margin-inline: calc(-1 * var(--col-pad));
+    }
+    .tier-col--snapshot { --tier-accent: var(--sage); }
+    .tier-col--audit    { --tier-accent: var(--orange); }
+    .tier-col--advisory { --tier-accent: var(--sand); }
+
+    /* A hairline frame, not a fill: it marks the column without putting a
+       colour behind the words. The accent bar stays the top edge. */
+    .tier-col--featured {
+      --col-pad: clamp(16px, 1.9vw, 28px);
+      border-right: 1px solid rgba(35, 67, 134, .28);
+      border-bottom: 1px solid rgba(35, 67, 134, .28);
+      border-left: 1px solid rgba(35, 67, 134, .28);
+      /* a heavier accent bar carries the rest of the emphasis */
+      border-top-width: 6px;
+      border-radius: 0 0 var(--r-card) var(--r-card);
+      padding-bottom: var(--s-40);
+    }
+
     .tier-name {
       font-family: var(--font-display) !important;
       font-weight: var(--w-regular);
-      font-size: clamp(26px, 2.6vw, 34px);
+      font-size: clamp(24px, 2.3vw, 30px);
       line-height: 1;
       letter-spacing: var(--track-display);
       text-transform: uppercase;
       color: var(--indigo);
     }
-    .tier-id .tag { margin-top: var(--s-12); }
-    /* The price answers the question the row's name asks, so it belongs with
-       the name — not five rows down at the bottom of a table. */
+    .tier-col .tag { justify-self: start; margin-top: var(--s-12); }
+    /* The price answers the question the name asks, so it stays with it
+       rather than sitting at the far end of the column. */
     .tier-fee {
       font-family: var(--font-mega) !important;
       font-weight: 700;
-      font-size: clamp(36px, 3.8vw, 50px);
+      font-size: clamp(30px, 3vw, 40px);
       line-height: 1;
       color: var(--indigo);
       margin-top: var(--s-24);
@@ -695,10 +693,13 @@
       letter-spacing: var(--track-nav);
       text-transform: uppercase;
       color: rgba(0, 0, 0, .6);
-      margin-top: 9px;
+      margin-top: 8px;
     }
-    .tier-act { display: grid; justify-items: start; gap: var(--s-12); margin-top: var(--s-24); }
+    /* Natural width, left-aligned like everything else on the page — a
+       full-width outline pill in a 340px column reads as an empty box. */
+    .tier-act { display: grid; gap: var(--s-16); justify-items: start; margin-top: var(--s-32); }
 
+    .tier-hr { height: 1px; background: var(--rule-soft); border: 0; margin: var(--s-24) 0; }
     .tier-label {
       font-family: var(--font-nav) !important;
       font-size: 10.5px;
@@ -709,7 +710,6 @@
       margin-bottom: var(--s-12);
     }
     .tier-text { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
-    .tier-format { margin-top: var(--s-24); }
 
     .pl-list { display: grid; gap: 9px; }
     .pl-list li { display: flex; gap: 9px; align-items: baseline; font-size: var(--text-body-sm); line-height: 1.4; }
@@ -1406,8 +1406,8 @@
       .pains-rail { grid-auto-columns: minmax(230px, 82%); }
       .quotes-rail { grid-auto-columns: minmax(250px, 86%); }
       .inside-grid { grid-template-columns: 1fr; gap: var(--s-40); }
-      /* Each tier's three columns stack; the rows and their accents survive. */
-      .tier-row { grid-template-columns: 1fr; gap: var(--s-24); }
+      /* The three tiers stack; each keeps its accent bar and its frame. */
+      .plans { grid-template-columns: 1fr; gap: var(--s-40); }
       /* Narrow viewports give the quote the full width, so its decor has
          nowhere to sit that isn't behind the type. */
       .hero-branch, .pull-sprig, .pull-blob-a, .pull-blob-b { display: none; }
@@ -1747,110 +1747,98 @@
 
         <div class="plans">
           <!-- Growth Snapshot -->
-          <article class="tier-row tier-row--snapshot reveal">
-            <div class="tier-id">
-              <h3 class="tier-name">Growth Snapshot</h3>
-              <span class="tag">Quick results</span>
-              <p class="tier-fee">CA$790 <span>One-time</span></p>
-              <div class="tier-act">
-                <button type="button" class="btn btn--quiet" data-order="Growth Snapshot" data-price="CA$790" data-mode="choose">Order</button>
-              </div>
+          <article class="tier-col tier-col--snapshot reveal">
+            <h3 class="tier-name">Growth Snapshot</h3>
+            <span class="tag">Quick results</span>
+            <p class="tier-fee">CA$790 <span>One-time</span></p>
+            <div class="tier-act">
+              <button type="button" class="btn btn--quiet" data-order="Growth Snapshot" data-price="CA$790" data-mode="choose">Order</button>
             </div>
 
-            <div class="tier-when">
-              <p class="tier-label">Best for</p>
-              <p class="tier-text">Businesses with a specific problem that need an expert perspective on how to solve it &mdash; no new clients, low average order value, and the like.</p>
-              <div class="tier-format">
-                <p class="tier-label">Format</p>
-                <div class="pl-meta">
-                  <div><b>Delivery</b>Within 7 days</div>
-                  <div><b>Communication</b>Email only, no calls</div>
-                  <div><b>Follow-up</b>3 days of email Q&amp;A</div>
-                </div>
-              </div>
-            </div>
+            <hr class="tier-hr">
+            <p class="tier-label">Best for</p>
+            <p class="tier-text">Businesses with a specific problem that need an expert perspective on how to solve it &mdash; no new clients, low average order value, and the like.</p>
 
-            <div class="tier-get">
-              <p class="tier-label">What you get</p>
-              <ul class="pl-list">
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Analysis of one key issue</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Action plan</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Estimated business impact</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> PDF report</li>
-              </ul>
+            <hr class="tier-hr">
+            <p class="tier-label">What you get</p>
+            <ul class="pl-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Analysis of one key issue</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Action plan</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Estimated business impact</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> PDF report</li>
+            </ul>
+
+            <hr class="tier-hr">
+            <p class="tier-label">Format</p>
+            <div class="pl-meta">
+              <div><b>Delivery</b>Within 7 days</div>
+              <div><b>Communication</b>Email only, no calls</div>
+              <div><b>Follow-up</b>3 days of email Q&amp;A</div>
             </div>
           </article>
 
           <!-- Growth Audit (recommended) -->
-          <article class="tier-row tier-row--audit tier-row--featured reveal">
-            <div class="tier-id">
-              <h3 class="tier-name">Growth Audit</h3>
-              <span class="tag tag--solid">Main format</span>
-              <p class="tier-fee">CA$3,890 <span>One-time</span></p>
-              <div class="tier-act">
-                <button type="button" class="btn" data-order="Growth Audit" data-price="CA$3,890" data-mode="choose">Order</button>
-                <a href="../sample-report.html" class="arrow-link">View Demo Growth Audit
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                </a>
-              </div>
+          <article class="tier-col tier-col--audit tier-col--featured reveal">
+            <h3 class="tier-name">Growth Audit</h3>
+            <span class="tag tag--solid">Main format</span>
+            <p class="tier-fee">CA$3,890 <span>One-time</span></p>
+            <div class="tier-act">
+              <button type="button" class="btn" data-order="Growth Audit" data-price="CA$3,890" data-mode="choose">Order</button>
+              <a href="../sample-report.html" class="arrow-link">View Demo Growth Audit
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
             </div>
 
-            <div class="tier-when">
-              <p class="tier-label">Best for</p>
-              <p class="tier-text">Businesses facing multiple challenges and unsure what to fix first or where the biggest growth opportunities are.</p>
-              <div class="tier-format">
-                <p class="tier-label">Format</p>
-                <div class="pl-meta">
-                  <div><b>Delivery</b>Within 30 days</div>
-                  <div><b>Communication</b>Email, post-audit review call available if needed</div>
-                  <div><b>Follow-up</b>7 days of Q&amp;A</div>
-                </div>
-              </div>
-            </div>
+            <hr class="tier-hr">
+            <p class="tier-label">Best for</p>
+            <p class="tier-text">Businesses facing multiple challenges and unsure what to fix first or where the biggest growth opportunities are.</p>
 
-            <div class="tier-get">
-              <p class="tier-label">What you get</p>
-              <ul class="pl-list">
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Full business system analysis: advertising, promotions, pricing, product assortment, content, sales, and customer base</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Prioritized recommendations</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> 90-day prioritized action plan</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Estimated business impact</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Comprehensive PDF report</li>
-              </ul>
+            <hr class="tier-hr">
+            <p class="tier-label">What you get</p>
+            <ul class="pl-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Full business system analysis: advertising, promotions, pricing, product assortment, content, sales, and customer base</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Prioritized recommendations</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> 90-day prioritized action plan</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Estimated business impact</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Comprehensive PDF report</li>
+            </ul>
+
+            <hr class="tier-hr">
+            <p class="tier-label">Format</p>
+            <div class="pl-meta">
+              <div><b>Delivery</b>Within 30 days</div>
+              <div><b>Communication</b>Email, post-audit review call available if needed</div>
+              <div><b>Follow-up</b>7 days of Q&amp;A</div>
             </div>
           </article>
 
           <!-- Growth Advisory -->
-          <article class="tier-row tier-row--advisory reveal">
-            <div class="tier-id">
-              <h3 class="tier-name">Growth Advisory</h3>
-              <span class="tag">After the Audit</span>
-              <p class="tier-fee">CA$2,490 <span>Per month</span></p>
-              <div class="tier-act">
-                <button type="button" class="btn btn--quiet" data-order="Growth Advisory" data-price="CA$2,490 / month" data-mode="ask">Ask about Advisory</button>
-              </div>
+          <article class="tier-col tier-col--advisory reveal">
+            <h3 class="tier-name">Growth Advisory</h3>
+            <span class="tag">After the Audit</span>
+            <p class="tier-fee">CA$2,490 <span>Per month</span></p>
+            <div class="tier-act">
+              <button type="button" class="btn btn--quiet" data-order="Growth Advisory" data-price="CA$2,490 / month" data-mode="ask">Ask about Advisory</button>
             </div>
 
-            <div class="tier-when">
-              <p class="tier-label">Best for</p>
-              <p class="tier-text">Growth Audit clients who want ongoing strategic oversight to ensure the 90-day plan is executed correctly and continues to drive results.</p>
-              <div class="tier-format">
-                <p class="tier-label">Format</p>
-                <div class="pl-meta">
-                  <div><b>Access</b>Available exclusively after a Growth Audit</div>
-                  <div><b>Communication</b>Email, calls available if needed</div>
-                  <div><b>Role</b>CMO-level strategic oversight without hiring a full-time CMO</div>
-                </div>
-              </div>
-            </div>
+            <hr class="tier-hr">
+            <p class="tier-label">Best for</p>
+            <p class="tier-text">Growth Audit clients who want ongoing strategic oversight to ensure the 90-day plan is executed correctly and continues to drive results.</p>
 
-            <div class="tier-get">
-              <p class="tier-label">What you get</p>
-              <ul class="pl-list">
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ongoing oversight of your team&rsquo;s execution</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Regular review of key financial and business metrics</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> New growth ideas and opportunities as the business evolves</li>
-              </ul>
+            <hr class="tier-hr">
+            <p class="tier-label">What you get</p>
+            <ul class="pl-list">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ongoing oversight of your team&rsquo;s execution</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Regular review of key financial and business metrics</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> New growth ideas and opportunities as the business evolves</li>
+            </ul>
+
+            <hr class="tier-hr">
+            <p class="tier-label">Format</p>
+            <div class="pl-meta">
+              <div><b>Access</b>Available exclusively after a Growth Audit</div>
+              <div><b>Communication</b>Email, calls available if needed</div>
+              <div><b>Role</b>CMO-level strategic oversight without hiring a full-time CMO</div>
             </div>
           </article>
         </div>
