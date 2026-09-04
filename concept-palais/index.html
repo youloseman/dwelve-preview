@@ -113,11 +113,15 @@
     .display--sm  { font-size: var(--text-h-sm); line-height: var(--lead-h-sm); letter-spacing: var(--track-display); }
     .band--indigo .display { color: var(--white); }
 
-    /* Mega brand statement — the one serif voice, used twice on the page */
+    /* Mega brand statement — the one serif voice on the page.
+       Sized to break into exactly two lines rather than three: at 88px the
+       statement needed 870px for "almost never the ads." inside a 780px
+       column, so it spilled. No <br> — a hard break would leave a stub line
+       on a phone; this way the wrap stays natural at every width. */
     .mega {
       font-family: var(--font-mega) !important;
       font-weight: 900;
-      font-size: var(--text-display);
+      font-size: clamp(46px, 5.9vw, 76px);
       line-height: var(--lead-display);
       color: var(--indigo);
     }
@@ -135,6 +139,7 @@
     }
     .band--indigo .script { color: var(--white); }
     .script--orange { color: var(--orange-ink); }
+    .script--honey { color: var(--honey-ink); }
 
     /* Eyebrow label — the aggressive tracking is the system's signature */
     .eyebrow {
@@ -169,7 +174,8 @@
     /* ==========================================================
        CHROME — buttons, tags, links
        ========================================================== */
-    /* Indigo filled is the ONLY filled button variant in the system */
+    /* Indigo filled is the default filled button; --accent below is the one
+       sanctioned warm exception */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -197,6 +203,12 @@
     }
     .btn--outline:hover { background: var(--orange-ink); color: var(--white); transform: translateY(-1px); }
 
+    /* The demo CTA carries the accent instead of indigo. White on #ed7328 is
+       only 2.97:1 and would fail, so the label is black — the 7.1:1 pairing the
+       theme already uses for the orange band. */
+    .btn--accent { background: var(--orange); color: var(--ink); }
+    .btn--accent:hover { background: #d9631c; color: var(--ink); }
+
     .btn--on-dark { background: var(--white); color: var(--indigo); }
     .btn--on-dark:hover { background: var(--cream); }
 
@@ -222,6 +234,36 @@
     .tag--white { background: var(--white); }
     .tag--solid { background: var(--indigo); color: var(--white); border-color: var(--indigo); }
     .band--indigo .tag { background: transparent; color: var(--white); border-color: var(--rule-on-dark); }
+
+    /* A note stuck onto the page — deliberately NOT a control. It used to be
+       .tag--solid, an indigo pill the same shape and weight as the primary
+       button, sitting right above two real buttons.
+       The colour-lane rule permits a warm fill exactly here: orange is banned
+       from filled actions, so an orange fill is itself the signal that this
+       cannot be clicked. Black on #ed7328 is 7.1:1. The tilt, the hand-cut
+       corners and the script voice do the rest. */
+    .sticker {
+      display: inline-block;
+      /* the tilt swings the corners out — keep them off the page margin */
+      margin: 0 10px 0 0;
+      max-width: 19ch;
+      padding: 15px 24px 17px;
+      background: var(--orange);
+      color: var(--ink);
+      font-family: var(--font-script) !important;
+      font-size: clamp(21px, 1.7vw, 25px);
+      font-weight: var(--w-semibold);
+      line-height: 1.18;
+      /* stops the last line falling to a lonely "and" */
+      text-wrap: balance;
+      letter-spacing: 0;
+      text-transform: none;
+      text-align: center;
+      /* Never a pill and never symmetric — a pill is what the buttons are */
+      border-radius: 28px 10px 26px 12px;
+      transform: rotate(-3deg);
+      box-shadow: rgba(0, 0, 0, 0.16) -6px 9px 22px -7px;
+    }
 
     .link {
       font-weight: var(--w-medium);
@@ -445,7 +487,10 @@
     .hero-doc-by span { font-size: 10px; color: rgba(0,0,0,.62); }
 
     .hero-blob-gold { top: -22%; right: -20%; width: 70%; z-index: 0; }
-    .hero-blob-sage { bottom: -20%; left: -28%; width: 58%; z-index: 0; }
+    /* The leftward bleed is capped to the column gutter: the percentage cancels
+       the shape's own inset inside its viewBox, so the drawn edge lands a fixed
+       24px left of the figure and can never reach the CTAs in the text column. */
+    .hero-blob-sage { bottom: -30%; left: calc(-10.9% - 24px); width: 74%; z-index: 0; }
     .hero-sprig { bottom: -8%; right: -7%; width: 96px; z-index: 1; transform: rotate(8deg); }
     .hero-branch { top: 6%; left: -8%; width: 180px; z-index: 0; transform: rotate(-6deg); }
 
@@ -496,8 +541,7 @@
       gap: var(--s-24) var(--s-32);
     }
     .pains-note { margin-top: var(--s-12); font-size: var(--text-body); max-width: 48ch; }
-    .pains-aside { display: flex; flex-direction: column; align-items: flex-end; gap: var(--s-16); }
-    .pains-aside .tag { white-space: normal; text-align: right; max-width: 30ch; line-height: 1.4; }
+    .pains-aside { display: flex; flex-direction: column; align-items: flex-end; gap: var(--s-24); }
 
     .pains-arrows { display: flex; gap: 10px; }
     .pains-arrow {
@@ -549,8 +593,12 @@
       font-weight: var(--w-medium);
       letter-spacing: .06em;
     }
+    /* Bebas ships one weight only. These are <h3>s, so without an explicit 400
+       they inherit the UA's bold and Chrome smears a synthetic one — which is
+       why the card titles looked coarser than every real heading on the page. */
     .pain-t {
       font-family: var(--font-display) !important;
+      font-weight: var(--w-regular);
       font-size: 21px;
       line-height: 1.04;
       letter-spacing: var(--track-display);
@@ -646,9 +694,15 @@
     .pl-cell { border-top: 1px solid var(--rule-soft); }
     .pl-cell.pl-head, .pl-cell.pl-cta { border-top: none; }
 
-    /* Inside a white card a white fill says nothing, so the recommended
-       column is marked by a minimal frame drawn across its six cells. */
-    .pl-feat { border-left: 2px solid var(--indigo); border-right: 2px solid var(--indigo); }
+    /* The recommended column is marked by a minimal frame drawn across its six
+       cells, plus a honey wash. The wash is 8% — enough to lift the column out
+       of the white card at a glance, light enough that the indigo frame still
+       does the structural work and every text contrast is untouched. */
+    .pl-feat {
+      border-left: 2px solid var(--indigo);
+      border-right: 2px solid var(--indigo);
+      background: rgb(255 196 0 / 8%);
+    }
     .pl-head.pl-feat {
       border-top: 2px solid var(--indigo);
       border-radius: var(--r-card) var(--r-card) 0 0;
@@ -662,12 +716,28 @@
 
     .pl-name {
       font-family: var(--font-display) !important;
+      font-weight: var(--w-regular);
       font-size: clamp(21px, 2vw, 26px);
       line-height: 1.02;
       letter-spacing: var(--track-display);
       text-transform: uppercase;
       color: var(--indigo);
     }
+    /* Three warm ticks — the tier names were the only thing distinguishing the
+       columns and all three were the same indigo. A decorative mark is where
+       the colour-lane rule wants warm colour, so the names stay indigo and the
+       tick carries the difference. */
+    .pl-name::before {
+      content: '';
+      display: block;
+      width: 34px;
+      height: 3px;
+      margin-bottom: 13px;
+      background: var(--tier-accent);
+    }
+    .pl-head--snapshot { --tier-accent: var(--sage); }
+    .pl-head--audit    { --tier-accent: var(--orange); }
+    .pl-head--advisory { --tier-accent: var(--sand); }
     .pl-head .tag { margin-top: 8px; }
     .pl-when { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
     .pl-list { display: grid; gap: 7px; }
@@ -739,6 +809,7 @@
     .plan-help-blob { top: -28%; right: -3%; width: 190px; z-index: 0; }
     .plan-help h3 {
       font-family: var(--font-display) !important;
+      font-weight: var(--w-regular);
       font-size: clamp(22px, 2.2vw, 30px);
       line-height: 1.04;
       letter-spacing: var(--track-display);
@@ -798,14 +869,49 @@
        The pages are rendered straight out of sample-report.html, so the
        preview can never drift from the document it advertises.
        ========================================================== */
-    .inside-intro { margin-top: var(--s-24); max-width: 68ch; }
-    .inside-intro .body-copy { max-width: none; }
+    /* Copy on the left, one large page on the right. Seven 262px thumbnails
+       across the full width were too small to read as anything at all. */
+    .inside-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-56);
+      align-items: center;
+    }
+    .inside-col .body-copy { max-width: 46ch; }
+    .inside-lead { margin-top: var(--s-24); }
+    .inside-points { display: grid; gap: var(--s-16); margin: var(--s-24) 0; }
+    /* grid, not flex: with flex every bare text run either side of a <strong>
+       becomes its own item and the row gap tears the sentence apart */
+    .inside-points li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      font-size: var(--text-body);
+      line-height: var(--lead-body);
+      max-width: 46ch;
+    }
+    .inside-points svg { color: var(--indigo); margin-top: 6px; }
+    /* A highlighter rather than heavy type: the eye lands on the benefit
+       without the paragraph turning into a wall of bold. */
+    .inside-points strong,
+    .inside-close strong {
+      font-weight: var(--w-semibold);
+      background-image: linear-gradient(transparent 58%, rgb(255 196 0 / 45%) 58%);
+    }
+    /* grid items refuse to shrink past min-content by default, and the masking
+       note is a nowrap tag ~470px wide — without these two the whole column
+       was propped open on a phone and the section scrolled sideways */
+    .inside-col, .inside-figure { min-width: 0; }
+    .inside-actions { margin-top: var(--s-32); }
+    .inside-tags { display: flex; flex-wrap: wrap; gap: var(--s-12); margin-top: var(--s-16); }
+    .inside-tags .tag { white-space: normal; }
+    .docs-arrows { display: flex; justify-content: flex-end; gap: 10px; margin-top: var(--s-16); }
 
     .docs-rail {
-      margin-top: var(--s-32);
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: minmax(230px, 262px);
+      /* one page per view — the whole point of the two-column layout */
+      grid-auto-columns: 100%;
       gap: var(--s-20);
       overflow-x: auto;
       scroll-snap-type: x mandatory;
@@ -829,7 +935,7 @@
     .doc-slide:hover img { transform: translateY(-4px); }
     .doc-slide figcaption {
       margin-top: var(--s-12);
-      font-size: var(--text-caption);
+      font-size: var(--text-body-sm);
       line-height: 1.45;
       color: rgba(0,0,0,.7);
     }
@@ -864,6 +970,7 @@
     }
     .step-name {
       font-family: var(--font-display) !important;
+      font-weight: var(--w-regular);
       font-size: clamp(22px, 2.1vw, 28px);
       line-height: 1;
       letter-spacing: var(--track-display);
@@ -871,10 +978,15 @@
       color: var(--indigo);
     }
     .step-desc { font-size: var(--text-body-sm); line-height: var(--lead-body-sm); }
-    /* Mood runs from concerned at the brief to satisfied at the end. Line
-       art in indigo per the icon rule — never an emoji glyph. */
+    /* Only the first and last steps carry a face: concerned at the brief,
+       satisfied at the end. The three in between were being graded on the same
+       scale, which read as "delivery is merely tolerable" — the middle of a
+       process has no mood to report. Line art in indigo per the icon rule. */
     .step-face { color: var(--indigo); opacity: .72; transition: opacity 320ms ease; }
     .step:hover .step-face { opacity: 1; }
+    /* Holds the face's row open in the middle steps so all five titles keep
+       the same baseline across the timeline. */
+    .step-face-slot { height: 30px; }
 
     /* ==========================================================
        PULL QUOTE
@@ -1187,6 +1299,7 @@
     }
     .modal-title {
       font-family: var(--font-display) !important;
+      font-weight: var(--w-regular);
       font-size: clamp(24px, 2.6vw, 32px);
       line-height: 1.04;
       letter-spacing: var(--track-display);
@@ -1351,10 +1464,9 @@
       .step { padding-top: 0; }
       .grid-3 { grid-template-columns: 1fr; }
       .pains-aside { align-items: flex-start; }
-      .pains-aside .tag { text-align: left; }
       .pains-rail { grid-auto-columns: minmax(230px, 82%); }
       .quotes-rail { grid-auto-columns: minmax(250px, 86%); }
-      .docs-rail { grid-auto-columns: minmax(200px, 62%); }
+      .inside-grid { grid-template-columns: 1fr; gap: var(--s-40); }
       /* The matrix stacks; each tier stays contiguous because the DOM is
          ordered column-major. */
       .plans { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
@@ -1362,6 +1474,9 @@
       .pl-cell-label { display: block; }
       .pl-cell { padding-left: 0; padding-right: 0; }
       .pl-feat { border-left: none; border-right: none; border-radius: 0; }
+      /* the frame is gone here, so the wash is the only marker left — give it
+         an edge to breathe against instead of running under flush-left text */
+      .pl-cell.pl-feat { padding-left: 14px; padding-right: 14px; }
       .pl-head.pl-feat { border-top: none; }
       .pl-cta.pl-feat { border-bottom: none; }
       .plans { padding: clamp(18px, 4vw, 26px); }
@@ -1395,6 +1510,9 @@
 
     @media (max-width: 700px) {
       .grid-2, .steps, .ask-row { grid-template-columns: 1fr; }
+      /* stacked, so there is no row to keep aligned — the reserved slot would
+         just be a gap in the middle of the list */
+      .step-face-slot { display: none; }
       .cookie { left: 10px; right: 10px; bottom: 10px; }
       .cookie-actions .btn, .cookie-actions .cookie-link { width: 100%; justify-content: center; text-align: center; }
       .nav-mail { font-size: 10px; letter-spacing: 0.08em; }
@@ -1518,7 +1636,7 @@
             <h1 class="display display--lg">
               Find out where<br>your business<br>is losing sales
             </h1>
-            <p class="script hero-script">— and exactly how to fix it</p>
+            <p class="script script--orange hero-script">— and exactly how to fix it</p>
 
             <!-- Non-breaking space before the dash so it can never start a line
                  on its own; the space after it wraps normally. -->
@@ -1635,7 +1753,7 @@
             <p class="pains-note">If even two of these feel familiar, the problem is probably not in one advertising channel.</p>
           </div>
           <div class="pains-aside">
-            <span class="tag tag--solid">Stop spending blindly on ads and promotions</span>
+            <p class="sticker">Stop spending blindly on ads and promotions</p>
             <div class="pains-arrows">
               <button class="pains-arrow" data-rail-prev aria-label="Previous">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
@@ -1699,7 +1817,7 @@
       <div class="frame">
         <p class="eyebrow reveal">Services</p>
         <h2 class="display display--md reveal">Pick your report</h2>
-        <p class="script reveal" style="margin-top: var(--s-12);">Three depths, one clear answer</p>
+        <p class="script script--honey reveal" style="margin-top: var(--s-12);">Three depths, one clear answer</p>
 
         <div class="plans reveal">
           <!-- label column -->
@@ -1711,8 +1829,9 @@
           <div class="pl-label"></div>
 
           <!-- Growth Snapshot -->
-          <div class="pl-cell pl-head">
+          <div class="pl-cell pl-head pl-head--snapshot">
             <h3 class="pl-name">Growth<br>Snapshot</h3>
+            <span class="tag">Quick results</span>
           </div>
           <div class="pl-cell pl-when">
             <span class="pl-cell-label">Best for</span>
@@ -1744,7 +1863,7 @@
           </div>
 
           <!-- Growth Audit (featured) -->
-          <div class="pl-cell pl-head pl-feat">
+          <div class="pl-cell pl-head pl-head--audit pl-feat">
             <h3 class="pl-name">Growth<br>Audit</h3>
             <span class="tag tag--solid">Main format</span>
           </div>
@@ -1782,7 +1901,7 @@
           </div>
 
           <!-- Growth Advisory -->
-          <div class="pl-cell pl-head">
+          <div class="pl-cell pl-head pl-head--advisory">
             <h3 class="pl-name">Growth<br>Advisory</h3>
             <span class="tag">After the Audit</span>
           </div>
@@ -1795,9 +1914,6 @@
             <ul class="pl-list">
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ongoing oversight of your team&rsquo;s execution</li>
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Regular review of key financial and business metrics</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Strategic guidance across marketing, product, pricing, and customer base</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Answers to implementation questions</li>
-              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Adjustments to actions and priorities when needed</li>
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> New growth ideas and opportunities as the business evolves</li>
             </ul>
           </div>
@@ -1847,29 +1963,30 @@
          ========================================================== -->
     <section class="band band--white" id="inside">
       <div class="frame">
-        <div class="pains-head reveal">
-          <div>
+        <div class="inside-grid">
+          <div class="inside-col reveal">
             <p class="eyebrow">What you get</p>
             <h2 class="display display--md">What&rsquo;s inside</h2>
-          </div>
-          <div class="pains-aside">
-            <div class="pains-arrows">
-              <button class="pains-arrow" data-docs-prev aria-label="Previous page">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-              </button>
-              <button class="pains-arrow" data-docs-next aria-label="Next page">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </button>
+
+            <p class="body-copy inside-lead">A tailored, full-system view of your business:</p>
+            <ul class="inside-points">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>identifying <strong>the real problems</strong></span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>showing <strong>exactly how to solve them</strong>, using proven approaches</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>translating those actions into <strong>potential business impact</strong></span></li>
+            </ul>
+            <p class="body-copy inside-close">Not a list of ideas. Not isolated fixes. <strong>A clear, connected plan for improving the business as a whole.</strong></p>
+
+            <div class="inside-actions">
+              <a href="../sample-report.html" class="btn btn--accent">View Demo Growth Audit Report</a>
+            </div>
+            <div class="inside-tags">
+              <span class="tag">23 pages &middot; PDF</span>
+              <span class="tag">Decision tables masked in the public copy</span>
             </div>
           </div>
-        </div>
 
-        <div class="inside-intro reveal">
-          <p class="body-copy">A tailored, full-system view of your business &mdash; identifying the real problems, showing exactly how to solve them using proven approaches, and translating those actions into potential business impact.</p>
-          <p class="body-copy"><strong>Not a list of ideas. Not isolated fixes.</strong> A clear, connected plan for improving the business as a whole.</p>
-        </div>
-
-        <div class="docs-rail reveal" id="docs-rail" tabindex="0" role="group" aria-label="Sample pages from the Growth Audit, scrollable">
+          <div class="inside-figure reveal">
+        <div class="docs-rail" id="docs-rail" tabindex="0" role="group" aria-label="Sample pages from the Growth Audit, scrollable">
           <figure class="doc-slide">
             <img src="../assets/report-preview/page-1.png" alt="Growth Audit sample, page 1" loading="lazy" width="794" height="1123">
             <figcaption>Cover &mdash; the business, its numbers, the opportunity</figcaption>
@@ -1900,10 +2017,15 @@
           </figure>
         </div>
 
-        <div class="reveal" style="margin-top: var(--s-32); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-16) var(--s-24);">
-          <a href="../sample-report.html" class="btn">View Demo Growth Audit Report</a>
-          <span class="tag">23 pages &middot; PDF</span>
-          <span class="tag">Decision tables masked in the public copy</span>
+            <div class="docs-arrows">
+              <button class="pains-arrow" data-docs-prev aria-label="Previous page">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="pains-arrow" data-docs-next aria-label="Next page">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1918,10 +2040,10 @@
 
         <div class="steps" style="margin-top: var(--s-48);">
           <div class="step reveal"><span class="step-dot"></span><span class="step-no">Step 01</span><svg class="step-face" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="11.8" cy="13.4" r="1" fill="currentColor" stroke="none"/><circle cx="20.2" cy="13.4" r="1" fill="currentColor" stroke="none"/><path d="M8.6 10 12.9 11.8"/><path d="M23.4 10 19.1 11.8"/><path d="M10.6 23.4C12.6 19.2 19.4 19.2 21.4 23.4"/></svg><h3 class="step-name">Brief</h3><p class="step-desc">You fill out a short questionnaire about your business.</p></div>
-          <div class="step reveal reveal-d1"><span class="step-dot"></span><span class="step-no">Step 02</span><svg class="step-face" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="11.8" cy="13.4" r="1" fill="currentColor" stroke="none"/><circle cx="20.2" cy="13.4" r="1" fill="currentColor" stroke="none"/><path d="M11 22.2C12.8 19.9 19.2 19.9 21 22.2"/></svg><h3 class="step-name">Analysis</h3><p class="step-desc">I research your business and build the report.</p></div>
-          <div class="step reveal reveal-d2"><span class="step-dot"></span><span class="step-no">Step 03</span><svg class="step-face" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="11.8" cy="13.4" r="1" fill="currentColor" stroke="none"/><circle cx="20.2" cy="13.4" r="1" fill="currentColor" stroke="none"/><path d="M11.4 21H20.6"/></svg><h3 class="step-name">Delivery</h3><p class="step-desc">You receive a written report plus an action plan.</p></div>
-          <div class="step reveal reveal-d3"><span class="step-dot"></span><span class="step-no">Step 04</span><svg class="step-face" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="11.8" cy="13.4" r="1" fill="currentColor" stroke="none"/><circle cx="20.2" cy="13.4" r="1" fill="currentColor" stroke="none"/><path d="M11 20C12.8 22.3 19.2 22.3 21 20"/></svg><h3 class="step-name">Q&amp;A</h3><p class="step-desc">Ask questions in chat during your support window.</p></div>
-          <div class="step reveal reveal-d3"><span class="step-dot"></span><span class="step-no">Step 05</span><svg class="step-face" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="11.8" cy="13.4" r="1" fill="currentColor" stroke="none"/><circle cx="20.2" cy="13.4" r="1" fill="currentColor" stroke="none"/><path d="M10.4 19.2C12.4 23.8 19.6 23.8 21.6 19.2"/></svg><h3 class="step-name">Grow</h3><p class="step-desc">Implement the plan &mdash; or add monthly Growth Advisory.</p></div>
+          <div class="step reveal reveal-d1"><span class="step-dot"></span><span class="step-no">Step 02</span><span class="step-face-slot" aria-hidden="true"></span><h3 class="step-name">Analysis</h3><p class="step-desc">I research your business and build the report.</p></div>
+          <div class="step reveal reveal-d2"><span class="step-dot"></span><span class="step-no">Step 03</span><span class="step-face-slot" aria-hidden="true"></span><h3 class="step-name">Delivery</h3><p class="step-desc">You receive a written report plus an action plan.</p></div>
+          <div class="step reveal reveal-d3"><span class="step-dot"></span><span class="step-no">Step 04</span><span class="step-face-slot" aria-hidden="true"></span><h3 class="step-name">Q&amp;A</h3><p class="step-desc">Ask questions in chat during your support window.</p></div>
+          <div class="step reveal reveal-d3"><span class="step-dot"></span><span class="step-no">Step 05</span><svg class="step-face" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="11.8" cy="13.4" r="1" fill="currentColor" stroke="none"/><circle cx="20.2" cy="13.4" r="1" fill="currentColor" stroke="none"/><path d="M10.4 19.2C12.4 23.8 19.6 23.8 21.6 19.2"/></svg><h3 class="step-name">Grow</h3><p class="step-desc">You implement &mdash; I oversee, strengthen, and uncover new opportunities.</p></div>
         </div>
       </div>
     </section>
@@ -2503,7 +2625,6 @@
 
 </body>
 </html>
-
 
 
 

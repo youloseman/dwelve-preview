@@ -23,6 +23,10 @@
      to 4.9:1 and takes over every role where orange has to be READ;
      --orange stays for blobs, illustration and the section surface. */
   --orange-ink: #b4501a;
+  /* Same story for honey: #ffc400 is 1.7:1 on cream and cannot be read at all.
+     This is the same hue taken down to 28% lightness — 4.6:1, so it can carry
+     the script accents while --honey stays for blobs, rules and surfaces. */
+  --honey-ink: #8f6e00;
   --sky: #6aa8dc;
   --sand: #d2b68c;
   --sage: #a2d3a6;
