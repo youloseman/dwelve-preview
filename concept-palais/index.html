@@ -824,13 +824,20 @@
        ========================================================== */
     /* Copy on the left, one large page on the right. Seven 262px thumbnails
        across the full width were too small to read as anything at all. */
+    /* Two equal halves left a dead strip on both sides: the copy stopped at
+       its 46ch measure well short of its column, and the portrait page was
+       centred in a column much wider than itself, so the two halves read as
+       different sizes. Each side is now exactly as wide as its content — the
+       measure on the left, the page on the right — and the air between them
+       is the gutter rather than leftover space inside the columns. */
     .inside-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--s-56);
+      grid-template-columns: minmax(0, 46ch) auto;
+      justify-content: space-between;
+      gap: clamp(32px, 4vw, 72px);
       align-items: center;
     }
-    .inside-col .body-copy { max-width: 46ch; }
+    .inside-col .body-copy { max-width: none; }
     .inside-lead { margin-top: var(--s-24); }
     .inside-points { display: grid; gap: var(--s-16); margin: var(--s-24) 0; }
     /* grid, not flex: with flex every bare text run either side of a <strong>
@@ -841,7 +848,6 @@
       gap: 12px;
       font-size: var(--text-body);
       line-height: var(--lead-body);
-      max-width: 46ch;
     }
     .inside-points svg { color: var(--indigo); margin-top: 6px; }
     /* A highlighter rather than heavy type: the eye lands on the benefit
@@ -875,6 +881,13 @@
     }
     .docs-rail::-webkit-scrollbar { display: none; }
 
+    /* The page is a portrait A4 next to a short block of copy. Capping its
+       height is what keeps the two sides from reading as different sizes —
+       and the figure's width follows from it, which is what lets the grid
+       column shrink to exactly the page. */
+    /* 42vw tracks the 46ch measure opposite it, so the two sides stay the
+       same width from 1000px up instead of drifting apart mid-range. */
+    .inside-figure { width: clamp(300px, 42vw, 468px); }
     .doc-slide { scroll-snap-align: start; }
     .doc-slide img {
       width: 100%;
@@ -1419,7 +1432,10 @@
       .pains-aside { align-items: flex-start; }
       .pains-rail { grid-auto-columns: minmax(230px, 82%); }
       .quotes-rail { grid-auto-columns: minmax(250px, 86%); }
+      /* Stacked: the page takes the full width instead of keeping the
+         desktop cap, which would leave a dead strip beside it. */
       .inside-grid { grid-template-columns: 1fr; gap: var(--s-40); }
+      .inside-figure { width: 100%; }
       /* The three tiers stack; each keeps its accent bar and its frame. */
       /* Stacked: the subgrid has to be undone or all three tiers would be
          placed into the same 13 rows and land on top of each other. There is
@@ -1915,12 +1931,12 @@
 
           <div class="inside-figure reveal">
         <div class="docs-rail" id="docs-rail" tabindex="0" role="group" aria-label="Sample pages from the Growth Audit, scrollable">
+          <!-- The findings page opens the rail, not the cover: at this size a
+               cover is a title and a lot of white, and the whole point of the
+               preview is to show the work. The cover moves to the end; the
+               rest keep document order. -->
           <figure class="doc-slide">
-            <img src="../assets/report-preview/page-1.png" alt="Growth Audit sample, page 1" loading="lazy" width="794" height="1123">
-            <figcaption>Cover &mdash; the business, its numbers, the opportunity</figcaption>
-          </figure>
-          <figure class="doc-slide">
-            <img src="../assets/report-preview/page-3.png" alt="Growth Audit sample, page 3" loading="lazy" width="794" height="1123">
+            <img src="../assets/report-preview/page-3.png" alt="Growth Audit sample, page 3" width="794" height="1123">
             <figcaption>Key findings: every leak, its decision and its effect</figcaption>
           </figure>
           <figure class="doc-slide">
@@ -1943,6 +1959,10 @@
             <img src="../assets/report-preview/page-20.png" alt="Growth Audit sample, page 20" loading="lazy" width="794" height="1123">
             <figcaption>Priorities and the 90-day plan</figcaption>
           </figure>
+          <figure class="doc-slide">
+            <img src="../assets/report-preview/page-1.png" alt="Growth Audit sample, page 1" loading="lazy" width="794" height="1123">
+            <figcaption>Cover &mdash; the business, its numbers, the opportunity</figcaption>
+          </figure>
         </div>
 
             <div class="docs-arrows">
@@ -1957,6 +1977,12 @@
         </div>
       </div>
     </section>
+
+    <!-- The only white -> cream boundary on the page that had no wave, so
+         What's inside ran straight into How it works with a hard edge. -->
+    <div class="wave wave--overlap" aria-hidden="true">
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none"><path d="M0 66c180 40 360 44 560 18 200-26 360-70 560-66 130 3 250 30 320 60V0H0Z" fill="#ffffff"/></svg>
+    </div>
 
     <!-- ==========================================================
          HOW IT WORKS
